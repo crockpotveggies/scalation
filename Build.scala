@@ -1,5 +1,4 @@
-/**
- * :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * @author  John Miller, Michael Cotterell
  * @version 1.0
  * @date    Mon Sep 14 14:15:51 EDT 2009
@@ -41,9 +40,7 @@ object Build extends Application {
 	 */
 	private def scalac(): String = {
 		var scalac_bin = scala_bin + jio.File.separatorChar + "scalac"
-		if (is_win) {
-			scalac_bin += ".bat"
-		}
+		if (is_win) scalac_bin += ".bat"
 		scalac_bin
 	}
 
@@ -52,9 +49,7 @@ object Build extends Application {
 	 */
 	private def scaladoc(): String = {
 		var scaladoc_bin = scala_bin + jio.File.separatorChar + "scaladoc"
-		if (is_win) {
-			scaladoc_bin += ".bat"
-		}
+		if (is_win)	scaladoc_bin += ".bat"
 		scaladoc_bin
 	}
 
@@ -72,9 +67,12 @@ object Build extends Application {
 	 * Executes the specified command
 	 */
 	private def exec(cmd: Array[String]) {
+		
+		// print out the command
 		cmd.foreach(s => print(s + " "))
 		println()
-
+		
+		// execute the command
 		var proc = runsys.exec(cmd, null, null)
 
 		// grab the process's error stream and read it
@@ -149,7 +147,7 @@ object Build extends Application {
 	 */
 	def pre() {
 		println("[pre]")
-
+		
 		println("OS: " + os)
 
 		// check SCALA_HOME
@@ -166,9 +164,13 @@ object Build extends Application {
 	 */
 	def clean() {
 		println("[clean]")
+		
+		// delete step
 		delete(new jio.File(errorlog))
 		delete(new jio.File(doc_dir))
 		delete(new jio.File(class_dir))
+		
+		// create directories if they don't already exist
 		mkdir(new jio.File(doc_dir))
 		mkdir(new jio.File(class_dir))
 	}
@@ -216,7 +218,7 @@ object Build extends Application {
 	 */
 	def post() {
 		println("[post]")
-		// @todo generate the index html for source code using GenIndexHtml
+		// @todo remove colons from generated scaladoc
 	}
 
 	// select build functions by moving the comment delimiters (/***, ***/)
