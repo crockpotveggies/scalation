@@ -8,8 +8,7 @@
 import java.{io => jio}
 import java.{util => jutil}
 
-/**
- * :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * This object is used to build the scalation Scala-based Simulation System.
  * Comment out lines using // for customized builds.  To build the complete
  * scalation system, type the following two commands:
@@ -21,7 +20,7 @@ import java.{util => jutil}
  */
 object Build extends Application 
 {
-	private val base_dir   = ""
+	 private val base_dir   = ""
     private val source_dir = base_dir + "src"
     private val class_dir  = base_dir + "classes"
     private val doc_dir    = base_dir + "doc"
@@ -208,7 +207,7 @@ object Build extends Application
 		exec(cmd)
 	}
 	
-	/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	 /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Generate index.html for browsing the source code.
      */
     def genIndexHtml()
@@ -232,5 +231,6 @@ object Build extends Application
 	compile()
 	doc()
 	genIndexHtml()
-    post()
+   post()
+
 }
