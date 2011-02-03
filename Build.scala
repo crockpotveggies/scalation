@@ -9,8 +9,7 @@
 import java.{ io => jio }
 import java.{ util => jutil }
 
-/**
- * :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * This object is used to build the scalation Scala-based Simulation System.
  * Comment out lines using // for customized builds.  To build the complete
  * scalation system, type the following two commands:
@@ -21,47 +20,45 @@ import java.{ util => jutil }
  * Simple Build Tool (sbt) in the future.
  */
 object Build extends Application {
+
 	private val base_dir = ""
-		private val source_dir = base_dir + "src"
-		private val class_dir = base_dir + "classes"
-		private val doc_dir = base_dir + "doc"
-		private val runsys = Runtime.getRuntime()
-		private val errorlog = "errorlog"
+	private val source_dir = base_dir + "src"
+	private val class_dir = base_dir + "classes"
+	private val doc_dir = base_dir + "doc"
+	private val runsys = Runtime.getRuntime()
+	private val errorlog = "errorlog"
 
-			private val scala_home = System.getenv("SCALA_HOME")
-			private val scala_bin = scala_home + jio.File.separatorChar + "bin"
+	private val scala_home = System.getenv("SCALA_HOME")
+	private val scala_bin = scala_home + jio.File.separatorChar + "bin"
 
-			private val os = System.getProperty("os.name").toLowerCase();
+	private val os = System.getProperty("os.name").toLowerCase();
 	private val is_win = os.indexOf("win") >= 0
 	private val is_mac = os.indexOf("mac") >= 0
 	private val is_nix = !is_win && !is_mac
 
-	/**
-	 * :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 	 * Returns the path to the scalac executable
 	 */
 	private def scalac(): String = {
-			var scalac_bin = scala_bin + jio.File.separatorChar + "scalac"
-			if (is_win) {
-				scalac_bin += ".bat"
-			}
-			scalac_bin
+		var scalac_bin = scala_bin + jio.File.separatorChar + "scalac"
+		if (is_win) {
+			scalac_bin += ".bat"
+		}
+		scalac_bin
 	}
 
-	/**
-	 * :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 	 * Returns the path to the scaladoc executable
 	 */
 	private def scaladoc(): String = {
-			var scaladoc_bin = scala_bin + jio.File.separatorChar + "scaladoc"
-			if (is_win) {
-				scaladoc_bin += ".bat"
-			}
-			scaladoc_bin
+		var scaladoc_bin = scala_bin + jio.File.separatorChar + "scaladoc"
+		if (is_win) {
+			scaladoc_bin += ".bat"
+		}
+		scaladoc_bin
 	}
 
-	/**
-	 * :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 	 * A utility function to that returns an array that is arr2 appended to arr1
 	 */
 	private def appendArray[T: ClassManifest](arr1: Array[T], arr2: Array[T]): Array[T] = {
@@ -71,8 +68,7 @@ object Build extends Application {
 			result
 	}
 
-	/**
-	 * :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 	 * Executes the specified command
 	 */
 	private def exec(cmd: Array[String]) {
@@ -113,24 +109,22 @@ object Build extends Application {
 		}
 	}
 
-	/**
-	 * :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 	 * A utility function that lists all the files with a given extension in p
 	 */
 	private def listFiles(p: jio.File, ext: String = ""): List[jio.File] = {
-			var list = List[jio.File]()
-			if (p.isDirectory()) {
-				p.listFiles().foreach(f => list = (list ::: listFiles(f, ext)))
-			} else {
-				if (p.getPath().endsWith(ext)) {
-					return List(p)
-				}
+		var list = List[jio.File]()
+		if (p.isDirectory()) {
+			p.listFiles().foreach(f => list = (list ::: listFiles(f, ext)))
+		} else {
+			if (p.getPath().endsWith(ext)) {
+				return List(p)
 			}
-			return list
+		}
+		return list
 	}
 
-	/**
-	 * :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 	 * Delete a file or directory
 	 */
 	private def delete(p: jio.File) {
@@ -150,8 +144,7 @@ object Build extends Application {
 		if (!p.exists() || !p.isDirectory()) p.mkdir()
 	}
 
-	/**
-	 * :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 	 * Performs pre-build checks
 	 */
 	def pre() {
@@ -168,8 +161,7 @@ object Build extends Application {
 		}
 	}
 
-	/**
-	 * :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 	 * Cleans up the build environment
 	 */
 	def clean() {
@@ -181,8 +173,7 @@ object Build extends Application {
 		mkdir(new jio.File(class_dir))
 	}
 
-	/**
-	 * :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 	 * Generates the scaladoc documentation
 	 */
 	def doc() {
@@ -198,8 +189,7 @@ object Build extends Application {
 				exec(cmd)
 	}
 
-	/**
-	 * :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 	 * Compiles all the packages
 	 */
 	def compile() {
@@ -213,8 +203,7 @@ object Build extends Application {
 				exec(cmd)
 	}
 
-	/**
-	 * :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 	 * Generate index.html for browsing the source code.
 	 */
 	def genIndexHtml() {
@@ -222,8 +211,7 @@ object Build extends Application {
 		// @todo generate the index html for source code using GenIndexHtml
 	} // genIndexHtml
 
-	/**
-	 * :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 	 * Perform any post-processing
 	 */
 	def post() {
