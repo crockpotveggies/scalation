@@ -1,0 +1,7 @@
+$Id$
+
+ScalaTion is a system coded in Scala that supports multi-paradigm simulation 
+modeling including dynamics, activity, event, process and state oriented models.
+Scala is a modern object-oriented, functional programming language that is 
+well-suited for developing simulation engines.
+
