@@ -45,6 +45,7 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+
 1. Introduction
 
 
@@ -66,9 +67,15 @@ script.
 > scalac Build.scala 
 > scala Build
 
+
 5. Mailing Lists / Contact
 
 
 
 6. Source Code
+
+The latest version of the source code is available in the subversion repository.
+Use this command to anonymously check out the latest project source code:
+
+> svn checkout http://scalation.googlecode.com/svn/trunk/ scalation
 
