@@ -17,6 +17,8 @@ Requires: Scala 2.8 and Java 1.6
 Contents:
 0. License
 1. Packages
+1.0. Core Packages
+1.1. Examples
 2. Compatibility and Features
 3. Using ScalaTion
 4. Building and Installing
@@ -48,6 +50,9 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 1. Packages
 
+
+1.0. Core Packages
+
 scalation.util          A small package of utilities.
 
 scalation.advmath       A package of advanced mathematical operations. including
@@ -76,6 +81,24 @@ scalation.process       A simulation engine for process oriented models such as
 
 scalation.state         A simulation engine for state oriented models such as 
                         Markov Chains.
+
+
+1.1. Examples
+
+scalation.dynamics      Example models for systems dynamics (continuous 
+                        simulation).
+                        
+scalation.activity      Example models for activity oriented models such as 
+                        Petri Nets.
+                        
+scalation.event         Example models for event oriented models such as Event 
+                        Graphs.
+                        
+scalation.process       Example models for process oriented models such as 
+                        Process-Interaction Models.
+                        
+scalation.state         Example models for state oriented models such as Markov 
+                        Chains.
 
 
 2. Compatibility and Features
