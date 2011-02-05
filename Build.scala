@@ -130,9 +130,11 @@ object Build extends Application {
 	 */
 	private def delete(path: jio.File, pred: (jio.File => Boolean) = (_ => true)) {
 		if (path.exists()) {
-			if (path.isDirectory()) path.listFiles.foreach(file => delete(file))
-			println("Deleting " + path.getPath())
-			if (pred(path)) path.delete()
+			if (path.isDirectory()) path.listFiles.foreach(file => delete(file, pred))
+			if (pred(path) == true) {
+				println("Deleting " + path.getPath())
+				path.delete()
+			}
 		}
 	}
 
@@ -174,11 +176,7 @@ object Build extends Application {
 		delete(new jio.File(class_dir))
 		
 		// delete the generated index files from the source_dir
-      // doesn't work as intended yet...
-		/*
-      delete(new jio.File(source_dir), 
-				((f: jio.File) => f.getPath().endsWith("index.html")))
-		*/
+		delete(new jio.File(source_dir), (f => f.getName().endsWith(".text")))
       
 		// create directories if they don't already exist
 		mkdir(new jio.File(doc_dir))
