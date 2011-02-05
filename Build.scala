@@ -174,9 +174,12 @@ object Build extends Application {
 		delete(new jio.File(class_dir))
 		
 		// delete the generated index files from the source_dir
-		delete(new jio.File(source_dir), 
+      // doesn't work as intended yet...
+		/*
+      delete(new jio.File(source_dir), 
 				((f: jio.File) => f.getPath().endsWith("index.html")))
-		
+		*/
+      
 		// create directories if they don't already exist
 		mkdir(new jio.File(doc_dir))
 		mkdir(new jio.File(class_dir))
