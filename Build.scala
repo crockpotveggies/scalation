@@ -1,4 +1,4 @@
-$Id$
+/** $Id$ */
 
 /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * @author  John Miller, Michael Cotterell
@@ -125,13 +125,14 @@ object Build extends Application {
 	}
 
 	/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-	 * Delete a file or directory
+	 * Delete a file or directory. If a predicate function is provided then only
+	 * files in the path that satisfy that predicate will be deleted.
 	 */
-	private def delete(p: jio.File) {
-		if (p.exists()) {
-			if (p.isDirectory()) p.listFiles.foreach(f => delete(f))
-			println("Deleting " + p.getPath())
-			p.delete()
+	private def delete(path: jio.File, pred: (jio.File => Boolean) = (_ => true)) {
+		if (path.exists()) {
+			if (path.isDirectory()) path.listFiles.foreach(file => delete(file))
+			println("Deleting " + path.getPath())
+			if (pred(path)) path.delete()
 		}
 	}
 
@@ -171,6 +172,10 @@ object Build extends Application {
 		delete(new jio.File(errorlog))
 		delete(new jio.File(doc_dir))
 		delete(new jio.File(class_dir))
+		
+		// delete the generated index files from the source_dir
+		delete(new jio.File(source_dir), 
+				((f: jio.File) => f.getPath().endsWith("index.html")))
 		
 		// create directories if they don't already exist
 		mkdir(new jio.File(doc_dir))
