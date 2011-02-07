@@ -7,6 +7,7 @@
  * @see     LICENSE (MIT style license file).
  */
 
+import scala.io._
 import java.{ io => jio }
 import java.{ util => jutil }
 
@@ -226,15 +227,41 @@ object Build extends Application {
 	 */
 	def post() {
 		println("[post]")
-		// @todo remove colons from generated scaladoc
+		
+		// remove colons from generated scaladoc
+		var doc_files = listFiles(new jio.File(doc_dir + jio.File.separatorChar + "scalation"), ".html")
+		for ((file) <- doc_files) {
+			
+			var filename = file.getPath()
+			var tempname = filename + ".temp"
+			var tempfile = new jio.File(tempname)
+
+			file.renameTo(tempfile)
+			
+			var bw = new jio.BufferedWriter(new jio.FileWriter(filename))
+			var br = Source.fromFile(new jio.File(tempname))
+			
+			// match the ":::+" regex and replace it with ""
+			for ((line) <- br.getLines()) {
+				bw.write(line.replaceAll(":::+", ""))
+				bw.newLine()
+			}
+			
+			bw.close()
+			br.close()
+			
+			delete(tempfile)
+			
+		}
+		
 	}
 
 	// select build functions by moving the comment delimiters (/***, ***/)
 	pre()
 	clean()
-	compile()
+	//compile()
 	doc()
-	genIndexHtml()
+	//genIndexHtml()
 	post()
 
 }
