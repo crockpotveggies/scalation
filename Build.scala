@@ -259,9 +259,9 @@ object Build extends Application {
 	// select build functions by moving the comment delimiters (/***, ***/)
 	pre()
 	clean()
-	//compile()
+	compile()
 	doc()
-	//genIndexHtml()
+	genIndexHtml()
 	post()
 
 }
