@@ -37,6 +37,24 @@ object Build extends Application {
 	private val is_win = os.indexOf("win") >= 0
 	private val is_mac = os.indexOf("mac") >= 0
 	private val is_nix = !is_win && !is_mac
+	
+	/**
+	 * The class Destination implements a representation of a destination resource.
+	 */
+	private class Destination(writer: jio.Writer) extends jio.PrintWriter(new jio.BufferedWriter(writer))
+	
+	/**
+	 * This object provides convenience methods to create a representation of a 
+	 * destination resource.
+	 */
+	private object Destination 
+	{
+		/**
+		 * Creates a destination file resource for writing characters.
+		 */
+		def toFile(file: String) = new Destination(new jio.FileWriter(file))
+	}
+	
 
 	/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 	 * Returns the path to the scalac executable
@@ -177,7 +195,7 @@ object Build extends Application {
 		delete(new jio.File(class_dir))
 		
 		// delete the generated index files from the source_dir
-		delete(new jio.File(source_dir), (f => f.getName().endsWith(".text")))
+		delete(new jio.File(source_dir), (f => f.getName().endsWith("index.html")))
       
 		// create directories if they don't already exist
 		mkdir(new jio.File(doc_dir))
@@ -195,7 +213,8 @@ object Build extends Application {
 				"-sourcepath", source_dir,
 				"-doc-title", "ScalaTion",
 				"-doc-version", "1.0",
-				"-encoding", "UTF8")
+				"-encoding", "UTF8",
+				"Build.scala")
 				file_list.foreach(f => cmd = (appendArray(cmd, Array(f.getPath()))))
 				exec(cmd)
 	}
@@ -229,26 +248,25 @@ object Build extends Application {
 		println("[post]")
 		
 		// remove colons from generated scaladoc
-		var doc_files = listFiles(new jio.File(doc_dir + jio.File.separatorChar + "scalation"), ".html")
-		for ((file) <- doc_files) {
+		println("Removing long colon strings from scaladoc output...")
+		for ((file) <- listFiles(new jio.File(doc_dir), ".html")) {
 			
 			var filename = file.getPath()
 			var tempname = filename + ".temp"
 			var tempfile = new jio.File(tempname)
-
+			
 			file.renameTo(tempfile)
 			
-			var bw = new jio.BufferedWriter(new jio.FileWriter(filename))
-			var br = Source.fromFile(new jio.File(tempname))
+			var dest = Destination.toFile(filename)
+			var source = Source.fromFile(tempname)
 			
 			// match the ":::+" regex and replace it with ""
-			for ((line) <- br.getLines()) {
-				bw.write(line.replaceAll(":::+", ""))
-				bw.newLine()
+			for (line <- source.getLines()) {
+				dest.println(line.replaceAll(":::+", ""))
 			}
 			
-			bw.close()
-			br.close()
+			dest.close()
+			source.close()
 			
 			delete(tempfile)
 			
