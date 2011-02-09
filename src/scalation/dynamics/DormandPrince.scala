@@ -1,5 +1,6 @@
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * @version 1.0
  * @date    Mon Mar 29 14:59:50 EDT 2010
@@ -14,7 +15,8 @@ import scalation.stat._
 import scalation.advmath.Vectors._
 import scalation.util.Error
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * Given an unknown, time-dependent function y(t) governed by an Ordinary
  * Differential Equation (ODE) of the form y(t)' = f(t, y) where ' is d/dt,
  * compute y(t) using a (4,5)-order Dormand-Prince integrator.  Note: the
@@ -62,7 +64,8 @@ object DormandPrince
     def integrate (f: Derivative, y0: Double, t: Double,
                    t0: Double = 0., _step: Double = defaultStepSize): Double = 0.
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute y(t) governed by a differential equation using numerical integration
      * of the derivative function f(t, y) using a 5th-order Dormand-Prince method to
      * return the value of y(t) at time t.
@@ -125,7 +128,8 @@ object DormandPrince
  
 } // DormandPrince object 
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This object is used to test the DormandPrince object.
  */
 object DormandPrinceTest extends Application

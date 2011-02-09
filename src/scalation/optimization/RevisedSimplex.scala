@@ -1,5 +1,6 @@
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * @version 0.1
  * @date    Sun Sep 26 15:20:15 EDT 2010
@@ -12,7 +13,8 @@ import scalation.advmath._
 import scalation.advmath.Matrices._
 import scalation.advmath.Vectors._
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class solves Linear Programming (LP) problems using the Revised Simplex
  * Algorithm.  Given a constraint matrix a, constant vector b and cost vector c,
  * find values for the solution/decision vector x that maximize the objective
@@ -30,7 +32,8 @@ class RevisedSimplex (a: MatrixD, b: VectorD, c: VectorD)
      */
     private val EPSILON = 1E-10
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Solve a Linear Programming (LP) problem using the Revised Simplex Algorithm.
      */
     def solve: Tuple2 [Double, VectorD] =
@@ -38,7 +41,8 @@ class RevisedSimplex (a: MatrixD, b: VectorD, c: VectorD)
         null       // not implemented yet
     } // solve
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Convert this object to a string containing the tableau.
      */
     override def toString: String = 
@@ -49,7 +53,8 @@ class RevisedSimplex (a: MatrixD, b: VectorD, c: VectorD)
 } // RevisedSimplex class
 
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * Test the Revised Simplex Algorithm class with the following maximization problem:
  * Maximize    z = 2x_0 + 3x_1 + 4x_2
  * Subject to      3x_0 + 2x_1 + 1x_2 + 1y_3 + 0y_4 = 10

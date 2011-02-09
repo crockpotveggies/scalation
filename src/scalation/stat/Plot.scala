@@ -1,5 +1,6 @@
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * @version 1.0
  * @date    Sun Nov 15 15:05:06 EDT 2009
@@ -17,7 +18,8 @@ import scalation.scala2d._
 import scalation.scala2d.Colors._
 import scalation.scala2d.Shapes._
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * The Plot class takes x and y vectors of data values and plots the (x, y)
  * data points.
  * @param x       the x vector of data values (horizontal)
@@ -46,7 +48,8 @@ class Plot (x: VectorD, y: VectorD, _title: String = "Plot")
     private val dot       = Ellipse ()
     private val axis      = Line ()
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Create a canvas on which to draw the histogram.
      */
     val canvas = new Panel
@@ -54,7 +57,8 @@ class Plot (x: VectorD, y: VectorD, _title: String = "Plot")
         background    = white
         preferredSize = frameSize
 
-        /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+        /**
          * Paint the canvas by plotting the data points.
          * @param g2d  the high resolution 2D Graphics context 
          */
@@ -113,7 +117,8 @@ class Plot (x: VectorD, y: VectorD, _title: String = "Plot")
         visible  = true
     } // primary constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Convert value to string and cut out the first four characters.
      * @param x  the value to convert and cut
      */
@@ -123,14 +128,16 @@ class Plot (x: VectorD, y: VectorD, _title: String = "Plot")
         s.substring (0, min (s.length, 4))
     } // clip
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Convert a Plot vectors to a string.
      */
     override def toString = "Plot (y = " + y + " vs. x = " + x + ")"
 
 } // Plot class
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This object is used to test the Plot class.
  */
 object PlotTest extends Application

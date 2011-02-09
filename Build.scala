@@ -1,6 +1,7 @@
 /** $Id$ */
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller, Michael Cotterell
  * @version 1.0
  * @date    Mon Sep 14 14:15:51 EDT 2009
@@ -11,7 +12,8 @@ import scala.io._
 import java.{ io => jio }
 import java.{ util => jutil }
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This object is used to build the scalation Scala-based Simulation System.
  * Comment out lines using // for customized builds.  To build the complete
  * scalation system, type the following two commands:
@@ -56,7 +58,8 @@ object Build extends Application {
 	}
 	
 
-	/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
 	 * Returns the path to the scalac executable
 	 */
 	private def scalac(): String = {
@@ -65,7 +68,8 @@ object Build extends Application {
 		scalac_bin
 	}
 
-	/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
 	 * Returns the path to the scaladoc executable
 	 */
 	private def scaladoc(): String = {
@@ -74,7 +78,8 @@ object Build extends Application {
 		scaladoc_bin
 	}
 
-	/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
 	 * A utility function to that returns an array that is arr2 appended to arr1
 	 */
 	private def appendArray[T: ClassManifest](arr1: Array[T], arr2: Array[T]): Array[T] = {
@@ -84,7 +89,8 @@ object Build extends Application {
 			result
 	}
 
-	/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
 	 * Executes the specified command
 	 */
 	private def exec(cmd: Array[String]) {
@@ -128,22 +134,24 @@ object Build extends Application {
 		}
 	}
 
-	/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
 	 * A utility function that lists all the files with a given extension in p
 	 */
 	private def listFiles(p: jio.File, ext: String = ""): List[jio.File] = {
 		var list = List[jio.File]()
-		if (p.isDirectory()) {
-			p.listFiles().foreach(f => list = (list ::: listFiles(f, ext)))
-		} else {
-			if (p.getPath().endsWith(ext)) {
-				return List(p)
+		if (p.exists()) {
+			if (p.isDirectory()) {
+				for (file <- p.listFiles()) list = (list ::: listFiles(file, ext))
+			} else if (p.getPath().endsWith(ext)) {
+				list = List(p)
 			}
 		}
 		return list
 	}
 
-	/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
 	 * Delete a file or directory. If a predicate function is provided then only
 	 * files in the path that satisfy that predicate will be deleted.
 	 */
@@ -166,8 +174,8 @@ object Build extends Application {
 		if (!p.exists() || !p.isDirectory()) p.mkdir()
 	}
 
-	/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-	 * Performs pre-build checks
+	/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/** Performs pre-build checks
 	 */
 	def pre() {
 		println("[pre]")
@@ -183,7 +191,8 @@ object Build extends Application {
 		}
 	}
 
-	/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
 	 * Cleans up the build environment
 	 */
 	def clean() {
@@ -202,7 +211,8 @@ object Build extends Application {
 		mkdir(new jio.File(class_dir))
 	}
 
-	/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
 	 * Generates the scaladoc documentation
 	 */
 	def doc() {
@@ -219,7 +229,8 @@ object Build extends Application {
 				exec(cmd)
 	}
 
-	/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
 	 * Compiles all the packages
 	 */
 	def compile() {
@@ -233,7 +244,8 @@ object Build extends Application {
 				exec(cmd)
 	}
 
-	/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
 	 * Generate index.html for browsing the source code.
 	 */
 	def genIndexHtml() {
@@ -241,37 +253,13 @@ object Build extends Application {
 		// @todo generate the index html for source code using GenIndexHtml
 	} // genIndexHtml
 
-	/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
 	 * Perform any post-processing
 	 */
 	def post() {
 		println("[post]")
-		
-		// remove colons from generated scaladoc
-		println("Removing long colon strings from scaladoc output...")
-		for ((file) <- listFiles(new jio.File(doc_dir), ".html")) {
-			
-			var filename = file.getPath()
-			var tempname = filename + ".temp"
-			var tempfile = new jio.File(tempname)
-			
-			file.renameTo(tempfile)
-			
-			var dest = Destination.toFile(filename)
-			var source = Source.fromFile(tempname)
-			
-			// match the ":::+" regex and replace it with ""
-			for (line <- source.getLines()) {
-				dest.println(line.replaceAll(":::+", ""))
-			}
-			
-			dest.close()
-			source.close()
-			
-			delete(tempfile)
-			
-		}
-		
+		// place post-processing code here
 	}
 
 	// select build functions by moving the comment delimiters (/***, ***/)

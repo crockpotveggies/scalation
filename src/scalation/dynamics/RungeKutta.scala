@@ -1,5 +1,6 @@
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * @version 1.0
  * @date    Sun Oct 25 18:41:26 EDT 2009
@@ -13,7 +14,8 @@ import scalation.advmath._
 import scalation.advmath.Vectors._
 import scalation.util.Error
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * Given an unknown, time-dependent function y(t) governed by an Ordinary
  * Differential Equation (ODE) of the form y(t)' = f(t, y) where ' is d/dt,
  * compute y(t) using a 4th-order Runge-Kutta integrator.  Note: the integrateV
@@ -22,7 +24,8 @@ import scalation.util.Error
 object RungeKutta
        extends Integrator
 {
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute y(t) governed by a differential equation using numerical integration
      * of the derivative function f(t, y) using a 4th-order Runge-Kutta method to
      * return the value of y(t) at time t.
@@ -66,7 +69,8 @@ object RungeKutta
 
 } // RungeKutta object
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This object is used to test the RungeKutta object.
  */
 object RungeKuttaTest extends Application

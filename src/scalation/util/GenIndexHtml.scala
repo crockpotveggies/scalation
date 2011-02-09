@@ -1,5 +1,6 @@
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  Srikalyan Swayampakula, John Miller
  * @version 1.0
  * @date    Tue Feb 23 12:01:36 EST 2010
@@ -12,7 +13,8 @@ import java.io.{BufferedWriter, File, FileWriter}
 
 import scala.collection.mutable.ArrayBuffer
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This object is used to create "index.html" files in source code directories
  * to enable Web browsing of source code.
  */
@@ -22,7 +24,8 @@ object GenIndexHtml extends Application
     println ("Generate index.html files starting from currentDir = " + currentDir)
     recCreate (new File (currentDir))
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Recursively create index.html files for each directory.
      * @param f  the file/directory to examine
      */
@@ -47,7 +50,8 @@ object GenIndexHtml extends Application
         for (f1 <- dirs if f1.isDirectory ()) recCreate (f1)
     } // recCreate
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Recursively delete index.html files for each directory (clean up step).
      * @param f  the file/directory to examine
      */

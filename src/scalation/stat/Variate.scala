@@ -1,5 +1,6 @@
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * @version 1.0
  * @date    Wed Sep 30 18:41:26 EDT 2009
@@ -18,7 +19,8 @@ import scalation.advmath._
 import scalation.advmath.Vectors._
 import scalation.util.Error
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This abstract class serves as a base class for all the random variate (RV)
  * generators. They use one of the Random Number Generators (RNG's) from
  * Random.scala to generate numbers following their particular distribution.
@@ -33,29 +35,34 @@ abstract class Variate (stream: Int = 0) extends Error with Combinatorics
      */
     protected var _discrete = false
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Determine whether the distribution is discrete or continuous.
      */
     def discrete: Boolean = _discrete
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute the mean for the particular distribution.
      */
     def mean: Double
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute the probability function (pf):
      * The probability density function (pdf) for continuous RV's or
      * the probability mass function (pmf) for discrete RV's.
      */
     def pf (z: Double): Double
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Determine the next random number for the particular distribution.
      */
     def gen: Double
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Determine the next random integer for the particular distribution.
      * It is only valid for discrete random variates.
      */
@@ -70,7 +77,8 @@ abstract class Variate (stream: Int = 0) extends Error with Combinatorics
 
 } // Variate class
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class generates Bernoulli random variates.
  * This discrete RV models the one trial (success is 1, failure is 0).
  * @param p       the probability of success
@@ -100,7 +108,8 @@ case class Bernoulli (p: Double = 0.5, stream: Int = 0)
 
 } // Bernoulli class
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class generates Beta random variates.
  * This continuous RV models random proportions.
  * Beta =  Gamma1 / (Gamma1 + Gamma2).
@@ -135,7 +144,8 @@ case class Beta (alpha: Double = 2, beta: Double = 3, stream: Int = 0)
 
 } // Beta class
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class generates Binomial random variates.
  * This discrete RV models the number of successes in n trials.
  * @param p       the probability of success
@@ -172,7 +182,8 @@ case class Binomial (p: Double = 0.5, n: Int = 5, stream: Int = 0)
 
 } // Binomial class
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class generates Cauchy (or Lorentz) random variates.
  * This continuous RV models data with heavier tails than normally distributed.
  * @param alpha   the location parameter (median)
@@ -197,7 +208,8 @@ case class Cauchy (alpha: Double = 2.5, beta: Double = 1, stream: Int = 0)
 
 } // Cauchy class
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class generates ChiSquare random variates.
  * This continuous RV models the variance of a distribution.
  * @param df      the degrees of freedom 
@@ -228,7 +240,8 @@ case class ChiSquare (df: Int = 2, stream: Int = 0)
 
 } // ChiSquare class
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class generates Deterministic random variates.
  * This discrete RV models the case when the variance is 0.
  * @param x       the value for this constant distribution
@@ -253,7 +266,8 @@ case class Deterministic (x: Double = 1, stream: Int = 0)
 
 } // Deterministic class
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class generates generalized Discrete random variates for a given
  * distribution specified using either a probability mass function (pmf)
  * or a cummulative distribution function (cdf).
@@ -299,7 +313,8 @@ case class Discrete (dist: VectorD = new VectorD (.2, .2, .2, .2, .2), x: Vector
 
 } // Discrete class
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class generates Erlang random variates.
  * This continuous RV models the time until k stages complete.
  * @param mu      the mean of exponential samples (Erlang mean = mu * k)
@@ -331,7 +346,8 @@ case class Erlang (mu: Double = 1, k: Int = 2, stream: Int = 0)
 
 } // Erlang class
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class generates Exponential random variates.
  * This continuous RV models the time until an event occurs.
  * @param mu      the mean
@@ -358,7 +374,8 @@ case class Exponential (mu: Double = 1, stream: Int = 0)
 
 } // Exponential class
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class generates Fisher (F-Distribution) random variates.
  * This continuous RV models the ratio of variances.
  * @param df1     the degrees of freedom for numerator Chi-Square
@@ -394,7 +411,8 @@ case class Fisher (df1: Int = 6, df2: Int = 4, stream: Int = 0)
 
 } // Fisher class
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class generates Gamma random variates.
  * This continuous RV models the time until an event occurs.
  * Note: variance = alpha * beta ^ 2.
@@ -447,7 +465,8 @@ case class Gamma (alpha: Double = 1, beta: Double = 1, stream: Int = 0)
 
 } // Gamma class
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class generates Geometric random variates.
  * This discrete RV models the number of failures before the first success.
  * @param p       the probability of success
@@ -478,7 +497,8 @@ case class Geometric (p: Double = 0.5, stream: Int = 0)
 
 } // Geometric class
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class generates HyperExponential random variates (two rates).
  * This continuous RV models the time until an event occurs (higher coefficient
  * of variation than exponetial distribution).  
@@ -514,7 +534,8 @@ case class HyperExponential (p: Double = 0.5, mu1: Double = 1, mu2: Double = 2, 
 
 } // HyperExponential class
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class generates HyperExponential random variates.
  * This continuous RV models the time until an event occurs (higher coefficient
  * of variation than exponetial distribution). FIX
@@ -550,7 +571,8 @@ case class _HyperExponential (mu: Double = 1, sigma: Double = 2, stream: Int = 0
 
 } // _HyperExponential class
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class generates HyperGeometric random variates.
  * This discrete RV models the number of successes in n draws from a finite population.
  * @param p       the probability of success (red balls)
@@ -595,7 +617,8 @@ case class HyperGeometric (p: Double = 0.5, n: Int = 5, pop: Int = 10, stream: I
 
 } // HyperGeometric class
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class generates LogNormal random variates.
  * This continuous RV models data that is normally distributed after a log transformation.
  * @param mu      the mean for underlying Normal
@@ -625,7 +648,8 @@ case class LogNormal (mu: Double = 0, sigma2: Double = 1, stream: Int = 0)
 
 } // LogNormal class
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class generates Multinomial random variates.
  * This discrete RV models the ...?
  * @param p       array of probabilities
@@ -655,7 +679,8 @@ case class Multinomial (p: ArrayD = Array (.4, .3, .3), n: Int = 5, stream: Int 
 
 } // Multinomial
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class generates NegativeBinomial random variates.
  * This discrete RV models the number of failures before s-th success.
  * @param p       the probability of success
@@ -692,7 +717,8 @@ case class NegativeBinomial (p: Double = 0.5, s: Int = 2, stream: Int = 0)
 
 } // NegativeBinomial class
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class generates Normal (Gaussian) random variates.
  * This continuous RV models normally distributed data.
  * @param mu      the mean
@@ -742,7 +768,8 @@ case class Normal (mu: Double = 0, sigma2: Double = 1, stream: Int = 0)
 
 } // Normal class
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class generates Poisson random variates (discrete).
  * This discrete RV models the number of events in a time interval of unit length.
  * @param mu      the mean
@@ -777,7 +804,8 @@ case class Poisson (mu: Double = 2, stream: Int = 0)
 
 } // Poisson class
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class generates Randi random variates (random integers).
  * This discrete RV models equiprobable integral outcomes.
  * @param a       the lower bound
@@ -807,7 +835,8 @@ case class Randi (a: Int = 0, b: Int = 5, stream: Int = 0)
 
 } // Randi class
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class generates StudentT random variates.
  * This continuous RV models cases where data are normally distributed but
  * variability increases since the variance is unknown.
@@ -836,7 +865,8 @@ case class StudentT (df: Int = 4, stream: Int = 0)
 
 } // StudentT case
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class generates simple Triangular random variates with the mode in the middle.
  * This continuous RV models cases where outcomes cluster around the mode.
  * @param a       the lower bound
@@ -874,7 +904,8 @@ case class Triangular (a: Double = 0, b: Double = 5, c: Double = Double.MaxValue
 
 } // Triangular class
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class generates Uniform random variates in the range (a, b).
  * This continuous RV models equiprobable outcomes.
  * @param a       the lower bound
@@ -902,7 +933,8 @@ case class Uniform (a: Double = 0, b: Double = 5, stream: Int = 0)
 
 } // Uniform class
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class generates Weibull random variates.
  * This continuous RV models the time for an event to occur.
  * @param alpha   the shape parameter
@@ -933,13 +965,15 @@ case class Weibull (alpha: Double = 2, beta: Double = 2, stream: Int = 0)
 
 } // Weibull
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * Conduct two simple tests of the Random Variate Generators: (1) Means Test
  * (2) Goodness of Fit Test.
  */
 object VariateTest extends Application
 {
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Perform a means test (average of generated rv's close to mean for distribution).
      * @param rv  the random variate to test
      */
@@ -960,7 +994,8 @@ object VariateTest extends Application
         println ("rv.mean = " + rv.mean + " estimate = " + sum / rep.asInstanceOf [Double])
     } // meansTest
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Perform a goodness of fit test using histogram of generated rv's matches pf
      * (either pmf or pdf).
      * @param rv  the random variate to test

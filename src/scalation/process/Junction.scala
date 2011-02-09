@@ -1,5 +1,6 @@
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * @version 1.0
  * @date    Sat Nov 21 15:05:06 EDT 2009
@@ -16,7 +17,8 @@ import scalation.scala2d._
 import scalation.scala2d.Colors._
 import scalation.util.Monitor
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * The Junction class provides a connector between two transports.  Since Lines
  * and QCurves have limitation (e.g., hard to make a loop back), a junction may
  * be needed.
@@ -30,7 +32,8 @@ class Junction (name: String, from: Transport, to: Transport)
     setName (name)
     setAt (Array ())
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Tell the animation engine to display this Junction
      */
     def display ()  // FIX
@@ -38,7 +41,8 @@ class Junction (name: String, from: Transport, to: Transport)
         director.animate (this, CreateEdge, blue, Ellipse (), from, to)
     } // display
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Move the entity (SimActor) from the incoming "from" transport to the
      * outgoing "to" transport
      */

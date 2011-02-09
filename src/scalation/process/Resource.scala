@@ -1,5 +1,6 @@
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * @version 1.0
  * @date    Mon Sep  7 15:05:06 EDT 2009
@@ -16,7 +17,8 @@ import scalation.scala2d._
 import scalation.scala2d.Colors._
 import scalation.util.Monitor
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * The Resource class provides services to entities (SimActors).
  * It may or may not have an associated waiting queue.
  * @param name         the name of the resource
@@ -37,7 +39,8 @@ class Resource (name: String, line: WaitQueue, units: Int, serviceTime: Variate,
      */
     private var inUse = 0
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Tell the animation engine to display this Resource.
      */
     def display ()
@@ -45,12 +48,14 @@ class Resource (name: String, line: WaitQueue, units: Int, serviceTime: Variate,
         director.animate (this, CreateNode, orange, Rectangle (), at)
     } // display
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Determine whether the Resource is busy (no units available).
      */
     def busy = inUse == units
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Utilize the Resource for a period of time (models an activity).
      */
     def utilize ()
@@ -67,7 +72,8 @@ class Resource (name: String, line: WaitQueue, units: Int, serviceTime: Variate,
         actor.yieldToDirector ()
     } // utilize
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Release the Resource after service is finished (also check waiting queue).
      */
     def release ()

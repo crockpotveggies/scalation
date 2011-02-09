@@ -1,5 +1,6 @@
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * @version 1.0
  * @date    Sun Jan 10 16:17:54 EST 2010
@@ -16,7 +17,8 @@ import scalation.scala2d.QCurveCalc._
 import scalation.scala2d.Shapes._
 import scalation.util.Error
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * The Line class uses Java's Line2D class to create a line.
  * @param p1  the starting point for the line
  * @param p2  the ending point for the line
@@ -25,7 +27,8 @@ case class Line (var p1:  R2 = R2 (0., 0.),
                  var p2:  R2 = R2 (0., 0.))
      extends java.awt.geom.Line2D.Double (p1, p2) with CurvilinearShape
 {
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the x-coordinate of the center of the line.
      */
     def getCenterX (): Double =
@@ -33,7 +36,8 @@ case class Line (var p1:  R2 = R2 (0., 0.),
         (p1.x + p2.x) / 2.
     } // getCenterX
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the y-coordinate of the center of the line.
      */
     def getCenterY (): Double =
@@ -41,7 +45,8 @@ case class Line (var p1:  R2 = R2 (0., 0.),
         (p1.y + p2.y) / 2.
     } // getCenterY
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Set (or reset) the frame/location for the Line as a line.
      * @param _p1  the starting point
      * @param _p2  the ending point
@@ -52,7 +57,8 @@ case class Line (var p1:  R2 = R2 (0., 0.),
         super.setLine (p1.x, p1.y, p2.x, p2.y)
     } // setLine
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Set (or reset) the frame/location for the Line as a line. The bend
      * parameter is ignored for this class, since arrows are straight.
      * @param _p1   the starting point
@@ -67,7 +73,8 @@ case class Line (var p1:  R2 = R2 (0., 0.),
     
 } // Line class
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This object is used to test the Line class.
  */
 object LineTest extends Application

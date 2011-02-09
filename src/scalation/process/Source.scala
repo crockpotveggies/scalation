@@ -1,5 +1,6 @@
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * @version 1.0
  * @date    Mon Sep  7 15:05:06 EDT 2009
@@ -18,7 +19,8 @@ import scalation.scala2d._
 import scalation.scala2d.Colors._
 import scalation.util.Monitor
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * The Source class is used to periodically inject entities (SimActors) into a
  * running simulation model.  May act as an arrival generator.  Source is both
  * a simulation Component and special SimActor and therefore runs in own thread.
@@ -37,7 +39,8 @@ class Source (name: String, director: Model, makeEntity: () => SimActor, units: 
         setAt (at)
     } // primary constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Display this source as a node on the animation canvas.
      */
     def display ()
@@ -45,7 +48,8 @@ class Source (name: String, director: Model, makeEntity: () => SimActor, units: 
         director.animate (this, CreateNode, green, Ellipse (), at)
     } // display
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * The Sources as a special SimActor will act over time to make entities
      * (other SimActors).
      */

@@ -1,5 +1,6 @@
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * @version 1.0
  * @date    Wed Aug 26 18:41:26 EDT 2009
@@ -11,14 +12,16 @@ package scalation.stat
 import scala.math._
 import scalation.advmath._
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * The StatVector class provides methods for computing common statistics on
  * a data vector.
  * @param dim  the dimension/size of the vector
  */
 class StatVector (dim: Int) extends VectorN [Double] (dim)
 {
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Construct a StatVector from an Array.
      * @param u  the array to initialize StatVector
      */
@@ -28,7 +31,8 @@ class StatVector (dim: Int) extends VectorN [Double] (dim)
         setAll (u)
     } // constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Construct a StatVector from a VectorN.
      * @param u  the vector to initialize StatVector
      */
@@ -38,32 +42,38 @@ class StatVector (dim: Int) extends VectorN [Double] (dim)
         setAll (u())
     } // constructor
 
-   /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+   /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+   /**
     * Get the number of samples.
     */
     def num: Int = dim
 
-   /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+   /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+   /**
     * Compute the mean of this vector.
     */
     def mean: Double = sum / dim
 
-   /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+   /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+   /**
     * Compute the variance of this vector.
     */
     def variance: Double = (norm2 - pow (sum, 2) / dim) / dim 
 
-   /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+   /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+   /**
     * Compute the standard deviation of this vector.
     */
     def stddev: Double = sqrt (variance)
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute the root mean square.
      */
     def rms: Double = sqrt (norm2 / dim.asInstanceOf [Double])
 
-   /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+   /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+   /**
     * Compute the confidence interval half-width for the given confidence level.
     * @param p  the confidence level
     */
@@ -79,7 +89,8 @@ class StatVector (dim: Int) extends VectorN [Double] (dim)
 
 } // StatVector class
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * Object to test the StatVector class.
  */
 object StatVectorTest extends Application

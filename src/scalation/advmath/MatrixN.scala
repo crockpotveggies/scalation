@@ -1,5 +1,6 @@
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * @version 1.0
  * @date    Wed Aug 26 18:41:26 EDT 2009
@@ -11,7 +12,8 @@ package scalation.advmath
 import scala.math.abs
 import scalation.util.Error
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * Convenience definitions for commonly used types of matrices.
  */
 object Matrices
@@ -29,7 +31,8 @@ object Matrices
 
 } // Matrices object
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * The MatrixN class stores and operates on Numeric Matrices of various sizes
  * and types.  The element type may be any subtype of Numeric.
  * @param dim1  the first/row dimension
@@ -49,7 +52,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         } // if
     } // primary constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Construct a dim1 by dim1 square matrix.
      * @param dim1  the row and column dimension
      */
@@ -58,7 +62,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         this (dim1, dim1)
     } // constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Construct a dim1 by dim2 matrix and assign each element the value x.
      * @param dim1  the row dimension
      * @param dim2  the column dimesion
@@ -70,7 +75,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         for (i <- range1; j <- range2) v(i)(j) = x
     } // constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Construct a dim1 by dim1 square matrix with x assigned on the diagonal
      * and y assigned off the diagonal.  To obtain an identity matrix, let x = 1
      * and y = 0.
@@ -84,7 +90,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         for (i <- range1; j <- range1) v(i)(j) = if (i == j) x else y
     } // constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Construct a matrix and assign values from array of arrays u.
      * @param u  the 2D array of values to assign
      */
@@ -93,7 +100,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         this (u.length, u(0).length, u)            // invoke primary constructor
     } // constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Construct a matrix from repeated values.
      * @param dim1  the row dimension
      * @param u     the repeated values
@@ -104,7 +112,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
        for (i <- range1; j <- range2) v(i)(j) = u(i * dim2 + j)
     } // constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Construct a matrix and assign values from array of vectors u.
      * @param u  the 2D array of values to assign
      */
@@ -114,7 +123,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         for (i <- range1; j <- range2) v(i)(j) = u(i)(j)
     } // constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Construct a matrix and assign values from matrix u.
      * @param u  the matrix of values to assign
      */
@@ -124,7 +134,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         for (i <- range1; j <- range2) v(i)(j) = u.v(i)(j)
     } // constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get this matrix's element at the i,j-th index position. 
      * @param i  the row index
      * @param j  the column index
@@ -134,7 +145,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         v(i)(j)
     } // apply
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get this matrix's vector at the i-th index position (i-th row).
      * @param i  the row index
      */
@@ -143,7 +155,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         new VectorN [T] (v(i))
     } // apply
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Set this matrix's element at the i,j-th index position to the scalar x.
      * @param i  the row index
      * @param j  the column index
@@ -154,7 +167,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         v(i)(j) = x
     } // update
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Set this matrix's row at the i-th index position to the vector u.
      * @param i  the row index
      * @param u  the vector value to assign
@@ -164,7 +178,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         v(i) = u()
     } // update
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Slice this matrix row-wise from to end.
      * @param from  the start row of the slice (inclusive)
      * @param end   the end row of the slice (exclusive)
@@ -174,7 +189,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         MatrixN [T] (end - from, dim2, v.slice (from, end))
     } // slice
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Slice this matrix row-wise r_from to r_end and column-wise c_from to c_end.
      * @param r_from  the start of the row slice
      * @param r_end   the end of the row slice
@@ -188,7 +204,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         c
     } // slice
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Slice this matrix excluding the given row and column.
      * @param row  the row to exclude
      * @param col  the column to exclude
@@ -202,7 +219,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         c
     } // sliceExclude
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Transpose this matrix (rows => columns).
      */
     def t: MatrixN [T] =
@@ -212,7 +230,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         b
     } // t
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Add this matrix and matrix b.
      * @param b  the matrix to add (requires sameCrossDimensions)
      */
@@ -223,7 +242,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         c
     } // +
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Add inplace this matrix and matrix b.
      * @param b  the matrix to add (requires sameCrossDimensions)
      */
@@ -232,7 +252,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         for (i <- range1; j <- range2) v(i)(j) = nu.plus (v(i)(j), b(i, j))
     } // +=
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Add this matrix and scalar s.
      * @param s  the scalar to add
      */
@@ -243,7 +264,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         c
     } // +
  
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Add inplace this matrix and scalar s.
      * @param s  the scalar to add
      */
@@ -252,7 +274,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         for (i <- range1; j <- range2) v(i)(j) = nu.plus (v(i)(j), s)
     } // +=
  
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * From this matrix substract matrix b.
      * @param b  the matrix to subtract (requires sameCrossDimensions)
      */
@@ -263,7 +286,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         c
     } // -
  
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * From this matrix substract inplace matrix b.
      * @param b  the matrix to subtract (requires sameCrossDimensions)
      */
@@ -272,7 +296,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         for (i <- range1; j <- range2) v(i)(j) = nu.minus (v(i)(j), b(i, j))
     } // -=
  
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * From this matrix subtract scalar s.
      * @param s  the scalar to subtract
      */
@@ -283,7 +308,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         c
     } // -
  
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * From this matrix subtract inplace scalar s.
      * @param s  the scalar to subtract
      */
@@ -292,7 +318,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         for (i <- range1; j <- range2) v(i)(j) = nu.minus (v(i)(j), s)
     } // -=
  
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Multiply this matrix by matrix b.
      * @param b  the matrix to multiply by (requires sameCrossDimensions)
      */
@@ -303,7 +330,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         c
     } // *
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Multiply inplace this matrix by matrix b.
      * @param b  the matrix to multiply by (requires sameCrossDimensions)
      */
@@ -312,7 +340,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         for (i <- range1; j <- range2) v(i)(j) = row(i) dot b.col(j)
     } // *=
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Multiply this matrix by vector b.
      * @param b  the vector to multiply by
      */
@@ -323,7 +352,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         c
     } // *
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Multiply this matrix by scalar s.
      * @param s  the scalar to multiply by
      */
@@ -334,7 +364,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         c
     } // *
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Multiply inplace this matrix by scalar s.
      * @param s  the scalar to multiply by
      */
@@ -343,7 +374,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         for (i <- range1; j <- range2) v(i)(j) = nu.times (v(i)(j), s)
     } // *=
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Multiply this matrix by vector b to produce another matrix (a_ij * b_j)
      * @param b  the vector to multiply by
      */
@@ -354,7 +386,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         c
     } // **
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Multiply inplace this matrix by vector b to produce another matrix (a_ij * b_j)
      * @param b  the vector to multiply by
      */
@@ -363,7 +396,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         for (i <- range1; j <- range2) v(i)(j) = nu.times (v(i)(j), b(j))
     } // **=
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Decompose this matrix into the product of upper and lower triangular
      * matrices (l, u) using the LU Decomposition algorithm.  This version uses
      * no partial pivoting.
@@ -388,7 +422,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         Tuple2 (l, u)
     } // lud_npp
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Decompose this matrix into the product of lower and upper triangular
      * matrices (l, u) using the LU Decomposition algorithm.  This version uses
      * partial pivoting.
@@ -417,7 +452,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         Tuple2 (l, u)
     } // lud
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Decompose inplace this matrix into the product of lower and upper triangular
      * matrices (l, u) using the LU Decomposition algorithm.  This version uses
      * partial pivoting.
@@ -446,7 +482,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         Tuple2 (l, u)
     } // lud_ip
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Use partial pivoting to find a maximal non-zero pivot and return its row
      * index, i.e., find the maximum element (k, i) below the pivot (i, i).
      * @param a  the matrix to perform partial pivoting on
@@ -465,7 +502,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         kMax
     } // partialPivoting
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Swap the elements in rows i and k starting from column col.
      * @param a    the matrix containing the rows to swap
      * @param i    the higher row  (e.g., contains a zero pivot)
@@ -479,7 +517,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         } // for
     } // swap
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Solve for x in the equation l*u*x = b (see lud above).
      * @param l  the lower triangular matrix
      * @param u  the upper triangular matrix
@@ -505,7 +544,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         x
     } // solve
 
-   /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+   /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+   /**
      * Solve for x in the equation l*u*x = b (see lud above).
      * @param lu  the lower and upper triangular matrices
      * @param b   the constant vector
@@ -516,7 +556,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
        solve (lu._1, lu._2, b)
     } // solve
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Solve for x in the equation a*x = b where a is this matrix (see lud above).
      * @param b  the constant vector.
      */
@@ -526,7 +567,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         solve (lud, b)
     } // solve
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Combine this matrix with matrix b, placing them along the diagonal and
      * filling in the bottom left and top right regions with zeroes; [this, b].
      * @param b  the matrix to combine with this matrix
@@ -546,7 +588,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         c
     } // diag
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Form a matrix [Ip, this, Iq] where Ir is a r by r identity matrix, by
      * positioning the three matrices Ip, this and Iq along the diagonal.
      * @param p  the size of identity matrix Ip
@@ -566,7 +609,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         c
     } // diag
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Invert this matrix (requires a squareMatrix).  This version does not use
      * partial pivoting.
      */
@@ -594,7 +638,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         c
     } // inverse_npp
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Invert this matrix (requires a squareMatrix).  This version uses partial
      * pivoting.
      */
@@ -627,7 +672,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         c
     } // inverse
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Invert inplace this matrix (requires a squareMatrix).  This version uses
      * partial pivoting.
      */
@@ -660,7 +706,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         c
     } // inverse_ip
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Use Guass-Jordan reduction on this matrix to make the left part embed an
      * identity matrix.  A constraint on this m by n matrix is that n >= m.
      */
@@ -689,7 +736,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         b
     } // reduce
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Use Guass-Jordan reduction inplace on this matrix to make the left part
      * embed an identity matrix.  A constraint on this m by n matrix is that n >= m.
      */
@@ -717,7 +765,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         } // for
     } // reduce_ip
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute the determinant of this matrix.
      */
     def det (implicit nu: Numeric [T]): T =
@@ -737,7 +786,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         sum
     } // det
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Check whether this matrix is rectangular (all rows have the same number
      * of columns).
      */
@@ -747,7 +797,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         true
     } // isRectangular
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Convert this matrix to a string.
      */
     override def toString: String = 
@@ -762,7 +813,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
   
 } // MatrixN class
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * The MatrixN object tests the operations provided by MatrixN.
  */
 object MatrixNTest extends Application

@@ -1,5 +1,6 @@
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * @version 1.0
  * @date    Wed Aug 26 18:41:26 EDT 2009
@@ -12,7 +13,8 @@ import scala.math._
 import scalation.stat._
 import scalation.util.Error
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class is used to collect values and compute statistics on them.
  */
 class Statistic extends Error
@@ -37,7 +39,8 @@ class Statistic extends Error
      */
     protected var maxX = 0.
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Tally the next value and update accumulators.
      * @param x  the value to tally
      */
@@ -50,42 +53,50 @@ class Statistic extends Error
         if (x > maxX) maxX = x
     } // tally
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the number of samples.
      */
     def num: Int = n
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the minimum value in sample.
      */
     def min: Double = minX
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the maximum value in sample.
      */
     def max: Double = maxX
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute/estimate the sample mean.
      */
     def mean: Double = if (n == 0) 0.0 else sum / n.asInstanceOf [Double]
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute/estimate the sample variance.
      */
     def variance: Double = if (n == 0) 0. else sumSq / n.asInstanceOf [Double] - pow (mean, 2)
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute/estimate the sample standard deviation.
      */
     def stddev: Double = sqrt (variance)
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute/estimate the root mean square.
      */
     def rms: Double = sqrt (sumSq / n.asInstanceOf [Double])
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute the confidence interval half-width for the given confidence level.
      * @param p  the confidence level
      */
@@ -98,7 +109,8 @@ class Statistic extends Error
         t * stddev / sqrt (df)
     } // interval
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Generate a header of statisical labels as a string.
      */
     def labels (): String =
@@ -106,7 +118,8 @@ class Statistic extends Error
         format ("| %4s | %9s | %9s | %9s | %9s | %9s |", "num", "min", "max", "mean", "stdDev", "interval")
     } // labels
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Generate a row of statistical results as a string.
      */
     override def toString: String = 
@@ -116,14 +129,16 @@ class Statistic extends Error
 
 } // Statistic class
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class is used to collect values and compute time persistent statistics
  * on them.
  * @param lastTime  the time of previous observation
  */
 class TimeStatistic (var lastTime: Double = 0.) extends Statistic
 {
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Disable the tally method (it is for sample statistics, not time persistent
      * statistics.
      * @param x  the value to tally
@@ -133,7 +148,8 @@ class TimeStatistic (var lastTime: Double = 0.) extends Statistic
         flaw ("tally", "this method must not be called from TimeStatistic")
     } // tally
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Accumulate the next value weighted by its time duration and update accumulators.
      * @param x  the value to accumulate
      * @param t  the time of the observation
@@ -152,7 +168,8 @@ class TimeStatistic (var lastTime: Double = 0.) extends Statistic
 
 } // TimeStatistic class
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This object is used to test the Statistic and TimeStatistic classes.
  */
 object StatisticTest extends Application

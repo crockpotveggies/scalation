@@ -1,5 +1,6 @@
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * @version 1.0
  * @date    Mon Sep 21 15:05:06 EDT 2009
@@ -17,7 +18,8 @@ import scalation.scala2d.Colors._
 import scalation.scala2d.Shapes._
 import scalation.util.Error
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class is for defining graph structures suitable for animation.  Graphs
  * consist of nodes, edges and tokens.  Tokens can be positioned within nodes or
  * on edges.  A graph animation class that uses this class would typically move
@@ -34,7 +36,8 @@ import scalation.util.Error
 class Dgraph (name: String = "Dgraph", bipartite: Boolean = false)
               extends Error
 {
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * This class is used to represent nodes in the graph.
      * @param shape    the shape of the node
      * @param label    the label for the created node
@@ -64,13 +67,15 @@ class Dgraph (name: String = "Dgraph", bipartite: Boolean = false)
          */
         val tokens = ListBuffer [Token] ()
 
-        /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+        /**
          * Set (or reset) the color.
          * @param color  the new color
          */
         def setColor (color2: Color) { color = color2 }
 
-        /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+        /**
          * Add an outgoing edge to this node.
          * @param edge  the edge to add
          */
@@ -84,32 +89,37 @@ class Dgraph (name: String = "Dgraph", bipartite: Boolean = false)
             true
         } // addEdge
 
-        /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+        /**
          * Remove an outgoing edge from this node.
          * @param edge  the edge to remove
          */
         def removeEdge (edge: Edge) { outEdges -= edge }
 
-        /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+        /**
          * Add a token from this node.
          * @param token  the token to add
          */
         def addToken (token: Token) { tokens += token }
 
-        /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+        /**
          * Remove a token from this node.
          * @param token  the token to remove
          */
         def removeToken (token: Token) { tokens -= token }
 
-        /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+        /**
          * Convert this node to a string.
          */
         override def toString = "Node " + label + " [ " + id + " ]"
 
     } // Node class
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * This class is used to represent edges in the graph.  If bend = 0, a
      * straight line is created, otherwise a quadratic curve is created.
      * @param shape    the shape (line/curve) of the edge
@@ -163,7 +173,8 @@ class Dgraph (name: String = "Dgraph", bipartite: Boolean = false)
             this (shape, label, primary, color, from, to, 0.)
         } // Edge constructor
 
-        /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+        /**
          * Construct an edge as a line with explicit coordinates.
          * @param shape    the shape (line) of the edge
          * @param label    the label for the created edge
@@ -184,7 +195,8 @@ class Dgraph (name: String = "Dgraph", bipartite: Boolean = false)
             shape.setLine (R2 (x1, y1), R2 (x2, y2))
         } // Edge constructor
 
-        /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+        /**
          * Construct an edge as a curve with explicit coordinates.
          * @param shape    the shape (curve) of the edge
          * @param label    the label for the created edge
@@ -207,26 +219,30 @@ class Dgraph (name: String = "Dgraph", bipartite: Boolean = false)
             shape.setLine (R2 (x1, y1), R2 (xc, yc), R2 (x2, y2))
         } // Edge constructor
 
-        /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+        /**
          * Set (or reset) the color.
          * @param color  the new color
          */
         def setColor (color2: Color) { color = color2 }
 
-        /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+        /**
          * Add a token from this node.
          * @param token  the token to add
          */
         def addToken (token: Token) { tokens += token }
 
-        /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+        /**
          * Convert this edge to a string.
          */
         override def toString = "Edge " + label + " [ " + id + " ]"
 
     } // Edge class
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * This class is used to represent tokens in the graph.
      * @param shape    the shape of the token
      * @param label    the label for the created token
@@ -252,7 +268,8 @@ class Dgraph (name: String = "Dgraph", bipartite: Boolean = false)
          */
         private val id = nextT ()
 
-        /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+        /**
          * Construct a primary/free token with explicit coordinates.
          * Such tokens are free to move anywhere in the drawing panel.
          * @param shape  the shape of the token
@@ -270,13 +287,15 @@ class Dgraph (name: String = "Dgraph", bipartite: Boolean = false)
             shape.setFrame (x, y, w, h)
         } // Token constructor
  
-        /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+        /**
          * Set (or reset) the color.
          * @param color  the new color
          */
         def setColor (color2: Color) { color = color2 }
 
-        /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+        /**
          * Set the node the token is on.
          * @param onNode2  the node the token is on
          */
@@ -300,43 +319,50 @@ class Dgraph (name: String = "Dgraph", bipartite: Boolean = false)
      */
     private val visited = new HashSet [Node] ()
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Add a node to the graph.
      * @param n  the node to add
      */
     def addNode (n: Node) { nodes += n }
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Remove a node from the graph.
      * @param n  the node to remove
      */
     def removeNode (n: Node) { nodes -= n }
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Add an edge to the graph.
      * @param e  the edge to add
      */
     def addEdge (e: Edge) { edges += e }
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Remove an edge from the graph.
      * @param e  the edge to remove
      */
     def removeEdge (e: Edge) { edges -= e }
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Add a free token to the graph.
      * @param t  the free token to add
      */
     def addFreeToken (t: Token) { freeTokens += t }
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Remove a free token from the graph.
      * @param t  the free token to remove
      */
     def removeFreeToken (t: Token) { freeTokens -= t }
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get all the root nodes (those with no incoming edges).
      */
     def getRoots =
@@ -352,12 +378,14 @@ class Dgraph (name: String = "Dgraph", bipartite: Boolean = false)
         roots
     } // getRoots
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Mark all nodes as unvisited by clearing them from the hash set.
      */
     private def clearVisited () { visited.clear () }
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Recursively visit all nodes in the graph.
      * @param n      the current node
      * @param level  the recursion level
@@ -377,7 +405,8 @@ class Dgraph (name: String = "Dgraph", bipartite: Boolean = false)
         } // if
     } // traverse
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Traverse the graph printing out its nodes and showing connectivity by indentation.
      */
     def traverseNodes ()
@@ -389,7 +418,8 @@ class Dgraph (name: String = "Dgraph", bipartite: Boolean = false)
 
 } // Dgraph class
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * Object to maintain counters.
  */
 object Counter
@@ -404,12 +434,14 @@ object Counter
 
 } // Counter object
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * Object to test the Dgraph class.
  */
 object DgraphTest extends Application
 {
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Build and test a directed graph.
      */
     private def testDirectedGraph (g: Dgraph)
@@ -444,7 +476,8 @@ object DgraphTest extends Application
         g.traverseNodes ()
     } // testDirectedGraph
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Build and test a bipartite graph.
      */
     private def testBipartiteGraph (g: Dgraph)

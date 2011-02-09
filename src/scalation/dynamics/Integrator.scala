@@ -1,5 +1,6 @@
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * @version 1.0
  * @date    Sat Jan 30 13:19:22 EST 2010
@@ -13,7 +14,8 @@ import scalation.advmath._
 import scalation.advmath.Vectors._
 import scalation.util.Error
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This trait provides a template for writing numerical integrators (e.g., Runge
  * Kutta) to produce trajectories for first-order Ordinary Differential Equations
  * (ODE's).  The ODE is of the form y(t)' = f(t, y) where ' is d/dt.  Its initial
@@ -41,7 +43,8 @@ trait Integrator
      */
     protected var error = 0.
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Use numerical integration to compute the trajectory of an unknown, time-
      * dependent function y(t) governed by a first-order ODE of the form y(t)' = f(t, y),
      * i.e., the time derivative of y(t) equals f(t, y).  The derivative function
@@ -56,7 +59,8 @@ trait Integrator
     def integrate (f: Derivative, y0: Double, t: Double,
                    t0: Double = 0., _step: Double = defaultStepSize): Double
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Apply the integrate method to each derivative to compute the trajectory of
      * a time-dependent vector function y(t) governed by a system of Ordinary
      * Differential Equations (ODE's) where f(t, y) is an array of derivative functions.
@@ -80,7 +84,8 @@ trait Integrator
         } // if
     } // integrateV
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the error estimate.
      */
     def getError: Double = error

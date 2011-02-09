@@ -1,5 +1,6 @@
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * @version 1.0
  * @date    Tue Jan  5 16:14:38 EST 2010
@@ -16,7 +17,8 @@ import scalation.scala2d.QCurveCalc._
 import scalation.scala2d.Shapes._
 import scalation.util.Error
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * The QArrow class uses Java's Path2D class to create a quad curve with an arrowhead
  * on the far end.  The main curve is defined by points p1 and p2 along with a
  * control point pc.  Points p3 and p4 are the corners of the triangular arrowhead.
@@ -49,7 +51,8 @@ case class QArrow (var p1:  R2  = R2 (0., 0.),
         lineTo (p2.x, p2.y)
     } // primary constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Construct a QArrow (quad arc) where bend indicates the distance to the control
      * point.
      * @param p1    the starting point for the curve/arc
@@ -61,7 +64,8 @@ case class QArrow (var p1:  R2  = R2 (0., 0.),
          this (p1, computeControlPoint (p1, p2, bend), p2)
     } // constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the x-coordinate of the center of the main line/curve.
      */
     def getCenterX (): Double =
@@ -70,7 +74,8 @@ case class QArrow (var p1:  R2  = R2 (0., 0.),
         else           (p1.x + p2.x) / 2.
     } // getCenterX
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the y-coordinate of the center of the main line/curve.
      */
     def getCenterY (): Double =
@@ -79,7 +84,8 @@ case class QArrow (var p1:  R2  = R2 (0., 0.),
         else           (p1.y + p2.y) / 2.
     } // getCenterY
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Set (or reset) the location for the QArrow as a line.
      * @param _p1   the starting point
      * @param _p2   the ending point
@@ -91,7 +97,8 @@ case class QArrow (var p1:  R2  = R2 (0., 0.),
         setLine (p1, pc, p2)
     } // setLine
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Set (or reset) the location for the QArrow as a curve using bend
      * to compute the control point.
      * @param _p1   the starting point
@@ -105,7 +112,8 @@ case class QArrow (var p1:  R2  = R2 (0., 0.),
         setLine (p1, pc, p2)
     } // setLine
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Set (or reset) the location for the QArrow as a curve using an explicitly
      * given control point.
      * @param _p1  the starting point
@@ -134,7 +142,8 @@ case class QArrow (var p1:  R2  = R2 (0., 0.),
 
 } // QArrow class
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This object is used to test the QArrow class.
  */
 object QArrowTest extends Application

@@ -1,5 +1,6 @@
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * @version 1.0
  * @date    Mon Sep  7 15:05:06 EDT 2009
@@ -12,7 +13,8 @@ import scala.actors._
 
 import scalation.util.{Monitor, PQItem}
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * The SimActor abstract class represents entities that are active in the model.
  * The 'act' abstract method, which specifies entity behavior, must be defined
  * for each subclass.  Each SimActor extends Scala's Actor class and therefore
@@ -32,27 +34,32 @@ abstract class SimActor (name: String, director: Model)
      */
     private var _yetToAct = true
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * The abstract method, act, is defined in each subclass to provide specific behavior.
      */
     def act ()
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Whether this actor has yet to act.
      */
     def yetToAct = _yetToAct
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Set the yetToAct flag to false once a SimActor has acted.
      */
     def nowActing () { _yetToAct = false }
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Time on the director's clock
      */
     def time = director.clock
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Schedule a reactivation of this SimActor delay time units in the future.
      * @param delay  the time delay before reactivation
      */
@@ -62,7 +69,8 @@ abstract class SimActor (name: String, director: Model)
         director.reschedule (this)
     } // schedule
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Yield control to the director so the director can take the next action.
      * @param quit  the flag indicating whether this actor is done
      */
@@ -77,14 +85,16 @@ abstract class SimActor (name: String, director: Model)
         } // if
     } // yieldToDirector
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compare SimActors based on their activation times, which used for ordering
      * in the director's agenda (a time-based priority queue).
      * @param actor2  the other actor to compare with this
     def compare (actor2: SimActor) = actTime compare actor2.actTime
      */
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Show the SimActor's full name and activation time.
      */
     override def toString = "SimActor ( " + me + " at " + actTime + " ) "

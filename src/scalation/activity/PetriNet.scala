@@ -1,5 +1,6 @@
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * @version 1.0
  * @date    Fri Oct  16 15:05:06 EDT 2009
@@ -21,7 +22,8 @@ import scalation.scala2d._
 import scalation.scala2d.Colors._
 import scalation.util.{Error, Identity, PQueue, PQItem}
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class represents a discrete place (can hold tokens).
  * @param x       the place's x-coordinate
  * @param y       the place's y-coordinate
@@ -31,19 +33,22 @@ import scalation.util.{Error, Identity, PQueue, PQItem}
 class PlaceI (val x: Double, val y: Double, var tokens: VectorI, stays: Boolean = false)
       extends Identity
 {
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Add tokens to this discrete place.
      * @param _token  the token vector to add
      */
     def add (_tokens: VectorI) { tokens += _tokens }
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Take tokens from this discrete place.
      * @param _token  the token vector to take away
      */
     def take (_tokens: VectorI) { tokens -= _tokens }
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Determine whether this place holds at least the token vector (i.e.,
      * the requisite number of tokens of each color). Alternative: use
      * threshold predicate in PetriNetRules.
@@ -53,7 +58,8 @@ class PlaceI (val x: Double, val y: Double, var tokens: VectorI, stays: Boolean 
 
 } // PlaceI class
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class represents a continuous place (can hold fluids).
  * @param x       the place's x-coordinate
  * @param y       the place's y-coordinate
@@ -63,19 +69,22 @@ class PlaceI (val x: Double, val y: Double, var tokens: VectorI, stays: Boolean 
 class PlaceD (val x: Double, val y: Double, var fluids: VectorD, stays: Boolean = false)
       extends Identity
 {
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Add fluids to this continuous place.
      * @param _fluids  the fluid vector to add
      */
     def add (_fluids: VectorD) { fluids += _fluids }
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Take fluids from this continuous place.
      * @param _fluids  the fluid vector to take away
      */
     def take (_fluids: VectorD) { fluids -= _fluids }
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Determine whether this place holds at least the fluid vector (i.e.,
      * the requisite amount of fluid of each color). Alternative: use
      * threshold predicate in PetriNetRules.
@@ -85,7 +94,8 @@ class PlaceD (val x: Double, val y: Double, var fluids: VectorD, stays: Boolean 
 
 } // PlaceD class
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class represents a timed transition.
  * @param x           the x-coordinate for this transition
  * @param y           the y-coordinate for this transition
@@ -135,7 +145,8 @@ class Transition (val x: Double, val y: Double, firingDist: Variate, colors: Arr
      */
     var locked: Boolean = false
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Connect this transition to all the incoming and outgoing discrete arcs
      * as well as the containing Petri net.
      * @param _pnet  the containing Petri net
@@ -152,7 +163,8 @@ class Transition (val x: Double, val y: Double, firingDist: Variate, colors: Arr
         outD   = Array [ArcD] ()
     } // connect
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Connect this transition to all the incoming and outgoing continuous arcs
      * as well as the containing Petri net.
      * @param _pnet  the containing Petri net
@@ -169,7 +181,8 @@ class Transition (val x: Double, val y: Double, firingDist: Variate, colors: Arr
         outD   = _out
     } // connect
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Connect this transition to all the incoming and outgoing arcs as well as
      * the containing Petri net.
      * @param _pnet  the containing Petri net
@@ -188,31 +201,36 @@ class Transition (val x: Double, val y: Double, firingDist: Variate, colors: Arr
         outD   = _outD
     } // connect
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Add tokens to this transition.
      * @param _token  the token vector to add
      */
     def addTokens (_tokens: VectorI) { tokens += _tokens }
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Take tokens from this transition.
      * @param _token  the token vector to take away
      */
     def takeTokens (_tokens: VectorI) { tokens -= _tokens }
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Add fluids to this transition.
      * @param _fluids  the fluid vector to add
      */
     def addFluids (_fluids: VectorD) { fluids += _fluids }
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Take fluids from this transition.
      * @param _fluids  the fluid vector to take away
      */
     def takeFluids (_fluids: VectorD) { fluids -= _fluids }
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Check the incoming arcs from discrete place for enough tokens of the
      * right colors and the incoming arcs from continuous places for enough
      * fluid of the right colors.
@@ -225,7 +243,8 @@ class Transition (val x: Double, val y: Double, firingDist: Variate, colors: Arr
         true
     } // checkGuard
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Enable this transition by computing the firing delay.  Should immediately
      * place it on the time ordered firing list.  Also, move tokens/fluids from
      * input places to this transition.
@@ -287,7 +306,8 @@ class Transition (val x: Double, val y: Double, firingDist: Variate, colors: Arr
         firingDelay
     } // enable
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Fire this transition by moving the requisite number and color of tokens
      * from this transition to each outgoing discrete place and the requisite
      * amount and color of fluid to each outgoing continuous place.
@@ -342,7 +362,8 @@ class Transition (val x: Double, val y: Double, firingDist: Variate, colors: Arr
         locked = false     // this transition is now in complete, so it's unlocked
     } // fire
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compare this transition to tr2 based on firing time.
      * @param tr2  the other transition
      */
@@ -350,7 +371,8 @@ class Transition (val x: Double, val y: Double, firingDist: Variate, colors: Arr
 
 } // Transition class
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This  class represents a arc connecting discrete place with a
  * transition. If incoming is true the arc is from the place to transition,
  * otherwise it is from the transition to the place (outgoing).
@@ -372,7 +394,8 @@ class ArcI (val place: PlaceI, val transition: Transition, incoming: Boolean, va
         if ( ! incoming && testArc) flaw ("constructor", "test arcs must be incoming")
     } // primary constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute the number of tokens of each color to flow over this arc.
      * @param tokens       the number of tokens available
      * @param time         the current time
@@ -385,7 +408,8 @@ class ArcI (val place: PlaceI, val transition: Transition, incoming: Boolean, va
 
 } // ArcI class
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class represents a arc connecting continuous place with a
  * transition. If incoming is true the arc is from the place to transition,
  * otherwise it is from the transition to the place (outgoing).
@@ -410,7 +434,8 @@ class ArcD (val place: PlaceD, val transition: Transition, incoming: Boolean, va
         if ( ! incoming && derv != null) flaw ("constructor", "only incoming arcs may have ODE's")
     } // primary constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute the amount of fluid of each color to flow over this arc.
      * @param fluids       the amount of fluid available
      * @param time         the current time
@@ -427,7 +452,8 @@ class ArcD (val place: PlaceD, val transition: Transition, incoming: Boolean, va
 
 } // ArcD class
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class provides a simulation engine for Hybrid Colored Petri Nets.
  * Reference: "Discrete-event simulation of fluid stochastic Petri Nets"
  * @param colors      array of colors for tokens/fluids
@@ -439,7 +465,8 @@ class PetriNet (colors: Array [Color], placeI: Array [PlaceI], placeD: Array [Pl
                 transition: Array [Transition])
       extends PetriNetRules with Error
 {
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Construct a discrete Petri net (tokens, but no fluids).
      * @param colors      array of colors for tokens
      * @param placeI      array of discrete places
@@ -450,7 +477,8 @@ class PetriNet (colors: Array [Color], placeI: Array [PlaceI], placeD: Array [Pl
         this (colors, placeI, Array [PlaceD] (), transition)
     } // contructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Construct a continuous Petri net (fluids, but no tokens).
      * @param colors      array of colors for fluids
      * @param placeD      array of continuous places
@@ -489,17 +517,20 @@ class PetriNet (colors: Array [Color], placeI: Array [PlaceI], placeD: Array [Pl
      */
     private val ntransitions = transition.length
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the current time.
      */
     def clock = _clock
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the animation command queue.
      */
     def getCommandQueue = cqueue
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Convert the Petri net to the string representation.
      */
     override def toString =
@@ -520,7 +551,8 @@ class PetriNet (colors: Array [Color], placeI: Array [PlaceI], placeD: Array [Pl
         s
     } // toString
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Initialize the animation by drawing the Petri net components onto the
      * animation drawing panel using animation commands.
      * @param timeDilationFactor  time dilation is used to speed up/slow down animation
@@ -596,7 +628,8 @@ class PetriNet (colors: Array [Color], placeI: Array [PlaceI], placeD: Array [Pl
         println ("PetriNet.initAnimation: end drawing the Petri net graph")
     } // initAnimation
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Simulate the execution of the Petri Net.
      * @param tStart  the starting time for the simulation
      * @param tStop   the stopping time for the simulation
@@ -647,7 +680,8 @@ class PetriNet (colors: Array [Color], placeI: Array [PlaceI], placeD: Array [Pl
 
 } // PetriNet class
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This object is used to provide unique identifiers for tokens/fluids.
  */
 object Counter
@@ -659,7 +693,8 @@ object Counter
 
 } // Counter object
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This object is used to test the PetriNet class.
  */
 object PetriNetTest extends Application

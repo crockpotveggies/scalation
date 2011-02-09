@@ -1,5 +1,6 @@
  
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * @version 1.0
  * @date    Wed Aug 26 18:41:26 EDT 2009
@@ -12,7 +13,8 @@ import scala.math._
 import scala.Numeric._
 import scalation.util.Error
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * Convenience definitions for commonly used types of vectors.
  */
 object Vectors
@@ -28,7 +30,8 @@ object Vectors
     type ArrayD  = Array [Double]
     type ArrayC  = Array [Complex]
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Indicator function, returning 1 if i == j, 0 otherwise.
      * @param i  the first integer value (e.g., index)
      * @param j  the second integer value (e.g., index)
@@ -40,7 +43,8 @@ object Vectors
 
 } // Vectors object
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * The VectorN class stores and operates on Numeric Vectors of various sizes
  * and types.  The element type may be any subtype of Numeric.
  * @param dim  the dimension/size of the vector
@@ -62,7 +66,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
      */
     private val range = 0 until dim
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Construct a vector from an array of values.
      * @param u  the array of values
      */
@@ -71,7 +76,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         this (u.length, u)                         // invoke primary constructor
     } // constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Construct a vector from repeated values.
      * @param u  the repeated values
      */
@@ -81,7 +87,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         for (i <- range) v(i) = u(i)
     } // constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Construct a vector and assign values from vector u.
      * @param u  the other vector
      */
@@ -91,7 +98,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         for (i <- range) v(i) = u(i)
     } // constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Create a vector of the form (0, ... 1, ... 0) where the 1 is at position j.
      * @param j     the position to place the 1
      * @param size  the size of the vector (upper bound = size - 1)
@@ -104,7 +112,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         u
     } // one
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Create a vector consisting of values 0, 1, 2, ..., size - 1.
      * @param size  the size of the vector (upper bound = size - 1)
      */
@@ -116,7 +125,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         u
     } // increasing
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Convert a VectorN [T] into a VectorN [Int].
      * @param u  the vector to convert an integer vector
      */
@@ -127,7 +137,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         u
     } // toDouble
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Convert a VectorN [T] into a VectorN [Double].
      * @param u  the vector to convert a double vector
      */
@@ -138,7 +149,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         u
     } // toDouble
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get this vector's element at the i-th index position. 
      * @param i the index
      */
@@ -147,7 +159,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         v(i)
     } // apply
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get this vector's entire array.
      */
     def apply (): Array [T] =
@@ -155,7 +168,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         v
     } // apply
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Set this vector's element at the i-th index position. 
      * @param i  the index
      * @param x  the value to assign
@@ -165,7 +179,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         v(i) = x
     } // update
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Set each value in this vector to x.
      * @param x  the value to be assigned
      */
@@ -174,7 +189,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         for (i <- range) v(i) = x
     } // set
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Set the values in this vector to the values in array u.
      * @param u  the array of values to be assigned
      */
@@ -183,7 +199,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         for (i <- range) v(i) = u(i)
     } // setAll
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Iterate over the vector element by element.
      * @param f  the function to apply
      */
@@ -196,7 +213,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         } // while
     } // foreach
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Slice this vector from to end.
      * @param from  the start of the slice
      * @param end   the end of the slice
@@ -206,7 +224,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         VectorN [T] (end - from, v.slice (from, end))
     } // slice
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Concatenate this vector and vector b.
      * @param b  the vector to concatenated
      */
@@ -217,7 +236,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         c
     } // ++
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Add this vector and vector b.
      * @param b  the vector to add
      */
@@ -228,7 +248,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         c
     } // +
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Add this vector and scalar s.
      * @param s  the scalar to add
      */
@@ -239,7 +260,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         c
     } // +
  
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * From this vector substract vector b.
      * @param b  the vector to subtract
      */
@@ -250,7 +272,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         c
     } // -
  
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * From this vector subtract scalar s.
      * @param s  the scalar to subtract
      */
@@ -261,7 +284,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         c
     } // -
  
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Multiply this vector by scalar s.
      * @param s  the scalar to multiply by
      */
@@ -272,7 +296,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         c
     } // *
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Multiply this vector by vector b.
      * @param b  the vector to multiply by
      */
@@ -283,7 +308,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         c
     } // *
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Multiply this 'row' vector by matrix m.
      * @param m  the matrix to multiply by
      */
@@ -292,7 +318,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         m.t * this
     } // *
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Divide this vector by vector b (element-by-element).
      * @param b  the vector to divide by
      */
@@ -303,7 +330,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         c
     } // /
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Divide this vector by scalar s.
      * @param s  the scalar to divide by
      */
@@ -314,7 +342,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         c
     } // /
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Sum the elements of this vector.
      */
     def sum (implicit nu: Numeric [T]): T =
@@ -323,7 +352,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         v.foldLeft (_0) (nu.plus (_, _))
     } // sum
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Sum the elements of this vector skipping the ith element.
      * @param i  the index of the element to skip
      */
@@ -335,7 +365,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         s
     } // sum_ne
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Cummulate the values of this vector from left to right (e.g., create a
      * cdf from a pmf).
      */
@@ -347,7 +378,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         b
     } // cummulate
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Normalize this vector so that it sums to one (e.g., for a probability
      * vector).
      */
@@ -357,7 +389,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         this * (nu.div (_1, sum))
     } // normalize
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute the dot product (or inner product) of this vector with vector b.
      * @param b  the other vector
      */
@@ -369,7 +402,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         x
     } // dot
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute the outer product of this vector with vector b.
      * @param b  the other vector
      */
@@ -380,7 +414,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         c
     } // outer
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute the Euclidean norm (2-norm) squared of this vector.  If of the
      * appropriate type (see below), the sqrt may be used to compute the actual
      * norm.
@@ -390,7 +425,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         this dot this
     } // norm2
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute the Euclidean norm (2-norm) of this vector.
      */
     def norm (implicit nu: Fractional [T]): Double =
@@ -398,7 +434,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         sqrt ((norm2 (nu)).asInstanceOf [Double])
     } // norm
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Take the minimum of this vector with vector b (element-by element).
      * @param b  the other vector
      */
@@ -409,7 +446,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         c
     } // min
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Take the maximum of this vector with vector b (element-by element).
      * @param b  the other vector
      */
@@ -420,7 +458,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         c
     } // max
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Find the minimum in this vector.
      */
     def min: T =
@@ -430,7 +469,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         x
     } // min
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Find the minimum in this vector starting from element k.
      * @param k  the starting point for finding the min
      */
@@ -441,7 +481,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         x
     } // min
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Find the minimum in this vector starting from element k.
      */
     def max: T =
@@ -451,7 +492,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         x
     } // max
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Find the maximum in this vector starting from element k.
      * @param k  the starting point for finding the max
      */
@@ -462,7 +504,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         x
     } // max
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Find the argument minimum in this vector starting from element k.
      * @param k  the starting point for finding the min
      * @param l  skip this element
@@ -474,7 +517,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         j
     } // argmin
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Find the argument minimum in this vector starting from element k and
      * return it if it is negative, otherwise return -1.
      * @param k  the starting point for finding the max
@@ -487,7 +531,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         if (v(j) < _0) j else -1
     } // argmaxPos
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Find the argument maximum in this vector starting from element k.
      * @param k  the starting point for finding the max
      * @param l  skip this element
@@ -499,7 +544,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         j
     } // argmax
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Find the argument maximum in this vector starting from element k and
      * return it if it is positive, otherwise return -1.
      * @param k  the starting point for finding the max
@@ -512,7 +558,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         if (v(j) > _0) j else -1
     } // argmaxPos
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Find the index of the first negative element in this vector starting from
      * element k.
      * @param k  the starting point for finding first negative element
@@ -524,7 +571,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         -1
     } // firstNeg
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Find the index of the first positive element in this vector starting from
      * element k.
      * @param k  the starting point for finding first positive element
@@ -536,7 +584,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         -1
     } // firstPos
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Check whether the other vector is at least as long as this vector.
      * @param b  the other vector
      */
@@ -545,7 +594,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         dim <= b.dim
     } // sameDimensions
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Check whether this vector is nonnegative (has no negative elements).
      */
     def isNonnegative (implicit nu: Numeric [T]): Boolean =
@@ -555,7 +605,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         true
     } // isNonnegative
  
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compare this vector with vector b.
      * @param b  the other vector
      */
@@ -572,7 +623,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
         if (ge && le) Some (0) else if (le) Some (-1) else if (ge) Some (1) else None
     } // tryCompareTo
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Convert type B to type VectorN [T].
      */
     implicit def BtoVectorN [B >: VectorN [T]] (b: B): VectorN [T] =
@@ -580,7 +632,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
        b.asInstanceOf [VectorN [T]]
     } // BtoVectorN
  
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Convert this vector to a string.
      */
     override def toString: String =
@@ -590,7 +643,8 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
   
 } // VectorN class
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * The VectorNTest object tests the operations provided by VectorN.
  */
 object VectorNTest extends Application
