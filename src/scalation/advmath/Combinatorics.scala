@@ -64,7 +64,8 @@ trait Combinatorics extends Error
      */
     def choose (n: Long, k: Long): Long =
     {
-        perm (n, k) / fac (k)
+        if (n == 1) 1 else choose (n-1, k-1) + choose (n-1, k)
+    	//perm (n, k) / fac (k)
     } // choose
 
     /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
