@@ -1,5 +1,6 @@
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * @version 1.0
  * @date    Mon Sep  7 15:05:06 EDT 2009
@@ -11,7 +12,8 @@ package scalation.util
 import scala.math.random
 import scala.collection.mutable._
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * Items that go on PQueue should mixin the PQItem trait.
  */
 trait PQItem extends Identity
@@ -20,20 +22,23 @@ trait PQItem extends Identity
      */
     var actTime: Double = 0.
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compare two items (PQItems) based on their actTime.
      * @param other  the other item to compare with this item
      */
     def compare (other: PQItem) = { actTime compare other.actTime }
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Convert the item (PQItem) to a string.
      */
     override def toString = "PQItem (" + me + ", " + actTime + ")"
 
 } // PQItem
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * The PQueue class provides a simple linear implementation for priority queues.
  * Once bug in scala 2.8 if fixed, may wish to switch to logarithmic implementation
  * in scala.collection.mutable.PriorityQueue.
@@ -56,7 +61,8 @@ class PQueue [T <: PQItem] extends ResizableArray [T]
         this(i + 1) = item
     } // +=
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Remove the specific item from the priority queue.
      * @param item  the item to remove
      */
@@ -77,7 +83,8 @@ class PQueue [T <: PQItem] extends ResizableArray [T]
         found
     } // -=
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Remove and return the first item (least actTime) from the priority queue.
      */
     def dequeue (): T =
@@ -89,17 +96,20 @@ class PQueue [T <: PQItem] extends ResizableArray [T]
         item
     } // dequeue 
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Return the size (number of contained items) of the priority queue.
      */
     //def size = size0
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Indicate whether the priority queue is empty.
      */
     override def isEmpty = { size0 == 0 }
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Show the contents of the priority queue.
      */
     override def toString =
@@ -111,7 +121,8 @@ class PQueue [T <: PQItem] extends ResizableArray [T]
 
 } // PQueue class
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This object is used to test the PQueue class.
  */
 object PQueueTest extends Application

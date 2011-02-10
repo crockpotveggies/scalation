@@ -1,4 +1,5 @@
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * @version 1.0
  * @date    Sat May 22 15:24:17 EDT 2010
@@ -11,7 +12,8 @@ import scala.collection.mutable._
 import scala.math.abs
 import scalation.util.Error
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * Convenience definitions for commonly used types of matrices.
  */
 object SparseMatrices
@@ -24,7 +26,8 @@ object SparseMatrices
 
 } // SparseMatrices object
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * The SparseMatrixN class stores and operates on Numeric Matrices of various
  * sizes and types.  The element type may be any subtype of Numeric.  Rather
  * than storing the matrix as a 2 dimensional array, it is stored as an array
@@ -45,7 +48,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         for (i <- range1) v(i) = new ListMap [Int, T] ()
     } // primary constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Construct a dim1 by dim1 square matrix.
      * @param dim1  the row and column dimension
      * @param _0    the value zero for type T
@@ -55,7 +59,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         this (dim1, dim1, _0)                      // invoke primary constructor
     } // constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Construct a dim1 by dim2 matrix and assign each element the value x.
      * @param dim1  the row dimension
      * @param dim2  the column dimesion
@@ -70,7 +75,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         } // if
     } // constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Construct a dim1 by dim1 square matrix with x assigned on the diagonal
      * and 0 assigned off the diagonal.  To obtain an identity matrix, let x = 1.
      * @param dim1  the row and column dimension
@@ -85,7 +91,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         } // if
     } // constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Construct a matrix and assign values from matrix u.
      * @param u   the matrix of values to assign
      * @param _0  the value zero for type T
@@ -96,7 +103,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         for (i <- range1; j <- range2) this(i, j) = u(i, j)
     } // constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Construct a matrix and assign values from (MatrixN) matrix u.
      * @param u   the matrix of values to assign
      * @param _0  the value zero for type T
@@ -107,7 +115,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         for (i <- range1; j <- range2) this(i, j) = u(i, j)
     } // constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Construct a matrix and assign values from (SymmetricTridMatrixN) matrix u.
      * @param u   the matrix of values to assign
      * @param _0  the value zero for type T
@@ -126,7 +135,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         this(dim1 - 1, dim1 - 1) = u.dg(dim1 - 1)
     } // constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get this matrix's element at the i,j-th index position.
      * @param i  the row index
      * @param j  the column index
@@ -142,7 +152,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         v_ij
     } // apply
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get this matrix's vector at the i-th index position (i-th row).
      * @param i  the row index
      */
@@ -159,7 +170,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         new VectorN [T] (a)
     } // apply
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Set this matrix's element at the i,j-th index position to the scalar x.
      * Only store x if it is non-zero.
      * @param i  the row index
@@ -171,7 +183,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         if (x != _0) v(i)(j) = x else v(i) -= j
     } // update
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Set this matrix's row at the i-th index position to the vector u.
      * @param i  the row index
      * @param u  the vector value to assign
@@ -184,7 +197,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         } // for
     } // update
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Slice this matrix row-wise from to end.
      * @param from  the start row of the slice
      * @param end   the end row of the slice
@@ -196,7 +210,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         c
     } // slice
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Slice this matrix row-wise r_from to r_end and column-wise c_from to c_end.
      * @param r_from  the start of the row slice
      * @param r_end   the end of the row slice
@@ -210,7 +225,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         c
     } // slice
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Slice this matrix excluding the given row and column.
      * @param row  the row to exclude
      * @param col  the column to exclude
@@ -224,7 +240,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         c
     } // sliceExclude
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Transpose this matrix (rows => columns).
      */
     def t: SparseMatrixN [T] =
@@ -234,7 +251,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         b
     } // t
 
-   /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+   /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+   /**
      * Add this matrix and matrix b.
      * @param b  the matrix to add (requires sameCrossDimensions)
      */
@@ -245,7 +263,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         c
     } // +
 
-   /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+   /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+   /**
      * Add inplace this matrix and matrix b.
      * @param b  the matrix to add (requires sameCrossDimensions)
      */
@@ -254,7 +273,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         for (i <- range1; j <- range2) this(i, j) = nu.plus (this(i, j), b(i, j))
     } // +=
 
-   /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+   /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+   /**
      * Add this matrix and scalar s.
      * @param s  the scalar to add
      */
@@ -265,7 +285,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         c
     } // +
 
-   /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+   /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+   /**
      * Add inplace this matrix and scalar s.
      * @param s  the scalar to add
      */
@@ -274,7 +295,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         for (i <- range1; j <- range2) this(i, j) = nu.plus (this(i, j), s)
     } // +=
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * From this matrix substract matrix b.
      * @param b  the matrix to subtract (requires sameCrossDimensions)
      */
@@ -285,7 +307,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         c
     } // -
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * From this matrix substract inplace matrix b.
      * @param b  the matrix to subtract (requires sameCrossDimensions)
      */
@@ -294,7 +317,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         for (i <- range1; j <- range2) this(i, j) = nu.minus (this(i, j), b(i, j))
     } // -=
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * From this matrix subtract scalar s.
      * @param s  the scalar to subtract
      */
@@ -305,7 +329,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         c
     } // -
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * From this matrix subtract inplace scalar s.
      * @param s  the scalar to subtract
      */
@@ -314,7 +339,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         for (i <- range1; j <- range2) this(i, j) = nu.minus (this(i, j), s)
     } // -=
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Multiply this matrix by matrix b.
      * @param b  the matrix to multiply by (requires sameCrossDimensions)
      */
@@ -325,7 +351,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         c
     } // *
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Multiply inplace this matrix by matrix b.
      * @param b  the matrix to multiply by (requires sameCrossDimensions)
      */
@@ -334,7 +361,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         for (i <- range1; j <- range2) this(i, j) = row(i) dot b.col(j)
     } // *=
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Multiply this matrix by vector b.
      * @param b  the vector to multiply by
      */
@@ -345,7 +373,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         c
     } // *
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Multiply this matrix by scalar s.
      * @param s  the scalar to multiply by
      */
@@ -356,7 +385,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         c
     } // *
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Multiply inplace this matrix by scalar s.
      * @param s  the scalar to multiply by
      */
@@ -365,7 +395,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         for (i <- range1; j <- range2) this(i, j) = nu.times (this(i, j), s)
     } // *=
 
-   /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+   /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+   /**
      * Multiply this matrix by vector b to produce another matrix (a_ij * b_j)
      * @param b  the vector to multiply by
      */
@@ -376,7 +407,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         c
     } // **
 
-   /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+   /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+   /**
      * Multiply inplace this matrix by vector b to produce another matrix (a_ij * b_j)
      * @param b  the vector to multiply by
      */
@@ -385,7 +417,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         for (i <- range1; j <- range2) this(i, j) = nu.times (this(i, j), b(j))
     } // **=
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Decompose this matrix into the product of lower and upper triangular
      * matrices (l, u) using the LU Decomposition algorithm.  This version uses
      * partial pivoting.
@@ -414,7 +447,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         Tuple2 (l, u)
     } // lud
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Decompose inplace this matrix into the product of lower and upper triangular
      * matrices (l, u) using the LU Decomposition algorithm.  This version uses
      * partial pivoting.
@@ -443,7 +477,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         Tuple2 (l, u)
     } // lud_ip
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Use partial pivoting to find a maximal non-zero pivot and return its row
      * index, i.e., find the maximum element (k, i) below the pivot (i, i).
      * @param a  the matrix to perform partial pivoting on
@@ -462,7 +497,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         kMax
     } // partialPivoting
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Swap the elements in rows i and k starting from column col.
      * @param a    the matrix containing the rows to swap
      * @param i    the higher row  (e.g., contains a zero pivot)
@@ -476,7 +512,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         } // for
     } // swap
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Solve for x in the equation l*u*x = b (see lud above).
      * @param l  the lower triangular matrix
      * @param u  the upper triangular matrix
@@ -501,7 +538,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         x
     } // solve
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Solve for x in the equation l*u*x = b (see lud above).
      * @param lu  the lower and upper triangular matrices
      * @param b   the constant vector
@@ -512,7 +550,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         solve (lu._1, lu._2, b)
     } // solve
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Solve for x in the equation a*x = b where a is this matrix (see lud above).
      * @param b  the constant vector.
      */
@@ -522,7 +561,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         solve (lud, b)
     } // solve
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Combine this matrix with matrix b, placing them along the diagonal and
      * filling in the bottom left and top right regions with zeroes; [this, b].
      * @param b  the matrix to combine with this matrix
@@ -541,7 +581,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         c
     } // diag
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Form a matrix [Ip, this, Iq] where Ir is a r by r identity matrix, by
      * positioning the three matrices Ip, this and Iq along the diagonal.
      * @param p  the size of identity matrix Ip
@@ -561,7 +602,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         c
     } // diag
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Inverse this matrix (requires a squareMatrix).  This version uses partial
      * pivoting.
      */
@@ -594,7 +636,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         c
     } // inverse
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Invert inplace this matrix (requires a squareMatrix).  This version uses
      * partial pivoting.
      */
@@ -627,7 +670,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         c
     } // inverse_ip
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Use Guass-Jordan reduction on this matrix to make the left part embed an
      * identity matrix.  A constraint on this m by n matrix is that n >= m.
      */
@@ -656,7 +700,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         b
     } // reduce
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Use Guass-Jordan reduction inplace on this matrix to make the left part
      * embed an identity matrix.  A constraint on this m by n matrix is that n >= m.
      */
@@ -684,7 +729,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         } // for
     } // reduce_ip
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute the determinant of this matrix.
      */
     def det (implicit nu: Numeric [T]): T =
@@ -705,13 +751,15 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         sum
     } // det
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Check whether this matrix is rectangular (all rows have the same number
      * of columns).
      */
     def isRectangular: Boolean = true
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Show the non-zero elements in this sparse matrix.
      */
     override def toString: String =
@@ -724,7 +772,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
         s.toString
     } // toString
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Show all elements in this sparse matrix.
      */
     def showAll
@@ -740,7 +789,8 @@ case class SparseMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int, d2: Int, _0
 
 } // SparseMatrixN class
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This object is used to test the SparseMatrixN class.
  */
 object SparseMatrixNTest extends Application

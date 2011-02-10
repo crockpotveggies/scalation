@@ -1,5 +1,6 @@
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * @version 1.0
  * @date    Mon Sep  7 15:05:06 EDT 2009
@@ -17,7 +18,8 @@ import scalation.scala2d._
 import scalation.scala2d.Colors._
 import scalation.util.Monitor
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * The Transport class provides a pathway between two other components.
  * The Components in a Model conceptually form a 'graph' in which the 'edges'
  * are Transport objects and the 'nodes' are other Component objects.
@@ -70,7 +72,8 @@ class Transport (name: String, tripTime: Variate,
         } // if
     } // primary constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Tell the animation engine to display this Transport.
      */
     def display ()
@@ -78,7 +81,8 @@ class Transport (name: String, tripTime: Variate,
         director.animate (this, CreateEdge, blue, QCurve (), from, to, Array (bend))
     } // display
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Give the location of the curve to be its starting point.
      */
     override def at: Array [Double] =
@@ -87,7 +91,8 @@ class Transport (name: String, tripTime: Variate,
        Array (p1.x, p1.y)
     } // at
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Jump the entity (SimActor) down this Transport.  Place it in the middle
      * of the Transport/Edge/QCurve for the entire trip time.
      */
@@ -106,7 +111,8 @@ class Transport (name: String, tripTime: Variate,
         actor.yieldToDirector ()
     } // jump
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Move the entity (SimActor) smoothly down this Transport.  Repeatedely
      * move it along the Transport/Edge/QCurve.  Caveat: tokens coordinates
      * are computed using a shadow QCurve (same coordinates as the one that

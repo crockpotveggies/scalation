@@ -1,5 +1,6 @@
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller, Robert Davis
  * @version 1.0
  * @date    Thu Jan 28 13:29:27 EST 2010
@@ -17,7 +18,8 @@ import scalation.advmath.Matrices._
 import scalation.advmath.Vectors._
 import scalation.util.Error
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class is used to reduce, via similarity transformations, an n by n matrix
  * 'a' to Hessenburg form 'h', where all elements two below the main diagonal are
  * zero (or close to zero).  Note, similarity transformations do not changes the
@@ -47,14 +49,16 @@ class Hessenburg (a: MatrixD)
         } // for
     } // primary constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the Hessenburg h matrix.
      */
     def getH: MatrixD = h
 
 } // Hessenburg class
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class is used to decompose an m by n matrix 'a' into an orthogonal m by n
  * matrix 'q' and an n by n right upper triangular matrix 'r' such that a = q * r.
  * It uses Gram-Schmidt orthogonalization.
@@ -95,19 +99,22 @@ class QRdecomposition (a: MatrixD)
          } // for
     } // primary constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the orthogonal q matrix.
      */
     def getQ: MatrixD = q
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the right upper triangular r matrix.
      */
     def getR: MatrixD = r
 
 } // QRdecomposition class
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class is used to find the eigenvalues of an n by n matrix 'a' using an
  * iterative technique that applies similarity transformations to convert 'a' into
  * an upper triangular matrix, so that the eigenvalues appear along the diagonal.
@@ -167,13 +174,15 @@ class Eigenvalue (a: MatrixD)
         } // for
     } // primary constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the eigenvalue e vector.
      */
     def getE: VectorD = e
 } // Eigenvalue class
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author Robert Davis
  *
  * This class performs a Householder Tridiagonalization on a symmetric matrix.
@@ -208,7 +217,8 @@ class Householder (a: SparseMatrixN [Double])
         t(n, n)         = a(n, n)
     } // primary constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute the Householder vector v and its corresponding scalar b,
      * where I - b * v * v.t is an orthogonal matrix.
      * @see Algorithm 5.1.1 in Matrix Computations.
@@ -231,14 +241,16 @@ class Householder (a: SparseMatrixN [Double])
         Tuple2 (v, b)
     } // house
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the Householder Tridiagonal matrix.
      */
     def getT: SymmetricTridMatrixN [Double] = t
 
 } // Householder class
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class performs a symmetric QR step with a Wilkinson shift.
  * @see Algorithm 8.3.2 in Matrix Computations.
  * @param t  the unreduced symmetric tridiagonal matrix
@@ -286,7 +298,8 @@ class SymmetricQRstep (a: MatrixD)
         ev(n - 1) = g
     } // primary constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Create the values for a Givens 2-by-2 rotation matrix.  Given scalars
      * a and b, efficiently compute c = cos(theta) and s = sin(theta) that can
      * be used to form the rotation matrix.
@@ -309,7 +322,8 @@ class SymmetricQRstep (a: MatrixD)
         Tuple2 (c, s)
     } // givens
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the tridiagonal matrix after reduction by Givens rotations.
      */
     def getT: MatrixD = t
@@ -321,7 +335,8 @@ object SymmetricQRstep extends Error
 {
     private val EPSILON = 1e-9
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * 
      */
     def qRStep (t: SymmetricTridMatrixN [Double], p: Int, q: Int) = 
@@ -351,7 +366,8 @@ object SymmetricQRstep extends Error
         t.sd(n - 1) = g
     } // qRStep
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * 
      */
     def givens (a: Double, b: Double): Tuple2 [Double, Double] =
@@ -370,7 +386,8 @@ object SymmetricQRstep extends Error
     } // givens
 } // SymmetricQRstep object
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class is used to find the eigenvalues of an n by n symmetric matrix 'a'
  * using an iterative technique, the Symmetric QR Algorithm.
  * @see Algorithm 8.3.3 in Matrix Computations.
@@ -417,7 +434,8 @@ class EigenvalueSym (a: SparseMatrixN [Double])
         } // while
     } // primary constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Construct a EigenvalueSym finder (non-sparse matrix case).
      * @param m  the non-sparse matrix
      */
@@ -426,14 +444,16 @@ class EigenvalueSym (a: SparseMatrixN [Double])
         this (new SparseMatrixN [Double] (m, 0.))
     } // constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the eigenvalue e vector.
      */
     def getE: VectorD = d.dg     // the diagonal of the tridiagonal matrix
 
 } // EigenvalueSym
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class is used to find the eigenvectors of an n by n matrix 'a' by solving
  * equations of the form (a - eI)v = 0 where e is the eigenvalue and v is the
  * eigenvector.  Place the eigenvectors in a matrix column-wise.
@@ -459,14 +479,16 @@ class Eigenvector (a: MatrixD, _e: VectorD = null)
         } // for
     } // primary constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the eigenvector v matrix.
      */
     def getV: MatrixD = v 
 
 } // Eigenvector class
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This object is used to test the all the classes used in computing Eigenvalues
  * and Eigenvectors for the non-symmetric/general case.
  * @see http://en.wikipedia.org/wiki/QR_decomposition
@@ -508,7 +530,8 @@ object EigenTest extends Application
 
 } // EigenTest object
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This object is used to test the all the classes used in computing Eigenvalues
  * and Eigenvectors for the symmetric/special case.
  */

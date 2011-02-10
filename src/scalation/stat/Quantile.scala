@@ -1,5 +1,6 @@
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * @version 1.0
  * @date    Wed Sep 30 18:41:26 EDT 2009
@@ -12,7 +13,8 @@ import scala.math._
 import scalation.advmath._
 import scalation.util.Error
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This object contains methods to compute inverse Cumulative Distribution
  * Functions (iCDF's) for the popular sampling distributions:
  * StandardNormal, StudentT, ChiSquare and Fisher.
@@ -20,7 +22,8 @@ import scalation.util.Error
  */
 object Quantile extends Combinatorics with Error
 {
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute the pth quantile for the "standard normal distribution" function.
      * This function returns an approximation of the "inverse" cumulative
      * standard normal distribution function.  I.e., given p, it returns
@@ -81,7 +84,8 @@ object Quantile extends Combinatorics with Error
             (((((b(0)*r + b(1))*r + b(2))*r + b(3))*r + b(4))*r + 1)
     } // normalInv
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute the pth quantile for "Student's t distribution" function.
      * This function returns an approximation of the "inverse" cumulative
      * Student's t distribution function.  I.e., given p, it returns
@@ -114,7 +118,8 @@ object Quantile extends Combinatorics with Error
         if (p >= 0.5) z1 + x else -(z1 + x)
     } // studentTInv
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute the Cummulative Distribution Function (CDF) for the ChiSquare
      * distribution by numerically integrating the ChiSquare probability
      * density function (pdf).  See Variate.scala.
@@ -141,7 +146,8 @@ object Quantile extends Combinatorics with Error
         sum
     } // chiSquareCDF
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute the pth quantile for "ChiSquare distribution" function using
      * bisection search of the CDF.
      * @param p   the pth quantile (e.g., 95 percent)
@@ -168,7 +174,8 @@ object Quantile extends Combinatorics with Error
         x
     } // chiSquareInv
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute the pth quantile for "Fisher distribution" function.
      * @param p    the pth quantile (e.g., 95 percent)
      * @param df1  the degrees of freedom 1
@@ -184,7 +191,8 @@ object Quantile extends Combinatorics with Error
 
 } // Quantile object
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This object test the the Quantile object.
  */
 object QuantileTest extends Application

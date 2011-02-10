@@ -1,5 +1,6 @@
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * @version 1.0
  * @date    Fri Jan 29 18:36:48 EST 2010
@@ -14,7 +15,8 @@ import scalation.advmath.Matrices._
 import scalation.advmath.Vectors._
 import scalation.util.Error
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class may be used for solving a system of linear differential equations
  * that are ordinary and first-order with constant coefficients of the form
  * y(t)' = a * y(t) where ' is d/dt, y(t) is the vector function of time and a is
@@ -50,7 +52,8 @@ class LinearDiffEq (a: MatrixD, y0: VectorD)
       */
      private val k = v ** c
 
-     /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+     /**
       * Apply the exponential 'exp' function to each element of a vector.
       * @param v  the vector to apply the exp function to
       */
@@ -61,13 +64,15 @@ class LinearDiffEq (a: MatrixD, y0: VectorD)
          z
      } // expV
 
-     /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+     /**
       * Evaluate the solution for y(t) at time t.
       * @param t  the time point
       */
      def eval (t: Double): VectorD = k * expV (e * t)
 
-     /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+     /**
       * Print the solution to the differential equation.
       */
      def print
@@ -87,7 +92,8 @@ class LinearDiffEq (a: MatrixD, y0: VectorD)
 } // LinearDiffEq class
 
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * Object to test the LinearDiffEq class using example at
  * @see biomed.tamu.edu/faculty/wu/BMEN_452/Eigenvalue%20Problems.doc
  * The eigenvalues should be (-3, -1)

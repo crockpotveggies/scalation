@@ -1,5 +1,6 @@
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * @version 1.0
  * @date    Mon Sep  7 15:05:06 EDT 2009
@@ -14,7 +15,8 @@ import scalation.scala2d._
 import scalation.scala2d.Colors._
 import scalation.util.Monitor
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * The Sink class is used to terminate entities (SimActors) when they are finished.
  * @param name  the name of the sink
  * @param at    the location of the sink
@@ -27,7 +29,8 @@ class Sink (name: String, at: Array [Double])
         setAt (at)
     } // primary constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Tell the animation engine to display this Sink.
      */
     def display ()
@@ -35,7 +38,8 @@ class Sink (name: String, at: Array [Double])
         director.animate (this, CreateNode, red, Ellipse (), at)
     } // display
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Leave the model, effectively terminating the entity (SimActor).
      */
     def leave ()

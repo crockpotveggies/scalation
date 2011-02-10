@@ -1,5 +1,6 @@
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * @version 1.0
  * @date    Mon Sep  7 15:05:06 EDT 2009
@@ -16,7 +17,8 @@ import scalation.scala2d._
 import scalation.scala2d.Colors._
 import scalation.util.Monitor
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * The WaitQueue class simply a wrapper for monitoring scala's Queue class.
  */
 class WaitQueue (name: String, at: Array [Double])
@@ -25,7 +27,8 @@ class WaitQueue (name: String, at: Array [Double])
     setName (name)
     setAt (at)
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Tell the animation queue to display this WaitQueue.
      */
     def display ()
@@ -33,7 +36,8 @@ class WaitQueue (name: String, at: Array [Double])
         director.animate (this, CreateNode, yellow, Rectangle (), at)
     } // display
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Wait in the queue.
      */
     def waitIn ()

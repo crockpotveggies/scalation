@@ -1,5 +1,6 @@
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * @version 1.0
  * @date    Mon Sep 14 14:15:51 EDT 2009
@@ -19,7 +20,8 @@ import scalation.scala2d.Colors._
 import scalation.scala2d.Shapes._
 import scalation.util.Error
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class is an animation engine for animating graphs.
  * For example, it can animate bipartite graphs to animate Petri Nets.
  * @param title    the title for the display frame
@@ -52,7 +54,8 @@ class DgAnimator (_title: String, fgColor: Color, bgColor: Color)
      */    
     private val cmdQ = new SynchronizedQueue [AnimateCommand] ()
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * The canvas Panel is used to place shapes in the drawing region.
      */
     val canvas = new Panel
@@ -60,7 +63,8 @@ class DgAnimator (_title: String, fgColor: Color, bgColor: Color)
         background    = bgColor
         preferredSize = frameSize
 
-        /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+        /**
          * Paint the display panel component.
          * @param g2d  the high-resolution Graphics context
          */
@@ -120,7 +124,8 @@ class DgAnimator (_title: String, fgColor: Color, bgColor: Color)
         visible  = true
     } // primary constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Invoke the animation command.
      * @param c  the animation command to invoke
      */
@@ -171,7 +176,8 @@ class DgAnimator (_title: String, fgColor: Color, bgColor: Color)
         } // match
     } // invokeCommand
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Repeatedly execute animation commands, sleep and repaint.
      */
     def act ()
@@ -210,7 +216,8 @@ class DgAnimator (_title: String, fgColor: Color, bgColor: Color)
         println ("DgAnimator.act: end animation at time " + clock)
     } // act
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Start the animation by staring the animation actor.
      * @param tStart  the animation start time
      * @param tStop   the animation stop time
@@ -222,19 +229,22 @@ class DgAnimator (_title: String, fgColor: Color, bgColor: Color)
         start ()
     } // startAnimation
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the animation command queue.
      */
     def getCommandQueue = cmdQ
 
 } // DgAnimator class
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * The DgAnimatorTest object is used to test the DgAnimator class.
  */
 object DgAnimatorTest extends Application
 {
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Sample method for loading the shared command queue.
      * Ordinarily these commands would come from some simulation engine.
      * @param cq  the animation command queue

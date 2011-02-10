@@ -1,5 +1,6 @@
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * @version 1.0
  * @date    Mon Sep  21 15:05:06 EDT 2009
@@ -8,7 +9,8 @@
 
 package scalation.scala2d
  
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * A convenience object defining numerous common colors.
  * Source of colors:  http://www.webmoments.com/colorchart.htm
  */
@@ -160,7 +162,8 @@ object Colors
     val yellow           = new Color (0xFFFF00)
     val yellowgreen      = new Color (0x9ACD32)
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Based upon an object's id, generate (somewhat randomly) a color.
      * @param id  identifier for some object
      */

@@ -1,5 +1,6 @@
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * @version 1.0
  * @date    Mon Sep  7 15:05:06 EDT 2009
@@ -19,7 +20,8 @@ import scalation.scala2d.Colors._
 import scalation.scala2d.Shapes._
 import scalation.util.{Identity, Monitor, PQueue}
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * The Model class maintains a list of components making up the model and
  * controls the flow of entities (SimActors) through the model, following the
  * process-interaction world-view.  It maintains a time-ordered priority queue
@@ -67,7 +69,8 @@ class Model (name: String)
      */
     private val aniQ = dgAni.getCommandQueue
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Add the component parts to the model.
      * @param _parts  the component parts
      */
@@ -76,17 +79,20 @@ class Model (name: String)
         parts = _parts
     } // addComponents
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Current value of the director's clock.
      */
     def clock = _clock
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Current acting actor.
      */
     def theActor = _theActor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compare the order of actors based on their actTime.
      * @param actor1  the first actor in comparison
      */
@@ -96,7 +102,8 @@ class Model (name: String)
             { def compare (actor2: SimActor) = actor1.actTime compare actor2.actTime }
     } // orderedActor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Start the simulation (includes scheduling all Sources).
      */
     def startSim ()
@@ -112,13 +119,15 @@ class Model (name: String)
         start ()
     } // startSim
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Schedule (first time) or reschedule (sunsequent times) an actor to act.
      * @param actor  the actor to be scheduled
      */
     def reschedule (actor: SimActor) { agenda += actor }
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * The model itself is an Actor (not an ordinary SimActor) and may be
      * thought of as the director.  The director iteratively manages the clock
      * and the agenda of actors until the simulation flag becomes false
@@ -146,7 +155,8 @@ class Model (name: String)
         report
     } // act
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Report on the statistical results of the simulation.
      */
     def report
@@ -158,7 +168,8 @@ class Model (name: String)
         } // for
     } // report
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Put the components on the animation engine's queue.
      */
     def display ()
@@ -167,7 +178,8 @@ class Model (name: String)
         for (p <- parts) p.display ()
     } // display
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Put a node/token command on the animation queue.
      * @param who    who is being animated
      * @param what   what animation command
@@ -185,7 +197,8 @@ class Model (name: String)
         } // if
     } // animate
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Put a edge command on the animation queue.
      * @param who    who is being animated
      * @param what   what animation command
@@ -207,7 +220,8 @@ class Model (name: String)
 
 } // Model class
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * The ModelTest object is used to test the Model class.
  */
 object ModelTest extends Application

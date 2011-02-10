@@ -1,5 +1,6 @@
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * @version 1.0
  * @date    Mon Sep 21 15:05:06 EDT 2009
@@ -16,7 +17,8 @@ import scalation.scala2d.Colors._
 import scalation.scala2d.Shapes._
 import scalation.util.Error
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * The QCurve class enhances the QuadCurve.Double class (from the java.awt.geom
  * package) by allowing entities to move along such quadratic curves as well as
  * lines.  Although the curve could be developed as a quadratic function where
@@ -42,7 +44,8 @@ case class QCurve (var p1:       R2      = R2 (0., 0.),
      */
     private var steps = 200
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Construct a straight line (degenerate quad curve).
      * @param p1  the starting point
      * @param p2  the ending point
@@ -52,7 +55,8 @@ case class QCurve (var p1:       R2      = R2 (0., 0.),
         this (p1, computeControlPoint (p1, p2), p2, true)
     } // constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Construct a quad curve where bend indicates the distance to the control
      * point.
      * @param p1    the starting point
@@ -64,7 +68,8 @@ case class QCurve (var p1:       R2      = R2 (0., 0.),
         this (p1, computeControlPoint (p1, p2, bend), p2, false) 
     } // constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Construct a quad curve using an explicitly given control point.
      * @param p1  the starting point
      * @param pc  the control point
@@ -75,7 +80,8 @@ case class QCurve (var p1:       R2      = R2 (0., 0.),
         this (p1, pc, p2, false) 
     } // constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the x-coordinate of the center of the line/curve.
      */
     def getCenterX (): Double =
@@ -84,7 +90,8 @@ case class QCurve (var p1:       R2      = R2 (0., 0.),
         else           (p1.x + p2.x) / 2.
     } // getCenterX
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the y-coordinate of the center of the line/curve.
      */
     def getCenterY (): Double =
@@ -93,7 +100,8 @@ case class QCurve (var p1:       R2      = R2 (0., 0.),
         else           (p1.y + p2.y) / 2.
     } // getCenterY
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Set (or reset) the location for the QCurve as a line.
      * @param _p1  the starting point
      * @param _p2  the ending point
@@ -105,7 +113,8 @@ case class QCurve (var p1:       R2      = R2 (0., 0.),
         super.setCurve (p1, pc, p2)
     } // setLine
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Set (or reset) the location for the QCurve as a curve using bend
      * to compute the control point.
      * @param _p1   the starting point
@@ -120,7 +129,8 @@ case class QCurve (var p1:       R2      = R2 (0., 0.),
         super.setCurve (p1, pc, p2)
     } // setLine
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Set (or reset) the location for the QCurve as a curve using an
      * explicitly given control point.
      * @param _p1  the starting point
@@ -134,12 +144,14 @@ case class QCurve (var p1:       R2      = R2 (0., 0.),
         super.setCurve (p1, pc, p2)
     } // setLine
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the first/start point of the quad curve.
      */
     def getFirst: R2 = p1
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the first/start point of the quad curve, adjusted from top-left to
      * center coordinates.
      * @param width   the width of object traversing the curve
@@ -150,17 +162,20 @@ case class QCurve (var p1:       R2      = R2 (0., 0.),
         R2 (p1.x + width / 2., p1.y + height / 2.)
     } // getFirst
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the control point of the quad curve.
      */
     def getControl: R2 = pc
  
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the last/end point of the quad curve.
      */  
     def getLast: R2 = p2
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the last/end point of the quad curve, adjusted from top-left to
      * center coordinates.
      * @param width   the width of object traversing the curve
@@ -171,7 +186,8 @@ case class QCurve (var p1:       R2      = R2 (0., 0.),
         R2 (p2.x + width / 2., p2.y + height / 2.)
     } // getLast
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Are (x, y) and (xe, ye) essentially the same?
      */
     def isSame (x: Double, y: Double, xe: Double, ye: Double, step: Double): Boolean =
@@ -179,7 +195,8 @@ case class QCurve (var p1:       R2      = R2 (0., 0.),
         (xe - x) * (xe - x) + (ye - y) * (ye -y) < step * step
     } // isSame
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Given a value for the trajectory parameter t (in [0., 1.]) calculate
      * the point on the curve using the Quadratic Bezier equation.
      * See http://en.wikipedia.org/wiki/Bézier_curve#Quadratic_curves
@@ -190,7 +207,8 @@ case class QCurve (var p1:       R2      = R2 (0., 0.),
            pow (1.-t, 2) * p1.y + 2. * (1.-t) * t * pc.y + pow (t, 2) * p2.y)
     } // eval
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Return the next point on the quad curve (one step beyond current point).
      * Return null if t > 1. (i.e., past end point).
      */
@@ -207,7 +225,8 @@ case class QCurve (var p1:       R2      = R2 (0., 0.),
         q
     } // next
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Return the next point on the quad curve (one step beyond current point)
      * and adjust from top-left to center coordinates for the object traversing
      * the curve based on its width and height.
@@ -221,7 +240,8 @@ case class QCurve (var p1:       R2      = R2 (0., 0.),
         if (q != null) R2 (q.x - width / 2., q.y - height / 2.) else null
     } // next
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Set the number of steps for tokens to take as move along the quad curve.
      * @param steps  the number of steps to take along the quad curve
      */
@@ -230,7 +250,8 @@ case class QCurve (var p1:       R2      = R2 (0., 0.),
         steps = _steps
     } // setSteps
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Show the start, control and end point of the the QCurve.
      */
     override def toString: String =
@@ -240,7 +261,8 @@ case class QCurve (var p1:       R2      = R2 (0., 0.),
 
 } // QCurve class
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This object provides formulas used by the QCurve class.
  */
 object QCurveCalc
@@ -249,7 +271,8 @@ object QCurveCalc
      */
     val EPSILON = 0.000001
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute the slope of the line defined by points p1 and p2.
      * Note: if deltaX is 0, the method returns infinity.
      * @param p1  the starting point
@@ -260,7 +283,8 @@ object QCurveCalc
         (p2.y - p1.y) / (p2.x - p1.x)
     } // slope
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute the distance or the length of the line connecting points p1
      * and p2.
      * @param p1  the starting point
@@ -271,7 +295,8 @@ object QCurveCalc
         sqrt (pow (p2.x - p1.x, 2) + pow (p2.y - p1.y, 2))
     } // slope
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute the location (x, y) of the control point.  It is positioned
      * orthongonally to the mid point of the line connecting p1 and p2 at a
      * distance dist, where dist = bend * || p2 - p1 ||.  A bend of 0. gives
@@ -298,7 +323,8 @@ object QCurveCalc
 
 } // QCurveCalc object
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * The QCurveTest object tests QCurve's (quad curves).
  */
 object QCurveTest extends Application
@@ -351,7 +377,8 @@ object QCurveTest extends Application
 
 } // QCurveTest object
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * The QCurveTest2 object tests traversals of QCurve's (quad curves).
  */
 object QCurveTest2 extends Application

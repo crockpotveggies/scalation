@@ -1,5 +1,6 @@
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * @version 1.0
  * @date    Mon Nov 2 15:05:06 EDT 2009
@@ -18,7 +19,8 @@ import scalation.scala2d._
 import scalation.scala2d.Colors._
 import scalation.scala2d.Shapes._
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * The Histogram class takes a vector of values, counts the number of values
  * in each of several intervals and displays the counts vertically in a
  * histogram.
@@ -45,7 +47,8 @@ class Histogram (value: VectorD, numIntervals: Int, _title: String = "Histogram"
     private val bar           = Rectangle ()
     private val axis          = Line ()
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Create a canvas on which to draw the histogram.
      */
     val canvas = new Panel
@@ -53,7 +56,8 @@ class Histogram (value: VectorD, numIntervals: Int, _title: String = "Histogram"
         background    = white
         preferredSize = frameSize
 
-        /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+        /**
          * Paint the canvas by drawing the rectangles (vertical bars) making up
          * the histogram.
          * @param g2d  the high resolution 2D graphics context 
@@ -110,7 +114,8 @@ class Histogram (value: VectorD, numIntervals: Int, _title: String = "Histogram"
         visible  = true
     } // primary constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Convert value to string and cut out the first four characters.
      * @param x  the value to convert and cut
      */
@@ -120,7 +125,8 @@ class Histogram (value: VectorD, numIntervals: Int, _title: String = "Histogram"
         s.substring (0, min (s.length, 4))
     } // clip
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute the counts for each interval in the histogram.
      */
     def computeHistogram (): VectorN [Double] =
@@ -133,7 +139,8 @@ class Histogram (value: VectorD, numIntervals: Int, _title: String = "Histogram"
         h
     } // computeHistogram
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute coordinates (x, y, w, h) for each of bars used to draw the histogram.
      */
     def computeCoordinates (): MatrixN [Double] =
@@ -152,14 +159,16 @@ class Histogram (value: VectorD, numIntervals: Int, _title: String = "Histogram"
         c
     } // computeCoordinates
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Convert a Histogram to a string.
      */
     override def toString = histogram.toString
 
 } // Histogram class
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This object is used to test the Histogram class.
  */
 object HistogramTest extends Application

@@ -1,5 +1,6 @@
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * @version 1.0
  * @date    Wed Aug 26 18:41:26 EDT 2009
@@ -12,12 +13,14 @@ import scala.math._
 import scalation.advmath.Matrices._
 import scalation.advmath.Vectors._
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * The Regression object supports multiple linear regression.
  */
 object Regression
 {
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Evaluate the formula y = x * b.
      * @param x the design matrix augmented with a first column of ones.
      * @param b the parameter vector
@@ -27,7 +30,8 @@ object Regression
         x * b
     } // eval
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Fit the parameter vector (b-vector) in the regression equation y = x * b + e
      * using the least squares method.
      * @param x the design matrix augmented with a first column of ones.
@@ -46,7 +50,8 @@ object Regression
 } // Regression object
 
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * Object to test Regression object (y = x * b = b0 + b1*x1 + b2*x2).
  */
 object RegressionTest extends Application
@@ -69,7 +74,8 @@ object RegressionTest extends Application
 
 } // RegressionTest object
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * Object to test Regression object (y = x * b = b0 + b1*x1 + b2*x2).
  */
 object RegressionTest2 extends Application

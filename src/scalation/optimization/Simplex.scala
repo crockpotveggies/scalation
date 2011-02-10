@@ -1,5 +1,6 @@
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * Translated from Java code in Algorithms, 4th Edition, Robert Sedgewick and Kevin Wayne
  * @version 1.0
@@ -15,7 +16,8 @@ import scalation.advmath._
 import scalation.advmath.Matrices._
 import scalation.advmath.Vectors._
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class solves Linear Programming (LP) problems using the Simplex Algorithm.
  * Given an constraint matrix a, constant vector b and cost vector c, find values
  * for the solution/decision vector x that maximize the objective function z,
@@ -65,7 +67,8 @@ class Simplex (a: MatrixD, b: VectorD, c: VectorD)
     private val basis = new VectorI (M, null)
     for (i <- 0 until M) basis(i) = N + i     // start with the slack variables in the basis
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Run the simplex algorithm starting from the initial BFS and iteratively
      * find a non-basic variable to replace a variable in the current basis
      * so long as the objective improves.
@@ -91,7 +94,8 @@ class Simplex (a: MatrixD, b: VectorD, c: VectorD)
         } // while
     } // solve
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Find the leaving variable (row) p using Min-ratio rule (-1 if no such row).
      * @param q  the entering variable (column)
      */
@@ -105,7 +109,8 @@ class Simplex (a: MatrixD, b: VectorD, c: VectorD)
         p
     } // minRatioRule
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Pivot on entry (p, q) using Gauss-Jordan elimination.
      * @param p  the leaving variable (row)
      * @param q  the entering variable (column)
@@ -124,12 +129,14 @@ class Simplex (a: MatrixD, b: VectorD, c: VectorD)
         t(p, q) = 1.0
     } // pivot
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Return the tableau (t).
      */
     def tableau: MatrixD = t
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Return the primal solution vector (x).
      */
     def primal: VectorD =
@@ -139,7 +146,8 @@ class Simplex (a: MatrixD, b: VectorD, c: VectorD)
         x
     } // primal
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Return the dual solution vector (y).
      */
     def dual: VectorD =
@@ -149,17 +157,20 @@ class Simplex (a: MatrixD, b: VectorD, c: VectorD)
         y
     } // dual
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Return the optimal objective value (z).
      */
     def value: Double = -t(M, M + N)
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Check for feasibility and optimality.
      */
     def check: Boolean = isPrimalFeasible && isDualFeasible && isOptimal
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Is the solution primal feasible?
      */
     private def isPrimalFeasible: Boolean =
@@ -178,7 +189,8 @@ class Simplex (a: MatrixD, b: VectorD, c: VectorD)
        return false
     } // isPrimalFeasible
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Is the solution dual feasible?
      */
     private def isDualFeasible: Boolean =
@@ -197,7 +209,8 @@ class Simplex (a: MatrixD, b: VectorD, c: VectorD)
        false
     } // isDualFeasible
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Check that the optimal value z = c x = y b.
      */
     private def isOptimal: Boolean =
@@ -220,12 +233,14 @@ class Simplex (a: MatrixD, b: VectorD, c: VectorD)
 } // Simplex class
 
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This object is used to test the Simplex class.
  */
 object SimplexTest extends Application
 {
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Test the Simplex Algorithm for solving Linear Programs:
      * max { c x | a x <= b, x >= 0 }.
      * @param a the constraint matrix
@@ -243,7 +258,8 @@ object SimplexTest extends Application
         println ("objective value z = " + lp.value)
     } // test
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Test case 1: solution x = (9, 9, 4), z = 22.
      */
     def test1 ()
@@ -258,7 +274,8 @@ object SimplexTest extends Application
         test (a, b, c)
     } // test1
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Test case 2: solution x = (12, 28), z = 800.
      */
     def test2 ()
@@ -271,7 +288,8 @@ object SimplexTest extends Application
         test (a, b, c)
     } // test2
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Test case 3: solution x = (1, 0, 1, 0), z = 1.
      * Cycles if you choose most positive objective function coefficient.
      */
@@ -285,7 +303,8 @@ object SimplexTest extends Application
         test (a, b, c)
     } // test3
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Test case 4: no solution LP is unbounded.
      */
     def test4 ()

@@ -1,5 +1,6 @@
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * @version 1.0
  * @date    Wed Sep 30 18:41:26 EDT 2009
@@ -11,7 +12,8 @@ package scalation.advmath
 import scala.math._
 import scalation.util.Error
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class generates random real numbers in the range (0, 1).
  * It is a Multiplicative Linear Congruential Generator (MLCG) shown to have
  * statictical properties adequate for simple simulations (x = ax & m).
@@ -78,22 +80,26 @@ case class Random (stream: Int = 0)
      */
     private val one_by_m: Double = 1. / m.asInstanceOf [Double]
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Return the mean for the random number generator's gen method.
      */
     def mean: Double = 0.5
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Return the next random number as a Double in the interval (0, 1).
      */
     def gen: Double = { x = a * x % m; x * one_by_m }
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Return the next stream value as a Long in the set {1, 2, ... , m-1}.
      */
     def lgen: Long = { x = a * x % m; x }
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Find and print out 100 (nStreams) seed values as a val declaration that
      * can be copied into a class to intialize the seeds (as done above).
      */
@@ -117,7 +123,8 @@ case class Random (stream: Int = 0)
 
 } // Random class
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class generates random real numbers in the range (0, 1).
  * It uses scala's built-in random number generator.
  * @param stream  the random number stream index
@@ -130,7 +137,8 @@ case class Random (stream: Int = 0)
 } // Random class
  */
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * The Random Number Generator (RNG) object provides multiple pre-built
  * random number streams.
  */
@@ -162,7 +170,8 @@ object RNG
 
 } // RNG object
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * The SeedFinder object find seeds for all the random number streams.
  */
 object SeedFinder extends Application

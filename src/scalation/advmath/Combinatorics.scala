@@ -1,5 +1,6 @@
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * @version 1.0
  * @date    Wed Sep 30 18:41:26 EDT 2009
@@ -11,7 +12,8 @@ package scalation.advmath
 import scala.math._
 import scalation.util.Error
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This trait provides several common combinatorics functions.
  */
 trait Combinatorics extends Error
@@ -24,7 +26,8 @@ trait Combinatorics extends Error
      */
     val EPSILON = 1E-9
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Return true if x == y approximately.
      * @param x  the first value to compare
      * @param y  the second value to compare
@@ -34,7 +37,8 @@ trait Combinatorics extends Error
         abs (x - y) < EPSILON
     } // approx
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute k! (k factorial).
      * @param k  the argument to the factorial function
      */
@@ -45,7 +49,8 @@ trait Combinatorics extends Error
         prod
     } // fac
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute permuations of k items selected from n total items.
      * @param n  the total number of items
      * @param k  the of items selected
@@ -57,17 +62,20 @@ trait Combinatorics extends Error
         prod
     } // perm
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute n choose k (combinations).
      * @param n  the total number of items
      * @param k  the of items to choose
      */
     def choose (n: Long, k: Long): Long =
     {
-        perm (n, k) / fac (k)
+        if (n == 1) 1 else choose (n-1, k-1) + choose (n-1, k)
+    	//perm (n, k) / fac (k)
     } // choose
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute the gamma function for the following two cases:
      * (1) when k is an integer and (2) when k is an integer + 1/2.
      * @param k  the argument to the gamma function
@@ -89,7 +97,8 @@ trait Combinatorics extends Error
         prod
     } // gammaF
 
-    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute the beta function for the following two cases:
      * (1) when k1, k2 are integers and (2) when k1, k2 are integers + 1/2.
      * @param k1  the first argument to the beta function
@@ -102,7 +111,8 @@ trait Combinatorics extends Error
 
 } // Combinatorics trait
 
-/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This objects test the methods in the Combinatorics trait.
  */
 object CombinatoricsTest extends Application with Combinatorics

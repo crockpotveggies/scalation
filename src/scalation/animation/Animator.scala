@@ -1,5 +1,6 @@
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * @version 1.0
  * @date    Mon Sep 14 14:15:51 EDT 2009
@@ -17,7 +18,8 @@ import scalation.scala2d.Colors._
 import scalation.scala2d.Shapes._
 import scalation.util.Error
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class implements the commands to create, destroy, move and scale
  * components (nodes, edges or tokens) in an animated graph.
  * @param graph  the directed graph to be animated
@@ -44,12 +46,14 @@ class Animator (graph: Dgraph) extends Transform with Error
      */
     private var numLost = 0
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the time dilation factor.
      */
     def timeDilationFactor = _timeDilationFactor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Create a node at the given location.
      * @param eid      the external id for the node
      * @param shape    the shape of the node
@@ -75,7 +79,8 @@ class Animator (graph: Dgraph) extends Transform with Error
         nodeMap.put (eid, node)
     } // createNode
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Create an edge at the given location.
      * @param eid       the external id for the edge
      * @param shape     the shape (curve) of the edge
@@ -126,7 +131,8 @@ class Animator (graph: Dgraph) extends Transform with Error
         edgeMap.put (eid, edge)  // keep track of the edge in the edge map
     } // createEdge
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Create a token at the given location.
      * @param eid      the external id for the token
      * @param shape    the shape of the token
@@ -185,7 +191,8 @@ class Animator (graph: Dgraph) extends Transform with Error
         tokenMap.put (eid, token)
     } // createToken
         
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Destroy the node with the given id.
      * @param eid  the node's external id
      */        
@@ -202,7 +209,8 @@ class Animator (graph: Dgraph) extends Transform with Error
         nodeMap.remove (eid)
     } // destroyNode
         
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Destroy the edge with the given id.
      * @param eid  the edges's external id
      */        
@@ -219,7 +227,8 @@ class Animator (graph: Dgraph) extends Transform with Error
         edgeMap.remove (eid)
     } // destroyEdge
  
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Destroy the token with the given id.
      * @param eid  the token's external id
      */        
@@ -247,7 +256,8 @@ class Animator (graph: Dgraph) extends Transform with Error
         tokenMap.remove (eid)
     } // destroyToken
  
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Move the node to a new (x, y) location.
      * Edges cannot be moved directly, but must adjust to node movements.
      * @param eid  the external id of the node to move
@@ -265,7 +275,8 @@ class Animator (graph: Dgraph) extends Transform with Error
         } // if
     } // moveNode
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Move the token to a new (x, y) location.
      * @param eid  the external id of the token to move
      * @param pts  the new x, y -coordinates
@@ -283,7 +294,8 @@ class Animator (graph: Dgraph) extends Transform with Error
         } // if
     } // moveToken
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Move the token onto the new node.
      * @param eid       the external id of the token to move
      * @param node_eid  the external id of the node to move onto
@@ -294,7 +306,8 @@ class Animator (graph: Dgraph) extends Transform with Error
         moveGivenToken2Node (token, node_eid)
     } // moveToken2Node
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Move the given token onto the new node.
      * @param token     the token to move
      * @param node_eid  the external id of the node to move onto
@@ -334,7 +347,8 @@ class Animator (graph: Dgraph) extends Transform with Error
         } // if
     } // moveGivenToken2Node
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Move 'number' tokens of color 'color' from node 'from_eid' to node 'to_eid'.
      * @param color     the color of the tokens to move
      * @param from_eid  the external id of the node tokens are to be taken from
@@ -372,7 +386,8 @@ class Animator (graph: Dgraph) extends Transform with Error
         } // if
     } // moveTokens2Node
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Adjust the locations of all tokens on a node.
      * @param tokens  the tokens to adjust
      * @param xcN     the x-center of containing node
@@ -396,7 +411,8 @@ class Animator (graph: Dgraph) extends Transform with Error
         } // for
     } // adjustTokenLocations
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Move the token along the curve for an edge and return false if at end of
      * curve.
      * @param eid       the external id for the token to move
@@ -424,7 +440,8 @@ class Animator (graph: Dgraph) extends Transform with Error
         return false                                // exhausted the curve
     } // moveToken2Edge
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Scale the node, i.e., make it larger or smaller. 
      * Edges cannot be scaled directly, but must adjust to node scalings.
      * @param eid  the external id of the node to scale
@@ -442,7 +459,8 @@ class Animator (graph: Dgraph) extends Transform with Error
         } // if
     } // scaleNode
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Scale the token, i.e., make it larger or smaller. 
      * @param eid  the external id of the token to scale
      * @param pts  the new width, height dimensions
@@ -458,7 +476,8 @@ class Animator (graph: Dgraph) extends Transform with Error
         } // if
     } // scaleToken
         
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Move 'amount' tokens/fluids of color 'color' from node 'from_eid' to node
      * 'to_eid' by increasing the size of tokens at 'to_eid' while decreasing
      * the size at 'from_eid'.
@@ -485,7 +504,8 @@ class Animator (graph: Dgraph) extends Transform with Error
         } // if
     } // scaleTokensAt
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * For a given node, look for tokens/fluids by color to increase/decrease
      * the fluids by the change amount.
      * @param tokens  the list of tokens/fluids to search
@@ -519,7 +539,8 @@ class Animator (graph: Dgraph) extends Transform with Error
         } // if
     } // scaleGivenToken
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Set the paint color for the node.
      * @param eid    the external id for node to paint
      * @param color  the new color for the node
@@ -535,7 +556,8 @@ class Animator (graph: Dgraph) extends Transform with Error
         } // if
     } // setPaintNode
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Set the paint color for the edge.
      * @param eid    the external id for node to paint
      * @param color  the new color for the node
@@ -551,7 +573,8 @@ class Animator (graph: Dgraph) extends Transform with Error
         } // if
     } // setPaintEdge
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Set the paint color for the token.
      * @param eid    the external id for node to paint
      * @param color  the new color for the node
@@ -567,7 +590,8 @@ class Animator (graph: Dgraph) extends Transform with Error
         } // if
     } // setPaintToken
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Adjust the time dilation: >1 slows down animation, <1 speeds up animation.
      * @param pts  one dimesional array containing the new time dilation factor
      */
@@ -582,7 +606,8 @@ class Animator (graph: Dgraph) extends Transform with Error
 
 } // Animator class
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This object is used to provide unique identifiers for internally created
  * tokens/fluids.
  */

@@ -1,4 +1,5 @@
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  Robert Davis, John Miller
  * @version 1.0
  * @date    Thu Sep 16 22:17:43 EDT 2010
@@ -12,7 +13,8 @@ import scala.math.abs
 import scalation.advmath.Vectors._
 import scalation.util.Error
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * The SymmetricTridiagonalMatrixN class stores and operates on symmetric 
  * tridiagonal matrices.  The element may be of any subtype of Numeric.
  * It is stored as two vectors, the diagonal and the sub-diagonal. 
@@ -41,7 +43,8 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
      */
     private var _sd: VectorN [T] = new VectorN [T] (d1_1)
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Construct a symmetric tridiagonal matrix with the given diagonal and sub-diagonal.
      * @param v1  the diagonal vector
      * @param v2  the sub-diagonal vector
@@ -53,7 +56,8 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
         for (i <- range_s) _sd(i) = v2(i)
     } // constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Construct a symmetric tridiagonal matrix from the given matrix.
      * @param a  the matrix of values to assign
      */
@@ -64,29 +68,34 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
         for (i <- range_s) _sd(i) = a(i, i + 1)
     } // constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the diagonal of the matrix.
      */
     def dg: VectorN [T] = _dg
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Set the diagonal of the matrix.
      * @param v  the vector to assign to the diagonal
      */
     def dg_ (v: VectorN [T]) { _dg = v }
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the sub-diagonal of the matrix.
      */
     def sd: VectorN [T] = _sd
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Set the sub-diagonal of the matrix.
      * @param v  the vector to assign to the sub-diagonal
      */
     def sd_ (v: VectorN [T]) { _sd = v }
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get this matrix's element at the i,j-th index position.
      * @param i  the row index
      * @param j  the column index
@@ -99,7 +108,8 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
         else throw new Exception ("apply: element not on tridiagonal")
     } // apply
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get this matrix's vector at the i-th index position (i-th row).
      * @param i  the row index
      */
@@ -112,7 +122,8 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
         v
     } // apply
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Set this matrix's element at the i,j-th index position to the scalar x.
      * Only store x if it is non-zero.
      * @param i  the row index
@@ -127,7 +138,8 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
         else flaw ("update", "element not on tridiagonal")
     } // update
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Set this matrix's row at the i-th index position to the vector u.
      * @param i  the row index
      * @param u  the vector value to assign
@@ -139,13 +151,15 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
         if (i < d1_1) _sd(i)     = u(i + 1)
     } // update
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Transpose this matrix (rows => columns).  Note, since the matrix is
      * symmetric, it returns itself.
      */
     def t: SymmetricTridMatrixN [T] = this
 
-   /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+   /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+   /**
      * Add this matrix and matrix b.
      * @param b  the matrix to add (requires sameCrossDimensions)
      */
@@ -160,7 +174,8 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
         } // if
     } // +
 
-   /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+   /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+   /**
      * Add inplace this matrix and matrix b.
      * @param b  the matrix to add (requires sameCrossDimensions)
      */
@@ -175,7 +190,8 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
         } // if
     } // +=
 
-   /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+   /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+   /**
      * Add this matrix and scalar s.
      * @param s  the scalar to add
      */
@@ -184,7 +200,8 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
         new SymmetricTridMatrixN [T] (_dg + s, _sd + s)
     } // +
 
-   /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+   /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+   /**
      * Add inplace this matrix and scalar s.
      * @param s  the scalar to add
      */
@@ -193,7 +210,8 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
         _dg += s; _sd += s
     } // +=
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * From this matrix substract matrix b.
      * @param b  the matrix to subtract (requires sameCrossDimensions)
      */
@@ -208,7 +226,8 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
         null
     } // -
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * From this matrix substract inplace matrix b.
      * @param b  the matrix to subtract (requires sameCrossDimensions)
      */
@@ -223,7 +242,8 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
         } // if
     } // -=
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * From this matrix subtract scalar s.
      * @param s  the scalar to subtract
      */
@@ -232,7 +252,8 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
         new SymmetricTridMatrixN [T] (_dg - s, _sd - s)
     } // -
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * From this matrix subtract inplace scalar s.
      * @param s  the scalar to subtract
      */
@@ -241,7 +262,8 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
         _dg -= s; _sd-=s
     } // -=
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Multiply this matrix by vector b.
      * @param b  the vector to multiply by
      */
@@ -259,7 +281,8 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
         c
     } // *
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Multiply this matrix by scalar s.
      * @param s  the scalar to multiply by
      */
@@ -268,7 +291,8 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
         new SymmetricTridMatrixN [T] (_dg * s, _sd * s)
     } // *
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Multiply inplace this matrix by scalar s.
      * @param s  the scalar to multiply by
      */
@@ -277,13 +301,15 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
         _dg *= s; _sd *= s
     } // *=
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Check whether this matrix is rectangular (all rows have the same number
      * of columns).
      */
     def isRectangular: Boolean = true
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute the determinant of this matrix.
      */
     def det (implicit nu: Numeric [T]): T = 
@@ -291,7 +317,8 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
         detHelper (d1 - 1)
     } // det
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Solve for x in the equation a*x = d where a is this matrix
      * @param d  the constant vector.
      */
@@ -316,7 +343,8 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
         x
     } // solve
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Convert this symmetric tridiagonal matrix to a string.
      */
     override def toString: String = 
@@ -324,7 +352,8 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
         "\nSymmetricTridMatrixN(\t" + _dg + ", \n\t\t\t" + _sd + ")"
     } // toString
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Helper method for computing the determinant of this matrix.
      * @param n  the current dimension
      */
@@ -428,7 +457,8 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
 
 } // SymmetricTridMatrixN class
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This object is used to test the SymmetricTridMatrixN class.
  */
 object SymmetricTridMatrixNTest extends Application

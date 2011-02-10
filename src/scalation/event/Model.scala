@@ -1,5 +1,6 @@
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller
  * @version 1.0
  * @date    Sun Nov 15 15:05:06 EDT 2009
@@ -16,7 +17,8 @@ import scalation.scala2d.Colors._
 import scalation.scala2d.Shapes._
 import scalation.util.{Identity, Monitor, PQItem, PQueue}
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class schedules events and implements the time advance mechanism for
  * simulation model following the event-scheduling world view.
  */
@@ -48,7 +50,8 @@ class Model (name: String)
      */
     private val aniQ = dgAni.getCommandQueue
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Place an event on the Future Event List (FEL) for later execution, thus
      * scheduling the event to occur sometime in the future.  Events are ordered
      * by their event/act time.
@@ -63,7 +66,8 @@ class Model (name: String)
                "ev" + event.id, false, black, null, _clock, event.proto.id)
     } // schedule
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Remove an event from the Future Event List (FEL) before it occurs, thus
      * cancelling the event.
      * @param event  the event to cancel
@@ -73,7 +77,8 @@ class Model (name: String)
         if (! (eventList -= event)) flaw ("cancel", "unable to cancel event " + event)
     } // cancel
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Run the simulation by iteratively processing events in time order.
      * @param startTime   the time at which the simulation is to begin
      * @param firstEvent  the first event is used to prime the simulation
@@ -99,7 +104,8 @@ class Model (name: String)
 
     } // simulate
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Report on the statistical results of the simulation for a given type of
      * event.
      * @param eventType  the type of event (e.g., Arrival, Departure)
@@ -119,7 +125,8 @@ class Model (name: String)
         } // if
     } // report
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Report on the statistical results of the simulation for the overall model.
      * @param vars       the result/output variables for the simulation
      */
@@ -131,7 +138,8 @@ class Model (name: String)
         } // for
     } // report
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Put a node/token command on the animation queue.
      * @param who    who is being animated
      * @param what   what animation command
@@ -150,7 +158,8 @@ class Model (name: String)
         } // if
     } // animate
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Put a edge command on the animation queue.
      * @param who    who is being animated
      * @param what   what animation command
@@ -174,14 +183,16 @@ class Model (name: String)
 
 } // Model class
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This object is used to test the Model class.
  */
 object ModelTest extends Application
 {
     new SimpleModel ("phone", Uniform (5000, 7000), 100, Uniform (4000, 6000))
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * This class models a simple phone simulation.
      * @param name         the name of the simulation model
      * @param arrivalDist  the inter-arrival time distribution     
@@ -212,7 +223,8 @@ object ModelTest extends Application
 
         protoArrival.displayLinks (aLinks)
 
-        /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+        /**
          * Create a subclass of Event for Arrival events.
          * @param call  the entity that arrives, in this case a phone call
          */
@@ -229,7 +241,8 @@ object ModelTest extends Application
 
         } // Arrival class
 
-        /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+        /**
          * Create a subclass of Event for Departure events.
          * @param call  the entity that departs, in this case a phone call
          */
