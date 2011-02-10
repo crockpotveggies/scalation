@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>scalation.event</title>
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../lib/template.css" rel="stylesheet" type="text/css" media="screen" />
+      <script type="text/javascript" src="../../lib/jquery.js"></script>
+      <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
+    
+        </head>
+        <body class="value" onload="windowTitle();">
+
+      <p id="owner"><a href="../package.html" class="extype" name="scalation">scalation</a></p>
+
+      <div id="definition">
+        <img src="../../lib/package_big.png" />
+        <h1>event</h1>
+      </div>
+
+      <h4 class="signature" id="signature">
+      <span class="kind">package</span>
+      <span class="symbol">
+        <span class="name">event</span>
+        
+        
+        
+      </span>
+      </h4>
+      <div class="fullcomment" id="comment"></div>
+
+      <div id="template">
+
+        <div id="mbrsel">
+          <div id="textfilter"><span class="pre"></span><span class="input"><input accesskey="/" type="text" /></span><span class="post"></span></div>
+          
+          
+          <div id="visbl">
+              <span class="filtertype">Visibility</span>
+              <ol><li class="public in">Public</li><li class="all out">All</li></ol>
+            </div>
+          <div id="impl">
+              <span class="filtertype">Impl.</span>
+              <ol><li class="concrete in">Concrete</li><li class="abstract in">Abstract</li></ol>
+            </div>
+        </div>
+
+        
+
+        <div class="types members" id="types">
+              <h3>Type Members</h3>
+              <ol><li visbl="pub" data-isabs="false" name="scalation.event.CausalLink">
+      <a id="CausalLink:CausalLink"></a>
+      <h4 class="signature"><a href="CausalLink.html">
+      <span class="kind">case class</span>
+      <span class="symbol">
+        <span class="name">CausalLink</span>
+        
+        <span class="params">(<span name="_name">_name: String</span>, <span name="director">director: Model</span>, <span name="condition">condition: () ⇒ Boolean</span>, <span name="causedEvent">causedEvent: Event</span>, <span name="makeEvent">makeEvent: () ⇒ Event</span>, <span name="delay">delay: Variate</span>, <span name="cancel">cancel: Boolean</span>)</span>
+        <span class="result"> extends Identity with Product</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">This class provides casual links between events.</p>
+    </li><li visbl="pub" data-isabs="false" name="scalation.event.Entity">
+      <a id="Entity:Entity"></a>
+      <h4 class="signature"><a href="Entity.html">
+      <span class="kind">class</span>
+      <span class="symbol">
+        <span class="name">Entity</span>
+        
+        
+        <span class="result"> extends Identity</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">This class represents a single simulation entity for event-scheduling
+simulation.</p>
+    </li><li visbl="pub" data-isabs="true" name="scalation.event.Event">
+      <a id="Event:Event"></a>
+      <h4 class="signature"><a href="Event.html">
+      <span class="kind">class</span>
+      <span class="symbol">
+        <span class="name">Event</span>
+        
+        
+        <span class="result"> extends PQItem</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">This class provides facilities for defining simulation events.</p>
+    </li><li visbl="pub" data-isabs="false" name="scalation.event.Model">
+      <a id="Model:Model"></a>
+      <h4 class="signature"><a href="Model.html">
+      <span class="kind">class</span>
+      <span class="symbol">
+        <span class="name">Model</span>
+        
+        
+        <span class="result"> extends Monitor with Identity</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">This class schedules events and implements the time advance mechanism for
+simulation model following the event-scheduling world view.</p>
+    </li></ol>
+            </div>
+
+        <div class="values members" id="values">
+              <h3>Value Members</h3>
+              <ol><li visbl="pub" data-isabs="false" name="scalation.event.ModelTest">
+      <a id="ModelTest:ModelTest"></a>
+      <h4 class="signature"><a href="ModelTest$.html">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">ModelTest</span>
+        
+        
+        <span class="result"> extends Application</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">This object is used to test the Model class.</p>
+    </li></ol>
+            </div>
+
+        
+
+      </div>
+      
+      <div id="tooltip"></div>
+      
+    </body>
+      </html>

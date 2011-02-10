@@ -1,0 +1,2210 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>scalation.advmath.SymmetricTridMatrixN</title>
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../lib/template.css" rel="stylesheet" type="text/css" media="screen" />
+      <script type="text/javascript" src="../../lib/jquery.js"></script>
+      <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
+    
+        </head>
+        <body class="type" onload="windowTitle();">
+
+      <p id="owner"><a href="../package.html" class="extype" name="scalation">scalation</a>.<a href="package.html" class="extype" name="scalation.advmath">advmath</a></p>
+
+      <div id="definition">
+        <img src="../../lib/class_big.png" />
+        <h1>SymmetricTridMatrixN</h1>
+      </div>
+
+      <h4 class="signature" id="signature">
+      <span class="kind">case class</span>
+      <span class="symbol">
+        <span class="name">SymmetricTridMatrixN</span>
+        <span class="tparams">[<span name="T">T</span>]</span>
+        <span class="params">(<span name="d1">d1: <span class="extype" name="scala.Int">Int</span></span>, <span name="evidence$1">evidence$1: (T) ⇒ Ordered[T]</span>, <span name="evidence$2">evidence$2: ClassManifest[T]</span>)</span>
+        <span class="result"> extends <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>[T] with <a href="../util/Error.html" class="extype" name="scalation.util.Error">Error</a> with <span class="extype" name="scala.Product">Product</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment" id="comment"><div class="comment cmt"><p>The SymmetricTridiagonalMatrixN class stores and operates on symmetric
+tridiagonal matrices.  The element may be of any subtype of Numeric.
+It is stored as two vectors, the diagonal and the sub-diagonal.</p></div><dl class="paramcmts block"><dt class="param">d1</dt><dd class="cmt"><p>the first/row dimension (symmetric =&gt; d2 = d1)
+</p></dd></dl><div class="block">
+            go to: <a href="SymmetricTridMatrixN$.html">companion</a>
+          </div><div class="block">
+            linear super types: <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>[T], <a href="../util/Error.html" class="extype" name="scalation.util.Error">Error</a>, AnyRef, <span class="extype" name="scala.Any">Any</span>
+          </div>
+            
+            
+            
+          </div>
+
+      <div id="template">
+
+        <div id="mbrsel">
+          <div id="textfilter"><span class="pre"></span><span class="input"><input accesskey="/" type="text" /></span><span class="post"></span></div>
+          <div id="order">
+                <span class="filtertype">Ordering</span>
+                <ol><li class="alpha in">Alphabetic</li><li class="inherit out">By inheritance</li></ol>
+              </div>
+          <div id="ancestors">
+                <span class="filtertype">Inherited</span>
+                <ol><li class="hideall">Hide All</li><li class="showall">Show all</li></ol>
+                <ol id="linearization"><li class="in" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</li><li class="in" name="scala.Product">Product</li><li class="in" name="scala.Equals">Equals</li><li class="in" name="scalation.advmath.Matrix">Matrix</li><li class="in" name="scalation.util.Error">Error</li><li class="in" name="scala.AnyRef">AnyRef</li><li class="in" name="scala.Any">Any</li></ol>
+              </div>
+          <div id="visbl">
+              <span class="filtertype">Visibility</span>
+              <ol><li class="public in">Public</li><li class="all out">All</li></ol>
+            </div>
+          <div id="impl">
+              <span class="filtertype">Impl.</span>
+              <ol><li class="concrete in">Concrete</li><li class="abstract in">Abstract</li></ol>
+            </div>
+        </div>
+
+        <div class="members" id="constructors">
+              <h3>Instance constructors</h3>
+              <ol><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#this">
+      <a id="this:SymmetricTridMatrixN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">new</span>
+      <span class="symbol">
+        <span class="name">SymmetricTridMatrixN</span>
+        
+        <span class="params">(<span name="a">a: <a href="MatrixN.html" class="extype" name="scalation.advmath.MatrixN">MatrixN</a>[T]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: (T) ⇒ Ordered[T]</span>, <span name="arg1">arg1: ClassManifest[T]</span>)</span>
+        
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Construct a symmetric tridiagonal matrix from the given matrix.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Construct a symmetric tridiagonal matrix from the given matrix.</p></div><dl class="paramcmts block"><dt class="param">a</dt><dd class="cmt"><p>the matrix of values to assign
+</p></dd></dl>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#this">
+      <a id="this:SymmetricTridMatrixN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">new</span>
+      <span class="symbol">
+        <span class="name">SymmetricTridMatrixN</span>
+        
+        <span class="params">(<span name="v1">v1: <a href="VectorN.html" class="extype" name="scalation.advmath.VectorN">VectorN</a>[T]</span>, <span name="v2">v2: <a href="VectorN.html" class="extype" name="scalation.advmath.VectorN">VectorN</a>[T]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: (T) ⇒ Ordered[T]</span>, <span name="arg1">arg1: ClassManifest[T]</span>)</span>
+        
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Construct a symmetric tridiagonal matrix with the given diagonal and sub-diagonal.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Construct a symmetric tridiagonal matrix with the given diagonal and sub-diagonal.</p></div><dl class="paramcmts block"><dt class="param">v1</dt><dd class="cmt"><p>the diagonal vector</p></dd><dt class="param">v2</dt><dd class="cmt"><p>the sub-diagonal vector
+</p></dd></dl>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#this">
+      <a id="this:SymmetricTridMatrixN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">new</span>
+      <span class="symbol">
+        <span class="name">SymmetricTridMatrixN</span>
+        
+        <span class="params">(<span name="d1">d1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: (T) ⇒ Ordered[T]</span>, <span name="arg1">arg1: ClassManifest[T]</span>)</span>
+        
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt"></p>
+            <div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">d1</dt><dd class="cmt"><p>the first/row dimension (symmetric =&gt; d2 = d1)
+</p></dd></dl>
+            
+            
+            
+          </div>
+          
+    </li></ol>
+            </div>
+
+        
+
+        <div class="values members" id="values">
+              <h3>Value Members</h3>
+              <ol><li visbl="pub" data-isabs="false" name="scala.AnyRef#!=">
+      <a id="!=(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">!=</span>
+        
+        <span class="params">(<span name="arg0">arg0: AnyRef</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: AnyRef
+        </div></div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.Any#!=">
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">!=</span>
+        
+        <span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span>
+        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt"><code>o != arg0</code> is the same as <code>!(o == (arg0))</code>.</p>
+            <div class="fullcomment"><div class="comment cmt"><p><code>o != arg0</code> is the same as <code>!(o == (arg0))</code>.
+</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for dis-equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>false</code> if the receiver object is equivalent to the argument; <code>true</code> otherwise.</p></dd></dl><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: Any
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef###">
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">##</span>
+        
+        <span class="params">()</span>
+        <span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: AnyRef → Any
+        </div></div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#$asInstanceOf">
+      <a id="$asInstanceOf[T0]():T0"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">$asInstanceOf</span>
+        <span class="tparams">[<span name="T0">T0</span>]</span>
+        <span class="params">()</span>
+        <span class="result">: T0</span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: AnyRef
+        </div></div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#$isInstanceOf">
+      <a id="$isInstanceOf[T0]():Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">$isInstanceOf</span>
+        <span class="tparams">[<span name="T0">T0</span>]</span>
+        <span class="params">()</span>
+        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: AnyRef
+        </div></div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#*">
+      <a id="*(Matrix[T])(Numeric[T]):Matrix[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">*</span>
+        
+        <span class="params">(<span name="b">b: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>[T]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="nu">nu: Numeric[T]</span>)</span>
+        <span class="result">: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>[T]</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Multiply this matrix by matrix b.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Multiply this matrix by matrix b.</p></div><dl class="paramcmts block"><dt class="param">b</dt><dd class="cmt"><p>the matrix to multiply by (requires sameCrossDimensions)
+</p></dd></dl><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#*">
+      <a id="*(T)(Numeric[T]):Matrix[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">*</span>
+        
+        <span class="params">(<span name="s">s: T</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="nu">nu: Numeric[T]</span>)</span>
+        <span class="result">: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>[T]</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Multiply this matrix by scalar s.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Multiply this matrix by scalar s.</p></div><dl class="paramcmts block"><dt class="param">s</dt><dd class="cmt"><p>the scalar to multiply by
+</p></dd></dl><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#*">
+      <a id="*(VectorN[T])(Numeric[T]):VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">*</span>
+        
+        <span class="params">(<span name="b">b: <a href="VectorN.html" class="extype" name="scalation.advmath.VectorN">VectorN</a>[T]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="nu">nu: Numeric[T]</span>)</span>
+        <span class="result">: <a href="VectorN.html" class="extype" name="scalation.advmath.VectorN">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Multiply this matrix by vector b.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Multiply this matrix by vector b.</p></div><dl class="paramcmts block"><dt class="param">b</dt><dd class="cmt"><p>the vector to multiply by
+</p></dd></dl><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#**">
+      <a id="**(VectorN[T])(Numeric[T]):Matrix[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">**</span>
+        
+        <span class="params">(<span name="b">b: <a href="VectorN.html" class="extype" name="scalation.advmath.VectorN">VectorN</a>[T]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="nu">nu: Numeric[T]</span>)</span>
+        <span class="result">: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>[T]</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Multiply this matrix by vector b to produce another matrix (a_ij * b_j)</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Multiply this matrix by vector b to produce another matrix (a_ij * b_j)</p></div><dl class="paramcmts block"><dt class="param">b</dt><dd class="cmt"><p>the vector to multiply by
+</p></dd></dl><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#**=">
+      <a id="**=(VectorN[T])(Numeric[T]):Nothing"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">**=</span>
+        
+        <span class="params">(<span name="b">b: <a href="VectorN.html" class="extype" name="scalation.advmath.VectorN">VectorN</a>[T]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="nu">nu: Numeric[T]</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Nothing">Nothing</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Multiply inplace this matrix by vector b to produce another matrix (a_ij * b_j)</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Multiply inplace this matrix by vector b to produce another matrix (a_ij * b_j)</p></div><dl class="paramcmts block"><dt class="param">b</dt><dd class="cmt"><p>the vector to multiply by
+</p></dd></dl><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#*=">
+      <a id="*=(Matrix[T])(Numeric[T]):Nothing"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">*=</span>
+        
+        <span class="params">(<span name="b">b: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>[T]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="nu">nu: Numeric[T]</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Nothing">Nothing</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Multiply inplace this matrix by matrix b.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Multiply inplace this matrix by matrix b.</p></div><dl class="paramcmts block"><dt class="param">b</dt><dd class="cmt"><p>the matrix to multiply by (requires sameCrossDimensions)
+</p></dd></dl><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#*=">
+      <a id="*=(T)(Numeric[T]):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">*=</span>
+        
+        <span class="params">(<span name="s">s: T</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="nu">nu: Numeric[T]</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Multiply inplace this matrix by scalar s.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Multiply inplace this matrix by scalar s.</p></div><dl class="paramcmts block"><dt class="param">s</dt><dd class="cmt"><p>the scalar to multiply by
+</p></dd></dl><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#+">
+      <a id="+(T)(Numeric[T]):Matrix[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">+</span>
+        
+        <span class="params">(<span name="s">s: T</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="nu">nu: Numeric[T]</span>)</span>
+        <span class="result">: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>[T]</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Add this matrix and scalar s.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Add this matrix and scalar s.</p></div><dl class="paramcmts block"><dt class="param">s</dt><dd class="cmt"><p>the scalar to add
+</p></dd></dl><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#+">
+      <a id="+(Matrix[T])(Numeric[T]):Matrix[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">+</span>
+        
+        <span class="params">(<span name="b">b: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>[T]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="nu">nu: Numeric[T]</span>)</span>
+        <span class="result">: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>[T]</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Add this matrix and matrix b.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Add this matrix and matrix b.</p></div><dl class="paramcmts block"><dt class="param">b</dt><dd class="cmt"><p>the matrix to add (requires sameCrossDimensions)
+</p></dd></dl><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#+=">
+      <a id="+=(T)(Numeric[T]):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">+=</span>
+        
+        <span class="params">(<span name="s">s: T</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="nu">nu: Numeric[T]</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Add inplace this matrix and scalar s.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Add inplace this matrix and scalar s.</p></div><dl class="paramcmts block"><dt class="param">s</dt><dd class="cmt"><p>the scalar to add
+</p></dd></dl><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#+=">
+      <a id="+=(Matrix[T])(Numeric[T]):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">+=</span>
+        
+        <span class="params">(<span name="b">b: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>[T]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="nu">nu: Numeric[T]</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Add inplace this matrix and matrix b.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Add inplace this matrix and matrix b.</p></div><dl class="paramcmts block"><dt class="param">b</dt><dd class="cmt"><p>the matrix to add (requires sameCrossDimensions)
+</p></dd></dl><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#-">
+      <a id="-(T)(Numeric[T]):Matrix[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">-</span>
+        
+        <span class="params">(<span name="s">s: T</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="nu">nu: Numeric[T]</span>)</span>
+        <span class="result">: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>[T]</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">From this matrix subtract scalar s.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>From this matrix subtract scalar s.</p></div><dl class="paramcmts block"><dt class="param">s</dt><dd class="cmt"><p>the scalar to subtract
+</p></dd></dl><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#-">
+      <a id="-(Matrix[T])(Numeric[T]):Matrix[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">-</span>
+        
+        <span class="params">(<span name="b">b: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>[T]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="nu">nu: Numeric[T]</span>)</span>
+        <span class="result">: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>[T]</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">From this matrix substract matrix b.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>From this matrix substract matrix b.</p></div><dl class="paramcmts block"><dt class="param">b</dt><dd class="cmt"><p>the matrix to subtract (requires sameCrossDimensions)
+</p></dd></dl><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#-=">
+      <a id="-=(T)(Numeric[T]):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">-=</span>
+        
+        <span class="params">(<span name="s">s: T</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="nu">nu: Numeric[T]</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">From this matrix subtract inplace scalar s.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>From this matrix subtract inplace scalar s.</p></div><dl class="paramcmts block"><dt class="param">s</dt><dd class="cmt"><p>the scalar to subtract
+</p></dd></dl><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#-=">
+      <a id="-=(Matrix[T])(Numeric[T]):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">-=</span>
+        
+        <span class="params">(<span name="b">b: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>[T]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="nu">nu: Numeric[T]</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">From this matrix substract inplace matrix b.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>From this matrix substract inplace matrix b.</p></div><dl class="paramcmts block"><dt class="param">b</dt><dd class="cmt"><p>the matrix to subtract (requires sameCrossDimensions)
+</p></dd></dl><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#==">
+      <a id="==(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">==</span>
+        
+        <span class="params">(<span name="arg0">arg0: AnyRef</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt"><code>o == arg0</code> is the same as <code>if (o eq null) arg0 eq null else o.equals(arg0)</code>.</p>
+            <div class="fullcomment"><div class="comment cmt"><p><code>o == arg0</code> is the same as <code>if (o eq null) arg0 eq null else o.equals(arg0)</code>.
+</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the receiver object is equivalent to the argument; <code>false</code> otherwise.</p></dd></dl><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: AnyRef
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.Any#==">
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">==</span>
+        
+        <span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span>
+        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt"><code>o == arg0</code> is the same as <code>o.equals(arg0)</code>.</p>
+            <div class="fullcomment"><div class="comment cmt"><p><code>o == arg0</code> is the same as <code>o.equals(arg0)</code>.
+</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the receiver object is equivalent to the argument; <code>false</code> otherwise.</p></dd></dl><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: Any
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#apply">
+      <a id="apply(Int):VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">apply</span>
+        
+        <span class="params">(<span name="i">i: <span class="extype" name="scala.Int">Int</span></span>)</span>
+        <span class="result">: <a href="VectorN.html" class="extype" name="scalation.advmath.VectorN">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Get this matrix's vector at the i-th index position (i-th row).</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Get this matrix's vector at the i-th index position (i-th row).</p></div><dl class="paramcmts block"><dt class="param">i</dt><dd class="cmt"><p>the row index
+</p></dd></dl><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#apply">
+      <a id="apply(Int,Int):T"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">apply</span>
+        
+        <span class="params">(<span name="i">i: <span class="extype" name="scala.Int">Int</span></span>, <span name="j">j: <span class="extype" name="scala.Int">Int</span></span>)</span>
+        <span class="result">: T</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Get this matrix's element at the i,j-th index position.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Get this matrix's element at the i,j-th index position.</p></div><dl class="paramcmts block"><dt class="param">i</dt><dd class="cmt"><p>the row index</p></dd><dt class="param">j</dt><dd class="cmt"><p>the column index
+</p></dd></dl><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.Any#asInstanceOf">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span>
+        <span class="tparams">[<span name="T0">T0</span>]</span>
+        
+        <span class="result">: T0</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">This method is used to cast the receiver object to be of type <code>T0</code>.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>This method is used to cast the receiver object to be of type <code>T0</code>.</p><p>Note that the success of a cast at runtime is modulo Scala's erasure semantics.  Therefore the expression<code>1.asInstanceOf[String]</code> will throw a <code>ClassCastException</code> at runtime, while the expression<code>List(1).asInstanceOf[List[String]]</code> will not.  In the latter example, because the type argument is erased as
+part of compilation it is not possible to check whether the contents of the list are of the requested typed.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>the receiver object.</p></dd></dl><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: Any
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#canEqual">
+      <a id="canEqual(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">canEqual</span>
+        
+        <span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span>
+        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → Equals
+        </div></div>
+          
+    </li><li visbl="prt" data-isabs="false" name="scala.AnyRef#clone">
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">clone</span>
+        
+        <span class="params">()</span>
+        <span class="result">: AnyRef</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">This method creates and returns a copy of the receiver object.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>This method creates and returns a copy of the receiver object.</p><p>The default implementation of the <code>clone</code> method is platform dependent.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>a copy of the receiver object.</p></dd></dl><div class="block">
+          attributes: protected 
+        </div><div class="block">
+          definition classes: AnyRef
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.Matrix#col">
+      <a id="col(Int,Int):VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">col</span>
+        
+        <span class="params">(<span name="_col">_col: <span class="extype" name="scala.Int">Int</span></span>, <span name="from">from: <span class="extype" name="scala.Int">Int</span> =<span class="symbol">0</span></span>)</span>
+        <span class="result">: <a href="VectorN.html" class="extype" name="scalation.advmath.VectorN">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Get column '_col' from the matrix, returning it as a vector.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Get column '_col' from the matrix, returning it as a vector.</p></div><dl class="paramcmts block"><dt class="param">_col</dt><dd class="cmt"><p>the column to extract from the matrix</p></dd><dt class="param">from</dt><dd class="cmt"><p>the position to start extracting from
+</p></dd></dl><div class="block">
+          definition classes: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#d1">
+      <a id="d1:Int"></a>
+      <h4 class="signature">
+      <span class="kind">val</span>
+      <span class="symbol">
+        <span class="name">d1</span>
+        
+        
+        <span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">the first/row dimension (symmetric =&gt; d2 = d1)
+</p>
+            <div class="fullcomment"><div class="comment cmt"><p>the first/row dimension (symmetric =&gt; d2 = d1)
+</p></div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#det">
+      <a id="det(Numeric[T]):T"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">det</span>
+        
+        <span class="params">(<span class="implicit">implicit </span><span name="nu">nu: Numeric[T]</span>)</span>
+        <span class="result">: T</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Compute the determinant of this matrix.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Compute the determinant of this matrix.
+</p></div><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#dg">
+      <a id="dg:VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">dg</span>
+        
+        
+        <span class="result">: <a href="VectorN.html" class="extype" name="scalation.advmath.VectorN">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Get the diagonal of the matrix.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Get the diagonal of the matrix.
+</p></div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#dg_">
+      <a id="dg_(VectorN[T]):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">dg_</span>
+        
+        <span class="params">(<span name="v">v: <a href="VectorN.html" class="extype" name="scalation.advmath.VectorN">VectorN</a>[T]</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Set the diagonal of the matrix.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Set the diagonal of the matrix.</p></div><dl class="paramcmts block"><dt class="param">v</dt><dd class="cmt"><p>the vector to assign to the diagonal
+</p></dd></dl>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#diag">
+      <a id="diag(Int,Int)(Numeric[T]):Matrix[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">diag</span>
+        
+        <span class="params">(<span name="p">p: <span class="extype" name="scala.Int">Int</span></span>, <span name="q">q: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="nu">nu: Numeric[T]</span>)</span>
+        <span class="result">: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>[T]</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Form a matrix [Ip, this, Iq] where Ir is a r by r identity matrix, by
+positioning the three matrices Ip, this and Iq along the diagonal.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Form a matrix [Ip, this, Iq] where Ir is a r by r identity matrix, by
+positioning the three matrices Ip, this and Iq along the diagonal.</p></div><dl class="paramcmts block"><dt class="param">p</dt><dd class="cmt"><p>the size of identity matrix Ip</p></dd><dt class="param">q</dt><dd class="cmt"><p>the size of identity matrix Iq
+</p></dd></dl><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#diag">
+      <a id="diag(Matrix[T])(Numeric[T]):Matrix[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">diag</span>
+        
+        <span class="params">(<span name="b">b: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>[T]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="nu">nu: Numeric[T]</span>)</span>
+        <span class="result">: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>[T]</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Combine this matrix with matrix b, placing them along the diagonal and
+filling in the bottom left and top right regions with zeroes; [this, b].</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Combine this matrix with matrix b, placing them along the diagonal and
+filling in the bottom left and top right regions with zeroes; [this, b].</p></div><dl class="paramcmts block"><dt class="param">b</dt><dd class="cmt"><p>the matrix to combine with this matrix
+</p></dd></dl><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.Matrix#dim1">
+      <a id="dim1:Int"></a>
+      <h4 class="signature">
+      <span class="kind">val</span>
+      <span class="symbol">
+        <span class="name">dim1</span>
+        
+        
+        <span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div></div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.Matrix#dim2">
+      <a id="dim2:Int"></a>
+      <h4 class="signature">
+      <span class="kind">val</span>
+      <span class="symbol">
+        <span class="name">dim2</span>
+        
+        
+        <span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div></div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#eq">
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">eq</span>
+        
+        <span class="params">(<span name="arg0">arg0: AnyRef</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">This method is used to test whether the argument (<code>arg0</code>) is a reference to the
+receiver object (<code>this</code>).</p>
+            <div class="fullcomment"><div class="comment cmt"><p>This method is used to test whether the argument (<code>arg0</code>) is a reference to the
+receiver object (<code>this</code>).</p><p>The <code>eq</code> method implements an [http://en.wikipedia.org/wiki/Equivalence_relation equivalence relation] on
+non-null instances of <code>AnyRef</code>:
+ * It is reflexive: for any non-null instance <code>x</code> of type <code>AnyRef</code>, <code>x.eq(x)</code> returns <code>true</code>.
+ * It is symmetric: for any non-null instances <code>x</code> and <code>y</code> of type <code>AnyRef</code>, <code>x.eq(y)</code> returns <code>true</code> if and
+   only if <code>y.eq(x)</code> returns <code>true</code>.
+ * It is transitive: for any non-null instances <code>x</code>, <code>y</code>, and <code>z</code> of type <code>AnyRef</code> if <code>x.eq(y)</code> returns <code>true</code>   and <code>y.eq(z)</code> returns <code>true</code>, then <code>x.eq(z)</code> returns <code>true</code>.</p><p>Additionally, the <code>eq</code> method has three other properties.
+ * It is consistent: for any non-null instances <code>x</code> and <code>y</code> of type <code>AnyRef</code>, multiple invocations of
+   <code>x.eq(y)</code> consistently returns <code>true</code> or consistently returns <code>false</code>.
+ * For any non-null instance <code>x</code> of type <code>AnyRef</code>, <code>x.eq(null)</code> and <code>null.eq(x)</code> returns <code>false</code>.
+ * <code>null.eq(null)</code> returns <code>true</code>.</p><p>When overriding the <code>equals</code> or <code>hashCode</code> methods, it is important to ensure that their behavior is
+consistent with reference equality.  Therefore, if two objects are references to each other (<code>o1 eq o2</code>), they
+should be equal to each other (<code>o1 == o2</code>) and they should hash to the same value (<code>o1.hashCode == o2.hashCode</code>).
+</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for reference equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the argument is a reference to the receiver object; <code>false</code> otherwise.</p></dd></dl><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: AnyRef
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#equals">
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">equals</span>
+        
+        <span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span>
+        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">This method is used to compare the receiver object (<code>this</code>) with the argument object (<code>arg0</code>) for equivalence.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>This method is used to compare the receiver object (<code>this</code>) with the argument object (<code>arg0</code>) for equivalence.</p><p>The default implementations of this method is an [http://en.wikipedia.org/wiki/Equivalence_relation equivalence
+relation]:
+ * It is reflexive: for any instance <code>x</code> of type <code>Any</code>, <code>x.equals(x)</code> should return <code>true</code>.
+ * It is symmetric: for any instances <code>x</code> and <code>y</code> of type <code>Any</code>, <code>x.equals(y)</code> should return <code>true</code> if and
+   only if <code>y.equals(x)</code> returns <code>true</code>.
+ * It is transitive: for any instances <code>x</code>, <code>y</code>, and <code>z</code> of type <code>AnyRef</code> if <code>x.equals(y)</code> returns <code>true</code> and
+   <code>y.equals(z)</code> returns <code>true</code>, then <code>x.equals(z)</code> should return <code>true</code>.</p><p>If you override this method, you should verify that your implementation remains an equivalence relation.
+Additionally, when overriding this method it is often necessary to override <code>hashCode</code> to ensure that objects
+that are &quot;equal&quot; (<code>o1.equals(o2)</code> returns <code>true</code>) hash to the same 
+scala.Int
+(<code>o1.hashCode.equals(o2.hashCode)</code>).
+</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the receiver object is equivalent to the argument; <code>false</code> otherwise.</p></dd></dl><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → Equals → AnyRef → Any
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="prt" data-isabs="false" name="scala.AnyRef#finalize">
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">finalize</span>
+        
+        <span class="params">()</span>
+        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">This method is called by the garbage collector on the receiver object when garbage collection determines that
+there are no more references to the object.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>This method is called by the garbage collector on the receiver object when garbage collection determines that
+there are no more references to the object.</p><p>The details of when and if the <code>finalize</code> method are invoked, as well as the interaction between <code>finalize</code>and non-local returns and exceptions, are all platform dependent.</p></div><div class="block">
+          attributes: protected 
+        </div><div class="block">
+          definition classes: AnyRef
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.util.Error#flaw">
+      <a id="flaw(String,String):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">flaw</span>
+        
+        <span class="params">(<span name="method">method: String</span>, <span name="message">message: String</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Show the flaw by printing the error message.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Show the flaw by printing the error message.</p></div><dl class="paramcmts block"><dt class="param">method</dt><dd class="cmt"><p>the method where the error occured</p></dd><dt class="param">message</dt><dd class="cmt"><p>the error message
+</p></dd></dl><div class="block">
+          definition classes: <a href="../util/Error.html" class="extype" name="scalation.util.Error">Error</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.Matrix#foreach">
+      <a id="foreach[U]((Array[T]) ⇒ U):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">foreach</span>
+        <span class="tparams">[<span name="U">U</span>]</span>
+        <span class="params">(<span name="f">f: (<span class="extype" name="scala.Array">Array</span>[T]) ⇒ U</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Iterate over the matrix row by row.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Iterate over the matrix row by row.</p></div><dl class="paramcmts block"><dt class="param">f</dt><dd class="cmt"><p>the function to apply
+</p></dd></dl><div class="block">
+          definition classes: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#getClass">
+      <a id="getClass():java.lang.Class[_]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">getClass</span>
+        
+        <span class="params">()</span>
+        <span class="result">: java.lang.Class[_]</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Returns a representation that corresponds to the dynamic class of the receiver object.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Returns a representation that corresponds to the dynamic class of the receiver object.</p><p>The nature of the representation is platform dependent.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>a representation that corresponds to the dynamic class of the receiver object.</p></dd></dl><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: AnyRef
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#hashCode">
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">hashCode</span>
+        
+        <span class="params">()</span>
+        <span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Returns a hash code value for the object.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Returns a hash code value for the object.</p><p>The default hashing algorithm is platform dependent.</p><p>Note that it is allowed for two objects to have identical hash codes (<code>o1.hashCode.equals(o2.hashCode)</code>) yet
+not be equal (<code>o1.equals(o2)</code> returns <code>false</code>).  A degenerate implementation could always return <code>0</code>.
+However, it is required that if two objects are equal (<code>o1.equals(o2)</code> returns <code>true</code>) that they have
+identical hash codes (<code>o1.hashCode.equals(o2.hashCode)</code>).  Therefore, when overriding this method, be sure
+to verify that the behavior is consistent with the <code>equals</code> method.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>the hash code value for the object.</p></dd></dl><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → AnyRef → Any
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#inverse">
+      <a id="inverse(Fractional[T]):Matrix[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">inverse</span>
+        
+        <span class="params">(<span class="implicit">implicit </span><span name="nu">nu: Fractional[T]</span>)</span>
+        <span class="result">: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>[T]</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Invert this matrix (requires a squareMatrix).</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Invert this matrix (requires a squareMatrix).  This version uses partial
+pivoting.
+</p></div><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#inverse_ip">
+      <a id="inverse_ip(Fractional[T]):Matrix[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">inverse_ip</span>
+        
+        <span class="params">(<span class="implicit">implicit </span><span name="nu">nu: Fractional[T]</span>)</span>
+        <span class="result">: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>[T]</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Invert inplace this matrix (requires a squareMatrix).</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Invert inplace this matrix (requires a squareMatrix).  This version uses
+partial pivoting.
+</p></div><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.Any#isInstanceOf">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span>
+        <span class="tparams">[<span name="T0">T0</span>]</span>
+        
+        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">This method is used to test whether the dynamic type of the receiver object is <code>T0</code>.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>This method is used to test whether the dynamic type of the receiver object is <code>T0</code>.</p><p>Note that the test result of the test is modulo Scala's erasure semantics.  Therefore the expression<code>1.isInstanceOf[String]</code> will return <code>false</code>, while the expression <code>List(1).isInstanceOf[List[String]]</code> will
+return <code>true</code>.  In the latter example, because the type argument is erased as part of compilation it is not
+possible to check whether the contents of the list are of the requested typed.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p><code>true</code> if the receiver object is an instance of erasure of type <code>T0</code>; <code>false</code> otherwise.</p></dd></dl><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: Any
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.Matrix#isNonnegative">
+      <a id="isNonnegative(Numeric[T]):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">isNonnegative</span>
+        
+        <span class="params">(<span class="implicit">implicit </span><span name="nu">nu: Numeric[T]</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Check whether this matrix is nonnegative (has no negative elements).</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Check whether this matrix is nonnegative (has no negative elements).
+</p></div><div class="block">
+          definition classes: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#isRectangular">
+      <a id="isRectangular:Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">isRectangular</span>
+        
+        
+        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Check whether this matrix is rectangular (all rows have the same number
+of columns).</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Check whether this matrix is rectangular (all rows have the same number
+of columns).
+</p></div><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.Matrix#isSquare">
+      <a id="isSquare:Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">isSquare</span>
+        
+        
+        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Check whether this matrix is square (same row and column dimensions).</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Check whether this matrix is square (same row and column dimensions).
+</p></div><div class="block">
+          definition classes: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.Matrix#isSymmetric">
+      <a id="isSymmetric:Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">isSymmetric</span>
+        
+        
+        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Check whether this matrix is symmetric.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Check whether this matrix is symmetric.
+</p></div><div class="block">
+          definition classes: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#lud">
+      <a id="lud(Fractional[T]):(MatrixN[T], MatrixN[T])"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">lud</span>
+        
+        <span class="params">(<span class="implicit">implicit </span><span name="nu">nu: Fractional[T]</span>)</span>
+        <span class="result">: (<a href="MatrixN.html" class="extype" name="scalation.advmath.MatrixN">MatrixN</a>[T], <a href="MatrixN.html" class="extype" name="scalation.advmath.MatrixN">MatrixN</a>[T])</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Decompose this matrix into the product of lower and upper triangular
+matrices (l, u) using the LU Decomposition algorithm.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Decompose this matrix into the product of lower and upper triangular
+matrices (l, u) using the LU Decomposition algorithm.  This version uses
+partial pivoting.
+</p></div><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#lud_ip">
+      <a id="lud_ip(Fractional[T]):(Matrix[T], Matrix[T])"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">lud_ip</span>
+        
+        <span class="params">(<span class="implicit">implicit </span><span name="nu">nu: Fractional[T]</span>)</span>
+        <span class="result">: (<a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>[T], <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>[T])</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Decompose inplace this matrix into the product of lower and upper triangular
+matrices (l, u) using the LU Decomposition algorithm.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Decompose inplace this matrix into the product of lower and upper triangular
+matrices (l, u) using the LU Decomposition algorithm.  This version uses
+partial pivoting.
+</p></div><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#ne">
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">ne</span>
+        
+        <span class="params">(<span name="arg0">arg0: AnyRef</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt"><code>o.ne(arg0)</code> is the same as <code>!(o.eq(arg0))</code>.</p>
+            <div class="fullcomment"><div class="comment cmt"><p><code>o.ne(arg0)</code> is the same as <code>!(o.eq(arg0))</code>.
+</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for reference dis-equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>false</code> if the argument is not a reference to the receiver object; <code>true</code> otherwise.</p></dd></dl><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: AnyRef
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#notify">
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">notify</span>
+        
+        <span class="params">()</span>
+        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Wakes up a single thread that is waiting on the receiver object's monitor.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Wakes up a single thread that is waiting on the receiver object's monitor.</p></div><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: AnyRef
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#notifyAll">
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">notifyAll</span>
+        
+        <span class="params">()</span>
+        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Wakes up all threads that are waiting on the receiver object's monitor.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Wakes up all threads that are waiting on the receiver object's monitor.</p></div><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: AnyRef
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.Matrix#nullspace">
+      <a id="nullspace(Fractional[T]):VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">nullspace</span>
+        
+        <span class="params">(<span class="implicit">implicit </span><span name="nu">nu: Fractional[T]</span>)</span>
+        <span class="result">: <a href="VectorN.html" class="extype" name="scalation.advmath.VectorN">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Compute the (right) nullspace of this m by n matrix (requires n = m + 1)
+by performing Guass-Jordan reduction and extracting the negation of the
+last column augmented by 1.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Compute the (right) nullspace of this m by n matrix (requires n = m + 1)
+by performing Guass-Jordan reduction and extracting the negation of the
+last column augmented by 1.  The nullspace of matrix a is &quot;this vector v
+times any scalar s&quot;, i.e., s*v*a = 0.  The left nullspace of matrix a is
+the same as the right nullspace of a.t (a transpose).
+</p></div><div class="block">
+          definition classes: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.Matrix#nullspace_ip">
+      <a id="nullspace_ip(Fractional[T]):VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">nullspace_ip</span>
+        
+        <span class="params">(<span class="implicit">implicit </span><span name="nu">nu: Fractional[T]</span>)</span>
+        <span class="result">: <a href="VectorN.html" class="extype" name="scalation.advmath.VectorN">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Compute the (right) nullspace inplace of this m by n matrix (requires n = m + 1)
+by performing Guass-Jordan reduction and extracting the negation of the
+last column augmented by 1.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Compute the (right) nullspace inplace of this m by n matrix (requires n = m + 1)
+by performing Guass-Jordan reduction and extracting the negation of the
+last column augmented by 1.  The nullspace of matrix a is &quot;this vector v
+times any scalar s&quot;, i.e., s*v*a = 0.  The left nullspace of matrix a is
+the same as the right nullspace of a.t (a transpose).
+</p></div><div class="block">
+          definition classes: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.Matrix#oneIf">
+      <a id="oneIf(Boolean):Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">oneIf</span>
+        
+        <span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span>
+        <span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Return 1 if the condition is true else 0</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Return 1 if the condition is true else 0</p></div><dl class="paramcmts block"><dt class="param">cond</dt><dd class="cmt"><p>the condition to evaluate
+</p></dd></dl><div class="block">
+          definition classes: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#productArity">
+      <a id="productArity:Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">productArity</span>
+        
+        
+        <span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → Product
+        </div></div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#productElement">
+      <a id="productElement(Int):Any"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">productElement</span>
+        
+        <span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Int">Int</span></span>)</span>
+        <span class="result">: <span class="extype" name="scala.Any">Any</span></span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → Product
+        </div></div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.Product#productElements">
+      <a id="productElements:Iterator[Any]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name deprecated">productElements</span>
+        
+        
+        <span class="result">: Iterator[<span class="extype" name="scala.Any">Any</span>]</span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: Product
+        </div><div class="block"><ol>deprecated:
+          <li><p>use productIterator instead</p></li>
+        </ol></div></div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.Product#productIterator">
+      <a id="productIterator:Iterator[Any]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">productIterator</span>
+        
+        
+        <span class="result">: Iterator[<span class="extype" name="scala.Any">Any</span>]</span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: Product
+        </div></div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#productPrefix">
+      <a id="productPrefix:String"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">productPrefix</span>
+        
+        
+        <span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → Product
+        </div></div>
+          
+    </li><li visbl="prt" data-isabs="false" name="scalation.advmath.Matrix#range1">
+      <a id="range1:Range with ByOne"></a>
+      <h4 class="signature">
+      <span class="kind">val</span>
+      <span class="symbol">
+        <span class="name">range1</span>
+        
+        
+        <span class="result">: <span class="extype" name="scala.collection.immutable.Range">Range</span> with <span class="extype" name="scala.collection.immutable.Range.ByOne">ByOne</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Range for the storage array on dimension 1 (rows)
+</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Range for the storage array on dimension 1 (rows)
+</p></div><div class="block">
+          attributes: protected 
+        </div><div class="block">
+          definition classes: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="prt" data-isabs="false" name="scalation.advmath.Matrix#range2">
+      <a id="range2:Range with ByOne"></a>
+      <h4 class="signature">
+      <span class="kind">val</span>
+      <span class="symbol">
+        <span class="name">range2</span>
+        
+        
+        <span class="result">: <span class="extype" name="scala.collection.immutable.Range">Range</span> with <span class="extype" name="scala.collection.immutable.Range.ByOne">ByOne</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Range for the storage array on dimension 2 (columns)
+</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Range for the storage array on dimension 2 (columns)
+</p></div><div class="block">
+          attributes: protected 
+        </div><div class="block">
+          definition classes: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.Matrix#rank">
+      <a id="rank(Fractional[T]):Double"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">rank</span>
+        
+        <span class="params">(<span class="implicit">implicit </span><span name="nu">nu: Fractional[T]</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Double">Double</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Determine the rank of this m by n matrix by taking the upper triangular
+matrix from the LU Decomposition and counting the number of non-zero
+diagonal elements.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Determine the rank of this m by n matrix by taking the upper triangular
+matrix from the LU Decomposition and counting the number of non-zero
+diagonal elements.
+</p></div><div class="block">
+          definition classes: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#reduce">
+      <a id="reduce(Fractional[T]):Matrix[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">reduce</span>
+        
+        <span class="params">(<span class="implicit">implicit </span><span name="nu">nu: Fractional[T]</span>)</span>
+        <span class="result">: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>[T]</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Use Guass-Jordan reduction on this matrix to make the left part embed an
+identity matrix.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Use Guass-Jordan reduction on this matrix to make the left part embed an
+identity matrix.  A constraint on this m by n matrix is that n &gt;= m.
+</p></div><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#reduce_ip">
+      <a id="reduce_ip(Fractional[T]):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">reduce_ip</span>
+        
+        <span class="params">(<span class="implicit">implicit </span><span name="nu">nu: Fractional[T]</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Use Guass-Jordan reduction inplace on this matrix to make the left part
+embed an identity matrix.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Use Guass-Jordan reduction inplace on this matrix to make the left part
+embed an identity matrix.  A constraint on this m by n matrix is that n &gt;= m.
+</p></div><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.Matrix#row">
+      <a id="row(Int,Int):VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">row</span>
+        
+        <span class="params">(<span name="_row">_row: <span class="extype" name="scala.Int">Int</span></span>, <span name="from">from: <span class="extype" name="scala.Int">Int</span> =<span class="symbol">0</span></span>)</span>
+        <span class="result">: <a href="VectorN.html" class="extype" name="scalation.advmath.VectorN">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Get row '_row' from the matrix, returning it as a vector.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Get row '_row' from the matrix, returning it as a vector.</p></div><dl class="paramcmts block"><dt class="param">_row</dt><dd class="cmt"><p>the row to extract from the matrix</p></dd><dt class="param">from</dt><dd class="cmt"><p>the position to start extracting from
+</p></dd></dl><div class="block">
+          definition classes: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.Matrix#sameCrossDimensions">
+      <a id="sameCrossDimensions(Matrix[T]):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">sameCrossDimensions</span>
+        
+        <span class="params">(<span name="b">b: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>[T]</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Check whether this matrix and the other matrix have the same cross dimensions.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Check whether this matrix and the other matrix have the same cross dimensions.</p></div><dl class="paramcmts block"><dt class="param">b</dt><dd class="cmt"><p>the other matrix
+</p></dd></dl><div class="block">
+          definition classes: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.Matrix#sameDimensions">
+      <a id="sameDimensions(Matrix[T]):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">sameDimensions</span>
+        
+        <span class="params">(<span name="b">b: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>[T]</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Check whether this matrix and the other Matrix have the same dimensions.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Check whether this matrix and the other Matrix have the same dimensions.</p></div><dl class="paramcmts block"><dt class="param">b</dt><dd class="cmt"><p>the other matrix
+</p></dd></dl><div class="block">
+          definition classes: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#sd">
+      <a id="sd:VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">sd</span>
+        
+        
+        <span class="result">: <a href="VectorN.html" class="extype" name="scalation.advmath.VectorN">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Get the sub-diagonal of the matrix.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Get the sub-diagonal of the matrix.
+</p></div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#sd_">
+      <a id="sd_(VectorN[T]):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">sd_</span>
+        
+        <span class="params">(<span name="v">v: <a href="VectorN.html" class="extype" name="scalation.advmath.VectorN">VectorN</a>[T]</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Set the sub-diagonal of the matrix.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Set the sub-diagonal of the matrix.</p></div><dl class="paramcmts block"><dt class="param">v</dt><dd class="cmt"><p>the vector to assign to the sub-diagonal
+</p></dd></dl>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.Matrix#set">
+      <a id="set(Array[Array[T]]):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">set</span>
+        
+        <span class="params">(<span name="u">u: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Array">Array</span>[T]]</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Set the values in this matrix as copies of the values in 2D array u.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Set the values in this matrix as copies of the values in 2D array u.</p></div><dl class="paramcmts block"><dt class="param">u</dt><dd class="cmt"><p>the 2D array of values to assign
+</p></dd></dl><div class="block">
+          definition classes: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.Matrix#set">
+      <a id="set(T):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">set</span>
+        
+        <span class="params">(<span name="x">x: T</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Set all the elements in this matrix to the scalar x.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Set all the elements in this matrix to the scalar x.</p></div><dl class="paramcmts block"><dt class="param">x</dt><dd class="cmt"><p>the scalar value to assign
+</p></dd></dl><div class="block">
+          definition classes: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.Matrix#setColumn">
+      <a id="setColumn(Int,VectorN[T]):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">setColumn</span>
+        
+        <span class="params">(<span name="col">col: <span class="extype" name="scala.Int">Int</span></span>, <span name="u">u: <a href="VectorN.html" class="extype" name="scalation.advmath.VectorN">VectorN</a>[T]</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Set column 'col' of the matrix to a vector.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Set column 'col' of the matrix to a vector.</p></div><dl class="paramcmts block"><dt class="param">col</dt><dd class="cmt"><p>the column to set</p></dd><dt class="param">u</dt><dd class="cmt"><p>the vector to assign to the column
+</p></dd></dl><div class="block">
+          definition classes: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.Matrix#setRow">
+      <a id="setRow(Int,VectorN[T]):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">setRow</span>
+        
+        <span class="params">(<span name="row">row: <span class="extype" name="scala.Int">Int</span></span>, <span name="u">u: <a href="VectorN.html" class="extype" name="scalation.advmath.VectorN">VectorN</a>[T]</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Set row 'row' of the matrix to a vector.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Set row 'row' of the matrix to a vector.</p></div><dl class="paramcmts block"><dt class="param">row</dt><dd class="cmt"><p>the column to set</p></dd><dt class="param">u</dt><dd class="cmt"><p>the vector to assign to the column
+</p></dd></dl><div class="block">
+          definition classes: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#slice">
+      <a id="slice(Int,Int,Int,Int):Matrix[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">slice</span>
+        
+        <span class="params">(<span name="r_from">r_from: <span class="extype" name="scala.Int">Int</span></span>, <span name="r_end">r_end: <span class="extype" name="scala.Int">Int</span></span>, <span name="c_from">c_from: <span class="extype" name="scala.Int">Int</span></span>, <span name="c_end">c_end: <span class="extype" name="scala.Int">Int</span></span>)</span>
+        <span class="result">: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>[T]</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Slice this matrix row-wise r_from to r_end and column-wise c_from to c_end.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Slice this matrix row-wise r_from to r_end and column-wise c_from to c_end.</p></div><dl class="paramcmts block"><dt class="param">r_from</dt><dd class="cmt"><p>the start of the row slice</p></dd><dt class="param">r_end</dt><dd class="cmt"><p>the end of the row slice</p></dd><dt class="param">c_from</dt><dd class="cmt"><p>the start of the column slice</p></dd><dt class="param">c_end</dt><dd class="cmt"><p>the end of the column slice
+</p></dd></dl><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#slice">
+      <a id="slice(Int,Int):Matrix[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">slice</span>
+        
+        <span class="params">(<span name="from">from: <span class="extype" name="scala.Int">Int</span></span>, <span name="end">end: <span class="extype" name="scala.Int">Int</span></span>)</span>
+        <span class="result">: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>[T]</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Slice this matrix row-wise from to end.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Slice this matrix row-wise from to end.</p></div><dl class="paramcmts block"><dt class="param">from</dt><dd class="cmt"><p>the start of the slice</p></dd><dt class="param">end</dt><dd class="cmt"><p>the end of the slice
+</p></dd></dl><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#sliceExclude">
+      <a id="sliceExclude(Int,Int):Matrix[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">sliceExclude</span>
+        
+        <span class="params">(<span name="row">row: <span class="extype" name="scala.Int">Int</span></span>, <span name="col">col: <span class="extype" name="scala.Int">Int</span></span>)</span>
+        <span class="result">: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>[T]</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Slice this matrix excluding the given row and column.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Slice this matrix excluding the given row and column.</p></div><dl class="paramcmts block"><dt class="param">row</dt><dd class="cmt"><p>the row to exclude</p></dd><dt class="param">col</dt><dd class="cmt"><p>the column to exclude
+</p></dd></dl><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#solve">
+      <a id="solve((Matrix[T], Matrix[T]),VectorN[T])(Fractional[T]):VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">solve</span>
+        
+        <span class="params">(<span name="lu">lu: (<a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>[T], <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>[T])</span>, <span name="b">b: <a href="VectorN.html" class="extype" name="scalation.advmath.VectorN">VectorN</a>[T]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="nu">nu: Fractional[T]</span>)</span>
+        <span class="result">: <a href="VectorN.html" class="extype" name="scalation.advmath.VectorN">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Solve for x in the equation l*u*x = b (see lud above).</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Solve for x in the equation l*u*x = b (see lud above).</p></div><dl class="paramcmts block"><dt class="param">lu</dt><dd class="cmt"><p>the lower and upper triangular matrices</p></dd><dt class="param">b</dt><dd class="cmt"><p>the constant vector
+</p></dd></dl><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#solve">
+      <a id="solve(Matrix[T],Matrix[T],VectorN[T])(Fractional[T]):VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">solve</span>
+        
+        <span class="params">(<span name="l">l: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>[T]</span>, <span name="u">u: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>[T]</span>, <span name="b">b: <a href="VectorN.html" class="extype" name="scalation.advmath.VectorN">VectorN</a>[T]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="nu">nu: Fractional[T]</span>)</span>
+        <span class="result">: <a href="VectorN.html" class="extype" name="scalation.advmath.VectorN">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Solve for x in the equation l*u*x = b (see lud above).</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Solve for x in the equation l*u*x = b (see lud above).</p></div><dl class="paramcmts block"><dt class="param">l</dt><dd class="cmt"><p>the lower triangular matrix</p></dd><dt class="param">u</dt><dd class="cmt"><p>the upper triangular matrix</p></dd><dt class="param">b</dt><dd class="cmt"><p>the constant vector
+</p></dd></dl><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#solve">
+      <a id="solve(VectorN[T])(Fractional[T]):VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">solve</span>
+        
+        <span class="params">(<span name="d">d: <a href="VectorN.html" class="extype" name="scalation.advmath.VectorN">VectorN</a>[T]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="nu">nu: Fractional[T]</span>)</span>
+        <span class="result">: <a href="VectorN.html" class="extype" name="scalation.advmath.VectorN">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Solve for x in the equation a*x = d where a is this matrix</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Solve for x in the equation a*x = d where a is this matrix</p></div><dl class="paramcmts block"><dt class="param">d</dt><dd class="cmt"><p>the constant vector.
+</p></dd></dl><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#synchronized">
+      <a id="synchronized[T0](T0):T0"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">synchronized</span>
+        <span class="tparams">[<span name="T0">T0</span>]</span>
+        <span class="params">(<span name="arg0">arg0: T0</span>)</span>
+        <span class="result">: T0</span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: AnyRef
+        </div></div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#t">
+      <a id="t:SymmetricTridMatrixN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">t</span>
+        
+        
+        <span class="result">: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a>[T]</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Transpose this matrix (rows =&gt; columns).</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Transpose this matrix (rows =&gt; columns).  Note, since the matrix is
+symmetric, it returns itself.
+</p></div><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#toString">
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">toString</span>
+        
+        <span class="params">()</span>
+        <span class="result">: String</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Convert this symmetric tridiagonal matrix to a string.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Convert this symmetric tridiagonal matrix to a string.@return a string representation of the object. */</p></div><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → AnyRef → Any
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.Matrix#trace">
+      <a id="trace(Numeric[T]):T"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">trace</span>
+        
+        <span class="params">(<span class="implicit">implicit </span><span name="nu">nu: Numeric[T]</span>)</span>
+        <span class="result">: T</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Compute the trace of this matrix, i.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Compute the trace of this matrix, i.e., the sum of the elements on the
+main diagonal.  Should also equal the sum of the eigenvalues.</p></div><div class="block">
+          definition classes: <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            <div class="block"><ol>see also:
+                  <li><p>Eigen.scala
+</p></li>
+                </ol></div>
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#update">
+      <a id="update(Int,VectorN[T]):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">update</span>
+        
+        <span class="params">(<span name="i">i: <span class="extype" name="scala.Int">Int</span></span>, <span name="u">u: <a href="VectorN.html" class="extype" name="scalation.advmath.VectorN">VectorN</a>[T]</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Set this matrix's row at the i-th index position to the vector u.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Set this matrix's row at the i-th index position to the vector u.</p></div><dl class="paramcmts block"><dt class="param">i</dt><dd class="cmt"><p>the row index</p></dd><dt class="param">u</dt><dd class="cmt"><p>the vector value to assign
+</p></dd></dl><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.advmath.SymmetricTridMatrixN#update">
+      <a id="update(Int,Int,T):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">update</span>
+        
+        <span class="params">(<span name="i">i: <span class="extype" name="scala.Int">Int</span></span>, <span name="j">j: <span class="extype" name="scala.Int">Int</span></span>, <span name="x">x: T</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Set this matrix's element at the i,j-th index position to the scalar x.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Set this matrix's element at the i,j-th index position to the scalar x.
+Only store x if it is non-zero.</p></div><dl class="paramcmts block"><dt class="param">i</dt><dd class="cmt"><p>the row index</p></dd><dt class="param">j</dt><dd class="cmt"><p>the column index</p></dd><dt class="param">x</dt><dd class="cmt"><p>the scalar value to assign
+</p></dd></dl><div class="block">
+          definition classes: <a href="" class="extype" name="scalation.advmath.SymmetricTridMatrixN">SymmetricTridMatrixN</a> → <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#wait">
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">wait</span>
+        
+        <span class="params">()</span>
+        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: AnyRef
+        </div></div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#wait">
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">wait</span>
+        
+        <span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span>
+        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: AnyRef
+        </div></div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#wait">
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">wait</span>
+        
+        <span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span>
+        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: AnyRef
+        </div></div>
+          
+    </li></ol>
+            </div>
+
+        <div class="parent" name="scala.Product">
+              <h3>Inherited from <span class="extype" name="scala.Product">Product</span></h3>
+            </div><div class="parent" name="scala.Equals">
+              <h3>Inherited from <span class="extype" name="scala.Equals">Equals</span></h3>
+            </div><div class="parent" name="scalation.advmath.Matrix">
+              <h3>Inherited from <a href="Matrix.html" class="extype" name="scalation.advmath.Matrix">Matrix</a>[T]</h3>
+            </div><div class="parent" name="scalation.util.Error">
+              <h3>Inherited from <a href="../util/Error.html" class="extype" name="scalation.util.Error">Error</a></h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from AnyRef</h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+
+      </div>
+      
+      <div id="tooltip"></div>
+      
+    </body>
+      </html>

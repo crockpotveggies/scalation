@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>scalation.dynamics</title>
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../lib/template.css" rel="stylesheet" type="text/css" media="screen" />
+      <script type="text/javascript" src="../../lib/jquery.js"></script>
+      <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
+    
+        </head>
+        <body class="value" onload="windowTitle();">
+
+      <p id="owner"><a href="../package.html" class="extype" name="scalation">scalation</a></p>
+
+      <div id="definition">
+        <img src="../../lib/package_big.png" />
+        <h1>dynamics</h1>
+      </div>
+
+      <h4 class="signature" id="signature">
+      <span class="kind">package</span>
+      <span class="symbol">
+        <span class="name">dynamics</span>
+        
+        
+        
+      </span>
+      </h4>
+      <div class="fullcomment" id="comment"></div>
+
+      <div id="template">
+
+        <div id="mbrsel">
+          <div id="textfilter"><span class="pre"></span><span class="input"><input accesskey="/" type="text" /></span><span class="post"></span></div>
+          
+          
+          <div id="visbl">
+              <span class="filtertype">Visibility</span>
+              <ol><li class="public in">Public</li><li class="all out">All</li></ol>
+            </div>
+          <div id="impl">
+              <span class="filtertype">Impl.</span>
+              <ol><li class="concrete in">Concrete</li><li class="abstract in">Abstract</li></ol>
+            </div>
+        </div>
+
+        
+
+        <div class="types members" id="types">
+              <h3>Type Members</h3>
+              <ol><li visbl="pub" data-isabs="true" name="scalation.dynamics.Integrator">
+      <a id="Integrator:Integrator"></a>
+      <h4 class="signature"><a href="Integrator.html">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">Integrator</span>
+        
+        
+        <span class="result"> extends Error</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">This trait provides a template for writing numerical integrators (e.</p>
+    </li><li visbl="pub" data-isabs="false" name="scalation.dynamics.LinearDiffEq">
+      <a id="LinearDiffEq:LinearDiffEq"></a>
+      <h4 class="signature"><a href="LinearDiffEq.html">
+      <span class="kind">class</span>
+      <span class="symbol">
+        <span class="name">LinearDiffEq</span>
+        
+        
+        <span class="result"> extends Error</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">This class may be used for solving a system of linear differential equations
+that are ordinary and first-order with constant coefficients of the form
+y(t)' = a * y(t) where ' is d/dt, y(t) is the vector function of time and a is
+the coefficient matrix.</p>
+    </li></ol>
+            </div>
+
+        <div class="values members" id="values">
+              <h3>Value Members</h3>
+              <ol><li visbl="pub" data-isabs="false" name="scalation.dynamics.DormandPrince">
+      <a id="DormandPrince:DormandPrince"></a>
+      <h4 class="signature"><a href="DormandPrince$.html">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">DormandPrince</span>
+        
+        
+        <span class="result"> extends Integrator</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">Given an unknown, time-dependent function y(t) governed by an Ordinary
+Differential Equation (ODE) of the form y(t)' = f(t, y) where ' is d/dt,
+compute y(t) using a (4,5)-order Dormand-Prince integrator.</p>
+    </li><li visbl="pub" data-isabs="false" name="scalation.dynamics.DormandPrinceTest">
+      <a id="DormandPrinceTest:DormandPrinceTest"></a>
+      <h4 class="signature"><a href="DormandPrinceTest$.html">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">DormandPrinceTest</span>
+        
+        
+        <span class="result"> extends Application</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">This object is used to test the DormandPrince object.</p>
+    </li><li visbl="pub" data-isabs="false" name="scalation.dynamics.LinearDiffEqTest">
+      <a id="LinearDiffEqTest:LinearDiffEqTest"></a>
+      <h4 class="signature"><a href="LinearDiffEqTest$.html">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">LinearDiffEqTest</span>
+        
+        
+        <span class="result"> extends Application</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">Object to test the LinearDiffEq class using example at</p>
+    </li><li visbl="pub" data-isabs="false" name="scalation.dynamics.RungeKutta">
+      <a id="RungeKutta:RungeKutta"></a>
+      <h4 class="signature"><a href="RungeKutta$.html">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">RungeKutta</span>
+        
+        
+        <span class="result"> extends Integrator</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">Given an unknown, time-dependent function y(t) governed by an Ordinary
+Differential Equation (ODE) of the form y(t)' = f(t, y) where ' is d/dt,
+compute y(t) using a 4th-order Runge-Kutta integrator.</p>
+    </li><li visbl="pub" data-isabs="false" name="scalation.dynamics.RungeKuttaTest">
+      <a id="RungeKuttaTest:RungeKuttaTest"></a>
+      <h4 class="signature"><a href="RungeKuttaTest$.html">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">RungeKuttaTest</span>
+        
+        
+        <span class="result"> extends Application</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">This object is used to test the RungeKutta object.</p>
+    </li></ol>
+            </div>
+
+        
+
+      </div>
+      
+      <div id="tooltip"></div>
+      
+    </body>
+      </html>

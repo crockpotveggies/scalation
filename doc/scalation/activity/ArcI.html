@@ -1,0 +1,1011 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>scalation.activity.ArcI</title>
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../lib/template.css" rel="stylesheet" type="text/css" media="screen" />
+      <script type="text/javascript" src="../../lib/jquery.js"></script>
+      <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
+    
+        </head>
+        <body class="type" onload="windowTitle();">
+
+      <p id="owner"><a href="../package.html" class="extype" name="scalation">scalation</a>.<a href="package.html" class="extype" name="scalation.activity">activity</a></p>
+
+      <div id="definition">
+        <img src="../../lib/class_big.png" />
+        <h1>ArcI</h1>
+      </div>
+
+      <h4 class="signature" id="signature">
+      <span class="kind">class</span>
+      <span class="symbol">
+        <span class="name">ArcI</span>
+        
+        
+        <span class="result"> extends <a href="PetriNetRules.html" class="extype" name="scalation.activity.PetriNetRules">PetriNetRules</a> with <a href="../util/Identity.html" class="extype" name="scalation.util.Identity">Identity</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment" id="comment"><div class="comment cmt"><p>This  class represents a arc connecting discrete place with a
+transition. If incoming is true the arc is from the place to transition,
+otherwise it is from the transition to the place (outgoing).</p></div><div class="block">
+            go to: <a href="ArcI$.html">companion</a>
+          </div><div class="block">
+            linear super types: <a href="../util/Identity.html" class="extype" name="scalation.util.Identity">Identity</a>, <a href="../util/Error.html" class="extype" name="scalation.util.Error">Error</a>, <a href="PetriNetRules.html" class="extype" name="scalation.activity.PetriNetRules">PetriNetRules</a>, AnyRef, <span class="extype" name="scala.Any">Any</span>
+          </div>
+            
+            
+            
+          </div>
+
+      <div id="template">
+
+        <div id="mbrsel">
+          <div id="textfilter"><span class="pre"></span><span class="input"><input accesskey="/" type="text" /></span><span class="post"></span></div>
+          <div id="order">
+                <span class="filtertype">Ordering</span>
+                <ol><li class="alpha in">Alphabetic</li><li class="inherit out">By inheritance</li></ol>
+              </div>
+          <div id="ancestors">
+                <span class="filtertype">Inherited</span>
+                <ol><li class="hideall">Hide All</li><li class="showall">Show all</li></ol>
+                <ol id="linearization"><li class="in" name="scalation.activity.ArcI">ArcI</li><li class="in" name="scalation.util.Identity">Identity</li><li class="in" name="scalation.util.Error">Error</li><li class="in" name="scalation.activity.PetriNetRules">PetriNetRules</li><li class="in" name="scala.AnyRef">AnyRef</li><li class="in" name="scala.Any">Any</li></ol>
+              </div>
+          <div id="visbl">
+              <span class="filtertype">Visibility</span>
+              <ol><li class="public in">Public</li><li class="all out">All</li></ol>
+            </div>
+          <div id="impl">
+              <span class="filtertype">Impl.</span>
+              <ol><li class="concrete in">Concrete</li><li class="abstract in">Abstract</li></ol>
+            </div>
+        </div>
+
+        <div class="members" id="constructors">
+              <h3>Instance constructors</h3>
+              <ol><li visbl="pub" data-isabs="false" name="scalation.activity.ArcI#this">
+      <a id="this:ArcI"></a>
+      <h4 class="signature">
+      <span class="kind">new</span>
+      <span class="symbol">
+        <span class="name">ArcI</span>
+        
+        <span class="params">(<span name="place">place: <a href="PlaceI.html" class="extype" name="scalation.activity.PlaceI">PlaceI</a></span>, <span name="transition">transition: <a href="Transition.html" class="extype" name="scalation.activity.Transition">Transition</a></span>, <span name="incoming">incoming: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="minTokens">minTokens: VectorI</span>, <span name="rates">rates: VectorI =<span class="symbol"></span></span>, <span name="testArc">testArc: <span class="extype" name="scala.Boolean">Boolean</span> =<span class="symbol"></span></span>, <span name="scaleFactor">scaleFactor: <span class="extype" name="scala.Double">Double</span> =<span class="symbol"></span></span>)</span>
+        
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt"></p>
+            <div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">place</dt><dd class="cmt"><p>the discrete place at one end of the arc</p></dd><dt class="param">transition</dt><dd class="cmt"><p>the transition at the other end of the arc</p></dd><dt class="param">incoming</dt><dd class="cmt"><p>whether the arc goes into a transition</p></dd><dt class="param">minTokens</dt><dd class="cmt"><p>minimum number of tokens to transport over the arc</p></dd><dt class="param">rates</dt><dd class="cmt"><p>the rate vector for the linear flow model</p></dd><dt class="param">testArc</dt><dd class="cmt"><p>whether the arc is a test arc meaning the tokens/fluids stay</p></dd><dt class="param">scaleFactor</dt><dd class="cmt"><p>the scale factor for the firing delay
+</p></dd></dl>
+            
+            
+            
+          </div>
+          
+    </li></ol>
+            </div>
+
+        
+
+        <div class="values members" id="values">
+              <h3>Value Members</h3>
+              <ol><li visbl="pub" data-isabs="false" name="scala.AnyRef#!=">
+      <a id="!=(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">!=</span>
+        
+        <span class="params">(<span name="arg0">arg0: AnyRef</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: AnyRef
+        </div></div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.Any#!=">
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">!=</span>
+        
+        <span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span>
+        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt"><code>o != arg0</code> is the same as <code>!(o == (arg0))</code>.</p>
+            <div class="fullcomment"><div class="comment cmt"><p><code>o != arg0</code> is the same as <code>!(o == (arg0))</code>.
+</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for dis-equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>false</code> if the receiver object is equivalent to the argument; <code>true</code> otherwise.</p></dd></dl><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: Any
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef###">
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">##</span>
+        
+        <span class="params">()</span>
+        <span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: AnyRef → Any
+        </div></div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#$asInstanceOf">
+      <a id="$asInstanceOf[T0]():T0"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">$asInstanceOf</span>
+        <span class="tparams">[<span name="T0">T0</span>]</span>
+        <span class="params">()</span>
+        <span class="result">: T0</span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: AnyRef
+        </div></div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#$isInstanceOf">
+      <a id="$isInstanceOf[T0]():Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">$isInstanceOf</span>
+        <span class="tparams">[<span name="T0">T0</span>]</span>
+        <span class="params">()</span>
+        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: AnyRef
+        </div></div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#==">
+      <a id="==(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">==</span>
+        
+        <span class="params">(<span name="arg0">arg0: AnyRef</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt"><code>o == arg0</code> is the same as <code>if (o eq null) arg0 eq null else o.equals(arg0)</code>.</p>
+            <div class="fullcomment"><div class="comment cmt"><p><code>o == arg0</code> is the same as <code>if (o eq null) arg0 eq null else o.equals(arg0)</code>.
+</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the receiver object is equivalent to the argument; <code>false</code> otherwise.</p></dd></dl><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: AnyRef
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.Any#==">
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">==</span>
+        
+        <span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span>
+        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt"><code>o == arg0</code> is the same as <code>o.equals(arg0)</code>.</p>
+            <div class="fullcomment"><div class="comment cmt"><p><code>o == arg0</code> is the same as <code>o.equals(arg0)</code>.
+</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the receiver object is equivalent to the argument; <code>false</code> otherwise.</p></dd></dl><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: Any
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.activity.ArcI#_tokenFlow">
+      <a id="_tokenFlow(VectorI,Double,Double):VectorI"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">_tokenFlow</span>
+        
+        <span class="params">(<span name="tokens">tokens: VectorI</span>, <span name="time">time: <span class="extype" name="scala.Double">Double</span></span>, <span name="firingDelay">firingDelay: <span class="extype" name="scala.Double">Double</span></span>)</span>
+        <span class="result">: VectorI</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Compute the number of tokens of each color to flow over this arc.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Compute the number of tokens of each color to flow over this arc.</p></div><dl class="paramcmts block"><dt class="param">tokens</dt><dd class="cmt"><p>the number of tokens available</p></dd><dt class="param">time</dt><dd class="cmt"><p>the current time</p></dd><dt class="param">firingDelay</dt><dd class="cmt"><p>the time it takes for the transition to fire
+</p></dd></dl>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.Any#asInstanceOf">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span>
+        <span class="tparams">[<span name="T0">T0</span>]</span>
+        
+        <span class="result">: T0</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">This method is used to cast the receiver object to be of type <code>T0</code>.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>This method is used to cast the receiver object to be of type <code>T0</code>.</p><p>Note that the success of a cast at runtime is modulo Scala's erasure semantics.  Therefore the expression<code>1.asInstanceOf[String]</code> will throw a <code>ClassCastException</code> at runtime, while the expression<code>List(1).asInstanceOf[List[String]]</code> will not.  In the latter example, because the type argument is erased as
+part of compilation it is not possible to check whether the contents of the list are of the requested typed.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>the receiver object.</p></dd></dl><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: Any
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.activity.PetriNetRules#calcFiringDelay">
+      <a id="calcFiringDelay(Variate,VectorD,VectorI,VectorD,VectorD):Double"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">calcFiringDelay</span>
+        
+        <span class="params">(<span name="v">v: <a href="../stat/Variate.html" class="extype" name="scalation.stat.Variate">Variate</a></span>, <span name="w_t">w_t: VectorD</span>, <span name="t">t: VectorI</span>, <span name="w_f">w_f: VectorD</span>, <span name="f">f: VectorD</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Double">Double</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Function to compute the delay in firing a transition.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Function to compute the delay in firing a transition.
+The base time is given by a random variate.
+This is adjusted by weight vectors multiplying the number of
+aggregate tokens and the aggreagate amount of fluids summed over
+all input places: delay = v + w_t * t + w_f * f.</p></div><dl class="paramcmts block"><dt class="param">v</dt><dd class="cmt"><p>the random variate used to compute base firing time</p></dd><dt class="param">w_t</dt><dd class="cmt"><p>the weight for the token vector</p></dd><dt class="param">t</dt><dd class="cmt"><p>the aggregate token vector (summed over all input places)</p></dd><dt class="param">w_f</dt><dd class="cmt"><p>the weight for the fluid vector</p></dd><dt class="param">f</dt><dd class="cmt"><p>the aggregate fluid level vector (summed over all input places)
+</p></dd></dl><div class="block">
+          definition classes: <a href="PetriNetRules.html" class="extype" name="scalation.activity.PetriNetRules">PetriNetRules</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="prt" data-isabs="false" name="scala.AnyRef#clone">
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">clone</span>
+        
+        <span class="params">()</span>
+        <span class="result">: AnyRef</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">This method creates and returns a copy of the receiver object.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>This method creates and returns a copy of the receiver object.</p><p>The default implementation of the <code>clone</code> method is platform dependent.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>a copy of the receiver object.</p></dd></dl><div class="block">
+          attributes: protected 
+        </div><div class="block">
+          definition classes: AnyRef
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#eq">
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">eq</span>
+        
+        <span class="params">(<span name="arg0">arg0: AnyRef</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">This method is used to test whether the argument (<code>arg0</code>) is a reference to the
+receiver object (<code>this</code>).</p>
+            <div class="fullcomment"><div class="comment cmt"><p>This method is used to test whether the argument (<code>arg0</code>) is a reference to the
+receiver object (<code>this</code>).</p><p>The <code>eq</code> method implements an [http://en.wikipedia.org/wiki/Equivalence_relation equivalence relation] on
+non-null instances of <code>AnyRef</code>:
+ * It is reflexive: for any non-null instance <code>x</code> of type <code>AnyRef</code>, <code>x.eq(x)</code> returns <code>true</code>.
+ * It is symmetric: for any non-null instances <code>x</code> and <code>y</code> of type <code>AnyRef</code>, <code>x.eq(y)</code> returns <code>true</code> if and
+   only if <code>y.eq(x)</code> returns <code>true</code>.
+ * It is transitive: for any non-null instances <code>x</code>, <code>y</code>, and <code>z</code> of type <code>AnyRef</code> if <code>x.eq(y)</code> returns <code>true</code>   and <code>y.eq(z)</code> returns <code>true</code>, then <code>x.eq(z)</code> returns <code>true</code>.</p><p>Additionally, the <code>eq</code> method has three other properties.
+ * It is consistent: for any non-null instances <code>x</code> and <code>y</code> of type <code>AnyRef</code>, multiple invocations of
+   <code>x.eq(y)</code> consistently returns <code>true</code> or consistently returns <code>false</code>.
+ * For any non-null instance <code>x</code> of type <code>AnyRef</code>, <code>x.eq(null)</code> and <code>null.eq(x)</code> returns <code>false</code>.
+ * <code>null.eq(null)</code> returns <code>true</code>.</p><p>When overriding the <code>equals</code> or <code>hashCode</code> methods, it is important to ensure that their behavior is
+consistent with reference equality.  Therefore, if two objects are references to each other (<code>o1 eq o2</code>), they
+should be equal to each other (<code>o1 == o2</code>) and they should hash to the same value (<code>o1.hashCode == o2.hashCode</code>).
+</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for reference equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the argument is a reference to the receiver object; <code>false</code> otherwise.</p></dd></dl><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: AnyRef
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#equals">
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">equals</span>
+        
+        <span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span>
+        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">This method is used to compare the receiver object (<code>this</code>) with the argument object (<code>arg0</code>) for equivalence.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>This method is used to compare the receiver object (<code>this</code>) with the argument object (<code>arg0</code>) for equivalence.</p><p>The default implementations of this method is an [http://en.wikipedia.org/wiki/Equivalence_relation equivalence
+relation]:
+ * It is reflexive: for any instance <code>x</code> of type <code>Any</code>, <code>x.equals(x)</code> should return <code>true</code>.
+ * It is symmetric: for any instances <code>x</code> and <code>y</code> of type <code>Any</code>, <code>x.equals(y)</code> should return <code>true</code> if and
+   only if <code>y.equals(x)</code> returns <code>true</code>.
+ * It is transitive: for any instances <code>x</code>, <code>y</code>, and <code>z</code> of type <code>AnyRef</code> if <code>x.equals(y)</code> returns <code>true</code> and
+   <code>y.equals(z)</code> returns <code>true</code>, then <code>x.equals(z)</code> should return <code>true</code>.</p><p>If you override this method, you should verify that your implementation remains an equivalence relation.
+Additionally, when overriding this method it is often necessary to override <code>hashCode</code> to ensure that objects
+that are &quot;equal&quot; (<code>o1.equals(o2)</code> returns <code>true</code>) hash to the same 
+scala.Int
+(<code>o1.hashCode.equals(o2.hashCode)</code>).
+</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the receiver object is equivalent to the argument; <code>false</code> otherwise.</p></dd></dl><div class="block">
+          definition classes: AnyRef → Any
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="prt" data-isabs="false" name="scala.AnyRef#finalize">
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">finalize</span>
+        
+        <span class="params">()</span>
+        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">This method is called by the garbage collector on the receiver object when garbage collection determines that
+there are no more references to the object.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>This method is called by the garbage collector on the receiver object when garbage collection determines that
+there are no more references to the object.</p><p>The details of when and if the <code>finalize</code> method are invoked, as well as the interaction between <code>finalize</code>and non-local returns and exceptions, are all platform dependent.</p></div><div class="block">
+          attributes: protected 
+        </div><div class="block">
+          definition classes: AnyRef
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.util.Error#flaw">
+      <a id="flaw(String,String):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">flaw</span>
+        
+        <span class="params">(<span name="method">method: String</span>, <span name="message">message: String</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Show the flaw by printing the error message.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Show the flaw by printing the error message.</p></div><dl class="paramcmts block"><dt class="param">method</dt><dd class="cmt"><p>the method where the error occured</p></dd><dt class="param">message</dt><dd class="cmt"><p>the error message
+</p></dd></dl><div class="block">
+          definition classes: <a href="../util/Error.html" class="extype" name="scalation.util.Error">Error</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.activity.PetriNetRules#fluidFlow">
+      <a id="fluidFlow(VectorD,Array[Derivative],Double,Double):VectorD"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">fluidFlow</span>
+        
+        <span class="params">(<span name="f">f: VectorD</span>, <span name="derv">derv: <span class="extype" name="scala.Array">Array</span>[Derivative]</span>, <span name="t0">t0: <span class="extype" name="scala.Double">Double</span></span>, <span name="d">d: <span class="extype" name="scala.Double">Double</span></span>)</span>
+        <span class="result">: VectorD</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Compute the amount of fluid to flow over an arc according to the
+system of first-order Ordinary Differential Equation (ODE's):
+&quot;integral derv from t0 to t&quot;.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Compute the amount of fluid to flow over an arc according to the
+system of first-order Ordinary Differential Equation (ODE's):
+&quot;integral derv from t0 to t&quot;.  Supports ODE base flow models.</p></div><dl class="paramcmts block"><dt class="param">f</dt><dd class="cmt"><p>the fluid vector (amount of fluid per color)</p></dd><dt class="param">derv</dt><dd class="cmt"><p>the array of derivative functions</p></dd><dt class="param">t0</dt><dd class="cmt"><p>the current time</p></dd><dt class="param">d</dt><dd class="cmt"><p>the time delay
+</p></dd></dl><div class="block">
+          definition classes: <a href="PetriNetRules.html" class="extype" name="scalation.activity.PetriNetRules">PetriNetRules</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.activity.PetriNetRules#fluidFlow">
+      <a id="fluidFlow(VectorD,VectorD,VectorD,Double):VectorD"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">fluidFlow</span>
+        
+        <span class="params">(<span name="f">f: VectorD</span>, <span name="b">b: VectorD</span>, <span name="r">r: VectorD =<span class="symbol">null</span></span>, <span name="d">d: <span class="extype" name="scala.Double">Double</span> =<span class="symbol">0</span></span>)</span>
+        <span class="result">: VectorD</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Compute the amount of fluid to flow over an arc according to the
+matrix expression: b + r * (f-b) * d.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Compute the amount of fluid to flow over an arc according to the
+matrix expression: b + r * (f-b) * d.  If r is 0, returns b.
+Supports linear (w.r.t. time delay) and constant (d == 0) flow models.</p></div><dl class="paramcmts block"><dt class="param">f</dt><dd class="cmt"><p>the fluid vector (amount of fluid per color)</p></dd><dt class="param">b</dt><dd class="cmt"><p>the constant vector for base fluid flow</p></dd><dt class="param">r</dt><dd class="cmt"><p>the rate vector (amounts of fluids per unit time)</p></dd><dt class="param">d</dt><dd class="cmt"><p>the time delay
+</p></dd></dl><div class="block">
+          definition classes: <a href="PetriNetRules.html" class="extype" name="scalation.activity.PetriNetRules">PetriNetRules</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#getClass">
+      <a id="getClass():java.lang.Class[_]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">getClass</span>
+        
+        <span class="params">()</span>
+        <span class="result">: java.lang.Class[_]</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Returns a representation that corresponds to the dynamic class of the receiver object.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Returns a representation that corresponds to the dynamic class of the receiver object.</p><p>The nature of the representation is platform dependent.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>a representation that corresponds to the dynamic class of the receiver object.</p></dd></dl><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: AnyRef
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#hashCode">
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">hashCode</span>
+        
+        <span class="params">()</span>
+        <span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Returns a hash code value for the object.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Returns a hash code value for the object.</p><p>The default hashing algorithm is platform dependent.</p><p>Note that it is allowed for two objects to have identical hash codes (<code>o1.hashCode.equals(o2.hashCode)</code>) yet
+not be equal (<code>o1.equals(o2)</code> returns <code>false</code>).  A degenerate implementation could always return <code>0</code>.
+However, it is required that if two objects are equal (<code>o1.equals(o2)</code> returns <code>true</code>) that they have
+identical hash codes (<code>o1.hashCode.equals(o2.hashCode)</code>).  Therefore, when overriding this method, be sure
+to verify that the behavior is consistent with the <code>equals</code> method.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>the hash code value for the object.</p></dd></dl><div class="block">
+          definition classes: AnyRef → Any
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.util.Identity#id">
+      <a id="id:Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">id</span>
+        
+        
+        <span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Get the id (unique identifier).</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Get the id (unique identifier).
+</p></div><div class="block">
+          definition classes: <a href="../util/Identity.html" class="extype" name="scalation.util.Identity">Identity</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.Any#isInstanceOf">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span>
+        <span class="tparams">[<span name="T0">T0</span>]</span>
+        
+        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">This method is used to test whether the dynamic type of the receiver object is <code>T0</code>.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>This method is used to test whether the dynamic type of the receiver object is <code>T0</code>.</p><p>Note that the test result of the test is modulo Scala's erasure semantics.  Therefore the expression<code>1.isInstanceOf[String]</code> will return <code>false</code>, while the expression <code>List(1).isInstanceOf[List[String]]</code> will
+return <code>true</code>.  In the latter example, because the type argument is erased as part of compilation it is not
+possible to check whether the contents of the list are of the requested typed.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p><code>true</code> if the receiver object is an instance of erasure of type <code>T0</code>; <code>false</code> otherwise.</p></dd></dl><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: Any
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.util.Identity#me">
+      <a id="me:String"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">me</span>
+        
+        
+        <span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Full identity.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Full identity.
+</p></div><div class="block">
+          definition classes: <a href="../util/Identity.html" class="extype" name="scalation.util.Identity">Identity</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.activity.ArcI#minTokens">
+      <a id="minTokens:VectorI"></a>
+      <h4 class="signature">
+      <span class="kind">val</span>
+      <span class="symbol">
+        <span class="name">minTokens</span>
+        
+        
+        <span class="result">: VectorI</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">minimum number of tokens to transport over the arc</p>
+            <div class="fullcomment"><div class="comment cmt"><p>minimum number of tokens to transport over the arc</p></div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.util.Identity#name">
+      <a id="name:String"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">name</span>
+        
+        
+        <span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Get the name.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Get the name.
+</p></div><div class="block">
+          definition classes: <a href="../util/Identity.html" class="extype" name="scalation.util.Identity">Identity</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#ne">
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">ne</span>
+        
+        <span class="params">(<span name="arg0">arg0: AnyRef</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt"><code>o.ne(arg0)</code> is the same as <code>!(o.eq(arg0))</code>.</p>
+            <div class="fullcomment"><div class="comment cmt"><p><code>o.ne(arg0)</code> is the same as <code>!(o.eq(arg0))</code>.
+</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for reference dis-equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>false</code> if the argument is not a reference to the receiver object; <code>true</code> otherwise.</p></dd></dl><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: AnyRef
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#notify">
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">notify</span>
+        
+        <span class="params">()</span>
+        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Wakes up a single thread that is waiting on the receiver object's monitor.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Wakes up a single thread that is waiting on the receiver object's monitor.</p></div><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: AnyRef
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#notifyAll">
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">notifyAll</span>
+        
+        <span class="params">()</span>
+        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Wakes up all threads that are waiting on the receiver object's monitor.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Wakes up all threads that are waiting on the receiver object's monitor.</p></div><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: AnyRef
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.activity.ArcI#place">
+      <a id="place:PlaceI"></a>
+      <h4 class="signature">
+      <span class="kind">val</span>
+      <span class="symbol">
+        <span class="name">place</span>
+        
+        
+        <span class="result">: <a href="PlaceI.html" class="extype" name="scalation.activity.PlaceI">PlaceI</a></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">the discrete place at one end of the arc</p>
+            <div class="fullcomment"><div class="comment cmt"><p>the discrete place at one end of the arc</p></div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.util.Identity#setName">
+      <a id="setName(String):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">setName</span>
+        
+        <span class="params">(<span name="__name">__name: String</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Set the name.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Set the name.</p></div><dl class="paramcmts block"><dt class="param">__name</dt><dd class="cmt"><p>the name to assign
+</p></dd></dl><div class="block">
+          definition classes: <a href="../util/Identity.html" class="extype" name="scalation.util.Identity">Identity</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.util.Identity#simType">
+      <a id="simType:String"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">simType</span>
+        
+        
+        <span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Get the type of the simulation object.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Get the type of the simulation object.
+</p></div><div class="block">
+          definition classes: <a href="../util/Identity.html" class="extype" name="scalation.util.Identity">Identity</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#synchronized">
+      <a id="synchronized[T0](T0):T0"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">synchronized</span>
+        <span class="tparams">[<span name="T0">T0</span>]</span>
+        <span class="params">(<span name="arg0">arg0: T0</span>)</span>
+        <span class="result">: T0</span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: AnyRef
+        </div></div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.activity.PetriNetRules#thresholdD">
+      <a id="thresholdD(VectorD,VectorD):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">thresholdD</span>
+        
+        <span class="params">(<span name="f">f: VectorD</span>, <span name="b">b: VectorD</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Return whether the matrix inequality is true: f &gt;= b.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Return whether the matrix inequality is true: f &gt;= b.
+The firing threshold should be checked for every incoming arc.
+If all return true, the transition should fire.</p></div><dl class="paramcmts block"><dt class="param">f</dt><dd class="cmt"><p>The fluid vector (amount of fluid per color)</p></dd><dt class="param">b</dt><dd class="cmt"><p>The base constant vector
+</p></dd></dl><div class="block">
+          definition classes: <a href="PetriNetRules.html" class="extype" name="scalation.activity.PetriNetRules">PetriNetRules</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.activity.PetriNetRules#thresholdI">
+      <a id="thresholdI(VectorI,VectorI):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">thresholdI</span>
+        
+        <span class="params">(<span name="t">t: VectorI</span>, <span name="b">b: VectorI</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Return whether the matrix inequality is true: t &gt;= b.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Return whether the matrix inequality is true: t &gt;= b.
+The firing threshold should be checked for every incoming arc.
+If all return true, the transition should fire.</p></div><dl class="paramcmts block"><dt class="param">t</dt><dd class="cmt"><p>the token vector (number of tokens per color)</p></dd><dt class="param">b</dt><dd class="cmt"><p>the base constant vector
+</p></dd></dl><div class="block">
+          definition classes: <a href="PetriNetRules.html" class="extype" name="scalation.activity.PetriNetRules">PetriNetRules</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#toString">
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">toString</span>
+        
+        <span class="params">()</span>
+        <span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Returns a string representation of the object.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Returns a string representation of the object.</p><p>The default representation is platform dependent.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>a string representation of the object.</p></dd></dl><div class="block">
+          definition classes: AnyRef → Any
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.activity.PetriNetRules#tokenFlow">
+      <a id="tokenFlow(VectorI,VectorI,VectorI,Double):VectorI"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">tokenFlow</span>
+        
+        <span class="params">(<span name="t">t: VectorI</span>, <span name="b">b: VectorI</span>, <span name="r">r: VectorI =<span class="symbol">null</span></span>, <span name="d">d: <span class="extype" name="scala.Double">Double</span> =<span class="symbol">0</span></span>)</span>
+        <span class="result">: VectorI</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Compute the number of tokens to flow over an arc according to the
+vector expression: b + r * (t-b) * d.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Compute the number of tokens to flow over an arc according to the
+vector expression: b + r * (t-b) * d.  If d is 0, returns b.
+Supports linear (w.r.t. time delay) and constant (d == 0) flow models.</p></div><dl class="paramcmts block"><dt class="param">t</dt><dd class="cmt"><p>the token vector (number of tokens per color)</p></dd><dt class="param">b</dt><dd class="cmt"><p>the constant vector for base token flow</p></dd><dt class="param">r</dt><dd class="cmt"><p>the rate vector (number of tokens per unit time)</p></dd><dt class="param">d</dt><dd class="cmt"><p>the time delay
+</p></dd></dl><div class="block">
+          definition classes: <a href="PetriNetRules.html" class="extype" name="scalation.activity.PetriNetRules">PetriNetRules</a>
+        </div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scalation.activity.ArcI#transition">
+      <a id="transition:Transition"></a>
+      <h4 class="signature">
+      <span class="kind">val</span>
+      <span class="symbol">
+        <span class="name">transition</span>
+        
+        
+        <span class="result">: <a href="Transition.html" class="extype" name="scalation.activity.Transition">Transition</a></span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">the transition at the other end of the arc</p>
+            <div class="fullcomment"><div class="comment cmt"><p>the transition at the other end of the arc</p></div>
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#wait">
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">wait</span>
+        
+        <span class="params">()</span>
+        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: AnyRef
+        </div></div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#wait">
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">wait</span>
+        
+        <span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span>
+        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: AnyRef
+        </div></div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#wait">
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">wait</span>
+        
+        <span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span>
+        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: AnyRef
+        </div></div>
+          
+    </li></ol>
+            </div>
+
+        <div class="parent" name="scalation.util.Identity">
+              <h3>Inherited from <a href="../util/Identity.html" class="extype" name="scalation.util.Identity">Identity</a></h3>
+            </div><div class="parent" name="scalation.util.Error">
+              <h3>Inherited from <a href="../util/Error.html" class="extype" name="scalation.util.Error">Error</a></h3>
+            </div><div class="parent" name="scalation.activity.PetriNetRules">
+              <h3>Inherited from <a href="PetriNetRules.html" class="extype" name="scalation.activity.PetriNetRules">PetriNetRules</a></h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from AnyRef</h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+
+      </div>
+      
+      <div id="tooltip"></div>
+      
+    </body>
+      </html>

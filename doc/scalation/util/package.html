@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>scalation.util</title>
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../lib/template.css" rel="stylesheet" type="text/css" media="screen" />
+      <script type="text/javascript" src="../../lib/jquery.js"></script>
+      <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
+    
+        </head>
+        <body class="value" onload="windowTitle();">
+
+      <p id="owner"><a href="../package.html" class="extype" name="scalation">scalation</a></p>
+
+      <div id="definition">
+        <img src="../../lib/package_big.png" />
+        <h1>util</h1>
+      </div>
+
+      <h4 class="signature" id="signature">
+      <span class="kind">package</span>
+      <span class="symbol">
+        <span class="name">util</span>
+        
+        
+        
+      </span>
+      </h4>
+      <div class="fullcomment" id="comment"></div>
+
+      <div id="template">
+
+        <div id="mbrsel">
+          <div id="textfilter"><span class="pre"></span><span class="input"><input accesskey="/" type="text" /></span><span class="post"></span></div>
+          
+          
+          <div id="visbl">
+              <span class="filtertype">Visibility</span>
+              <ol><li class="public in">Public</li><li class="all out">All</li></ol>
+            </div>
+          <div id="impl">
+              <span class="filtertype">Impl.</span>
+              <ol><li class="concrete in">Concrete</li><li class="abstract in">Abstract</li></ol>
+            </div>
+        </div>
+
+        
+
+        <div class="types members" id="types">
+              <h3>Type Members</h3>
+              <ol><li visbl="pub" data-isabs="true" name="scalation.util.Error">
+      <a id="Error:Error"></a>
+      <h4 class="signature"><a href="Error.html">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">Error</span>
+        
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">This trait is used to report errors showing the class and method within
+which the error or flaw occured.</p>
+    </li><li visbl="pub" data-isabs="true" name="scalation.util.Identity">
+      <a id="Identity:Identity"></a>
+      <h4 class="signature"><a href="Identity.html">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">Identity</span>
+        
+        
+        <span class="result"> extends Error</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">The Identity trait provides unique identification for simulation componenets,
+entities and events.</p>
+    </li><li visbl="pub" data-isabs="true" name="scalation.util.Monitor">
+      <a id="Monitor:Monitor"></a>
+      <h4 class="signature"><a href="Monitor.html">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">Monitor</span>
+        
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">The Monitor trait is used to trace the actions/events in the models.</p>
+    </li><li visbl="pub" data-isabs="true" name="scalation.util.PQItem">
+      <a id="PQItem:PQItem"></a>
+      <h4 class="signature"><a href="PQItem.html">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">PQItem</span>
+        
+        
+        <span class="result"> extends Identity</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">Items that go on PQueue should mixin the PQItem trait.</p>
+    </li><li visbl="pub" data-isabs="false" name="scalation.util.PQueue">
+      <a id="PQueue:PQueue[T]"></a>
+      <h4 class="signature"><a href="PQueue.html">
+      <span class="kind">class</span>
+      <span class="symbol">
+        <span class="name">PQueue</span>
+        <span class="tparams">[<span name="T">T &lt;: PQItem</span>]</span>
+        
+        <span class="result"> extends ResizableArray[T]</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">The PQueue class provides a simple linear implementation for priority queues.</p>
+    </li></ol>
+            </div>
+
+        <div class="values members" id="values">
+              <h3>Value Members</h3>
+              <ol><li visbl="pub" data-isabs="false" name="scalation.util.Counter">
+      <a id="Counter:Counter"></a>
+      <h4 class="signature"><a href="Counter$.html">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Counter</span>
+        
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">This Counter object is used to generate unique identifiers.</p>
+    </li><li visbl="pub" data-isabs="false" name="scalation.util.GenIndexHtml">
+      <a id="GenIndexHtml:GenIndexHtml"></a>
+      <h4 class="signature"><a href="GenIndexHtml$.html">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">GenIndexHtml</span>
+        
+        
+        <span class="result"> extends Application</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">This object is used to create &quot;index.</p>
+    </li><li visbl="pub" data-isabs="false" name="scalation.util.PQueueTest">
+      <a id="PQueueTest:PQueueTest"></a>
+      <h4 class="signature"><a href="PQueueTest$.html">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">PQueueTest</span>
+        
+        
+        <span class="result"> extends Application</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">This object is used to test the PQueue class.</p>
+    </li><li visbl="pub" data-isabs="false" name="scalation.util.Replace">
+      <a id="Replace:Replace"></a>
+      <h4 class="signature"><a href="Replace$.html">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Replace</span>
+        
+        
+        <span class="result"> extends Application</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">This object is used to replace pattern pat1 with pat2.</p>
+    </li></ol>
+            </div>
+
+        
+
+      </div>
+      
+      <div id="tooltip"></div>
+      
+    </body>
+      </html>

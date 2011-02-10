@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>scalation.animation</title>
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../lib/template.css" rel="stylesheet" type="text/css" media="screen" />
+      <script type="text/javascript" src="../../lib/jquery.js"></script>
+      <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
+    
+        </head>
+        <body class="value" onload="windowTitle();">
+
+      <p id="owner"><a href="../package.html" class="extype" name="scalation">scalation</a></p>
+
+      <div id="definition">
+        <img src="../../lib/package_big.png" />
+        <h1>animation</h1>
+      </div>
+
+      <h4 class="signature" id="signature">
+      <span class="kind">package</span>
+      <span class="symbol">
+        <span class="name">animation</span>
+        
+        
+        
+      </span>
+      </h4>
+      <div class="fullcomment" id="comment"></div>
+
+      <div id="template">
+
+        <div id="mbrsel">
+          <div id="textfilter"><span class="pre"></span><span class="input"><input accesskey="/" type="text" /></span><span class="post"></span></div>
+          
+          
+          <div id="visbl">
+              <span class="filtertype">Visibility</span>
+              <ol><li class="public in">Public</li><li class="all out">All</li></ol>
+            </div>
+          <div id="impl">
+              <span class="filtertype">Impl.</span>
+              <ol><li class="concrete in">Concrete</li><li class="abstract in">Abstract</li></ol>
+            </div>
+        </div>
+
+        
+
+        <div class="types members" id="types">
+              <h3>Type Members</h3>
+              <ol><li visbl="pub" data-isabs="false" name="scalation.animation.AnimateCommand">
+      <a id="AnimateCommand:AnimateCommand"></a>
+      <h4 class="signature"><a href="AnimateCommand.html">
+      <span class="kind">case class</span>
+      <span class="symbol">
+        <span class="name">AnimateCommand</span>
+        
+        <span class="params">(<span name="action">action: Value</span>, <span name="eid">eid: Int</span>, <span name="shape">shape: Shape</span>, <span name="label">label: String</span>, <span name="primary">primary: Boolean</span>, <span name="color">color: Color</span>, <span name="pts">pts: Array[Double]</span>, <span name="time">time: Double</span>, <span name="from_eid">from_eid: Int</span>, <span name="to_eid">to_eid: Int</span>)</span>
+        <span class="result"> extends Product</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">This class provides a template for animation commands.</p>
+    </li><li visbl="pub" data-isabs="false" name="scalation.animation.Animator">
+      <a id="Animator:Animator"></a>
+      <h4 class="signature"><a href="Animator.html">
+      <span class="kind">class</span>
+      <span class="symbol">
+        <span class="name">Animator</span>
+        
+        
+        <span class="result"> extends Transform with Error</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">This class implements the commands to create, destroy, move and scale
+components (nodes, edges or tokens) in an animated graph.</p>
+    </li><li visbl="pub" data-isabs="false" name="scalation.animation.DgAnimator">
+      <a id="DgAnimator:DgAnimator"></a>
+      <h4 class="signature"><a href="DgAnimator.html">
+      <span class="kind">class</span>
+      <span class="symbol">
+        <span class="name">DgAnimator</span>
+        
+        
+        <span class="result"> extends MainFrame with Actor with Error</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">This class is an animation engine for animating graphs.</p>
+    </li><li visbl="pub" data-isabs="false" name="scalation.animation.Dgraph">
+      <a id="Dgraph:Dgraph"></a>
+      <h4 class="signature"><a href="Dgraph.html">
+      <span class="kind">class</span>
+      <span class="symbol">
+        <span class="name">Dgraph</span>
+        
+        
+        <span class="result"> extends Error</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">This class is for defining graph structures suitable for animation.</p>
+    </li></ol>
+            </div>
+
+        <div class="values members" id="values">
+              <h3>Value Members</h3>
+              <ol><li visbl="pub" data-isabs="false" name="scalation.animation.CommandType">
+      <a id="CommandType:CommandType"></a>
+      <h4 class="signature"><a href="CommandType$.html">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">CommandType</span>
+        
+        
+        <span class="result"> extends Enumeration</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">This class implements a message which is passed from a simulation engine to
+the animation engine.</p>
+    </li><li visbl="pub" data-isabs="false" name="scalation.animation.Counter">
+      <a id="Counter:Counter"></a>
+      <h4 class="signature"><a href="Counter$.html">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Counter</span>
+        
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">Object to maintain counters.</p>
+    </li><li visbl="pub" data-isabs="false" name="scalation.animation.DgAnimatorTest">
+      <a id="DgAnimatorTest:DgAnimatorTest"></a>
+      <h4 class="signature"><a href="DgAnimatorTest$.html">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">DgAnimatorTest</span>
+        
+        
+        <span class="result"> extends Application</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">The DgAnimatorTest object is used to test the DgAnimator class.</p>
+    </li><li visbl="pub" data-isabs="false" name="scalation.animation.DgraphTest">
+      <a id="DgraphTest:DgraphTest"></a>
+      <h4 class="signature"><a href="DgraphTest$.html">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">DgraphTest</span>
+        
+        
+        <span class="result"> extends Application</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">Object to test the Dgraph class.</p>
+    </li><li visbl="pub" data-isabs="false" name="scalation.animation.EidCounter">
+      <a id="EidCounter:EidCounter"></a>
+      <h4 class="signature"><a href="EidCounter$.html">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">EidCounter</span>
+        
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">This object is used to provide unique identifiers for internally created
+tokens/fluids.</p>
+    </li></ol>
+            </div>
+
+        
+
+      </div>
+      
+      <div id="tooltip"></div>
+      
+    </body>
+      </html>

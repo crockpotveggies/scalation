@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>scalation.process</title>
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../lib/template.css" rel="stylesheet" type="text/css" media="screen" />
+      <script type="text/javascript" src="../../lib/jquery.js"></script>
+      <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
+    
+        </head>
+        <body class="value" onload="windowTitle();">
+
+      <p id="owner"><a href="../package.html" class="extype" name="scalation">scalation</a></p>
+
+      <div id="definition">
+        <img src="../../lib/package_big.png" />
+        <h1>process</h1>
+      </div>
+
+      <h4 class="signature" id="signature">
+      <span class="kind">package</span>
+      <span class="symbol">
+        <span class="name">process</span>
+        
+        
+        
+      </span>
+      </h4>
+      <div class="fullcomment" id="comment"></div>
+
+      <div id="template">
+
+        <div id="mbrsel">
+          <div id="textfilter"><span class="pre"></span><span class="input"><input accesskey="/" type="text" /></span><span class="post"></span></div>
+          
+          
+          <div id="visbl">
+              <span class="filtertype">Visibility</span>
+              <ol><li class="public in">Public</li><li class="all out">All</li></ol>
+            </div>
+          <div id="impl">
+              <span class="filtertype">Impl.</span>
+              <ol><li class="concrete in">Concrete</li><li class="abstract in">Abstract</li></ol>
+            </div>
+        </div>
+
+        
+
+        <div class="types members" id="types">
+              <h3>Type Members</h3>
+              <ol><li visbl="pub" data-isabs="true" name="scalation.process.Component">
+      <a id="Component:Component"></a>
+      <h4 class="signature"><a href="Component.html">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">Component</span>
+        
+        
+        <span class="result"> extends Identity</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">The Component trait provides basic common feature for simulation components.</p>
+    </li><li visbl="pub" data-isabs="false" name="scalation.process.Junction">
+      <a id="Junction:Junction"></a>
+      <h4 class="signature"><a href="Junction.html">
+      <span class="kind">class</span>
+      <span class="symbol">
+        <span class="name">Junction</span>
+        
+        
+        <span class="result"> extends Component with Monitor</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">The Junction class provides a connector between two transports.</p>
+    </li><li visbl="pub" data-isabs="false" name="scalation.process.Model">
+      <a id="Model:Model"></a>
+      <h4 class="signature"><a href="Model.html">
+      <span class="kind">class</span>
+      <span class="symbol">
+        <span class="name">Model</span>
+        
+        
+        <span class="result"> extends Actor with Component with Monitor</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">The Model class maintains a list of components making up the model and
+controls the flow of entities (SimActors) through the model, following the
+process-interaction world-view.</p>
+    </li><li visbl="pub" data-isabs="false" name="scalation.process.Resource">
+      <a id="Resource:Resource"></a>
+      <h4 class="signature"><a href="Resource.html">
+      <span class="kind">class</span>
+      <span class="symbol">
+        <span class="name">Resource</span>
+        
+        
+        <span class="result"> extends Component with Monitor</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">The Resource class provides services to entities (SimActors).</p>
+    </li><li visbl="pub" data-isabs="true" name="scalation.process.SimActor">
+      <a id="SimActor:SimActor"></a>
+      <h4 class="signature"><a href="SimActor.html">
+      <span class="kind">class</span>
+      <span class="symbol">
+        <span class="name">SimActor</span>
+        
+        
+        <span class="result"> extends Actor with PQItem with Monitor</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">The SimActor abstract class represents entities that are active in the model.</p>
+    </li><li visbl="pub" data-isabs="false" name="scalation.process.Sink">
+      <a id="Sink:Sink"></a>
+      <h4 class="signature"><a href="Sink.html">
+      <span class="kind">class</span>
+      <span class="symbol">
+        <span class="name">Sink</span>
+        
+        
+        <span class="result"> extends Component with Monitor</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">The Sink class is used to terminate entities (SimActors) when they are finished.</p>
+    </li><li visbl="pub" data-isabs="false" name="scalation.process.Source">
+      <a id="Source:Source"></a>
+      <h4 class="signature"><a href="Source.html">
+      <span class="kind">class</span>
+      <span class="symbol">
+        <span class="name">Source</span>
+        
+        
+        <span class="result"> extends SimActor with Component</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">The Source class is used to periodically inject entities (SimActors) into a
+running simulation model.</p>
+    </li><li visbl="pub" data-isabs="false" name="scalation.process.Transport">
+      <a id="Transport:Transport"></a>
+      <h4 class="signature"><a href="Transport.html">
+      <span class="kind">class</span>
+      <span class="symbol">
+        <span class="name">Transport</span>
+        
+        
+        <span class="result"> extends Component with Monitor</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">The Transport class provides a pathway between two other components.</p>
+    </li><li visbl="pub" data-isabs="false" name="scalation.process.WaitQueue">
+      <a id="WaitQueue:WaitQueue"></a>
+      <h4 class="signature"><a href="WaitQueue.html">
+      <span class="kind">class</span>
+      <span class="symbol">
+        <span class="name">WaitQueue</span>
+        
+        
+        <span class="result"> extends Queue[SimActor] with Component with Monitor</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">The WaitQueue class simply a wrapper for monitoring scala's Queue class.</p>
+    </li></ol>
+            </div>
+
+        <div class="values members" id="values">
+              <h3>Value Members</h3>
+              <ol><li visbl="pub" data-isabs="false" name="scalation.process.ModelTest">
+      <a id="ModelTest:ModelTest"></a>
+      <h4 class="signature"><a href="ModelTest$.html">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">ModelTest</span>
+        
+        
+        <span class="result"> extends Application</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">The ModelTest object is used to test the Model class.</p>
+    </li></ol>
+            </div>
+
+        
+
+      </div>
+      
+      <div id="tooltip"></div>
+      
+    </body>
+      </html>
