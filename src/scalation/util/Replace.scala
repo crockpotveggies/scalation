@@ -1,7 +1,7 @@
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 /**
- * @author  John Miller
+ * @author  John Miller, Michael Cotterell
  * @version 1.0
  * @date    Wed Dec 23 17:00:46 EST 2009
  * @see     LICENSE (MIT style license file).
@@ -22,7 +22,7 @@ object Replace extends Application
 
     do {
         line = readLine
-        if (line != null) println (line.replace (pat1, pat2))
+        if (line != null) println (line.replaceAll (pat1, pat2))
     } while (line != null)
 
 } // Replace object
