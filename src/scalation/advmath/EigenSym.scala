@@ -1,4 +1,5 @@
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller, Robert Davis
  * @version 1.0
  * @date    Thu Jan 28 13:29:27 EST 2010
@@ -15,7 +16,8 @@ import scalation.advmath.Matrices._
 import scalation.advmath.Vectors._
 import scalation.util.Error
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class performs a Householder Tridiagonalization on a symmetric matrix.
  * @see Algorithm 8.3.1 in Matrix Computations.
  * @param a  the symmetric matrix to tridiagonalize
@@ -48,7 +50,8 @@ class Householder (a: MatrixN [Double])
         t(n, n)         = a(n, n)
     } // primary constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute the Householder vector v and its corresponding scalar b,
      * where I - b * v * v.t is an orthogonal matrix.
      * @see Algorithm 5.1.1 in Matrix Computations.
@@ -71,14 +74,16 @@ class Householder (a: MatrixN [Double])
         Tuple2 (v, b)
     } // house
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the Householder Tridiagonal matrix.
      */
     def getT: SymmetricTridMatrixN [Double] = t
 
 } // Householder class
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class performs an in place symmetric QR step with a Wilkinson shift on
  * an unreduced submatrix of a symmetric tridiagonal matrix.
  * @see Algorithm 8.3.2 in Matrix Computations.
@@ -116,7 +121,8 @@ class SymmetricQRstep (t: SymmetricTridMatrixN [Double], p: Int, q: Int) extends
 
 } // SymmetricQRstep class
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class is used to find the eigenvalues of an n by n symmetric matrix 'a'
  * using an iterative technique, the Symmetric QR Algorithm.
  * @see Algorithm 8.3.3 in Matrix Computations.
@@ -165,14 +171,16 @@ class EigenvalueSym (a: MatrixN [Double])
         } // while
     } // primary constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the eigenvalue e vector.
      */
     def getE: VectorD = d.dg     // the diagonal of the tridiagonal matrix
 
 } // EigenvalueSym
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This object is used to test the all the classes used in computing Eigenvalues
  * and Eigenvectors for the symmetric/special case.
  */

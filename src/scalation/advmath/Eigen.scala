@@ -1,4 +1,5 @@
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * @author  John Miller, Robert Davis
  * @version 1.0
  * @date    Thu Jan 28 13:29:27 EST 2010
@@ -16,7 +17,8 @@ import scalation.advmath.Matrices._
 import scalation.advmath.Vectors._
 import scalation.util.Error
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/		
+/**
  * This class is used to reduce, via similarity transformations, an n by n matrix
  * 'a' to Hessenburg form 'h', where all elements two below the main diagonal are
  * zero (or close to zero).  Note, similarity transformations do not changes the
@@ -46,14 +48,16 @@ class Hessenburg (a: MatrixD)
         } // for
     } // primary constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the Hessenburg h matrix.
      */
     def getH: MatrixD = h
 
 } // Hessenburg class
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class is used to decompose an m by n matrix 'a' into an orthogonal m by n
  * matrix 'q' and an n by n right upper triangular matrix 'r' such that a = q * r.
  * It uses Gram-Schmidt orthogonalization.
@@ -94,19 +98,22 @@ class QRdecomposition (a: MatrixD)
          } // for
     } // primary constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the orthogonal q matrix.
      */
     def getQ: MatrixD = q
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the right upper triangular r matrix.
      */
     def getR: MatrixD = r
 
 } // QRdecomposition class
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class is used to find the eigenvalues of an n by n matrix 'a' using an
  * iterative technique that applies similarity transformations to convert 'a' into
  * an upper triangular matrix, so that the eigenvalues appear along the diagonal.
@@ -166,13 +173,15 @@ class Eigenvalue (a: MatrixD)
         } // for
     } // primary constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the eigenvalue e vector.
      */
     def getE: VectorD = e
 } // Eigenvalue class
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This class is used to find the eigenvectors of an n by n matrix 'a' by solving
  * equations of the form (a - eI)v = 0 where e is the eigenvalue and v is the
  * eigenvector.  Place the eigenvectors in a matrix column-wise.
@@ -198,14 +207,16 @@ class Eigenvector (a: MatrixD, _e: VectorD = null)
         } // for
     } // primary constructor
 
-    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Get the eigenvector v matrix.
      */
     def getV: MatrixD = v 
 
 } // Eigenvector class
 
-/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
  * This object is used to test the all the classes used in computing Eigenvalues
  * and Eigenvectors for the non-symmetric/general case.
  * @see http://en.wikipedia.org/wiki/QR_decomposition
