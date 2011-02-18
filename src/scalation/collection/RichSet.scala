@@ -27,7 +27,7 @@ object RichSet
     /**
      * Defines the implicit conversion from a range to a Set
      */
-    implicit def Range2RichSet[Int](range: Range.Inclusive) = 
+    implicit def Range2RichSet[A <: Range](range: A) = 
     {	
     	def traverse[A](list: List[A])(set: Set[A]): Set[A] = list match {
     		case hd :: tail => traverse(tail)(set + hd)
