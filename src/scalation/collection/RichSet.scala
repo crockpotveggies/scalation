@@ -245,6 +245,7 @@ object RichSetTest
         
         println("def factorial(n: Int) = ∏(1 to n)")
         println("factorial(4) = " + factorial(4))
+        println("∏(1 until 5) = " + ∏(1 until 5))
         
     }
     
