@@ -29,6 +29,9 @@ object RichSet
      */
     implicit def Range2RichSet[A <: Range](range: A) = 
     {	
+    	// Adapted from code presumably written by Daniel Spiewak 
+    	// @see http://www.codecommit.com/blog/scala/scala-collections-for-the-easily-bored-part-1
+    	// @see http://www.opensource.org/licenses/bsd-license.php
     	def traverse[A](list: List[A])(set: Set[A]): Set[A] = list match {
     		case hd :: tail => traverse(tail)(set + hd)
     		case Nil => set
@@ -175,10 +178,10 @@ class RichSetElement[A](elem: A)
 object RichSetTest
 {
 	
-	/**
-	 * Cool factorial definition
-	 */
-	def factorial(n: Int) = ∏(1 to n)
+    /**
+     * Cool factorial definition
+     */
+    def factorial(n: Int) = ∏(1 to n)
 	
     def main(args: Array[String]): Unit = {
     
