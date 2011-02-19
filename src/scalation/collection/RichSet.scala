@@ -115,25 +115,29 @@ class RichSet[A](set: Set[A])
     /**
      * Tests whether this set is a subset of another set.
      */
-    def ⊂(that: Set[A]): Boolean = set subsetOf that
+    def ⊂(that: Set[A]): Boolean = (set subsetOf that) && (set != that)
+    def ⊆(that: Set[A]): Boolean = set subsetOf that
     
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Tests whether this set is not a subset of another set.
      */
-    def ⊄(that: Set[A]): Boolean = !(set subsetOf that)
+    def ⊄(that: Set[A]): Boolean = !(set ⊂ that) 
+    def ⊈(that: Set[A]): Boolean = !(set ⊆ that)
     
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Tests whether this set is a superset of another set.
      */
-    def ⊃(that: Set[A]): Boolean = that subsetOf set
+    def ⊃(that: Set[A]): Boolean = (that subsetOf set) && (set != that)
+    def ⊇(that: Set[A]): Boolean = that subsetOf set
     
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Tests whether this set is not a superset of another set.
      */
-    def ⊅(that: Set[A]): Boolean = that subsetOf set
+    def ⊅(that: Set[A]): Boolean = !(that ⊃ set)
+    def ⊉(that: Set[A]): Boolean = !(that ⊇ set)
     
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
@@ -222,18 +226,26 @@ object RichSetTest
         println("∅ ∪ x = " + ∅ ∪ x)
         
         // We can check subsets and supersets
-        println("x ⊂ x =" + x ⊂ x)
-        println("x ⊂ z =" + x ⊂ z)
-        println("x ⊄ x =" + x ⊄ x)
-        println("x ⊄ z =" + x ⊄ z)
-        println("z ⊂ x =" + z ⊂ x)
-        println("z ⊄ x =" + z ⊄ x)
-        println("x ⊃ z =" + x ⊃ z)
-        println("x ⊃ x =" + x ⊃ x)
-        println("x ⊅ x =" + x ⊅ x)
-        println("x ⊅ z =" + x ⊅ z)
-        println("z ⊃ x =" + z ⊃ x)
-        println("z ⊅ x =" + z ⊅ x)
+        println("x ⊂ x = " + x ⊂ x)
+        println("x ⊂ z = " + x ⊂ z)
+        println("x ⊄ x = " + x ⊄ x)
+        println("x ⊄ z = " + x ⊄ z)
+        println("z ⊂ x = " + z ⊂ x)
+        println("z ⊄ x = " + z ⊄ x)
+        println("x ⊃ z = " + x ⊃ z)
+        println("x ⊃ x = " + x ⊃ x)
+        println("x ⊅ x = " + x ⊅ x)
+        println("x ⊅ z = " + x ⊅ z)
+        println("z ⊃ x = " + z ⊃ x)
+        println("z ⊅ x = " + z ⊅ x)
+        
+        // a subsetOf b && c subsetOf d
+        val a = Set("a")
+        val ab = Set("a", "b")
+        val c = Set("c")
+        val cd = Set("c", "d")
+        println("a ⊂ ab && c ⊂ cd = " + (a ⊂ ab && c ⊂ cd))
+        println("a ⊂ ab && a ⊂ cd = " + (a ⊂ ab && a ⊂ cd))
         
         // Should produce a compile error if there's a type mismatch
         // For example, the following won't compile because x is not a Set[String]
