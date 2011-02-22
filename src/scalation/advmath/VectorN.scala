@@ -367,6 +367,16 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
+     * Product of the elements of this vector.
+     */
+    def product (implicit nu: Numeric [T]): T =
+    {
+        val _1 = nu.one
+        v.foldLeft (_1) (nu.times (_, _))
+    } // product
+    
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Cummulate the values of this vector from left to right (e.g., create a
      * cdf from a pmf).
      */
