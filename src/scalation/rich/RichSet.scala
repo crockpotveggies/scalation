@@ -8,7 +8,7 @@ import scala.collection.mutable.Set
  * by a Set.
  * @author Michael Cotterell
  */
-class RichSet[A](set: Set[A]) 
+class RichSet[A](set: Set[A]) extends scalation.ScalaTion
 {
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
