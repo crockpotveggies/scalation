@@ -43,6 +43,17 @@ object Vectors
 
 } // Vectors object
 
+object VectorN 
+{
+	def apply[T <% Ordered [T]: ClassManifest](u: T*): VectorN[T] =
+	{
+		val dim = u.length
+		var v = new VectorN[T](dim)
+		for (i <- 0 until dim) v(i) = u(i)
+		v
+	}
+}
+
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 /**
  * The VectorN class stores and operates on Numeric Vectors of various sizes
@@ -52,7 +63,8 @@ object Vectors
  */
 case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
                                             private var v: Array [T] = null)
-     extends PartiallyOrdered [VectorN [T]] with Error
+     extends PartiallyOrdered [VectorN [T]] 
+     with Traversable[T] with Error
 {
     {
         if (v == null) {
@@ -219,7 +231,7 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
      * @param from  the start of the slice
      * @param end   the end of the slice
      */
-    def slice (from: Int, end: Int): VectorN [T] =
+    override def slice (from: Int, end: Int): VectorN [T] =
     {
         VectorN [T] (end - from, v.slice (from, end))
     } // slice
@@ -346,11 +358,11 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
     /**
      * Sum the elements of this vector.
      */
-    def sum (implicit nu: Numeric [T]): T =
-    {
-        val _0 = nu.zero
-        v.foldLeft (_0) (nu.plus (_, _))
-    } // sum
+    //def sum (implicit nu: Numeric [T]): T =
+    //{
+    //    val _0 = nu.zero
+    //    v.foldLeft (_0) (nu.plus (_, _))
+    //} // sum
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
@@ -369,11 +381,11 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
     /**
      * Product of the elements of this vector.
      */
-    def product (implicit nu: Numeric [T]): T =
-    {
-        val _1 = nu.one
-        v.foldLeft (_1) (nu.times (_, _))
-    } // product
+    //def product (implicit nu: Numeric [T]): T =
+    //{
+    //    val _1 = nu.one
+    //    v.foldLeft (_1) (nu.times (_, _))
+    //} // product
     
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
