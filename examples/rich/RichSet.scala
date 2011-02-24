@@ -27,6 +27,7 @@ object RichSet extends ScalaTion
 		val ab = Set("a", "b")
 		val ac = Set("a", "c")
 		val bc = Set("b", "c")
+		val x  = Set(1, 2, 3, 4)
 		
 		println("ab = " + ab)
 		println("ac = " + ac)
@@ -41,6 +42,25 @@ object RichSet extends ScalaTion
 		println("ab ∌ a = " + ab ∌ "a")
 		println("ab ∌ b = " + ab ∌ "b")
 		println("ab ∌ c = " + ab ∌ "c")
+		
+		printSection("union")
+		
+		println("ab ∪ bc = " + ab ∪ bc)
+		println("ab ∪ ac = " + ab ∪ ac)
+		println("ac ∪ bc = " + ac ∪ bc)
+		
+		printSection("intersection")
+		
+		println("ab ∩ ab = " + ab ∩ ab)
+		println("ab ∩ bc = " + ab ∩ bc)
+		println("ab ∩ ac = " + ab ∩ ac)
+		
+		printSection("quantifiers")
+		
+		println("x ∀ (_ < 10) = " + x ∀ (_ < 10))
+		println("x ∀ (_ > 10) = " + x ∀ (_ > 10))
+		println("ab ∀ (_ == \"a\") == " + ab ∀ (_ == "a"))
+		println("ab ∀ (_.isInstanceOf[String]) == " + ab ∀ (_.isInstanceOf[String]))
 		
 		// more examples to come
 		
