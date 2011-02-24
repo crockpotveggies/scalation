@@ -6,7 +6,7 @@ import scalation.ScalaTion
  * Example of how to take advantage of RichIntegral
  * @author Michael Cotterell
  */
-object RichAny extends ScalaTion
+object RichIntegral extends ScalaTion
 {
 	def printSection(title: String)
 	{
@@ -15,7 +15,7 @@ object RichAny extends ScalaTion
 		println(title.toUpperCase)
 		for (i <- 1 to 80) print(":"); println
 		println
-	}
+	} 
 	
 	def main(args : Array[String])
 	{
@@ -25,6 +25,7 @@ object RichAny extends ScalaTion
 		printSection("Numeric factorial")
 		
 		println("3! = " + (3!))
+		println("13! = " + (13!))
 		
 		// more examples to come
 		

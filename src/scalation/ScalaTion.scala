@@ -4,8 +4,6 @@
  */
 package scalation
 
-import scalation.rich._
-
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 /**
  * The ScalaTion trait can be used to quickly grant objects access to 
@@ -35,21 +33,23 @@ trait ScalaTion
 	/**
 	 * Makes RichSet's operations available to Set
 	 */
-	implicit def MkRichSetOps[A](set: Set[A]) = new RichSet[A](set)
+	implicit def MkRichSetOps[A](set: Set[A]) = 
+		new scalation.rich.RichSet[A](set)
 	
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
 	 * Makes RichAny's operations available to Any
 	 */
-	implicit def MkRichAnyOps[A](elem: A) = new RichAny[A](elem)
+	implicit def MkRichAnyOps[A](elem: A) = 
+		new scalation.rich.RichAny[A](elem)
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
 	 * Makes RichIntegral's operations available to any type
 	 */
 	implicit def MkRichIntegralOps[A: Integral](elem: A) = 
-		new RichIntegral[A](elem)
+		new scalation.rich.RichIntegral[A](elem)
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
@@ -112,6 +112,11 @@ trait ScalaTion
      * Returns the empty set
      */
     final def ∅[A]: Set[A] = Set[A]()
+    
+    /**
+     * The string representation of the empty set
+     */
+    final val ∅ = "∅"
     
     /**
      * The String representation of the Summations series character

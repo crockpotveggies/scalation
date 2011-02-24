@@ -6,7 +6,7 @@ package scalation.rich
  * by an integral type.
  * @author Michael Cotterell
  */
-class RichIntegral[A: Integral](elem: A) {
+class RichIntegral[A: Integral](elem: A) extends scalation.ScalaTion {
 
 	private val evidence = implicitly[Integral[A]]
 	
@@ -15,7 +15,7 @@ class RichIntegral[A: Integral](elem: A) {
 	 */
 	def !(): A =
     {
-		// cast to Int is ok because type A is Integral
+		// cast to Int is ok because type A is implicitly Integral
 		val series = 1 to evidence.toInt(elem)
     	evidence fromInt (series reduceLeft (_*_))
     }
