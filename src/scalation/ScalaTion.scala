@@ -46,6 +46,13 @@ trait ScalaTion
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
+	 * Makes RichIntegral's operations available to any type
+	 */
+	implicit def MkRichIntegralOps[A: Integral](elem: A) = 
+		new RichIntegral[A](elem)
+	
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
 	 * Set summation
 	 */
 	def ∑[A: Numeric](set: Set[A]): A =
