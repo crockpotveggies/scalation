@@ -8,7 +8,7 @@ import scalation.ScalaTion
  */
 object RichIntegral extends ScalaTion
 {
-	def printSection(title: String)
+	private def printSection(title: String)
 	{
 		println
 		for (i <- 1 to 80) print(":"); println

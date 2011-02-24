@@ -114,11 +114,6 @@ trait ScalaTion
     final def ∅[A]: Set[A] = Set[A]()
     
     /**
-     * The string representation of the empty set
-     */
-    final val ∅ = "∅"
-    
-    /**
      * The String representation of the Summations series character
      */
     final val ∑ = "∑"

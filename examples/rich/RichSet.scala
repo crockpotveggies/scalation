@@ -8,7 +8,7 @@ import scalation.ScalaTion
  */
 object RichSet extends ScalaTion
 {
-	def printSection(title: String)
+	private def printSection(title: String)
 	{
 		println
 		for (i <- 1 to 80) print(":"); println
@@ -29,6 +29,7 @@ object RichSet extends ScalaTion
 		val bc = Set("b", "c")
 		val x  = Set(1, 2, 3, 4)
 		
+		println("∅ = " + ∅)
 		println("ab = " + ab)
 		println("ac = " + ac)
 		println("bc = " + bc)
@@ -45,12 +46,14 @@ object RichSet extends ScalaTion
 		
 		printSection("union")
 		
+		println("∅ ∪ ab = " + ∅ ∪ ab)
 		println("ab ∪ bc = " + ab ∪ bc)
 		println("ab ∪ ac = " + ab ∪ ac)
 		println("ac ∪ bc = " + ac ∪ bc)
 		
 		printSection("intersection")
 		
+		println("∅ ∩ ab = " + ∅ ∩ ab)
 		println("ab ∩ ab = " + ab ∩ ab)
 		println("ab ∩ bc = " + ab ∩ bc)
 		println("ab ∩ ac = " + ab ∩ ac)
