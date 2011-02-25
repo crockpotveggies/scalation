@@ -23,7 +23,6 @@ trait ScalaTion
 	type Set[A] = scala.collection.mutable.Set[A]
 	type VectorN[A] = advmath.VectorN[A]
 	type MatrixN[A] = advmath.MatrixN[A]
-	
 
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	// Makes certain factories avilable immediately.
@@ -61,12 +60,24 @@ trait ScalaTion
 	 */
 	def ∑[A: Numeric](set: Set[A]): A =
         set.reduceLeft (implicitly[Numeric[A]] plus (_, _))
+    
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
+	 * Set summation
+	 */    
+    def sum[A: Numeric](set: Set[A]): A = ∑(set)
             
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Vector summation
      */
     def ∑[A: Numeric](vector: VectorN[A]): A = vector.sum
+    
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
+     * Vector summation
+     */
+    def sum[A: Numeric](vector: VectorN[A]): A = ∑(vector)
  
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
@@ -76,25 +87,50 @@ trait ScalaTion
     
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
+     * Range summation
+     */
+    def sum[A <: Range](range: A) = ∑(range)
+    
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Summation series 
      */
-    def ∑[A: Numeric](a: Int, b: Int, f: (Int) => A): A = {
+    def ∑[A: Numeric](a: Int, b: Int, f: (Int) => A): A = 
+    {
 		val series = for (i <- a to b) yield f(i)
 		series reduceLeft (implicitly[Numeric[A]] plus (_,_)) 
 	}
     
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
+     * Summation series 
+     */
+	def sum[A: Numeric](a: Int, b: Int, f: (Int) => A): A = ∑(a, b, f)
+	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Set product
      */
     def ∏[A: Numeric](set: Set[A]): A =
         set.reduceLeft (implicitly[Numeric[A]] times (_, _))
-        
+    
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
+     * Set product
+     */
+    def product[A: Numeric](set: Set[A]): A = ∏(set)
+    	
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Vector product
      */
     def ∏[A: Numeric](vector: VectorN[A]): A = vector.product
+    
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
+     * Vector product
+     */
+    def product[A: Numeric](vector: VectorN[A]): A = ∏(vector)
         	
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
@@ -102,14 +138,27 @@ trait ScalaTion
      */
     def ∏[A <: Range](range: A) = range.toSet.reduceLeft(_*_)
     
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
+     * Range product
+     */
+    def product[A <: Range](range: A) = ∏(range)
+    
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/    	
     /**
      * Product series 
      */
-    def ∏[A: Numeric](a: Int, b: Int, f: (Int) => A): A = {
+    def ∏[A: Numeric](a: Int, b: Int, f: (Int) => A): A = 
+    {
 		val series = for (i <- a to b) yield f(i)
 		series reduceLeft (implicitly[Numeric[A]] times (_,_)) 
 	}
+	
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
+     * Product series 
+     */
+    def product[A: Numeric](a: Int, b: Int, f: (Int) => A): A = ∏(a, b, f)
     
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /** 
@@ -117,11 +166,13 @@ trait ScalaTion
      */
     final def ∅[A]: Set[A] = Set[A]()
     
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
-     * The String representation of the Summations series character
+     * The String representation of the Summation series character
      */
     final val ∑ = "∑"
-    	
+    
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * The String representation of the Product series character
      */
