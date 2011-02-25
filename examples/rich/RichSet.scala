@@ -34,6 +34,12 @@ object RichSet extends ScalaTion
 		println("ac = " + ac)
 		println("bc = " + bc)
 		
+		printSection("define vectors")
+		
+		val v = VectorN(1, 2, 3, 4)
+		
+		println("v = " + v)
+		
 		printSection("Contains")
 		
 		println("ab ∋ a = " + ab ∋ "a")

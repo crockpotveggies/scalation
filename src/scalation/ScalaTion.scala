@@ -14,6 +14,12 @@ package scalation
 trait ScalaTion
 {
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	// NOTE: In order to reduce circular dependencies we should probably take
+	//       care not to import anything into this trait. Instead, it should
+	//       be recommended that we address types, classes, and objects with
+	//       their fully qualified namespace name.
+	
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	// Makes certain types immediately available.
 	
 	type Set[A] = scala.collection.mutable.Set[A]

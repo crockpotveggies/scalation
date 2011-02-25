@@ -17,7 +17,7 @@ class RichIntegral[A: Integral](elem: A) extends scalation.ScalaTion {
     {
 		// cast to Int is ok because type A is implicitly Integral
 		val series = 1 to evidence.toInt(elem)
-    	evidence fromInt (series reduceLeft (_*_))
+    	evidence fromInt ∏(series)
     }
     
 	
