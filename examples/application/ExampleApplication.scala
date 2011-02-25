@@ -1,3 +1,5 @@
+/* $Id$ */
+
 package application
 
 // This is all we need to import in order to take advantage of the ScalaTion's

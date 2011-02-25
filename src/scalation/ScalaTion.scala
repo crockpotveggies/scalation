@@ -1,7 +1,5 @@
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
- * Core ScalaTion
- */
+/* $Id$ */
+
 package scalation
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
@@ -23,15 +21,15 @@ trait ScalaTion
 	// Makes certain types immediately available.
 	
 	type Set[A] = scala.collection.mutable.Set[A]
-	type VectorN[A] = scalation.advmath.VectorN[A]
-	type MatrixN[A] = scalation.advmath.MatrixN[A]
+	type VectorN[A] = advmath.VectorN[A]
+	type MatrixN[A] = advmath.MatrixN[A]
 	
 
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	// Makes certain factories avilable immediately.
 	
 	val Set = scala.collection.mutable.Set
-	val VectorN = scalation.advmath.VectorN
+	val VectorN = advmath.VectorN
 	// val MatrixN = scalation.advmath.MatrixN
 	// @todo make this available once MatrixN has been refactored
 	
@@ -40,7 +38,7 @@ trait ScalaTion
 	 * Makes RichSet's operations available to Set
 	 */
 	implicit def MkRichSetOps[A](set: Set[A]) = 
-		new scalation.rich.RichSet[A](set)
+		new rich.RichSet[A](set)
 	
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
@@ -48,14 +46,14 @@ trait ScalaTion
 	 * Makes RichAny's operations available to Any
 	 */
 	implicit def MkRichAnyOps[A](elem: A) = 
-		new scalation.rich.RichAny[A](elem)
+		new rich.RichAny[A](elem)
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
 	 * Makes RichIntegral's operations available to any type
 	 */
 	implicit def MkRichIntegralOps[A: Integral](elem: A) = 
-		new scalation.rich.RichIntegral[A](elem)
+		new rich.RichIntegral[A](elem)
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**

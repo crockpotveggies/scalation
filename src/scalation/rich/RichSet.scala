@@ -1,3 +1,5 @@
+/* $Id$ */
+
 package scalation.rich
 
 import scala.collection.mutable.Set

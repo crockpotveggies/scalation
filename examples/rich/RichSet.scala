@@ -1,3 +1,5 @@
+/* $Id$ */
+
 package rich
 
 import scalation.ScalaTion
