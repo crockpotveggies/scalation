@@ -662,6 +662,26 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
     {
         "VectorN" + v.deep.toString.substring (5)
     } // toString
+    
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
+     * Return a random permutation of the integers in the range of start to
+     * number. Start defaults at 0.
+     */
+    def randPerm(number: Int, start: Int = 0): VectorN[T] = 
+    {
+    	val r = new scala.util.Random(scala.compat.Platform.currentTime)
+    	val nv = new VectorN[T](number)
+    	for (i <- start until (start + number)) nv(i - start) = v(i)
+    	for (i <- 0 until (number / 2)) {
+    		val k = r.nextInt(number)
+    		val j = r.nextInt(number)
+    		val temp = nv(k)
+    		nv(k) =  nv(j)
+    		nv(j) = temp
+    	}
+    	nv
+    }
   
 } // VectorN class
 
