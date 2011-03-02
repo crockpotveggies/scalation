@@ -39,7 +39,13 @@ trait ScalaTion
 	implicit def MkRichSetOps[A](set: Set[A]) = 
 		new rich.RichSet[A](set)
 	
-	
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
+	 * Makes RichOrdered's operations available to any ordered type
+	 */
+	implicit def MkRichOrdered[A <% Ordered[A]](elem: A) =
+		new rich.RichOrdered[A](elem)
+		
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
 	 * Makes RichAny's operations available to Any
@@ -49,7 +55,7 @@ trait ScalaTion
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
-	 * Makes RichIntegral's operations available to any type
+	 * Makes RichIntegral's operations available to any integral type
 	 */
 	implicit def MkRichIntegralOps[A: Integral](elem: A) = 
 		new rich.RichIntegral[A](elem)

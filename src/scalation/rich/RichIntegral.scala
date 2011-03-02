@@ -14,6 +14,8 @@ class RichIntegral[A: Integral](elem: A) extends scalation.ScalaTion {
 	
 	/**
 	 * Returns the factorial
+	 * @todo once we've implemented limits and definite integrals, we should
+	 *       implement this in a RichNumeric class and use the Gamma function
 	 */
 	def !(): A =
     {
@@ -21,6 +23,18 @@ class RichIntegral[A: Integral](elem: A) extends scalation.ScalaTion {
 		val series = 1 to evidence.toInt(elem)
     	evidence fromInt ∏(series)
     }
+	
+	/**
+	 * Returns the value of the number raised to the p power.
+	 * @param p
+	 * @param evidence$2
+	 * @return
+	 */
+	def ↑[I <% Integral[I]](p: I): A =
+	{
+		import scala.math._
+		pow(evidence.toInt(elem), p.toInt(p)).asInstanceOf[A]
+	}
     
 	
 }
