@@ -43,7 +43,7 @@ trait ScalaTion
 	/**
 	 * Makes RichOrdered's operations available to any ordered type
 	 */
-	implicit def MkRichOrdered[A <% Ordered[A]](elem: A) =
+	implicit def MkRichOrderedOps[A <% Ordered[A]](elem: A) =
 		new rich.RichOrdered[A](elem)
 		
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
@@ -60,6 +60,13 @@ trait ScalaTion
 	implicit def MkRichIntegralOps[A: Integral](elem: A) = 
 		new rich.RichIntegral[A](elem)
 	
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
+	 * Makes RichNumeric's operations available to any numeric type
+	 */
+	implicit def MkRichNumericOps[A: Integral](elem: A) = 
+		new rich.RichNumeric[A](elem)
+		
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
 	 * Set summation
@@ -171,17 +178,5 @@ trait ScalaTion
      * Returns the empty set
      */
     final def ∅[A]: Set[A] = Set[A]()
-    
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
-     * The String representation of the Summation series character
-     */
-    final val ∑ = "∑"
-    
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
-     * The String representation of the Product series character
-     */
-    final val ∏ = "∏"
     	
 }
