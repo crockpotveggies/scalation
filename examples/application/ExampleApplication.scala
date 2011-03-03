@@ -13,35 +13,27 @@ import scalation.ScalaTion
  */
 object ExampleApplication extends ScalaTion
 {
+	
+	def f(n: Int): Int = n
+	
 	def main(args : Array[String]) : Unit = {
 		
-		// VectorN is automatically available for us to use!
-		// Let's define some vectors using VectorN's factory.
+		val a = new VectorN [Double](0.99985, 0.00015)
+        val u = new VectorN [Double](1.0078250, 2.0141018)
+        
+        val i = new VectorN [Double](1, 1)
+ 
+        val m = i dot u
+        
+        println(m)
+       
+		val n = ∑(i).asInstanceOf[Int]
 		
-		var vI = VectorN(1, 2, 3, 4)			// VectorN[Int]
-		var vD = VectorN(1.0, 2.0, 3.0, 4.0)	// VectorN[Double]
+		println(n)
 		
-		// Mutable sets are also available automatically!
+		val ifac = (i map (_.asInstanceOf[Int]!)).asInstanceOf[VectorN[Double]]
 		
-		var sI = Set(1, 2, 3, 4)
-		var sD = Set(1.0, 2.0, 3.0, 4.0)
-		
-		println("vI = " + vI)
-		println("vD = " + vD)
-		println("sI = " + sI)
-		println("sD = " + sD)
-		
-		// Special functions are available. For example, ∏() and ∑()
-		
-		println("∏(vI) = " + ∏(vI))
-		println("∏(vD) = " + ∏(vD))
-		println("∏(sI) = " + ∏(sI))
-		println("∏(sD) = " + ∏(sD))
-		
-		println("∑(vI) = " + ∑(vI))
-		println("∑(vD) = " + ∑(vD))
-		println("∑(sI) = " + ∑(sI))
-		println("∑(sD) = " + ∑(sD))
+		val p = ((n!) / ∏(ifac)) * ∏(i)
 		
 	}
 }
