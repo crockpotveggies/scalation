@@ -64,8 +64,8 @@ trait ScalaTion
 	/**
 	 * Makes RichNumeric's operations available to any numeric type
 	 */
-	implicit def MkRichNumericOps[A: Integral](elem: A) = 
-		new rich.RichNumeric[A](elem)
+	implicit def MkRichNumericOps[N: Numeric](elem: N) = 
+		new rich.RichNumeric[N](elem)
 		
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
@@ -104,21 +104,22 @@ trait ScalaTion
      */
     def sum[A <: Range](range: A) = ∑(range)
     
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/    	
     /**
-     * Summation series 
+     * Product series 
      */
-    def ∑[A: Numeric](a: Int, b: Int, f: (Int) => A): A = 
+    def ∑[A: Numeric, B: Numeric](a: Int, b: Int, f: (A) => B): B = 
     {
-		val series = for (i <- a to b) yield f(i)
-		series reduceLeft (implicitly[Numeric[A]] plus (_,_)) 
+		val series = for (i <- a to b) yield f(implicitly[Numeric[A]] fromInt i)
+		series reduceLeft (implicitly[Numeric[B]] plus (_,_)) 
 	}
-    
+	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
-     * Summation series 
+     * Product series 
      */
-	def sum[A: Numeric](a: Int, b: Int, f: (Int) => A): A = ∑(a, b, f)
+    def sum[A: Numeric, B: Numeric](a: Int, b: Int, f: (A) => B): B = 
+    	∑(a, b, f)
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
@@ -161,17 +162,18 @@ trait ScalaTion
     /**
      * Product series 
      */
-    def ∏[A: Numeric](a: Int, b: Int, f: (Int) => A): A = 
+    def ∏[A: Numeric, B: Numeric](a: Int, b: Int, f: (A) => B): B = 
     {
-		val series = for (i <- a to b) yield f(i)
-		series reduceLeft (implicitly[Numeric[A]] times (_,_)) 
+		val series = for (i <- a to b) yield f(implicitly[Numeric[A]] fromInt i)
+		series reduceLeft (implicitly[Numeric[B]] times (_,_)) 
 	}
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
      * Product series 
      */
-    def product[A: Numeric](a: Int, b: Int, f: (Int) => A): A = ∏(a, b, f)
+    def product[A: Numeric, B: Numeric](a: Int, b: Int, f: (A) => B): B = 
+    	∏(a, b, f)
     
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /** 
