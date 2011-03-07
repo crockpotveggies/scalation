@@ -43,13 +43,4 @@ class RichNumeric[N: Numeric](elem: N) extends scalation.ScalaTion {
 		pow(x, y)
 	}
 	
-	def ↑(n: Int, b: Int): Double = 
-	{
-		(n, b) match {
-			case (1, _) => elem ↑ b
-			case (_, 0) => 1
-			case (_, _)	=> (elem ↑ (n-1)) ↑ (elem ↑ (n, b-1))
-		}
-	}
-	
 }
