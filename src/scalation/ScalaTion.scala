@@ -59,6 +59,13 @@ trait ScalaTion
 	 */
 	implicit def MkRichIntegralOps[A: Integral](elem: A) = 
 		new rich.RichIntegral[A](elem)
+		
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
+	 * Makes RichFractional's operations available to any Fractional type
+	 */
+	implicit def MkRichFractionalOps[A: Fractional](elem: A) = 
+		new rich.RichFractional[A](elem)
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
@@ -180,5 +187,17 @@ trait ScalaTion
      * Returns the empty set
      */
     final def ∅[A]: Set[A] = Set[A]()
+    
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /** 
+     * Positive infinity
+     */
+    final val ∞ = Double.PositiveInfinity
+    
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /** 
+     * Negative infinity
+     */
+    final val -∞ = Double.NegativeInfinity
     	
 }

@@ -49,7 +49,6 @@ class RichSet[A](set: Set[A]) extends scalation.ScalaTion
      */
     def ⊂(that: Set[A]): Boolean = (set subsetOf that) && (set != that)
     def ⊆(that: Set[A]): Boolean = set subsetOf that
-    def sub(that: Set[A]): Boolean = set subsetOf that
     
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**

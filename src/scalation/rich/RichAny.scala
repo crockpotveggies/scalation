@@ -23,4 +23,16 @@ class RichAny[A](elem: A) extends scalation.ScalaTion
      */
     def ∉(set: Set[A]): Boolean = set ∌ elem
     
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
+     * Tests whether this element is identical to that element
+     */
+    def ≡(that: Any): Boolean = this == that
+    
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
+     * Tests whether this element is not identical to that element
+     */
+    def ≢(that: Any): Boolean = !(this ≡ that)
+    
 }
