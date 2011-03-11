@@ -1,5 +1,11 @@
 /* $Id$ */
 
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
+ * @author  John Miller, Michael Cotterell
+ * @see     LICENSE (MIT style license file).
+ */
+
 package scalation
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
@@ -146,6 +152,14 @@ trait ScalaTion
      * Vector product
      */
     def ∏[A: Numeric](vector: VectorN[A]): A = vector.product
+    
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
+     * Vector product with map
+     */
+    def ∏[A: Numeric, B: Numeric](vector: VectorN[A], f: (A) => B): B = {
+    	vector.map(f).product
+    }
     
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**

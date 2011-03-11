@@ -29,6 +29,8 @@ object Build extends Application {
 	private val source_dir = base_dir + "src"
 	private val class_dir = base_dir + "classes"
 	private val doc_dir = base_dir + "doc"
+	private val dist_dir = base_dir + "dist"
+	
 	private val runsys = Runtime.getRuntime()
 	private val errorlog = "errorlog"
 
@@ -261,6 +263,20 @@ object Build extends Application {
 		println("[post]")
 		// place post-processing code here
 	}
+	
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
+	 * Build jar file
+	 */
+	def jar() {
+		println("[jar]")
+		var cmd = Array("jar",
+				"-cf", dist_dir + jio.File.separatorChar + "scalation.jar",
+				"-C",  class_dir,
+				"scalation")
+		exec(cmd)
+
+	}
 
 	// select build functions by moving the comment delimiters (/***, ***/)
 	pre()
@@ -269,5 +285,6 @@ object Build extends Application {
 	doc()
 	genIndexHtml()
 	post()
+	jar()
 
 }

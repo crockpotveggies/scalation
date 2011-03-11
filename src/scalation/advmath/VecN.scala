@@ -1,9 +1,19 @@
+/* $Id$ */
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/**
+ * @author  John Miller, Michael Cotterell
+ * @see     LICENSE (MIT style license file).
+ */
+
 package scalation
 package advmath
 
 import collection.IndexedSeqLike
 import collection.mutable.{Builder, ArrayBuffer}
 import collection.generic.CanBuildFrom
+
+import util.Error
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 /**
@@ -13,10 +23,15 @@ import collection.generic.CanBuildFrom
 class VecN[A: Numeric: ClassManifest](val v: Array[A], val length: Int) 
 	extends IndexedSeq[A] 
 	with IndexedSeqLike[A, VecN[A]]
+	with ScalaTion
+	with Error
 {
 	private val nu = implicitly[Numeric[A]]
 	private val range = 0 until length
 
+	/**
+	 * Returns a new VecN[A] of the given length
+	 */
 	def this(length: Int) = this(Array.ofDim[A](length), length)
 	
 	// Mandatory re-implementation of 'newBuilder' in 'IndexedSeq'
@@ -102,9 +117,17 @@ class VecN[A: Numeric: ClassManifest](val v: Array[A], val length: Int)
  */
 object VecN {
 
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
+	 * Construct a new VecN of a given length.
+	 */
 	def ofLength[A: Numeric: ClassManifest](length: Int) = 
 		new VecN[A](length)
 	
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
+	 * Construct a new VecN from a Numeric sequence.
+	 */
 	def fromSeq[A: Numeric: ClassManifest](buf: Seq[A]): VecN[A] = 
 	{
 		val v = Array.ofDim[A](buf.length)
@@ -112,6 +135,10 @@ object VecN {
 		new VecN(v, buf.length)
 	}
 	
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
+	 * Construct a new VecN from another VecN.
+	 */
 	def fromVecN[A: Numeric: ClassManifest](vector: VecN[A]): VecN[A] = 
 	{
 		val v = Array.ofDim[A](vector.length)
@@ -119,6 +146,10 @@ object VecN {
 		new VecN(v, vector.length)
 	}
 	
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
+	 * Construct a new VecN from another VecN.
+	 */
 	def fromArray[A: Numeric: ClassManifest](array: Array[A]): VecN[A] = 
 		new VecN(array, array.length)
 
