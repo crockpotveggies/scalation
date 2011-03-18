@@ -17,23 +17,49 @@ import util.Error
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 /**
- * Numeric Vector (will be VectorN eventually)
+ * Numeric Vector (will be VectorN eventually) The VecN class stores and 
+ * operates on Numeric Vectors of various sizes and types. The element type may 
+ * be any sub-type of Numeric.
  * @author Michael Cotterell
+ * @param v the 1D array used to store vector elements
+ * @param length the dimension/size of the vector
  */
 class VecN[A: Numeric: ClassManifest](val v: Array[A], val length: Int) 
 	extends IndexedSeq[A] 
 	with IndexedSeqLike[A, VecN[A]]
-	with ScalaTion
+    with PartiallyOrdered[VecN[A]]
 	with Error
 {
+	
+	/*
+	 * 
+	 */
+	
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
+	 * Implicit value for Numeric context bound.
+	 */
 	private val nu = implicitly[Numeric[A]]
+	
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
+	 * Implicit value for ClassManifest context bound.
+	 */
+	private val cu = implicitly[ClassManifest[A]]
+	
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
+	 * The integral range of vector's indices.
+	 */
 	private val range = 0 until length
 
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
 	 * Returns a new VecN[A] of the given length
 	 */
 	def this(length: Int) = this(Array.ofDim[A](length), length)
 	
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	// Mandatory re-implementation of 'newBuilder' in 'IndexedSeq'
 	override protected[this] def newBuilder: Builder[A, VecN[A]] = 
 		new ArrayBuffer[A] mapResult VecN.fromSeq[A]
@@ -106,8 +132,36 @@ class VecN[A: Numeric: ClassManifest](val v: Array[A], val length: Int)
      * @param b  the vector to add
      */
     def +(b: VecN[A]): VecN[A] =
-    	VecN[A](for (i <- range) yield nu.plus (v(i), b.v(i)))
-
+    	VecN.fromSeq(for (i <- range) yield nu.plus (v(i), b.v(i)))
+    	
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
+     * Compare this vector with vector b.
+     * @param b  the other vector
+     */
+    def tryCompareTo[B >: VecN[A]](b: B)
+        (implicit view1: (B) => PartiallyOrdered[B]): Option [Int] =
+    {
+        val c = b.asInstanceOf[VecN[A]]
+        
+        val series = for (i <- range) yield (nu.compare(v(i), c(i)) > 0, nu.compare(v(i), c(i)) < 0)
+        
+        val (le, ge) = series reduceLeft {
+        	(a, b) => {
+        		val (a1, a2) = a
+        		val (b1, b2) = b
+        		(a1 && b1, a2 && b2)
+        	}
+        }
+        
+        (le, ge) match {
+        	case (true, true) 	=> Some(0)
+        	case (true, false) 	=> Some(-1)
+        	case (false, true)  => Some(1)
+        	case (false, false) => None
+        }
+    }
+    	
 }
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
@@ -148,22 +202,24 @@ object VecN {
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
-	 * Construct a new VecN from another VecN.
+	 * Construct a new VecN from an array.
 	 */
 	def fromArray[A: Numeric: ClassManifest](array: Array[A]): VecN[A] = 
 		new VecN(array, array.length)
 
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
+	 * Construct a new VecN from a Range.
+	 */
+	def fromRange[A: Numeric: ClassManifest](range: Range) = 
+		fromSeq(range.toSeq)
+	
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
+	 * Construct a new VecN from a sequence of values.
+	 */
 	def apply[A: Numeric: ClassManifest](values: A*) = 
 		fromSeq(values)
-	
-	def apply[A: Numeric: ClassManifest](vector: VecN[A]) = 
-		fromVecN[A](vector)
-	
-	def apply[A: Numeric: ClassManifest](seq: IndexedSeq[A]) = 
-		fromSeq(seq)
-		
-	def apply[A: Numeric: ClassManifest](range: Range) = 
-		fromSeq(range.toSeq)
 		
 	def newBuilder[A: Numeric: ClassManifest]: Builder[A, VecN[A]] = 
 		new ArrayBuffer mapResult fromSeq[A]
