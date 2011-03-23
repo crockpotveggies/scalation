@@ -239,13 +239,7 @@ class VecN[A: Numeric: ClassManifest](val v: Array[A], val length: Int)
      * Cummulate the values of this vector from left to right (e.g., create a
      * cdf from a pmf).
      */
-    def cummulate(): VecN [A] =
-    {
-    	val b = VecN.ofLength(length)
-        b.v(0) = v(0)
-        for (i <- 1 until b.length) b.v(i) = b.v(i - 1) + v(i)
-        b
-    } // cumulate
+    def cummulate() = VecN.fromSeq(view.scanLeft(v(0))(_+_).slice(0, length))
     
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
@@ -400,8 +394,8 @@ object VecNTest extends ScalaTion
 	def main(args : Array[String]) 
 	{
 		
-		val vec = VecN(1, 2, 3, 4)
+		val vec = VecN(1, 1, 1, 1)
 		
-		println(vec.map(_+1))
+		println(vec.cummulate)
 	}
 }
