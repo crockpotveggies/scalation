@@ -17,17 +17,16 @@ import util.Error
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 /**
- * Numeric Vector (will be VectorN eventually) The VecN class stores and 
+ * Numeric Vector (will be VectorN eventually) The Vec class stores and 
  * operates on Numeric Vectors of various sizes and types. The element type may 
  * be any sub-type of Numeric.
  * @author Michael Cotterell
  * @param v the 1D array used to store vector elements
  * @param length the dimension/size of the vector
  */
-class VecN[A: Numeric: ClassManifest](val v: Array[A], val length: Int)
-	extends IndexedSeq[A] 
-	with IndexedSeqLike[A, VecN[A]]
-    with PartiallyOrdered[VecN[A]]
+class Vec[A: Numeric: ClassManifest](val v: Array[A], val length: Int)
+	extends IndexedSeqLike[A, Vec[A]]
+    with PartiallyOrdered[Vec[A]]
 	with Error
 {
 	
@@ -45,14 +44,14 @@ class VecN[A: Numeric: ClassManifest](val v: Array[A], val length: Int)
 
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
-	 * Returns a new VecN[A] of the given length
+	 * Returns a new Vec[A] of the given length
 	 */
 	def this(length: Int) = this(Array.ofDim[A](length), length)
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	// Mandatory re-implementation of 'newBuilder' in 'IndexedSeq'
-	override def newBuilder: Builder[A, VecN[A]] = 
-		new ArrayBuffer[A] mapResult VecN.fromSeq[A]
+	override def newBuilder: Builder[A, Vec[A]] = 
+		new ArrayBuffer[A] mapResult Vec.fromSeq[A]
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
@@ -79,118 +78,118 @@ class VecN[A: Numeric: ClassManifest](val v: Array[A], val length: Int)
 	 * 
 	 * @return
 	 */
-	def negate(vec: VecN[A]) = 
-		VecN.fromSeq(for (i <- range) yield -vec(i))
+	def negate(vec: Vec[A]) = 
+		Vec.fromSeq(for (i <- range) yield -vec(i))
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
 	 * 
 	 * @return
 	 */
-	def plus(lhs: VecN[A], rhs: VecN[A]) = 
-		VecN.fromSeq(for (i <- range) yield lhs(i) + rhs(i))
+	def plus(lhs: Vec[A], rhs: Vec[A]) = 
+		Vec.fromSeq(for (i <- range) yield lhs(i) + rhs(i))
 		
-	def plus(lhs: VecN[A], rhs: A) = 
-		VecN.fromSeq(for (i <- range) yield lhs(i) + rhs)
+	def plus(lhs: Vec[A], rhs: A) = 
+		Vec.fromSeq(for (i <- range) yield lhs(i) + rhs)
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
 	 * 
 	 * @return
 	 */
-	def minus(lhs: VecN[A], rhs: VecN[A]) = 
-		VecN.fromSeq(for (i <- range) yield lhs(i) - rhs(i))
+	def minus(lhs: Vec[A], rhs: Vec[A]) = 
+		Vec.fromSeq(for (i <- range) yield lhs(i) - rhs(i))
 	
-	def minus(lhs: VecN[A], rhs: A) = 
-		VecN.fromSeq(for (i <- range) yield lhs(i) - rhs)
+	def minus(lhs: Vec[A], rhs: A) = 
+		Vec.fromSeq(for (i <- range) yield lhs(i) - rhs)
 		
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
 	 * 
 	 * @return
 	 */
-	def times(lhs: VecN[A], rhs: VecN[A]) = 
-		VecN.fromSeq(for (i <- range) yield lhs(i) * rhs(i))
+	def times(lhs: Vec[A], rhs: Vec[A]) = 
+		Vec.fromSeq(for (i <- range) yield lhs(i) * rhs(i))
 	
-	def times(lhs: VecN[A], rhs: A) = 
-		VecN.fromSeq(for (i <- range) yield lhs(i) * rhs)
+	def times(lhs: Vec[A], rhs: A) = 
+		Vec.fromSeq(for (i <- range) yield lhs(i) * rhs)
 		
-	def div(lhs: VecN[A], rhs: VecN[A])(implicit fu: Fractional[A]): VecN[A] =
+	def div(lhs: Vec[A], rhs: Vec[A])(implicit fu: Fractional[A]): Vec[A] =
 	{
 		import fu._
-		VecN.fromSeq(for (i <- range) yield lhs(i) / rhs(i))
+		Vec.fromSeq(for (i <- range) yield lhs(i) / rhs(i))
 	}
 	
-	def div(lhs: VecN[A], rhs:A)(implicit fu: Fractional[A]): VecN[A] =
+	def div(lhs: Vec[A], rhs:A)(implicit fu: Fractional[A]): Vec[A] =
 	{
 		import fu._
-		VecN.fromSeq(for (i <- range) yield lhs(i) / rhs)
+		Vec.fromSeq(for (i <- range) yield lhs(i) / rhs)
 	}
 	
-	def rem(lhs: VecN[A], rhs: VecN[A])(implicit iu: Integral[A]): VecN[A] =
+	def rem(lhs: Vec[A], rhs: Vec[A])(implicit iu: Integral[A]): Vec[A] =
 	{
 		import iu._
-		VecN.fromSeq(for (i <- range) yield lhs(i) % rhs(i))
+		Vec.fromSeq(for (i <- range) yield lhs(i) % rhs(i))
 	}
 	
-	def rem(lhs: VecN[A], rhs: A)(implicit iu: Integral[A]): VecN[A] =
+	def rem(lhs: Vec[A], rhs: A)(implicit iu: Integral[A]): Vec[A] =
 	{
 		import iu._
-		VecN.fromSeq(for (i <- range) yield lhs(i) % rhs)
+		Vec.fromSeq(for (i <- range) yield lhs(i) % rhs)
 	}
 	
-	def signum(vec: VecN[A]) =
-		VecN.fromSeq(for (i <- range) yield vec(i).signum)
+	def signum(vec: Vec[A]) =
+		Vec.fromSeq(for (i <- range) yield vec(i).signum)
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
 	 * 
 	 * @return
 	 */
-	def abs(vec: VecN[A]) = 
-		VecN.fromSeq(for (i <- range) yield vec(i).abs())
+	def abs(vec: Vec[A]) = 
+		Vec.fromSeq(for (i <- range) yield vec(i).abs())
 		
-	def +(rhs: VecN[A]) = plus(this, rhs)
+	def +(rhs: Vec[A]) = plus(this, rhs)
 	def +(rhs: A) = plus(this, rhs)
-	def -(rhs: VecN[A]) = minus(this, rhs)
+	def -(rhs: Vec[A]) = minus(this, rhs)
 	def -(rhs: A) = minus(this, rhs)
-	def *(rhs: VecN[A]) = times(this, rhs)
+	def *(rhs: Vec[A]) = times(this, rhs)
 	def *(rhs: A) = times(this, rhs)
-	def /(rhs: VecN[A])(implicit fu: Fractional[A]) = div(this, rhs)
+	def /(rhs: Vec[A])(implicit fu: Fractional[A]) = div(this, rhs)
 	def /(rhs: A)(implicit fu: Fractional[A]) = div(this, rhs)
-	def %(rhs: VecN[A])(implicit iu: Integral[A]) = rem(this, rhs)
+	def %(rhs: Vec[A])(implicit iu: Integral[A]) = rem(this, rhs)
 	def %(rhs: A)(implicit iu: Integral[A]) = rem(this, rhs)
-	def signum(): VecN[Int] = VecN.this.signum(this)
+	def signum(): Vec[Int] = Vec.this.signum(this)
 	def unary_-() = negate(this)
-	def abs(): VecN[A] = VecN.this.abs(this) 
+	def abs(): Vec[A] = Vec.this.abs(this) 
 		
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
-     * Convert into a VecN [Int].
+     * Convert into a Vec [Int].
      */
-    def toInt(): VecN[Int] =
-    	new VecN[Int](v.map((x: A) => nu.toInt(x)), length)
+    def toInt(): Vec[Int] =
+    	new Vec[Int](v.map((x: A) => nu.toInt(x)), length)
     
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
-     * Convert into a VecN [Long].
+     * Convert into a Vec [Long].
      */
-    def toLong(): VecN[Long] =
-    	new VecN[Long](v.map((x: A) => nu.toLong(x)), length)
+    def toLong(): Vec[Long] =
+    	new Vec[Long](v.map((x: A) => nu.toLong(x)), length)
     	
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
-     * Convert into a VecN [Double].
+     * Convert into a Vec [Double].
      */
-    def toDouble(): VecN[Double] =
-    	new VecN[Double](v.map((x: A) => nu.toDouble(x)), length)
+    def toDouble(): Vec[Double] =
+    	new Vec[Double](v.map((x: A) => nu.toDouble(x)), length)
     
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
-     * Convert into a VecN [Float].
+     * Convert into a Vec [Float].
      */
-    def toFloat(): VecN[Float] =
-    	new VecN[Float](v.map((x: A) => nu.toFloat(x)), length)
+    def toFloat(): Vec[Float] =
+    	new Vec[Float](v.map((x: A) => nu.toFloat(x)), length)
     	
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
@@ -217,7 +216,7 @@ class VecN[A: Numeric: ClassManifest](val v: Array[A], val length: Int)
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      */
-    def zero() = VecN.ofLength(length).set(nu.zero) 
+    def zero() = Vec.ofLength(length).set(nu.zero) 
     
     def oneAt(j: Int) = 
     {
@@ -232,38 +231,38 @@ class VecN[A: Numeric: ClassManifest](val v: Array[A], val length: Int)
      * @param i  the index of the element to skip
      */
     def sum_ne (i: Int): A =
-    	VecN.fromSeq(for (j <- range if j != i) yield v(j)).sum
+    	Vec.fromSeq(for (j <- range if j != i) yield v(j)).sum
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Cummulate the values of this vector from left to right (e.g., create a
      * cdf from a pmf).
      */
-    def cummulate() = VecN.fromSeq(view.scanLeft(v(0))(_+_).slice(0, length))
+    def cummulate() = Vec.fromSeq(view.scanLeft(v(0))(_+_).slice(0, length))
     
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Normalize this vector so that it sums to one (e.g., for a probability
      * vector).
      */
-    def normalize(implicit fu: Fractional[A]): VecN[A] = this / this.sum
+    def normalize(implicit fu: Fractional[A]): Vec[A] = this / this.sum
     
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Compute the dot product (or inner product) of this vector with vector b.
      * @param b  the other vector
      */
-    def dot (b: VecN [A]) = (for (i <- range) yield v(i) * b(i)).sum
+    def dot (b: Vec [A]) = (for (i <- range) yield v(i) * b(i)).sum
     
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Compare this vector with vector b.
      * @param b  the other vector
      */
-    def tryCompareTo[B >: VecN[A]](b: B)
+    def tryCompareTo[B >: Vec[A]](b: B)
         (implicit view1: (B) => PartiallyOrdered[B]): Option [Int] =
     {
-        val c = b.asInstanceOf[VecN[A]]
+        val c = b.asInstanceOf[Vec[A]]
         
         val series = for (i <- range) yield (nu.compare(v(i), c(i)) > 0, nu.compare(v(i), c(i)) < 0)
         
@@ -290,54 +289,54 @@ class VecN[A: Numeric: ClassManifest](val v: Array[A], val length: Int)
  * Numeric Vector
  * @author Michael Cotterell
  */
-object VecN {
+object Vec {
 
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
-	 * Construct a new VecN of a given length.
+	 * Construct a new Vec of a given length.
 	 */
 	def ofLength[A: Numeric: ClassManifest](length: Int) = 
-		new VecN[A](length)
+		new Vec[A](length)
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
-	 * Construct a new VecN from a Numeric sequence.
+	 * Construct a new Vec from a Numeric sequence.
 	 */
-	def fromSeq[A: Numeric: ClassManifest](buf: Seq[A]): VecN[A] = 
+	def fromSeq[A: Numeric: ClassManifest](buf: Seq[A]): Vec[A] = 
 	{
 		val v = Array.ofDim[A](buf.length)
 		for (i <- 0 until buf.length) v(i) = buf(i)
-		new VecN(v, buf.length)
+		new Vec(v, buf.length)
 	}
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
-	 * Construct a new VecN from another VecN.
+	 * Construct a new Vec from another Vec.
 	 */
-	def fromVecN[A: Numeric: ClassManifest](vector: VecN[A]): VecN[A] = 
+	def fromVec[A: Numeric: ClassManifest](vector: Vec[A]): Vec[A] = 
 	{
 		val v = Array.ofDim[A](vector.length)
 		for (i <- 0 until vector.length) v(i) = vector(i)
-		new VecN(v, vector.length)
+		new Vec(v, vector.length)
 	}
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
-	 * Construct a new VecN from an array.
+	 * Construct a new Vec from an array.
 	 */
-	def fromArray[A: Numeric: ClassManifest](array: Array[A]): VecN[A] = 
-		new VecN(array, array.length)
+	def fromArray[A: Numeric: ClassManifest](array: Array[A]): Vec[A] = 
+		new Vec(array, array.length)
 
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
-	 * Construct a new VecN from a Range.
+	 * Construct a new Vec from a Range.
 	 */
 	def fromRange[A: Numeric: ClassManifest](range: Range) = 
 		fromSeq(range.toSeq)
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
-	 * Construct a new VecN from a sequence of values.
+	 * Construct a new Vec from a sequence of values.
 	 */
 	def apply[A: Numeric: ClassManifest](values: A*) = 
 		fromSeq(values)
@@ -347,7 +346,7 @@ object VecN {
 	 * 
 	 * @return
 	 */
-	def newBuilder[A: Numeric: ClassManifest]: Builder[A, VecN[A]] = 
+	def newBuilder[A: Numeric: ClassManifest]: Builder[A, Vec[A]] = 
 		new ArrayBuffer mapResult fromSeq[A]
   
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
@@ -355,10 +354,10 @@ object VecN {
 	 * 
 	 * @return
 	 */
-    implicit def canBuildFrom[A: Numeric: ClassManifest]: CanBuildFrom[VecN[A], A, VecN[A]] = 
-    	new CanBuildFrom[VecN[A], A, VecN[A]] {
-    		def apply(): Builder[A, VecN[A]] = newBuilder
-    		def apply(from: VecN[A]): Builder[A, VecN[A]] = newBuilder
+    implicit def canBuildFrom[A: Numeric: ClassManifest]: CanBuildFrom[Vec[A], A, Vec[A]] = 
+    	new CanBuildFrom[Vec[A], A, Vec[A]] {
+    		def apply(): Builder[A, Vec[A]] = newBuilder
+    		def apply(from: Vec[A]): Builder[A, Vec[A]] = newBuilder
     	}
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
@@ -367,13 +366,13 @@ object VecN {
      * @param j     the position to place the 1
      * @param size  the size of the vector (upper bound = size - 1)
      */
-	def oneAt[A: Numeric: ClassManifest](j: Int, length: Int): VecN[A] =
+	def oneAt[A: Numeric: ClassManifest](j: Int, length: Int): Vec[A] =
 	{
 		val nu = implicitly[Numeric[A]]
 		val v = Array.ofDim[A](length)
 		for (i <- 0 until length) v(i) = nu.zero
 		v(j) = nu.one
-		new VecN(v, length)
+		new Vec(v, length)
 	}
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
@@ -381,21 +380,21 @@ object VecN {
      * Create a vector consisting of values 0, 1, 2, ..., size - 1.
      * @param size  the size of the vector (upper bound = size - 1)
      */
-    def increasing[A: Numeric: ClassManifest](length: Int): VecN[A] =
+    def increasing[A: Numeric: ClassManifest](length: Int): Vec[A] =
     {
     	val nu = implicitly[Numeric[A]]
-    	VecN.fromSeq(for (i <- 0 until length) yield nu.fromInt(i))
+    	Vec.fromSeq(for (i <- 0 until length) yield nu.fromInt(i))
     }
     
 }
 
-object VecNTest extends ScalaTion
+object VecTest extends ScalaTion
 {
 	def main(args : Array[String]) 
 	{
 		
-		val vec = VecN(1, 1, 1, 1)
+		val vec = Vec(1.0, 1, 1, 1)
 		
-		println(vec.cummulate)
+		println(vec.normalize)
 	}
 }

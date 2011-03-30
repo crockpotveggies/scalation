@@ -196,9 +196,10 @@ case class VectorN [T <% Ordered [T]: ClassManifest] (dim: Int,
      * Set each value in this vector to x.
      * @param x  the value to be assigned
      */
-    def set (x: T)
+    def set (x: T) =
     {
         for (i <- range) v(i) = x
+        this
     } // set
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
