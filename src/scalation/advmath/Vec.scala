@@ -11,7 +11,7 @@ package advmath
 
 import collection.IndexedSeqLike
 import collection.mutable.{Builder, ArrayBuffer}
-import collection.generic.CanBuildFrom
+import collection.generic._
 
 import util.Error
 
@@ -25,8 +25,10 @@ import util.Error
  * @param length the dimension/size of the vector
  */
 class Vec[A: Numeric: ClassManifest](val v: Array[A], val length: Int)
-	extends IndexedSeqLike[A, Vec[A]]
+	extends IndexedSeq[A]
+	with IndexedSeqLike[A, Vec[A]]
     with PartiallyOrdered[Vec[A]]
+    with ScalaTion
 	with Error
 {
 	
@@ -63,7 +65,7 @@ class Vec[A: Numeric: ClassManifest](val v: Array[A], val length: Int)
 	{
 		if (i < 0 || length <= i) throw new IndexOutOfBoundsException
 		v(i)
-	}
+	} // apply
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
@@ -83,67 +85,123 @@ class Vec[A: Numeric: ClassManifest](val v: Array[A], val length: Int)
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
-	 * 
+	 * Vector addition
 	 * @return
 	 */
 	def plus(lhs: Vec[A], rhs: Vec[A]) = 
 		Vec.fromSeq(for (i <- range) yield lhs(i) + rhs(i))
-		
+	
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
+	 * Scaler addition
+	 * @return
+	 */
 	def plus(lhs: Vec[A], rhs: A) = 
 		Vec.fromSeq(for (i <- range) yield lhs(i) + rhs)
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
-	 * 
+	 * Vector subtraction
 	 * @return
 	 */
 	def minus(lhs: Vec[A], rhs: Vec[A]) = 
 		Vec.fromSeq(for (i <- range) yield lhs(i) - rhs(i))
 	
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
+	 * Scaler subtraction
+	 * @return
+	 */	
 	def minus(lhs: Vec[A], rhs: A) = 
 		Vec.fromSeq(for (i <- range) yield lhs(i) - rhs)
 		
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
-	 * 
+	 * Vector multiplication
 	 * @return
 	 */
 	def times(lhs: Vec[A], rhs: Vec[A]) = 
 		Vec.fromSeq(for (i <- range) yield lhs(i) * rhs(i))
 	
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
+	 * Scaler multiplication
+	 * @return
+	 */
 	def times(lhs: Vec[A], rhs: A) = 
 		Vec.fromSeq(for (i <- range) yield lhs(i) * rhs)
-		
+	
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
+	 * Vector division
+	 * @return
+	 */
 	def div(lhs: Vec[A], rhs: Vec[A])(implicit fu: Fractional[A]): Vec[A] =
 	{
 		import fu._
 		Vec.fromSeq(for (i <- range) yield lhs(i) / rhs(i))
-	}
+	} // div
 	
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
+	 * Scaler division
+	 * @return
+	 */
 	def div(lhs: Vec[A], rhs:A)(implicit fu: Fractional[A]): Vec[A] =
 	{
 		import fu._
 		Vec.fromSeq(for (i <- range) yield lhs(i) / rhs)
-	}
+	} // div
 	
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
+	 * Vector remainder
+	 * @return
+	 */
 	def rem(lhs: Vec[A], rhs: Vec[A])(implicit iu: Integral[A]): Vec[A] =
 	{
 		import iu._
 		Vec.fromSeq(for (i <- range) yield lhs(i) % rhs(i))
-	}
+	} // rem
 	
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
+	 * Scaler remainder
+	 * @return
+	 */
 	def rem(lhs: Vec[A], rhs: A)(implicit iu: Integral[A]): Vec[A] =
 	{
 		import iu._
 		Vec.fromSeq(for (i <- range) yield lhs(i) % rhs)
-	}
-	
-	def signum(vec: Vec[A]) =
-		Vec.fromSeq(for (i <- range) yield vec(i).signum)
+	} // rem
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
-	 * 
+	 * Vector signum
+	 * @return
+	 */
+	def signum(vec: Vec[A]) =
+		Vec.fromSeq(for (i <- range) yield vec(i).signum)
+		
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
+	 * Vector exponentiation
+	 * @return
+	 */
+	def pow(lhs: Vec[A], rhs: Vec[A]) = 
+		Vec.fromSeq(for (i <- range) yield lhs(i) ↑ rhs(i))
+		
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
+	 * Scaler exponentiation
+	 * @return
+	 */
+	def pow(lhs: Vec[A], rhs: A) = 
+		Vec.fromSeq(for (i <- range) yield lhs(i) ↑ rhs)
+	
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
+	 * Vector absolute value
 	 * @return
 	 */
 	def abs(vec: Vec[A]) = 
@@ -160,6 +218,8 @@ class Vec[A: Numeric: ClassManifest](val v: Array[A], val length: Int)
 	def %(rhs: Vec[A])(implicit iu: Integral[A]) = rem(this, rhs)
 	def %(rhs: A)(implicit iu: Integral[A]) = rem(this, rhs)
 	def signum(): Vec[Int] = Vec.this.signum(this)
+	def ↑(rhs: Vec[A]) = pow(this, rhs)
+	def ↑(rhs: A) = pow(this, rhs)
 	def unary_-() = negate(this)
 	def abs(): Vec[A] = Vec.this.abs(this) 
 		
@@ -215,15 +275,22 @@ class Vec[A: Numeric: ClassManifest](val v: Array[A], val length: Int)
     
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
+     * Create a same-length Vec with all elements set to 0.
      */
     def zero() = Vec.ofLength(length).set(nu.zero) 
     
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	/**
+	 * Create a same-length Vec with the j-th element set to 1 and all other
+	 * elemens set to 0.
+	 * @param j the location for the 1
+	 */
     def oneAt(j: Int) = 
     {
     	val z = zero()
     	z(j) = nu.one
     	z
-    }
+    } // oneAt
     
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
@@ -252,7 +319,7 @@ class Vec[A: Numeric: ClassManifest](val v: Array[A], val length: Int)
      * Compute the dot product (or inner product) of this vector with vector b.
      * @param b  the other vector
      */
-    def dot (b: Vec [A]) = (for (i <- range) yield v(i) * b(i)).sum
+    def dot (b: Vec [A]) = (this * b).sum
     
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
@@ -373,7 +440,7 @@ object Vec {
 		for (i <- 0 until length) v(i) = nu.zero
 		v(j) = nu.one
 		new Vec(v, length)
-	}
+	} // oneAt
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
@@ -384,17 +451,53 @@ object Vec {
     {
     	val nu = implicitly[Numeric[A]]
     	Vec.fromSeq(for (i <- 0 until length) yield nu.fromInt(i))
-    }
+    } // increasing
     
-}
+} // Vec
 
 object VecTest extends ScalaTion
 {
 	def main(args : Array[String]) 
 	{
 		
-		val vec = Vec(1.0, 1, 1, 1)
-		
-		println(vec.normalize)
+		for (l <- 1 to 4) {
+	        println ("\n\tTest VectorN on integer vectors of dim " + l)
+	        val a = Vec.ofLength[Int](l)
+	        val b = Vec.ofLength[Int](l)
+	        a.set (2)
+	        b.set (3)
+	        println ("a + b        = " + (a + b))
+	        println ("a - b        = " + (a - b))
+	        println ("a * b        = " + (a * b))
+	        println ("a * 4        = " + (a * 4))
+	        println ("a.min        = " + a.min)
+	        println ("a.max        = " + a.max)
+	        println ("a.sum        = " + a.sum)
+	        println ("a.sum_ne     = " + a.sum_ne (0))
+	        println ("a dot b      = " + (a dot b))
+	        println ("a < b        = " + (a < b))
+	        for (x <- a) print (" " + x)
+	        println
+	
+	        println ("\n\tTest VectorN on real vectors of dim " + l)
+	        val x = Vec.ofLength[Double](l)
+	        val y = Vec.ofLength[Double](l)
+	        x.set (2)
+	        y.set (3)
+	        println ("x + y        = " + (x + y))
+	        println ("x - y        = " + (x - y))
+	        println ("x * y        = " + (x * y))
+	        println ("x * 4.0      = " + (x * 4.0))
+	        println ("x.min        = " + x.min)
+	        println ("x.max        = " + x.max)
+	        println ("x.sum        = " + x.sum)
+	        println ("x.sum_ne     = " + x.sum_ne (0))
+	        println ("x dot y      = " + (x dot y))
+	        println ("x < y        = " + (x < y))
+	    } // for
+	
+	    val z = Vec(4, 2, 3, 1)
+	    for (e <- z) println ("e = " + e) 
+	    println ("Vec.increasing[Int](10) = " + Vec.increasing[Int](10))
 	}
 }
