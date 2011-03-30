@@ -28,20 +28,20 @@ trait ScalaTion
 	
 	type Set[A] = scala.collection.mutable.Set[A]
 	type VectorN[A] = advmath.VectorN[A]
-	type VecN[A] = advmath.VecN[A]
+	type Vec[A] = advmath.Vec[A]
 	type MatrixN[A] = advmath.MatrixN[A]
 
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-	// Makes certain factories avilable immediately.
+	// Makes certain factories available immediately.
 	
 	val Set = scala.collection.mutable.Set
 	val VectorN = advmath.VectorN
-	val VecN = advmath.VecN
+	val Vec = advmath.Vec
 	// val MatrixN = scalation.advmath.MatrixN
 	// @todo make this available once MatrixN has been refactored
 	
-	implicit def NumericIndexedSeqIsVecN[A: Numeric: ClassManifest](seq: IndexedSeq[A]) =
-		VecN.fromSeq[A](seq)
+	implicit def NumericIndexedSeqIsVec[A: Numeric: ClassManifest](seq: IndexedSeq[A]) =
+		Vec.fromSeq[A](seq)
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
