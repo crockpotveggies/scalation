@@ -260,7 +260,7 @@ class Vec[A: Numeric: ClassManifest](val v: Array[A], val length: Int)
     {
 		for (i <- range) v(i) = x
 		this
-    }
+    } // set
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
@@ -271,7 +271,7 @@ class Vec[A: Numeric: ClassManifest](val v: Array[A], val length: Int)
     {
     	for (i <- range) v(i) = u(i)
     	this
-    }
+    } // setAll
     
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
@@ -347,7 +347,7 @@ class Vec[A: Numeric: ClassManifest](val v: Array[A], val length: Int)
         	case (false, true)  => Some(1)
         	case (false, false) => None
         }
-    }
+    } // tryCompareTo
     	
 }
 
@@ -374,7 +374,7 @@ object Vec {
 		val v = Array.ofDim[A](buf.length)
 		for (i <- 0 until buf.length) v(i) = buf(i)
 		new Vec(v, buf.length)
-	}
+	} // fromSeq
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
@@ -385,7 +385,7 @@ object Vec {
 		val v = Array.ofDim[A](vector.length)
 		for (i <- 0 until vector.length) v(i) = vector(i)
 		new Vec(v, vector.length)
-	}
+	} // fromVec
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**

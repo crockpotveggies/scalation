@@ -27,7 +27,7 @@ trait ScalaTion
 	// Makes certain types immediately available.
 	
 	type Set[A] = scala.collection.mutable.Set[A]
-	type VectorN[A] = advmath.VectorN[A]
+	type VectorN[A] = advmath.Vec[A] // for legacy support
 	type Vec[A] = advmath.Vec[A]
 	type MatrixN[A] = advmath.MatrixN[A]
 
@@ -35,7 +35,7 @@ trait ScalaTion
 	// Makes certain factories available immediately.
 	
 	val Set = scala.collection.mutable.Set
-	val VectorN = advmath.VectorN
+	val VectorN = advmath.Vec // for legacy support
 	val Vec = advmath.Vec
 	// val MatrixN = scalation.advmath.MatrixN
 	// @todo make this available once MatrixN has been refactored
