@@ -7,10 +7,11 @@
  * @see     LICENSE (MIT style license file).
  */
 
-package scalation.animation
+package scalation
+package animation
 
-import scalation.scala2d.Colors._
-import scalation.scala2d.Shapes._
+import scala2d.Colors._
+import scala2d.Shapes._
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 /**

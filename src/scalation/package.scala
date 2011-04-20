@@ -18,8 +18,28 @@ package object scalation
 	 * @see http://programming-scala.labs.oreilly.com/ch07.html
 	 */
 	
-	/*
-	 * We may need to take advantage of this in the future.
-	 */
-		
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
+     * 
+     */
+	type VecI = advmath.Vec[Int]
+	
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
+     * 
+     */
+	type VecL = advmath.Vec[Long]
+	
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
+     * 
+     */
+	type VecF = advmath.Vec[Float]
+	
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
+     * 
+     */
+	type VecD = advmath.Vec[Double]
+	
 }

@@ -7,16 +7,16 @@
  * @see     LICENSE (MIT style license file).
  */
 
-package scalation.animation
+package scalation
+package animation
 
 import scala.collection.mutable.{HashMap, ListBuffer}
 
-import scalation.animation.Dgraph._
-import scalation.advmath.Vectors.ArrayD
-import scalation.scala2d._
-import scalation.scala2d.Colors._
-import scalation.scala2d.Shapes._
-import scalation.util.Error
+import Dgraph._
+import scala2d._
+import scala2d.Colors._
+import scala2d.Shapes._
+import util.Error
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 /**
@@ -63,7 +63,7 @@ class Animator (graph: Dgraph) extends Transform with Error
      * @param pts      the coordinates and dimensions of the node
      */
     def createNode (eid: Int, shape: RectangularShape, label: String, primary: Boolean,
-                    color: Color, pts: ArrayD)
+                    color: Color, pts: Array[Double])
     {
         var node: graph.Node = null
         val npts: Int        = pts.length
@@ -92,7 +92,7 @@ class Animator (graph: Dgraph) extends Transform with Error
      * @param pts       the coordinates and dimensions of the edge
      */
     def createEdge (eid: Int, shape: CurvilinearShape, label: String, primary: Boolean,
-                    color: Color, from_eid: Int, to_eid: Int, pts: ArrayD)
+                    color: Color, from_eid: Int, to_eid: Int, pts: Array[Double])
     {
         var edge: graph.Edge = null
         val from: graph.Node = nodeMap.get (from_eid).getOrElse (null)
@@ -143,7 +143,7 @@ class Animator (graph: Dgraph) extends Transform with Error
      * @param pts      the coordinates and dimensions of the token
      */
     def createToken (eid: Int, shape: RectangularShape, label: String, primary: Boolean,
-                     color: Color, on_eid: Int, pts: ArrayD)
+                     color: Color, on_eid: Int, pts: Array[Double])
     {
         val default = 8.0                                   // default token size
         val npts    = if (pts != null) pts.length else 0
@@ -263,7 +263,7 @@ class Animator (graph: Dgraph) extends Transform with Error
      * @param eid  the external id of the node to move
      * @param pts  the new x, y -coordinates
      */        
-    def moveNode (eid: Int, pts: ArrayD)
+    def moveNode (eid: Int, pts: Array[Double])
     {
         val node = nodeMap.get (eid).getOrElse (null)
 
@@ -281,7 +281,7 @@ class Animator (graph: Dgraph) extends Transform with Error
      * @param eid  the external id of the token to move
      * @param pts  the new x, y -coordinates
      */        
-    def moveToken (eid: Int, pts: ArrayD)
+    def moveToken (eid: Int, pts: Array[Double])
     {
         val token = tokenMap.get (eid).getOrElse (null)
 
@@ -355,7 +355,7 @@ class Animator (graph: Dgraph) extends Transform with Error
      * @param to_eid    the external id of the node the tokens are to be moved to
      * @param pts       one dimesional array containing number of tokens to move
      */
-    def moveTokens2Node (color: Color, from_eid: Int, to_eid: Int, pts: ArrayD)
+    def moveTokens2Node (color: Color, from_eid: Int, to_eid: Int, pts: Array[Double])
     {
         if (pts.length != 1) {
             flaw ("scaleTokensAt", "pts array should be one dimensional")
@@ -447,7 +447,7 @@ class Animator (graph: Dgraph) extends Transform with Error
      * @param eid  the external id of the node to scale
      * @param pts  the new width, height dimensions
      */
-    def scaleNode (eid: Int, pts: ArrayD)
+    def scaleNode (eid: Int, pts: Array[Double])
     {
         val node = nodeMap.get (eid).getOrElse (null)
 
@@ -465,7 +465,7 @@ class Animator (graph: Dgraph) extends Transform with Error
      * @param eid  the external id of the token to scale
      * @param pts  the new width, height dimensions
      */
-    def scaleToken (eid: Int, pts: ArrayD)
+    def scaleToken (eid: Int, pts: Array[Double])
     {
         val token = tokenMap.get (eid).getOrElse (null)
 
@@ -486,7 +486,7 @@ class Animator (graph: Dgraph) extends Transform with Error
      * @param to_eid    the external id of the node tokens/fluids are to be moved to
      * @param pts       one dimesional array containing amount of fluids to move
      */
-    def scaleTokensAt (color: Color, from_eid: Int, to_eid: Int, pts: ArrayD)
+    def scaleTokensAt (color: Color, from_eid: Int, to_eid: Int, pts: Array[Double])
     {
         if (pts.length != 1) {
             flaw ("scaleTokensAt", "pts array should be one dimensional")
@@ -595,7 +595,7 @@ class Animator (graph: Dgraph) extends Transform with Error
      * Adjust the time dilation: >1 slows down animation, <1 speeds up animation.
      * @param pts  one dimesional array containing the new time dilation factor
      */
-    def timeDilation (pts: ArrayD)
+    def timeDilation (pts: Array[Double])
     {
         if (pts.length != 1) {
             flaw ("timeDilation", "pts array should be one dimensional")

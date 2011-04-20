@@ -7,7 +7,8 @@
  * @see     LICENSE (MIT style license file).
  */
 
-package scalation.advmath
+package scalation
+package advmath
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 /**
@@ -156,9 +157,9 @@ object ComplexTest extends Application
     println ("c * d = " + (c * d))
     println ("c / d = " + (c / d))
 
-    val v = new VectorN [Complex] (c, d)
+    val v = Vec(c, d)
     println ("v = " + v)
-    val u = VectorN [Complex] (2)
+    val u = Vec(2)
     println ("u = " + u)
 
     val cm = new MatrixN [Complex] (2, Complex (1.), Complex (0.))    // 2 by 2 identity matrix

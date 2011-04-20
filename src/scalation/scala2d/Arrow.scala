@@ -7,15 +7,16 @@
  * @see     LICENSE (MIT style license file).
  */
 
-package scalation.scala2d
+package scalation
+package scala2d
 
 import scala.math._
 import scala.swing.{MainFrame, Panel}
 
-import scalation.scala2d.Colors._
-import scalation.scala2d.QCurveCalc._
-import scalation.scala2d.Shapes._
-import scalation.util.Error
+import Colors._
+import QCurveCalc._
+import Shapes._
+import util.Error
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 /**

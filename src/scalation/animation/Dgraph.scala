@@ -7,16 +7,17 @@
  * @see     LICENSE (MIT style license file).
  */
 
-package scalation.animation
+package scalation
+package animation
 
 import scala.math.abs
 import scala.collection.mutable.{HashSet, ListBuffer}
 
-import scalation.animation.Counter._
-import scalation.scala2d._
-import scalation.scala2d.Colors._
-import scalation.scala2d.Shapes._
-import scalation.util.Error
+import Counter._
+import scala2d._
+import scala2d.Colors._
+import scala2d.Shapes._
+import util.Error
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 /**

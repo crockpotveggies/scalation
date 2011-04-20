@@ -7,7 +7,8 @@
  * @see     LICENSE (MIT style license file).
  */
 
-package scalation.activity
+package scalation
+package activity
 
 import scala.collection.mutable.SynchronizedQueue
 import scala.Math._
@@ -17,7 +18,6 @@ import scalation.animation.CommandType._
 import scalation.dynamics.RungeKutta._
 import scalation.advmath._
 import scalation.stat._
-import scalation.advmath.Vectors._
 import scalation.scala2d._
 import scalation.scala2d.Colors._
 import scalation.util.{Error, Identity, PQueue, PQItem}
@@ -30,7 +30,7 @@ import scalation.util.{Error, Identity, PQueue, PQItem}
  * @param tokens  the number of tokens per color
  * @param stays   whether the tokens stay (test arc)
  */
-class PlaceI (val x: Double, val y: Double, var tokens: VectorI, stays: Boolean = false)
+class PlaceI (val x: Double, val y: Double, var tokens: Vec[Int], stays: Boolean = false)
       extends Identity
 {
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
@@ -38,14 +38,14 @@ class PlaceI (val x: Double, val y: Double, var tokens: VectorI, stays: Boolean 
      * Add tokens to this discrete place.
      * @param _token  the token vector to add
      */
-    def add (_tokens: VectorI) { tokens += _tokens }
+    def add (_tokens: Vec[Int]) { tokens += _tokens }
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Take tokens from this discrete place.
      * @param _token  the token vector to take away
      */
-    def take (_tokens: VectorI) { tokens -= _tokens }
+    def take (_tokens: Vec[Int]) { tokens -= _tokens }
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
@@ -54,7 +54,7 @@ class PlaceI (val x: Double, val y: Double, var tokens: VectorI, stays: Boolean 
      * threshold predicate in PetriNetRules.
      * @param _token  the token vector
      */
-    def holds (_tokens: VectorI): Boolean = tokens >= _tokens
+    def holds (_tokens: Vec[Int]): Boolean = tokens >= _tokens
 
 } // PlaceI class
 
@@ -66,7 +66,7 @@ class PlaceI (val x: Double, val y: Double, var tokens: VectorI, stays: Boolean 
  * @param fluids  the amount of fluid per color
  * @param stays   whether the fluids stay (test arc)
  */
-class PlaceD (val x: Double, val y: Double, var fluids: VectorD, stays: Boolean = false)
+class PlaceD (val x: Double, val y: Double, var fluids: Vec[Double], stays: Boolean = false)
       extends Identity
 {
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
@@ -74,14 +74,14 @@ class PlaceD (val x: Double, val y: Double, var fluids: VectorD, stays: Boolean 
      * Add fluids to this continuous place.
      * @param _fluids  the fluid vector to add
      */
-    def add (_fluids: VectorD) { fluids += _fluids }
+    def add (_fluids: Vec[Double]) { fluids += _fluids }
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Take fluids from this continuous place.
      * @param _fluids  the fluid vector to take away
      */
-    def take (_fluids: VectorD) { fluids -= _fluids }
+    def take (_fluids: Vec[Double]) { fluids -= _fluids }
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
@@ -90,7 +90,7 @@ class PlaceD (val x: Double, val y: Double, var fluids: VectorD, stays: Boolean 
      * threshold predicate in PetriNetRules.
      * @param _fluids  the fluid vector
      */
-    def holds (_fluids: VectorD): Boolean = fluids >= _fluids
+    def holds (_fluids: Vec[Double]): Boolean = fluids >= _fluids
 
 } // PlaceD class
 
@@ -135,11 +135,11 @@ class Transition (val x: Double, val y: Double, firingDist: Variate, colors: Arr
 
     /** Token vector for transition
      */
-    var tokens: VectorI = VectorN [Int] (colors.length)
+    var tokens: Vec[Int] = Vec.ofLength[Int](colors.length)
 
     /** Fluid vector for transition
      */
-    var fluids: VectorD = VectorN [Double] (colors.length)
+    var fluids: Vec[Double] = Vec.ofLength[Double](colors.length)
 
     /** A transition is locked from the time it is enabled until it fires
      */
@@ -206,28 +206,28 @@ class Transition (val x: Double, val y: Double, firingDist: Variate, colors: Arr
      * Add tokens to this transition.
      * @param _token  the token vector to add
      */
-    def addTokens (_tokens: VectorI) { tokens += _tokens }
+    def addTokens (_tokens: Vec[Int]) { tokens += _tokens }
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Take tokens from this transition.
      * @param _token  the token vector to take away
      */
-    def takeTokens (_tokens: VectorI) { tokens -= _tokens }
+    def takeTokens (_tokens: Vec[Int]) { tokens -= _tokens }
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Add fluids to this transition.
      * @param _fluids  the fluid vector to add
      */
-    def addFluids (_fluids: VectorD) { fluids += _fluids }
+    def addFluids (_fluids: Vec[Double]) { fluids += _fluids }
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Take fluids from this transition.
      * @param _fluids  the fluid vector to take away
      */
-    def takeFluids (_fluids: VectorD) { fluids -= _fluids }
+    def takeFluids (_fluids: Vec[Double]) { fluids -= _fluids }
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
@@ -271,7 +271,7 @@ class Transition (val x: Double, val y: Double, firingDist: Variate, colors: Arr
             //:: Move these tokens from their discrete place (place.id) to the transition (this.id).
             //:: For each color, move number = 'tokens(i)' tokens
 
-            for (i <- 0 until _tokens.dim) {
+            for (i <- 0 until _tokens.length) {
                 val number = _tokens(i)
                 if (number > 0) {
                     cqueue += AnimateCommand (MoveTokens2Node, -1, null, null, false,
@@ -293,7 +293,7 @@ class Transition (val x: Double, val y: Double, firingDist: Variate, colors: Arr
             //:: Move these fluids from their continuous place (place.id) to the transition (this.id).
             //:: For each color, move amount = 'fluids(i)' fluids
 
-            for (i <- 0 until _fluids.dim) {
+            for (i <- 0 until _fluids.length) {
                 val amount = _fluids(i)
                 if (amount > 0) {
                     // Adjust the sizes of tokens at both nodes by the amount
@@ -327,7 +327,7 @@ class Transition (val x: Double, val y: Double, firingDist: Variate, colors: Arr
             //:: Move these tokens from the transition (this.id) to their discrete place (place.id)
             //:: For each color, move number = 'tokens(i)' tokens
 
-            for (i <- 0 until _tokens.dim) {
+            for (i <- 0 until _tokens.length) {
                 val number = _tokens(i)
                 if (number > 0) {
                     cqueue += AnimateCommand (MoveTokens2Node, -1, null, null, false,
@@ -349,7 +349,7 @@ class Transition (val x: Double, val y: Double, firingDist: Variate, colors: Arr
             //:: Move these fluids from the transition (this.id) to their continuous place (place.id)
             //:: For each color, move amount = 'fluids(i)' tokens
 
-            for (i <- 0 until _fluids.dim) {
+            for (i <- 0 until _fluids.length) {
                 val amount = _fluids(i)
                 if (amount > 0) {
                     // Adjust the sizes of tokens at both nodes by the amount
@@ -384,8 +384,8 @@ class Transition (val x: Double, val y: Double, firingDist: Variate, colors: Arr
  * @param testArc      whether the arc is a test arc meaning the tokens/fluids stay
  * @param scaleFactor  the scale factor for the firing delay
  */
-class ArcI (val place: PlaceI, val transition: Transition, incoming: Boolean, val minTokens: VectorI,
-            rates: VectorI = null, testArc: Boolean = false, scaleFactor: Double = 1.)
+class ArcI (val place: PlaceI, val transition: Transition, incoming: Boolean, val minTokens: Vec[Int],
+            rates: Vec[Int] = null, testArc: Boolean = false, scaleFactor: Double = 1.)
       extends PetriNetRules with Identity
 {
     {
@@ -401,7 +401,7 @@ class ArcI (val place: PlaceI, val transition: Transition, incoming: Boolean, va
      * @param time         the current time
      * @param firingDelay  the time it takes for the transition to fire
      */
-    def _tokenFlow (tokens: VectorI, time: Double, firingDelay: Double): VectorI =
+    def _tokenFlow (tokens: Vec[Int], time: Double, firingDelay: Double): Vec[Int] =
     {
         tokenFlow (tokens, minTokens, rates, firingDelay / scaleFactor)
     } // _tokenFlow
@@ -422,8 +422,8 @@ class ArcI (val place: PlaceI, val transition: Transition, incoming: Boolean, va
  * @param testArc      whether the arc is a test arc meaning the tokens/fluids stay
  * @param scaleFactor  the scale factor for the firing delay
  */
-class ArcD (val place: PlaceD, val transition: Transition, incoming: Boolean, val minFluids: VectorD,
-            rates: VectorD = null, derv: Array [Derivative] = null, testArc: Boolean = false,
+class ArcD (val place: PlaceD, val transition: Transition, incoming: Boolean, val minFluids: Vec[Double],
+            rates: Vec[Double] = null, derv: Array [Derivative] = null, testArc: Boolean = false,
             scaleFactor: Double = 1.)
       extends PetriNetRules with Identity
 {
@@ -441,7 +441,7 @@ class ArcD (val place: PlaceD, val transition: Transition, incoming: Boolean, va
      * @param time         the current time
      * @param firingDelay  the time it takes for the transition to fire
      */
-    def _fluidFlow(fluids: VectorD, time: Double, firingDelay: Double): VectorD =
+    def _fluidFlow(fluids: Vec[Double], time: Double, firingDelay: Double): Vec[Double] =
     {
         if (derv == null) {                // use a linear or constant flow model
             fluidFlow (fluids, minFluids, rates, firingDelay / scaleFactor)
@@ -574,7 +574,7 @@ class PetriNet (colors: Array [Color], placeI: Array [PlaceI], placeD: Array [Pl
                    "pI" + pI.id, false, gColors(0), Array [Double] (pI.x, pI.y, 30, 30), 0)
 
             val tokens = pI.tokens
-            for (i <- 0 until tokens.dim) {          // number of tokens by color at this place
+            for (i <- 0 until tokens.length) {          // number of tokens by color at this place
                 for (j <- 0 until tokens(i)) {
                     val tk_id = Counter.next ()
                     println ("PetriNet.initAnimation: token " + tk_id + " for place " + pI.id)
@@ -591,7 +591,7 @@ class PetriNet (colors: Array [Color], placeI: Array [PlaceI], placeD: Array [Pl
                    "pD" + pD.id, false, gColors(1), Array [Double] (pD.x, pD.y, 30, 40), 0)
 
             val fluids = pD.fluids
-            for (i <- 0 until fluids.dim) {          // amount of fluids by color at this place
+            for (i <- 0 until fluids.length) {          // amount of fluids by color at this place
                 val fl_id = Counter.next ()
                 val amount = fluids(i)
                 if (amount > 0) {
@@ -705,11 +705,11 @@ object PetriNetTest extends Application
 
     //:: Define the places along with their initial markings by color.
 
-    val placeI = Array [PlaceI] (new PlaceI (100, 100, new VectorI (2, 2, 0)),
-                                 new PlaceI (500, 100, new VectorI (0, 0, 0)))
+    val placeI = Array [PlaceI] (new PlaceI (100, 100, Vec(2, 2, 0)),
+                                 new PlaceI (500, 100, Vec(0, 0, 0)))
 
-    val placeD = Array [PlaceD] (new PlaceD (100, 400, new VectorD (0., 0., 10.5)),
-                                 new PlaceD (500, 400, new VectorD (0., 0., 0.)))
+    val placeD = Array [PlaceD] (new PlaceD (100, 400, Vec(0., 0., 10.5)),
+                                 new PlaceD (500, 400, Vec(0., 0., 0.)))
 
     //:: Define the transitions.
 
@@ -723,10 +723,10 @@ object PetriNetTest extends Application
     //:: Also, establish a back link to the containing Petri net.
 
     transt(0).connect (pnet,
-        Array [ArcI] (new ArcI (placeI(0), transt(0), true,  new VectorI (1, 1, 0))),
-        Array [ArcD] (new ArcD (placeD(0), transt(0), true,  new VectorD (0., 0., 5.5))),
-        Array [ArcI] (new ArcI (placeI(1), transt(0), false, new VectorI (1, 1, 0))),
-        Array [ArcD] (new ArcD (placeD(1), transt(0), false, new VectorD (0., 0., 5.5))))
+        Array [ArcI] (new ArcI (placeI(0), transt(0), true,  Vec(1, 1, 0))),
+        Array [ArcD] (new ArcD (placeD(0), transt(0), true,  Vec(0., 0., 5.5))),
+        Array [ArcI] (new ArcI (placeI(1), transt(0), false, Vec(1, 1, 0))),
+        Array [ArcD] (new ArcD (placeD(1), transt(0), false, Vec(0., 0., 5.5))))
 
     println (pnet)
     pnet.simulate (2, 10)

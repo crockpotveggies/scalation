@@ -10,12 +10,12 @@
  * in finding Eigenvalues, but are also useful in their own right. 
  */
 
-package scalation.advmath
+package scalation
+package advmath
 
 import scala.math.{abs, pow, signum, sqrt}
-import scalation.advmath.Matrices._
-import scalation.advmath.Vectors._
-import scalation.util.Error
+import Matrices._
+import util.Error
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/		
 /**
@@ -132,7 +132,7 @@ class Eigenvalue (a: MatrixD)
 
     /** The vector of eigenvalues
      */
-    private val e = VectorN [Double] (a.dim1)
+    private val e = Vec.ofLength[Double](a.dim1)
 
     /** Error tolerance value
      */
@@ -177,7 +177,7 @@ class Eigenvalue (a: MatrixD)
     /**
      * Get the eigenvalue e vector.
      */
-    def getE: VectorD = e
+    def getE: VecD = e
 } // Eigenvalue class
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
@@ -188,7 +188,7 @@ class Eigenvalue (a: MatrixD)
  * @param a   the matrix whose eigenvectors are sought 
  * @param _e  the vector of eigenvalues of matrix a
  */
-class Eigenvector (a: MatrixD, _e: VectorD = null)
+class Eigenvector (a: MatrixD, _e: VecD = null)
       extends Error
 {
     /** The matrix of eigenvectors (each row holds an eigenvector)

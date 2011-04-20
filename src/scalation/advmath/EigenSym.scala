@@ -9,12 +9,12 @@
  * symmetric QR steps, and finding eigenvalues of symmetric matrices.
  */
 
-package scalation.advmath
+package scalation
+package advmath
 
 import scala.math.{abs, pow, sqrt}
-import scalation.advmath.Matrices._
-import scalation.advmath.Vectors._
-import scalation.util.Error
+import Matrices._
+import util.Error
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 /**
@@ -57,10 +57,10 @@ class Householder (a: MatrixN [Double])
      * @see Algorithm 5.1.1 in Matrix Computations.
      * @param x  the vector to create the Householder vector from
      */
-    def house (x: VectorD): Tuple2 [VectorD, Double] =
+    def house (x: VecD): Tuple2 [VecD, Double] =
     {
         var b  = 0.
-        var v = new VectorD (x)
+        var v = Vec.fromVec(x)
         v(0) = 1.
         val s= v.norm2 - 1
         if (s != 0.) {
@@ -175,7 +175,7 @@ class EigenvalueSym (a: MatrixN [Double])
     /**
      * Get the eigenvalue e vector.
      */
-    def getE: VectorD = d.dg     // the diagonal of the tridiagonal matrix
+    def getE: VecD = d.dg     // the diagonal of the tridiagonal matrix
 
 } // EigenvalueSym
 

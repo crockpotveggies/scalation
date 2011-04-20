@@ -316,6 +316,14 @@ class Vec[A: Numeric: ClassManifest](val v: Array[A], val length: Int)
     
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
+     * Compute the Euclidean norm (2-norm) squared of this vector.  If of the
+     * appropriate type (see below), the sqrt may be used to compute the actual
+     * norm.
+     */
+    def norm2(): A = this dot this
+    
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
      * Compute the dot product (or inner product) of this vector with vector b.
      * @param b  the other vector
      */

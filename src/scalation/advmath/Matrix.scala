@@ -7,9 +7,10 @@
  * @see     LICENSE (MIT style license file).
  */
 
-package scalation.advmath
+package scalation
+package advmath
 
-import scalation.util.Error
+import util.Error
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 /**
@@ -18,10 +19,14 @@ import scalation.util.Error
  * @param dim1  the first/row dimension
  * @param dim2  the second/column dimension
  */
-abstract class Matrix [T <% Ordered [T]: ClassManifest] (val dim1: Int,
+abstract class Matrix [T <% Ordered [T]: Numeric: ClassManifest] (val dim1: Int,
                                                          val dim2: Int)
          extends Error
 {
+  
+    private val nu = implicitly[Numeric[T]]
+    import nu._
+    
     /** Range for the storage array on dimension 1 (rows)
      */
     protected val range1 = 0 until dim1
@@ -43,7 +48,7 @@ abstract class Matrix [T <% Ordered [T]: ClassManifest] (val dim1: Int,
      * Get this matrix's vector at the i-th index position (i-th row).
      * @param i  the row index
      */
-    def apply (i: Int): VectorN [T]
+    def apply (i: Int): Vec[T]
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
@@ -60,7 +65,7 @@ abstract class Matrix [T <% Ordered [T]: ClassManifest] (val dim1: Int,
      * @param i  the row index
      * @param u  the vector value to assign
      */
-    def update (i: Int, u: VectorN [T])
+    def update (i: Int, u: Vec[T])
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
@@ -99,9 +104,9 @@ abstract class Matrix [T <% Ordered [T]: ClassManifest] (val dim1: Int,
      * @param _row  the row to extract from the matrix
      * @param from  the position to start extracting from
      */
-    def row (_row: Int, from: Int = 0): VectorN [T] =
+    def row (_row: Int, from: Int = 0): Vec [T] =
     {
-        val c = VectorN [T] (dim2 - from)
+        val c = Vec.ofLength [T] (dim2 - from)
         for (j <- from until dim2) c(j - from) = this(_row, j)
         c
     } // row
@@ -112,7 +117,7 @@ abstract class Matrix [T <% Ordered [T]: ClassManifest] (val dim1: Int,
      * @param row  the column to set
      * @param u    the vector to assign to the column
      */
-    def setRow (row: Int, u: VectorN [T])
+    def setRow (row: Int, u: Vec [T])
     {
         for (j <- range2) this(row, j) = u(j)
     } // setRow
@@ -123,9 +128,9 @@ abstract class Matrix [T <% Ordered [T]: ClassManifest] (val dim1: Int,
      * @param _col  the column to extract from the matrix
      * @param from  the position to start extracting from
      */
-    def col (_col: Int, from: Int = 0): VectorN [T] =
+    def col (_col: Int, from: Int = 0): Vec [T] =
     {
-        val c = VectorN [T] (dim1 - from)
+        val c = Vec.ofLength [T] (dim1 - from)
         for (i <- from until dim1) c(i - from) = this(i, _col)
         c
     } // col
@@ -136,7 +141,7 @@ abstract class Matrix [T <% Ordered [T]: ClassManifest] (val dim1: Int,
      * @param col  the column to set
      * @param u    the vector to assign to the column
      */
-    def setColumn (col: Int, u: VectorN [T])
+    def setColumn (col: Int, u: Vec[T])
     {
         for (i <- range1) this(i, col) = u(i)
     } // setColumn
@@ -188,105 +193,105 @@ abstract class Matrix [T <% Ordered [T]: ClassManifest] (val dim1: Int,
      * Add this matrix and matrix b.
      * @param b  the matrix to add (requires sameCrossDimensions)
      */
-    def + (b: Matrix [T]) (implicit nu: Numeric [T]): Matrix [T]
+    def + (b: Matrix [T]) : Matrix [T]
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Add inplace this matrix and matrix b.
      * @param b  the matrix to add (requires sameCrossDimensions)
      */
-    def += (b: Matrix [T]) (implicit nu: Numeric [T])
+    def += (b: Matrix [T]) 
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Add this matrix and scalar s.
      * @param s  the scalar to add
      */
-    def + (s: T) (implicit nu: Numeric [T]): Matrix [T]
+    def + (s: T) : Matrix [T]
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Add inplace this matrix and scalar s.
      * @param s  the scalar to add
      */
-    def += (s: T) (implicit nu: Numeric [T])
+    def += (s: T) 
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * From this matrix substract matrix b.
      * @param b  the matrix to subtract (requires sameCrossDimensions)
      */
-    def - (b: Matrix [T]) (implicit nu: Numeric [T]): Matrix [T]
+    def - (b: Matrix [T]) : Matrix [T]
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * From this matrix substract inplace matrix b.
      * @param b  the matrix to subtract (requires sameCrossDimensions)
      */
-    def -= (b: Matrix [T]) (implicit nu: Numeric [T])
+    def -= (b: Matrix [T]) 
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * From this matrix subtract scalar s.
      * @param s  the scalar to subtract
      */
-    def - (s: T) (implicit nu: Numeric [T]): Matrix [T]
+    def - (s: T) : Matrix [T]
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * From this matrix subtract inplace scalar s.
      * @param s  the scalar to subtract
      */
-    def -= (s: T) (implicit nu: Numeric [T])
+    def -= (s: T) 
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Multiply this matrix by matrix b.
      * @param b  the matrix to multiply by (requires sameCrossDimensions)
      */
-    def * (b: Matrix [T]) (implicit nu: Numeric [T]): Matrix [T]
+    def * (b: Matrix [T]) : Matrix [T]
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Multiply inplace this matrix by matrix b.
      * @param b  the matrix to multiply by (requires sameCrossDimensions)
      */
-    def *= (b: Matrix [T]) (implicit nu: Numeric [T])
+    def *= (b: Matrix [T]) 
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Multiply this matrix by vector b.
      * @param b  the vector to multiply by
      */
-    def * (b: VectorN [T]) (implicit nu: Numeric [T]): VectorN [T]
+    def * (b: Vec [T]) : Vec [T]
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Multiply this matrix by scalar s.
      * @param s  the scalar to multiply by
      */
-    def * (s: T) (implicit nu: Numeric [T]): Matrix [T]
+    def * (s: T) : Matrix [T]
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Multiply inplace this matrix by scalar s.
      * @param s  the scalar to multiply by
      */
-    def *= (s: T) (implicit nu: Numeric [T])
+    def *= (s: T) 
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Multiply this matrix by vector b to produce another matrix (a_ij * b_j)
      * @param b  the vector to multiply by
      */
-    def ** (b: VectorN [T]) (implicit nu: Numeric [T]): Matrix [T]
+    def ** (b: Vec [T]) : Matrix [T]
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Multiply inplace this matrix by vector b to produce another matrix (a_ij * b_j)
      * @param b  the vector to multiply by
      */
-    def **= (b: VectorN [T]) (implicit nu: Numeric [T])
+    def **= (b: Vec [T]) 
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
@@ -311,8 +316,8 @@ abstract class Matrix [T <% Ordered [T]: ClassManifest] (val dim1: Int,
      * @param u  the upper triangular matrix
      * @param b  the constant vector
      */
-    def solve (l: Matrix [T], u: Matrix [T], b: VectorN [T])
-        (implicit nu: Fractional [T]): VectorN [T]
+    def solve (l: Matrix [T], u: Matrix [T], b: Vec [T])
+        (implicit nu: Fractional [T]): Vec [T]
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
@@ -320,16 +325,16 @@ abstract class Matrix [T <% Ordered [T]: ClassManifest] (val dim1: Int,
      * @param lu  the lower and upper triangular matrices
      * @param b   the constant vector
      */
-    def solve (lu: Tuple2 [Matrix [T], Matrix [T]], b: VectorN [T])
-        (implicit nu: Fractional [T]): VectorN [T]
+    def solve (lu: Tuple2 [Matrix [T], Matrix [T]], b: Vec [T])
+        (implicit nu: Fractional [T]): Vec [T]
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Solve for x in the equation a*x = b where a is this matrix (see lud above).
      * @param b  the constant vector.
      */
-    def solve (b: VectorN [T])
-        (implicit nu: Fractional [T]): VectorN [T]
+    def solve (b: Vec [T])
+        (implicit nu: Fractional [T]): Vec [T]
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
@@ -352,7 +357,7 @@ abstract class Matrix [T <% Ordered [T]: ClassManifest] (val dim1: Int,
      * filling in the bottom left and top right regions with zeroes; [this, b].
      * @param b  the matrix to combine with this matrix
      */
-    def diag (b: Matrix [T]) (implicit nu: Numeric [T]): Matrix [T]
+    def diag (b: Matrix [T]) : Matrix [T]
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
@@ -361,7 +366,7 @@ abstract class Matrix [T <% Ordered [T]: ClassManifest] (val dim1: Int,
      * @param p  the size of identity matrix Ip
      * @param q  the size of identity matrix Iq
      */
-    def diag (p: Int, q: Int) (implicit nu: Numeric [T]): Matrix [T]
+    def diag (p: Int, q: Int) : Matrix [T]
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
@@ -399,11 +404,11 @@ abstract class Matrix [T <% Ordered [T]: ClassManifest] (val dim1: Int,
      * times any scalar s", i.e., s*v*a = 0.  The left nullspace of matrix a is
      * the same as the right nullspace of a.t (a transpose).
      */
-    def nullspace (implicit nu: Fractional [T]): VectorN [T] =
+    def nullspace (implicit nu: Fractional [T]): Vec [T] =
     {
         if (dim2 != dim1 + 1) flaw ("nullspace", "requires n (columns) = m (rows) + 1")
         val _1 = nu.one
-        reduce.col(dim2 - 1) * nu.negate (_1) ++ new VectorN (_1)
+        reduce.col(dim2 - 1) * nu.negate (_1) ++ Vec(_1)
     } // nullspace
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
@@ -414,12 +419,12 @@ abstract class Matrix [T <% Ordered [T]: ClassManifest] (val dim1: Int,
      * times any scalar s", i.e., s*v*a = 0.  The left nullspace of matrix a is
      * the same as the right nullspace of a.t (a transpose).
      */
-    def nullspace_ip (implicit nu: Fractional [T]): VectorN [T] =
+    def nullspace_ip (implicit nu: Fractional [T]): Vec [T] =
     {
         if (dim2 != dim1 + 1) flaw ("nullspace", "requires n (columns) = m (rows) + 1")
         val _1 = nu.one
         reduce_ip
-        col(dim2 - 1) * nu.negate (_1) ++ new VectorN (_1)
+        col(dim2 - 1) * nu.negate (_1) ++ Vec (_1)
     } // nullspace_ip
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
@@ -428,7 +433,7 @@ abstract class Matrix [T <% Ordered [T]: ClassManifest] (val dim1: Int,
      * main diagonal.  Should also equal the sum of the eigenvalues.
      * @see Eigen.scala
      */
-    def trace (implicit nu: Numeric [T]): T =
+    def trace : T =
     {
         if ( ! isSquare) flaw ("trace", "trace only works on square matrices")
         val _0  = nu.zero
@@ -441,7 +446,7 @@ abstract class Matrix [T <% Ordered [T]: ClassManifest] (val dim1: Int,
     /**
      * Compute the determinant of this matrix.
      */
-    def det (implicit nu: Numeric [T]): T
+    def det : T
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
@@ -483,7 +488,7 @@ abstract class Matrix [T <% Ordered [T]: ClassManifest] (val dim1: Int,
     /**
      * Check whether this matrix is nonnegative (has no negative elements).
      */
-    def isNonnegative (implicit nu: Numeric [T]): Boolean =
+    def isNonnegative() : Boolean =
     {
         val _0 = nu.zero
         for (i <- range1; j <- range2 if nu.lt (this(i, j), _0)) return false
@@ -494,7 +499,7 @@ abstract class Matrix [T <% Ordered [T]: ClassManifest] (val dim1: Int,
     /**
      * Check whether this matrix is symmetric.
      */
-    def isSymmetric: Boolean =
+    def isSymmetric(): Boolean =
     {
         for (i <- 0 to dim1 - 2; j <- i + 1 until dim2 if this(i, j) != this(j, i)) return false
         true
