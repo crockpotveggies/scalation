@@ -77,6 +77,7 @@ class Vec[A: Numeric: ClassManifest] protected (x: Array[A])
     // Mandatory re-implementation of `newBuilder` in `IndexedSeq`
     override def newBuilder = Vec.newBuilder
 
+    // Mandatory implementation of compare
     def compare(a: Vec[A], b: Vec[A]): Int = {
         for (i <- a.range) {
             if (a(i) > b(i))  1
@@ -86,6 +87,11 @@ class Vec[A: Numeric: ClassManifest] protected (x: Array[A])
     }
     
     override def reverse = Vec.fromSeq(x.toSeq.reverse)
+    
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /** Return the mean of the numeric vector.
+     */
+    def mean(): Double = sum.toDouble / length
     
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
@@ -505,6 +511,15 @@ class Vec[A: Numeric: ClassManifest] protected (x: Array[A])
         u
     } // increasing
 
+    /**
+	 * Returns the vector raised to the p power as a Double. Using
+	 * Knuth's up-arrow notation
+	 */
+	def ↑(p: Int): VecD =
+	{
+		import scala.math._
+		Vec.fromSeq(this map (e => pow(e.toDouble, p.toDouble)))
+	}
     
     
 }

@@ -51,12 +51,6 @@ class StatVector (dim: Int) extends Vec [Double] (Array.ofDim[Double](dim))
 
    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
    /**
-    * Compute the mean of this vector.
-    */
-    def mean: Double = sum / dim
-
-   /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-   /**
     * Compute the variance of this vector.
     */
     def variance: Double = (norm2 - pow (sum, 2) / dim) / dim 
@@ -100,7 +94,7 @@ object StatVectorTest extends Application
     println ("v          = " + v)
     println ("v.min      = " + v.min)
     println ("v.max      = " + v.max)
-    println ("v.mean     = " + v.mean)
+    println ("v.mean     = " + v.mean) 
     println ("v.variance = " + v.variance)
     println ("v.stddev   = " + v.stddev)
     println ("v.rms      = " + v.rms)
