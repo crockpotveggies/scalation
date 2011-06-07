@@ -7,12 +7,12 @@
  * @see     LICENSE (MIT style license file).
  */
 
-package scalation.dynamics
+package scalation
+package dynamics
 
 import scala.math._
-import scalation.advmath._
-import scalation.advmath.Vectors._
-import scalation.util.Error
+import advmath._
+import util.Error
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 /**
@@ -70,15 +70,15 @@ trait Integrator
      * @param t0     the initial time
      * @param _step  the step size
      */
-    def integrateV (f: Array [Derivative], y0: VectorD, t: Double,
-                    t0: Double = 0., _step: Double = defaultStepSize): VectorD =
+    def integrateV (f: Array [Derivative], y0: VecD, t: Double,
+                    t0: Double = 0., _step: Double = defaultStepSize): VecD =
     {
-        val n = y0.dim
+        val n = y0.length
         if (n != f.length) {
             flaw ("integrateV", "incompatible dimensions between f and y0")
             null
         } else {
-            val y = VectorN [Double] (n)
+            val y = Vec.ofLength[Double](n)
             for (i <- 0 until n) y(i) = integrate (f(i), y0(i), t, t0, _step)
             y
         } // if

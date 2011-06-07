@@ -7,12 +7,12 @@
  * @see     LICENSE (MIT style license file).
  */
 
-package scalation.stat
+package scalation
+package stat
 
 import scala.math._
-import scalation.advmath.Matrices._
-import scalation.advmath.Vectors._
-
+import advmath._
+import advmath.Matrices._
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 /**
  * The Regression object supports multiple linear regression.
@@ -25,7 +25,7 @@ object Regression
      * @param x the design matrix augmented with a first column of ones.
      * @param b the parameter vector
      */
-    def eval (x: MatrixD, b: VectorD): VectorD =
+    def eval (x: MatrixD, b: VecD): VecD =
     {
         x * b
     } // eval
@@ -37,12 +37,12 @@ object Regression
      * @param x the design matrix augmented with a first column of ones.
      * @param y the response vector
      */
-    def fit (x: MatrixD, y: VectorD): Tuple2 [VectorD, Double] =
+    def fit (x: MatrixD, y: VecD): Tuple2 [VecD, Double] =
     {
         val b    = (x.t * x).inverse * x.t * y   // parameter vector
         val e    = y - x * b                     // error vector
         val sse  = e.norm2                       // sum of squared errors
-        val ssto = y.norm2 - (pow (y.sum, 2)) / y.dim
+        val ssto = y.norm2 - (pow (y.sum, 2)) / y.length
         val r2   = (ssto - sse) / ssto           // coefficient of determination
         Tuple2 (b, r2)
     } // fit
@@ -63,7 +63,7 @@ object RegressionTest extends Application
                              1., 32.,  53.,
                              1.,  1., 101.)
      // five data points: y coordinate
-     val y = new VectorD (745., 895., 442., 440., 1598.)
+     val y = Vec (745., 895., 442., 440., 1598.)
 
      val tp = Regression.fit (x, y)
      val yp = Regression.eval (x, tp._1)
@@ -86,7 +86,7 @@ object RegressionTest2 extends Application
                              1., 2., 1.,
                              1., 2., 2.)
      // four data points: y coordinate
-     val y = new VectorD (6., 8., 7., 9.)
+     val y = Vec(6., 8., 7., 9.)
 
      val tp = Regression.fit (x, y)
      val yp = Regression.eval (x, tp._1)

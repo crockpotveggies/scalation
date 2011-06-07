@@ -86,7 +86,7 @@ trait PetriNetRules
     def tokenFlow (t: VecI, b: VecI, r: VecI = null, d: Double = 0): VecI =
     {
         t min (if (d == 0 || r == null) b else b + ((r * (t - b)).toDouble * d).toInt)
-    } // tokenFlow
+    } // tokenFlowDouble 
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
@@ -135,17 +135,17 @@ object PetriNetRulesTest extends Application with PetriNetRules
 
     //:: Set sample values for tokens.
 
-    val t   = new VecI (5, 4)       // tokens
-    val r_t = new VecI (1, 1)       // rates
-    val b_t = new VecI (1, 2)       // base requirement
-    val w_t = new VecD (.01, .01)   // weight
+    val t   = Vec(5, 4)       // tokens
+    val r_t = Vec(1, 1)       // rates
+    val b_t = Vec(1, 2)       // base requirement
+    val w_t = Vec(.01, .01)   // weight
 
     //:: Set sample values for fluid.
 
-    val f   = new VecD (5.5, 4.5)   // fluid levels
-    val r_f = new VecD (.5, 1.0)    // rates
-    val b_f = new VecD (1.5, 2.5)   // base requirement
-    val w_f = new VecD (.01, .01)   // weight
+    val f   = Vec(5.5, 4.5)   // fluid levels
+    val r_f = Vec(.5, 1.0)    // rates
+    val b_f = Vec(1.5, 2.5)   // base requirement
+    val w_f = Vec(.01, .01)   // weight
 
     //:: Test the firing rules.
 

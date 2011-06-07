@@ -7,17 +7,17 @@
  * @see     LICENSE (MIT style license file). 
  */
 
-package scalation.stat
+package scalation
+package stat
 
 import scala.math._
 import scala.swing.{MainFrame, Panel, SimpleGUIApplication}
 
-import scalation.advmath._
-import scalation.advmath.Matrices._
-import scalation.advmath.Vectors._
-import scalation.scala2d._
-import scalation.scala2d.Colors._
-import scalation.scala2d.Shapes._
+import advmath._
+import advmath.Matrices._
+import scala2d._
+import scala2d.Colors._
+import scala2d.Shapes._
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 /**
@@ -28,7 +28,7 @@ import scalation.scala2d.Shapes._
  * @param numIntervals  the number of intervals (typically 5 to 100)
  * @param _title        title of the histogram
  */
-class Histogram (value: VectorD, numIntervals: Int, _title: String = "Histogram")
+class Histogram (value: VecD, numIntervals: Int, _title: String = "Histogram")
       extends MainFrame
 {
     private val frameSize     = new Dimension (600, 600)
@@ -129,9 +129,9 @@ class Histogram (value: VectorD, numIntervals: Int, _title: String = "Histogram"
     /**
      * Compute the counts for each interval in the histogram.
      */
-    def computeHistogram (): VectorN [Double] =
+    def computeHistogram (): VecD =
     {
-        val h = VectorN [Double] (numIntervals)
+        val h = Vec.ofLength[Double] (numIntervals)
         for (x <- value) {
             val i = (floor ((x - minValue) / intervalWidth)).asInstanceOf [Int]
             h(i) += 1
@@ -182,7 +182,7 @@ object HistogramTest extends Application
 */
 
     val uniformRV   = Uniform (0, 1)
-    val uniformDist = VectorN [Double] (samples)
+    val uniformDist = Vec.ofLength[Double] (samples)
     for (i <- 0 until samples) {
         var sum = 0.
         for (j <- 0 until 1) {

@@ -39,7 +39,7 @@ class Hessenburg (a: MatrixD)
 
         for (j <- 0 until n) {                // for each column j
             val x  = h.col(j, j)              // jth column from jth position
-            val u  = x + x.one (0) * x.norm * (if (x(0) < 0.) -1. else 1.)
+            val u  = x + x.one (0) * x.norm * (if (x(0) < 0.) -1. else 1.) 
             val ident1 = new MatrixN [Double] (n - j, 1., 0.)
             val ident2 = new MatrixN [Double] (j, 1., 0.)
             val pp = ident1 - (u outer u) * (2. / u.norm2)

@@ -60,7 +60,7 @@ class Householder (a: MatrixN [Double])
     def house (x: VecD): Tuple2 [VecD, Double] =
     {
         var b  = 0.
-        var v = Vec.fromVec(x)
+        var v = Vec.fromSeq(x)
         v(0) = 1.
         val s= v.norm2 - 1
         if (s != 0.) {

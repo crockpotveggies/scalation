@@ -7,12 +7,12 @@
  * @see     LICENSE (MIT style license file).
  */
 
-package scalation.dynamics
+package scalation
+package dynamics
 
 import scala.math._
-import scalation.advmath._
-import scalation.advmath.Vectors._
-import scalation.util.Error
+import advmath._
+import util.Error
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 /**
@@ -92,7 +92,7 @@ object RungeKuttaTest extends Application
     println ("\n==> at t = " + t + " y = " + integrate (derv3, y0, t))
 
     println ("\n==> at t = " + t + " y = " + 
-             integrateV (Array (derv1, derv2), new VectorD (1., 2.), t))
+             integrateV (Array (derv1, derv2), Vec(1., 2.), t))
 
 } // RungeKuttaTest object
 

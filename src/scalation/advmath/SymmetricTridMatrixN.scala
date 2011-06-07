@@ -326,7 +326,7 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: Numeric: ClassManifest] (d1: 
      * Solve for x in the equation a*x = d where a is this matrix
      * @param d  the constant vector.
      */
-    def solve (d: Vec[T]) (implicit nu: Fractional [T]): Vec[T] =
+    override def solve (d: Vec[T]) (implicit nu: Fractional [T]): Vec[T] =
     {
         val x = Vec.ofLength[T](d1)
         val c = Vec.ofLength[T](d1)
@@ -422,7 +422,7 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: Numeric: ClassManifest] (d1: 
         throw new NoSuchMethodException ("not implemented")
     } // solve
 
-    def solve (lu: Tuple2 [Matrix [T], Matrix [T]], b: Vec[T])
+    override def solve (lu: Tuple2 [Matrix [T], Matrix [T]], b: Vec[T])
               (implicit nu: Fractional [T]): Vec[T] = 
     {
         throw new NoSuchMethodException ("not implemented")

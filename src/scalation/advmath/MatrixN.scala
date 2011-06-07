@@ -39,7 +39,7 @@ object Matrices
  * @param dim2  the second/column dimension
  * @param v     the 2D array used to store matrix elements
  */
-case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
+case class MatrixN [T <% Ordered [T]: Numeric: ClassManifest] (d1: Int,
                                                       d2: Int,
                                            private var v: Array [Array [T]] = null)
      extends Matrix [T] (d1, d2) with Error
@@ -52,6 +52,9 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
         } // if
     } // primary constructor
 
+    private val nu = implicitly[Numeric[T]]
+    import nu._
+    
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Construct a dim1 by dim1 square matrix.
@@ -117,9 +120,9 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
      * Construct a matrix and assign values from array of vectors u.
      * @param u  the 2D array of values to assign
      */
-    def this (u: Array [VectorN [T]])
+    def this (u: Array [Vec[T]])
     {
-        this (u.length, u(0).dim)                  // invoke primary constructor
+        this (u.length, u(0).length)                  // invoke primary constructor
         for (i <- range1; j <- range2) v(i)(j) = u(i)(j)
     } // constructor
 
@@ -150,9 +153,9 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
      * Get this matrix's vector at the i-th index position (i-th row).
      * @param i  the row index
      */
-    def apply (i: Int): VectorN [T] =
+    def apply (i: Int): Vec[T] =
     {
-        new VectorN [T] (v(i))
+        Vec.fromSeq(v(i).toSeq)
     } // apply
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
@@ -173,9 +176,9 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
      * @param i  the row index
      * @param u  the vector value to assign
      */
-    def update (i: Int, u: VectorN [T])
+    def update (i: Int, u: Vec [T])
     {
-        v(i) = u()
+        v(i) = u.toArray
     } // update
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
@@ -235,7 +238,7 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
      * Add this matrix and matrix b.
      * @param b  the matrix to add (requires sameCrossDimensions)
      */
-    def + (b: Matrix [T]) (implicit nu: Numeric [T]): MatrixN [T] =
+    def + (b: Matrix [T]): MatrixN [T] =
     {
         val c = MatrixN [T] (dim1, dim2)
         for (i <- c.range1; j <- c.range2) c.v(i)(j) = nu.plus (v(i)(j), b(i, j))
@@ -247,7 +250,7 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
      * Add inplace this matrix and matrix b.
      * @param b  the matrix to add (requires sameCrossDimensions)
      */
-    def += (b: Matrix [T]) (implicit nu: Numeric [T])
+    def += (b: Matrix [T])
     {
         for (i <- range1; j <- range2) v(i)(j) = nu.plus (v(i)(j), b(i, j))
     } // +=
@@ -257,7 +260,7 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
      * Add this matrix and scalar s.
      * @param s  the scalar to add
      */
-    def + (s: T) (implicit nu: Numeric [T]): MatrixN [T] =
+    def + (s: T): MatrixN [T] =
     {
         val c = MatrixN [T] (dim1, dim2)
         for (i <- c.range1; j <- c.range2) c.v(i)(j) = nu.plus (v(i)(j), s)
@@ -269,7 +272,7 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
      * Add inplace this matrix and scalar s.
      * @param s  the scalar to add
      */
-    def += (s: T) (implicit nu: Numeric [T])
+    def += (s: T) 
     {
         for (i <- range1; j <- range2) v(i)(j) = nu.plus (v(i)(j), s)
     } // +=
@@ -279,7 +282,7 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
      * From this matrix substract matrix b.
      * @param b  the matrix to subtract (requires sameCrossDimensions)
      */
-    def - (b: Matrix [T]) (implicit nu: Numeric [T]): MatrixN [T] =
+    def - (b: Matrix [T]): MatrixN [T] =
     {
         val c = MatrixN [T] (dim1, dim2)
         for (i <- c.range1; j <- c.range2) c.v(i)(j) = nu.minus (v(i)(j), b(i, j))
@@ -291,7 +294,7 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
      * From this matrix substract inplace matrix b.
      * @param b  the matrix to subtract (requires sameCrossDimensions)
      */
-    def -= (b: Matrix [T]) (implicit nu: Numeric [T])
+    def -= (b: Matrix [T]) 
     {
         for (i <- range1; j <- range2) v(i)(j) = nu.minus (v(i)(j), b(i, j))
     } // -=
@@ -301,7 +304,7 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
      * From this matrix subtract scalar s.
      * @param s  the scalar to subtract
      */
-    def - (s: T) (implicit nu: Numeric [T]): MatrixN [T] =
+    def - (s: T): MatrixN [T] =
     {
         val c = MatrixN [T] (dim1, dim2)
         for (i <- c.range1; j <- c.range2) c.v(i)(j) = nu.minus (v(i)(j), s)
@@ -313,7 +316,7 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
      * From this matrix subtract inplace scalar s.
      * @param s  the scalar to subtract
      */
-    def -= (s: T) (implicit nu: Numeric [T])
+    def -= (s: T) 
     {
         for (i <- range1; j <- range2) v(i)(j) = nu.minus (v(i)(j), s)
     } // -=
@@ -323,7 +326,7 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
      * Multiply this matrix by matrix b.
      * @param b  the matrix to multiply by (requires sameCrossDimensions)
      */
-    def * (b: Matrix [T]) (implicit nu: Numeric [T]): MatrixN [T] =
+    def * (b: Matrix [T]) : MatrixN [T] =
     {
         val c = MatrixN [T] (dim1, b.dim2)
         for (i <- c.range1; j <- c.range2) c.v(i)(j) = row(i) dot b.col(j)
@@ -335,7 +338,7 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
      * Multiply inplace this matrix by matrix b.
      * @param b  the matrix to multiply by (requires sameCrossDimensions)
      */
-    def *= (b: Matrix [T]) (implicit nu: Numeric [T])
+    def *= (b: Matrix [T]) 
     {
         for (i <- range1; j <- range2) v(i)(j) = row(i) dot b.col(j)
     } // *=
@@ -345,9 +348,9 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
      * Multiply this matrix by vector b.
      * @param b  the vector to multiply by
      */
-    def * (b: VectorN [T]) (implicit nu: Numeric [T]): VectorN [T] =
+    def * (b: Vec[T]): Vec[T] =
     {
-        val c = VectorN [T] (dim1)
+        val c = Vec.ofLength[T](dim1)
         for (i <- range1) c(i) = row(i) dot b
         c
     } // *
@@ -357,7 +360,7 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
      * Multiply this matrix by scalar s.
      * @param s  the scalar to multiply by
      */
-    def * (s: T) (implicit nu: Numeric [T]): MatrixN [T] =
+    def * (s: T): MatrixN [T] =
     {
         val c = MatrixN [T] (dim1, dim2)
         for (i <- c.range1; j <- c.range2) c.v(i)(j) = nu.times (v(i)(j), s)
@@ -369,7 +372,7 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
      * Multiply inplace this matrix by scalar s.
      * @param s  the scalar to multiply by
      */
-    def *= (s: T) (implicit nu: Numeric [T])
+    def *= (s: T) 
     {
         for (i <- range1; j <- range2) v(i)(j) = nu.times (v(i)(j), s)
     } // *=
@@ -379,7 +382,7 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
      * Multiply this matrix by vector b to produce another matrix (a_ij * b_j)
      * @param b  the vector to multiply by
      */
-    def ** (b: VectorN [T]) (implicit nu: Numeric [T]): MatrixN [T] =
+    def ** (b: Vec[T]) : MatrixN [T] =
     {
         val c = MatrixN [T] (dim1, dim2)
         for (i <- c.range1; j <- c.range2) c.v(i)(j) = nu.times (v(i)(j), b(j))
@@ -391,7 +394,7 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
      * Multiply inplace this matrix by vector b to produce another matrix (a_ij * b_j)
      * @param b  the vector to multiply by
      */
-    def **= (b: VectorN [T]) (implicit nu: Numeric [T])
+    def **= (b: Vec[T]) 
     {
         for (i <- range1; j <- range2) v(i)(j) = nu.times (v(i)(j), b(j))
     } // **=
@@ -524,19 +527,19 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
      * @param u  the upper triangular matrix
      * @param b  the constant vector
      */
-    def solve (l: Matrix [T], u: Matrix [T], b: VectorN [T])
-        (implicit nu: Fractional [T]): VectorN [T] =
+    override def solve (l: Matrix [T], u: Matrix [T], b: Vec [T])
+        (implicit nu: Fractional [T]): Vec [T] =
     {
         val _0 = nu.zero
-        val y  = VectorN [T] (l.dim2)
-        for (k <- 0 until y.dim) {                   // solve for y in l*y = b
+        val y  = Vec.ofLength[T] (l.dim2)
+        for (k <- 0 until y.length) {                   // solve for y in l*y = b
             var sum = _0
             for (j <- 0 until k) sum = nu.plus (sum, nu.times (l(k, j), y(j)))
             y(k) = nu.minus (b(k), sum)
         } // for
 
-        val x = VectorN [T] (u.dim2)
-        for (k <- x.dim - 1 to 0 by -1) {            // solve for x in u*x = y
+        val x = Vec.ofLength[T] (u.dim2)
+        for (k <- x.length - 1 to 0 by -1) {            // solve for x in u*x = y
             var sum = _0
             for (j <- k + 1 until u.dim2) sum = nu.plus (sum, nu.times (u(k, j), x(j)))
             x(k) = nu.div (nu.minus (y(k), sum), u(k, k))
@@ -550,8 +553,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
      * @param lu  the lower and upper triangular matrices
      * @param b   the constant vector
      */
-    def solve (lu: Tuple2 [Matrix [T], Matrix [T]], b: VectorN [T])
-        (implicit nu: Fractional [T]): VectorN [T] =
+    override def solve (lu: Tuple2 [Matrix [T], Matrix [T]], b: Vec [T])
+        (implicit nu: Fractional [T]): Vec [T] =
     {
        solve (lu._1, lu._2, b)
     } // solve
@@ -561,8 +564,8 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
      * Solve for x in the equation a*x = b where a is this matrix (see lud above).
      * @param b  the constant vector.
      */
-    def solve (b: VectorN [T])
-        (implicit nu: Fractional [T]): VectorN [T] =
+    override def solve (b: Vec [T])
+        (implicit nu: Fractional [T]): Vec [T] =
     {
         solve (lud, b)
     } // solve
@@ -573,7 +576,7 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
      * filling in the bottom left and top right regions with zeroes; [this, b].
      * @param b  the matrix to combine with this matrix
      */
-    def diag (b: Matrix [T]) (implicit nu: Numeric [T]): MatrixN [T] =
+    def diag (b: Matrix [T]): MatrixN [T] =
     {
         val _0 = nu.zero
         val m  = dim1 + b.dim1
@@ -595,7 +598,7 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
      * @param p  the size of identity matrix Ip
      * @param q  the size of identity matrix Iq
      */
-    def diag (p: Int, q: Int) (implicit nu: Numeric [T]): MatrixN [T] =
+    def diag (p: Int, q: Int): MatrixN [T] =
     {
         if (! isSymmetric) flaw ("diag", "this matrix must be symmetric")
         val _0 = nu.zero; val _1 = nu.one
@@ -769,7 +772,7 @@ case class MatrixN [T <% Ordered [T]: ClassManifest] (d1: Int,
     /**
      * Compute the determinant of this matrix.
      */
-    def det (implicit nu: Numeric [T]): T =
+    def det(): T =
     {
         val _0 = nu.zero
         if ( ! isSquare) flaw ("det", "determinant only works on square matrices")
@@ -845,7 +848,7 @@ object MatrixNTest extends Application
 
     val z = MatrixN [Double] (2, 2)
     z.set (Array (Array (1., 2.), Array (3., 2.)))
-    val b = VectorN [Double] (0, Array (8., 7.))
+    val b = Vec(8., 7.)
     val lu  = z.lud
     val lu2 = z.lud_npp
 

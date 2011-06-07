@@ -92,10 +92,10 @@ abstract class Matrix [T <% Ordered [T]: Numeric: ClassManifest] (val dim1: Int,
      * Iterate over the matrix row by row.
      * @param f  the function to apply
      */
-    def foreach [U] (f: Array [T] => U)
+    def foreach [U] (f: Vec [T] => U)
     {
         var i = 0
-        while (i < dim1) { f (this(i)()); i += 1 }
+        while (i < dim1) { f (this(i)); i += 1 } 
     } // foreach
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
@@ -317,7 +317,7 @@ abstract class Matrix [T <% Ordered [T]: Numeric: ClassManifest] (val dim1: Int,
      * @param b  the constant vector
      */
     def solve (l: Matrix [T], u: Matrix [T], b: Vec [T])
-        (implicit nu: Fractional [T]): Vec [T]
+        (implicit nu: Fractional [T]): Vec [T] = null
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
@@ -326,7 +326,7 @@ abstract class Matrix [T <% Ordered [T]: Numeric: ClassManifest] (val dim1: Int,
      * @param b   the constant vector
      */
     def solve (lu: Tuple2 [Matrix [T], Matrix [T]], b: Vec [T])
-        (implicit nu: Fractional [T]): Vec [T]
+        (implicit nu: Fractional [T]): Vec [T] = null
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
@@ -334,7 +334,7 @@ abstract class Matrix [T <% Ordered [T]: Numeric: ClassManifest] (val dim1: Int,
      * @param b  the constant vector.
      */
     def solve (b: Vec [T])
-        (implicit nu: Fractional [T]): Vec [T]
+        (implicit nu: Fractional [T]): Vec [T] = null
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**

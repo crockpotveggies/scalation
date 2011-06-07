@@ -173,7 +173,7 @@ case class SparseMatrixN [T <% Ordered [T]: Numeric: ClassManifest] (d1: Int, d2
                 case nsee: NoSuchElementException => a(j) = _0
             } // try
         } // for
-        Vec.fromArray(a)
+        Vec.fromSeq(a.toSeq)
     } // apply
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
@@ -525,7 +525,7 @@ case class SparseMatrixN [T <% Ordered [T]: Numeric: ClassManifest] (d1: Int, d2
      * @param u  the upper triangular matrix
      * @param b  the constant vector
      */
-    def solve (l: Matrix [T], u: Matrix [T], b: Vec[T])
+    override def solve (l: Matrix [T], u: Matrix [T], b: Vec[T])
         (implicit nu: Fractional [T]): Vec[T] =
     {
         val y = Vec.ofLength [T] (l.dim2)
@@ -550,7 +550,7 @@ case class SparseMatrixN [T <% Ordered [T]: Numeric: ClassManifest] (d1: Int, d2
      * @param lu  the lower and upper triangular matrices
      * @param b   the constant vector
      */
-    def solve (lu: Tuple2 [Matrix [T], Matrix [T]], b: Vec[T])
+    override def solve (lu: Tuple2 [Matrix [T], Matrix [T]], b: Vec[T])
         (implicit nu: Fractional [T]): Vec[T] =
     {
         solve (lu._1, lu._2, b)
@@ -561,7 +561,7 @@ case class SparseMatrixN [T <% Ordered [T]: Numeric: ClassManifest] (d1: Int, d2
      * Solve for x in the equation a*x = b where a is this matrix (see lud above).
      * @param b  the constant vector.
      */
-    def solve (b: Vec[T])
+    override def solve (b: Vec[T])
         (implicit nu: Fractional [T]): Vec[T] =
     {
         solve (lud, b)

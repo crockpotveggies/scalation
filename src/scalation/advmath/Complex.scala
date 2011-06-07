@@ -18,7 +18,9 @@ package advmath
  * @param im  the imaginary part
  */
 case class Complex (re: Double, im: Double = 0.)
-     extends Fractional [Complex] with Ordered [Complex]
+extends Numeric [Complex] 
+    with Fractional [Complex]
+    with Ordered [Complex]
 {
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
@@ -157,13 +159,13 @@ object ComplexTest extends Application
     println ("c * d = " + (c * d))
     println ("c / d = " + (c / d))
 
-    val v = Vec(c, d)
-    println ("v = " + v)
-    val u = Vec(2)
-    println ("u = " + u)
+    //val v = Vec(c, d) 
+    //println ("v = " + v)
+    //val u = Vec(2)
+    //println ("u = " + u)
 
-    val cm = new MatrixN [Complex] (2, Complex (1.), Complex (0.))    // 2 by 2 identity matrix
-    println ("cm = " + cm)
+    //val cm = new MatrixN [Complex] (2, Complex (1.), Complex (0.))    // 2 by 2 identity matrix
+    //println ("cm = " + cm)
 
 } // ComplexTest
 
