@@ -9,9 +9,13 @@ package object stat {
 
     import advmath._
 
+    // implicitly converts VecDs into RandVecs as needed.
     implicit def mkVecD2RandVec(v: VecD) = new RandVec(v.length, v)
 
-    object Stat extends ScalaTion {
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /** The Stat trait includes functions that are useful for Output Analysis.
+     */
+    trait Stat extends ScalaTion {
 
         /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
         /** Returns the mean of a RandVec
@@ -59,8 +63,51 @@ package object stat {
             ρ(x(0 ⋯ (n - 2)), x(1 ⋯ (n - 1)))
         }
 
-        // @TODO include method of batch means
-        // @TODO include ANOVA code
-
+    }
+    
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /** The Batch Means object includes functions that are useful for the 
+     *  method of batch means in Output Analysis.
+     */
+    object BatchMeans extends Stat with ScalaTion {
+        
+        // @TODO include the code for batch means
+        
+    }
+    
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /** The Anova class provides the functions necessary for performing a 
+     *  one-way Analysis of Variance on the input matrix x.
+     */
+    class Anova(x: MatrixN[Double]) extends Stat with ScalaTion {
+        
+        val m = x.dim1	// m rows
+        val n = x.dim2	// n columns
+        
+        /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+        /** Returns the grand mean.
+         */
+        def gµ = ∑(0, m-1, (i: Int) => µ(x(i))) / m
+        
+        /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+        /** Returns the total sum of squares.
+         */
+        def sst = ∑(0, m-1, (i: Int) => ∑(x(i)↑2)) - m*n*gµ↑2
+        
+        /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+        /** Returns the between-groups sum of squares.
+         */
+        def ssb = ∑(0, m-1, (i: Int) => ∑(x(i))↑2/n) - m*n*gµ↑2
+        
+        /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+        /** Returns the within-groups sum of squares.
+         */
+        def ssw = sst - ssb
+        
+        /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+        /** Returns the F-statistic.
+         */
+        def f = (ssb / m-1) / (ssw / m*(n-1))
+        
     }
 }
