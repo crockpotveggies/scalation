@@ -341,6 +341,8 @@ class Vec[A: Numeric: ClassManifest] protected (x: Array[A])
         v.sum
 	} // dot
     
+    def ⋅(rhs: Vec[A]) = dot(rhs)
+    
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Compute the Euclidean norm (2-norm) of this vector.

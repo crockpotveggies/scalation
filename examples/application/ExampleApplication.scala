@@ -129,5 +129,33 @@ object ExampleApplication extends ScalaTion
 	    println("5 ∈ set1 = %s".format(setTest2))
 	    println("2 ∈ set2 = %s".format(setTest3))
 	    
+	    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+		/* Numeric Vectors */
+	    
+	    val vec1 = Vec(1, 2, 3)
+	    val vec2 = Vec(4, 3, 2)
+	    val vec3 = Vec(1, 2, 3, 4, 5, 6, 7)
+	    
+	    val dp1 = vec1 ⋅ vec2	// 16
+	    
+	    val v2 = vec3(2)	// 3
+	    val v3 = vec3(3)	// 4
+	    
+	    val v2_4 = vec3(2 to 4)
+	    val v2_3 = vec3(2 until 4)
+	    
+	    val v2_4_ = vec3(2 ⋯ 4)
+	    
+	    section("Numeric Vectors")
+	    println("vec1            = %s".format(vec1))
+	    println("vec2            = %s".format(vec2))
+	    println("vec1 ⋅ vec2     = %s".format(dp1))
+	    println("vec3            = %s".format(vec3))
+	    println("vec3(2)         = %s".format(v2))
+	    println("vec3(3)         = %s".format(v3))
+	    println("vec3(2 to 4)    = %s".format(v2_4))
+	    println("vec3(2 until 4) = %s".format(v2_3))
+	    println("vec3(2 ⋯ 4)     = %s".format(v2_4_))
+	    
 	}
 }

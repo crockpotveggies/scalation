@@ -67,4 +67,8 @@ class RichNumeric[N: Numeric](elem: N) extends scalation.ScalaTion {
 	    ↑(y)
 	}
 	
+	def ⋯[A: Numeric](rhs: A) = {
+	    val b = implicitly[Numeric[A]].toInt(rhs)
+	    elem.toInt to b
+	}
 }
