@@ -18,22 +18,14 @@ object ExampleApplication extends ScalaTion
 	
 	def main(args : Array[String]) : Unit = {
 		
-		val a = new VectorN [Double](0.99985, 0.00015)
-        val u = new VectorN [Double](1.0078250, 2.0141018)
+		val a = Vec(0.99985, 0.00015)
+        val u = Vec(1.0078250, 2.0141018)
         
-        val i = new VectorN [Double](1, 1)
+        val i = Vec(1.0, 1.0)
  
         val m = i dot u
         
         println(m)
-       
-		val n = ∑(i).asInstanceOf[Int]
-		
-		println(n)
-		
-		val ifac = (i map (_.asInstanceOf[Int]!)).asInstanceOf[VectorN[Double]]
-		
-		val p = ((n!) / ∏(ifac)) * ∏(i)
 		
 	}
 }
