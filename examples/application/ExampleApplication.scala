@@ -89,6 +89,20 @@ object ExampleApplication extends ScalaTion
 	    println("∏(vec)                = %s".format(prod3))
 	    println("∏(0 to 2, i ⇒ vec(i)) = %s".format(prod4))
 	    
+	    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+		/* Summation Series */
+	    
+	    val sum1 = ∑(1 to 3) 						// 6
+        val sum2 = ∑(1 to 3, (i: Int) ⇒ i ↑ 2)		// 14
+        val sum3 = ∑(vec)							// 10
+        val sum4 = ∑(0 to 2, (i: Int) ⇒ vec(i))		// 6
+        
+	    section("Summation Series")
+	    println("∑(1 to 3)             = %s".format(sum1))
+	    println("∑(1 to 3, i ⇒ i ↑ 2)  = %s".format(sum2))
+	    println("vec                   = %s".format(vec))
+	    println("∑(vec)                = %s".format(sum3))
+	    println("∑(0 to 2, i ⇒ vec(i)) = %s".format(sum4))
 	    
 	    
 	}
