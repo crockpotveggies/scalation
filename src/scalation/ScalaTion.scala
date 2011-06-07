@@ -159,6 +159,16 @@ trait ScalaTion
 	}
     
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
+     * Returns the value of the definite integral
+     */
+    def ∫(r: Range, f: (Double) => Double): Double = {
+        val dx = 0.0001
+        val series = for (i <- r.first.toDouble to r.end by dx) yield f(i) * dx
+        series reduceLeft (_+_) 
+    }
+    
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /** 
      * Returns the empty set
      */

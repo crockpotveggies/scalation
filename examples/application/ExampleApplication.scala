@@ -104,6 +104,13 @@ object ExampleApplication extends ScalaTion
 	    println("∑(vec)                = %s".format(sum3))
 	    println("∑(0 to 2, i ⇒ vec(i)) = %s".format(sum4))
 	    
+	    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+		/* Definite Integral (Approximation)*/
+	    
+	    val int1 = ∫(1 to 4, (i: Double) ⇒ i ↑ 2)	// 21
+	    
+	    section("Definite Integral (Approximation)")
+	    println("∫(1 to 4, i ⇒ i ↑ 2) = %s".format(int1))
 	    
 	}
 }
