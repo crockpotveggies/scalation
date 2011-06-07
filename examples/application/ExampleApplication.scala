@@ -16,16 +16,33 @@ object ExampleApplication extends ScalaTion
 	
 	def f(n: Int): Int = n
 	
+	def section(title: String) {
+	    println()
+	    println(title.toUpperCase)
+	    println(":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::")
+	}
+	
 	def main(args : Array[String]) : Unit = {
 		
-		val a = Vec(0.99985, 0.00015)
-        val u = Vec(1.0078250, 2.0141018)
-        
-        val i = Vec(1.0, 1.0)
- 
-        val m = i dot u
-        
-        println(m)
+	    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+		/* Exponentiation */
+	    val exp1 = 2↑2		// 4
+	    val exp2 = 2↑2↑2	// 16
+	    
+	    section("Exponentiation")
+	    println("2↑2   = %s".format(exp1))
+	    println("2↑2↑2 = %s".format(exp2))
+	    
+	    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+		/* Roots */
+	    val root1 = 4↓2				// 2
+	    val root2 = 4↓2↓2			// 1.41421...
+	    val test  = 4↑0.5 == 4↓2	// true
+	    
+	    section("Roots")
+	    println("4↓2          = %s".format(root1))
+	    println("4↓2↓2        = %s".format(root2))
+	    println("4↑0.5 == 4↓2 = %s".format(test))
 		
 	}
 }

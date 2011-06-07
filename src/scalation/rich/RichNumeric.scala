@@ -43,4 +43,9 @@ class RichNumeric[N: Numeric](elem: N) extends scalation.ScalaTion {
 		pow(x, y)
 	}
 	
+	def ↓[A: Numeric](p: A): Double = {
+	    val y = 1.0 / implicitly[Numeric[A]].toDouble(p)
+	    ↑(y)
+	}
+	
 }
