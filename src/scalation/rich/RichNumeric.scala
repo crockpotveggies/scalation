@@ -3,6 +3,7 @@ package scalation.rich
 class RichNumeric[N: Numeric](elem: N) extends scalation.ScalaTion {
 
 	private val evidence = implicitly[Numeric[N]]
+	import evidence._
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
@@ -28,6 +29,24 @@ class RichNumeric[N: Numeric](elem: N) extends scalation.ScalaTion {
 			// treat elem as fractional type
 			gaussPi(evidence.toDouble(elem)).asInstanceOf[N]
 		}
+	}
+	
+	/**
+	 * Returns the rising factorial
+	 * x⇑n = (x+0)(x+1)...(x+n-1)
+	 */
+	def ⇑(n: Int) = {
+	    val values = for (i <- 0 until n) yield elem + evidence.fromInt(i)
+	    values.reduceLeft(_*_)
+	}
+	
+	/**
+	 * Returns the falling factorial
+	 * x⇓n = (x-0)(x-1)...(x-(n-1))
+	 */
+	def ⇓(n: Int) = {
+	    val values = for (i <- 0 until n) yield elem - evidence.fromInt(i)
+	    values.reduceLeft(_*_)
 	}
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/

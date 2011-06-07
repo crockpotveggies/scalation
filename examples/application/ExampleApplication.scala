@@ -43,6 +43,24 @@ object ExampleApplication extends ScalaTion
 	    println("4↓2          = %s".format(root1))
 	    println("4↓2↓2        = %s".format(root2))
 	    println("4↑0.5 == 4↓2 = %s".format(test))
+	    
+	    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+		/* Factorials */
+	    val fac1 = 4!	// 24
+	    val fac2 = 3.5!	// 11.63172...
+	    
+	    section("Factorials")
+	    println("4!   = %s".format(fac1))
+	    println("3.5! = %s".format(fac2))
 		
+	    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+		/* Rising and Falling Factorials */
+	    
+	    val rising  = 4 ⇑ 4 // 840
+	    val falling = 4 ⇓ 4 // 24
+	    
+	    section("Rising and Falling Factorials")
+	    println("4 ⇑ 4 = %s".format(rising))
+	    println("4 ⇓ 4 = %s".format(falling))
 	}
 }
