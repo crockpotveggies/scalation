@@ -105,12 +105,29 @@ object ExampleApplication extends ScalaTion
 	    println("∑(0 to 2, i ⇒ vec(i)) = %s".format(sum4))
 	    
 	    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-		/* Definite Integral (Approximation)*/
+		/* Definite Integral (Approximation) */
 	    
 	    val int1 = ∫(1 to 4, (i: Double) ⇒ i ↑ 2)	// 21
 	    
 	    section("Definite Integral (Approximation)")
 	    println("∫(1 to 4, i ⇒ i ↑ 2) = %s".format(int1))
+	    
+	    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+		/* Sets and Set-like Objects */
+	    
+	    val set1 = Set(1, 2, 3, 4)
+	    val set2 = Set(1.0, 2.0, 3.0, 4.0)
+	    
+	    val setTest1 = 2 ∈ set1		// true
+	    val setTest2 = 5 ∈ set1		// false
+	    val setTest3 = 2.0 ∈ set2	// true 
+	    
+	    section("Sets and Set-like Objects")
+	    println("set1     = %s".format(set1))
+	    println("set2     = %s".format(set2))
+	    println("2 ∈ set1 = %s".format(setTest1))
+	    println("5 ∈ set1 = %s".format(setTest2))
+	    println("2 ∈ set2 = %s".format(setTest3))
 	    
 	}
 }
