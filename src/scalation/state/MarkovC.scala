@@ -93,7 +93,7 @@ class MarkovC (tr: MatrixD) extends Error
      * @param p  the current state probability vector
      * @param t  compute for time t
      */
-    def next (p: VecD, t: Double = 1.): VecD =
+    def next (p: Vec[Double], t: Double = 1.): Vec[Double] =
     {
         null  // FIX, not implemented yet
     } // next
@@ -104,7 +104,7 @@ class MarkovC (tr: MatrixD) extends Error
      * left nullspace of the tr matrix: solve for p such that p * tr = 0 and
      * normalize p, i.e., ||p|| = 1.
      */
-    def limit: VecD =
+    def limit: Vec[Double] =
     {
         tr.t.slice (0, tr.dim1 - 1).nullspace.normalize
     } // limit

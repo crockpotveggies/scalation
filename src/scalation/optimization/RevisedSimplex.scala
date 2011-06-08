@@ -26,7 +26,7 @@ import advmath.Matrices._
  * @param b  the constant vector
  * @param c  the cost/revenue vector
  */
-class RevisedSimplex (a: MatrixD, b: VecD, c: VecD)
+class RevisedSimplex (a: MatrixD, b: Vec[Double], c: Vec[Double])
 {
     /** Constant for a value almost 0
      */
@@ -36,7 +36,7 @@ class RevisedSimplex (a: MatrixD, b: VecD, c: VecD)
     /**
      * Solve a Linear Programming (LP) problem using the Revised Simplex Algorithm.
      */
-    def solve: Tuple2 [Double, VecD] =
+    def solve: Tuple2 [Double, Vec[Double]] =
     {
         null       // not implemented yet
     } // solve

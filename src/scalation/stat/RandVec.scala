@@ -11,7 +11,7 @@ object RandVec
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /** Returns a new RandVec of a specified length.
      */
-    def ofLength(length: Int, v: VecD = null, p: VecD = null) = new RandVec(length, v, p)
+    def ofLength(length: Int, v: Vec[Double] = null, p: Vec[Double] = null) = new RandVec(length, v, p)
 }
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
@@ -20,7 +20,7 @@ object RandVec
  *  consideration the probability distribution. If no probability distribution
  *  is provided, then RandVec assumes a uniform distribution of probabilities.
  */
-class RandVec (length: Int, var v: VecD = null, var p: VecD = null) 
+class RandVec (length: Int, var v: Vec[Double] = null, var p: Vec[Double] = null) 
 extends Vec[Double] (Array.ofDim[Double](length)) 
     with ScalaTion 
 {
@@ -37,12 +37,10 @@ extends Vec[Double] (Array.ofDim[Double](length))
             
         for (i <- range) this(i) = v(i)
     }
-    
+
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /** Return the mean statistic of the random vector. (weighted average)
      */
-    override def mean(): Double = ∑(range, (i: Int) => this(i) * p(i))
-
-    
+    override def mean(): Double = ∑(range, (i: Int) ⇒ this(i) * p(i))
     
 }

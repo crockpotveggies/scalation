@@ -57,7 +57,7 @@ class Householder (a: MatrixN [Double])
      * @see Algorithm 5.1.1 in Matrix Computations.
      * @param x  the vector to create the Householder vector from
      */
-    def house (x: VecD): Tuple2 [VecD, Double] =
+    def house (x: Vec[Double]): Tuple2 [Vec[Double], Double] =
     {
         var b  = 0.
         var v = Vec.fromSeq(x)
@@ -175,7 +175,7 @@ class EigenvalueSym (a: MatrixN [Double])
     /**
      * Get the eigenvalue e vector.
      */
-    def getE: VecD = d.dg     // the diagonal of the tridiagonal matrix
+    def getE: Vec[Double] = d.dg     // the diagonal of the tridiagonal matrix
 
 } // EigenvalueSym
 

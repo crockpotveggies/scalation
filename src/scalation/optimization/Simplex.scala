@@ -37,7 +37,7 @@ import advmath.Matrices._
  * @param b  the M-length constant vector
  * @param c  the N-length cost/revenue vector
  */
-class Simplex (a: MatrixD, b: VecD, c: VecD)
+class Simplex (a: MatrixD, b: Vec[Double], c: Vec[Double])
 {
     /** Constant for a value almost 0
      */
@@ -139,7 +139,7 @@ class Simplex (a: MatrixD, b: VecD, c: VecD)
     /**
      * Return the primal solution vector (x).
      */
-    def primal: VecD =
+    def primal: Vec[Double] =
     {
         val x = Vec.ofLength[Double](N)
         for (i <- 0 until M if basis(i) < N) x(basis(i)) = t(i, M + N)
@@ -150,7 +150,7 @@ class Simplex (a: MatrixD, b: VecD, c: VecD)
     /**
      * Return the dual solution vector (y).
      */
-    def dual: VecD =
+    def dual: Vec[Double] =
     {
         val y = Vec.ofLength[Double](M)
         for (i <- 0 until M) y(i) = -t(M, N + i)
@@ -247,7 +247,7 @@ object SimplexTest extends Application
      * @param b the constant vector
      * @param c the cost vector
      */
-    def test (a: MatrixD, b: VecD, c: VecD)
+    def test (a: MatrixD, b: Vec[Double], c: Vec[Double])
     {
         val lp = new Simplex (a, b, c)
         lp.solve ()

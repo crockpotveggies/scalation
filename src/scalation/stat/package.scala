@@ -9,8 +9,8 @@ package object stat {
 
     import advmath._
 
-    // implicitly converts VecDs into RandVecs as needed.
-    implicit def mkVecD2RandVec(v: VecD) = new RandVec(v.length, v)
+    // implicitly converts Vec[Double]s into RandVecs as needed.
+    implicit def mkVecD2RandVec(v: Vec[Double]) = new RandVec(v.length, v)
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /** The Stat trait includes functions that are useful for Output Analysis.

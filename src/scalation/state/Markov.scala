@@ -77,7 +77,7 @@ class Markov (tr: MatrixD) extends Error
      * @param p  the current state probability vector
      * @param k  compute for the kth step/epoch
      */
-    def next (p: VecD, k: Int = 1): VecD =
+    def next (p: Vec[Double], k: Int = 1): Vec[Double] =
     {
         var p2 = Vec.fromSeq(p)
         for (i <- 1 to k) p2 = p2 * tr
@@ -91,7 +91,7 @@ class Markov (tr: MatrixD) extends Error
      * eigenvalue is 1.  Solve for p by computing the left nullspace of the tr - I
      * matrix (appropriately sliced) and then normalize p so ||p|| = 1.
      */
-    def limit: VecD =
+    def limit: Vec[Double] =
     {
         val ident = new MatrixN (tr.dim1, 1., 0.)
         (tr - ident).t.slice (0, tr.dim1 - 1).nullspace.normalize

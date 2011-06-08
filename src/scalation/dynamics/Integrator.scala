@@ -70,8 +70,8 @@ trait Integrator
      * @param t0     the initial time
      * @param _step  the step size
      */
-    def integrateV (f: Array [Derivative], y0: VecD, t: Double,
-                    t0: Double = 0., _step: Double = defaultStepSize): VecD =
+    def integrateV (f: Array [Derivative], y0: Vec[Double], t: Double,
+                    t0: Double = 0., _step: Double = defaultStepSize): Vec[Double] =
     {
         val n = y0.length
         if (n != f.length) {

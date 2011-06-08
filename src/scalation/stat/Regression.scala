@@ -25,7 +25,7 @@ object Regression
      * @param x the design matrix augmented with a first column of ones.
      * @param b the parameter vector
      */
-    def eval (x: MatrixD, b: VecD): VecD =
+    def eval (x: MatrixD, b: Vec[Double]): Vec[Double] =
     {
         x * b
     } // eval
@@ -37,7 +37,7 @@ object Regression
      * @param x the design matrix augmented with a first column of ones.
      * @param y the response vector
      */
-    def fit (x: MatrixD, y: VecD): Tuple2 [VecD, Double] =
+    def fit (x: MatrixD, y: Vec[Double]): Tuple2 [Vec[Double], Double] =
     {
         val b    = (x.t * x).inverse * x.t * y   // parameter vector
         val e    = y - x * b                     // error vector

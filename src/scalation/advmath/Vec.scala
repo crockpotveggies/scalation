@@ -515,7 +515,7 @@ class Vec[A: Numeric: ClassManifest] protected (x: Array[A])
 	 * Returns the vector raised to the p power as a Double. Using
 	 * Knuth's up-arrow notation
 	 */
-	def ↑(p: Int): VecD =
+	def ↑(p: Int): Vec[Double] =
 	{
 		import scala.math._
 		Vec.fromSeq(this map (e => pow(e.toDouble, p.toDouble)))

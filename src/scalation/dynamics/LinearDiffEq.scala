@@ -29,7 +29,7 @@ import util.Error
  * @param a   the coefficient matrix
  * @param y0  the initial value vector
  */
-class LinearDiffEq (a: MatrixD, y0: VecD)
+class LinearDiffEq (a: MatrixD, y0: Vec[Double])
       extends Error
 {
      {
@@ -57,7 +57,7 @@ class LinearDiffEq (a: MatrixD, y0: VecD)
       * Apply the exponential 'exp' function to each element of a vector.
       * @param v  the vector to apply the exp function to
       */
-     def expV (v: VecD): VecD =
+     def expV (v: Vec[Double]): Vec[Double] =
      {
          val z = Vec.ofLength[Double] (v.length)
          for (i <- 0 until z.length) z(i) = exp (v(i))
@@ -69,7 +69,7 @@ class LinearDiffEq (a: MatrixD, y0: VecD)
       * Evaluate the solution for y(t) at time t.
       * @param t  the time point
       */
-     def eval (t: Double): VecD = k * expV (e * t)
+     def eval (t: Double): Vec[Double] = k * expV (e * t)
 
      /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
      /**

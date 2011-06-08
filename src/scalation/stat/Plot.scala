@@ -26,7 +26,7 @@ import scala2d.Shapes._
  * @param y       the y vector of data values (vertical)
  * @param _title  title of the plot
  */
-class Plot (x: VecD, y: VecD, _title: String = "Plot")
+class Plot (x: Vec[Double], y: Vec[Double], _title: String = "Plot")
       extends MainFrame
 {
     private val frameSize = new Dimension (600, 600)
@@ -143,8 +143,8 @@ class Plot (x: VecD, y: VecD, _title: String = "Plot")
 object PlotTest extends Application
 {
 /*
-    val x = new VecD (0., 1., 2., 3.,  4.,  5.,  6., 7., 8., 9., 10.)
-    val y = new VecD (0., 1., 4., 9., 16., 25., 16., 9., 4., 1.,  0.)
+    val x = new Vec[Double] (0., 1., 2., 3.,  4.,  5.,  6., 7., 8., 9., 10.)
+    val y = new Vec[Double] (0., 1., 4., 9., 16., 25., 16., 9., 4., 1.,  0.)
 */
     val x = Vec.ofLength [Double] (100)
     val y = Vec.ofLength [Double] (100)

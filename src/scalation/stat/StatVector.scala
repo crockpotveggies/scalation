@@ -37,7 +37,7 @@ class StatVector (dim: Int) extends Vec [Double] (Array.ofDim[Double](dim))
      * Construct a StatVector from a VectorN.
      * @param u  the vector to initialize StatVector
      */
-    def this (u: VecD)
+    def this (u: Vec[Double])
     {
         this (u.length)
         setAll (u.toArray)

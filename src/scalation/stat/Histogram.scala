@@ -28,7 +28,7 @@ import scala2d.Shapes._
  * @param numIntervals  the number of intervals (typically 5 to 100)
  * @param _title        title of the histogram
  */
-class Histogram (value: VecD, numIntervals: Int, _title: String = "Histogram")
+class Histogram (value: Vec[Double], numIntervals: Int, _title: String = "Histogram")
       extends MainFrame
 {
     private val frameSize     = new Dimension (600, 600)
@@ -129,7 +129,7 @@ class Histogram (value: VecD, numIntervals: Int, _title: String = "Histogram")
     /**
      * Compute the counts for each interval in the histogram.
      */
-    def computeHistogram (): VecD =
+    def computeHistogram (): Vec[Double] =
     {
         val h = Vec.ofLength[Double] (numIntervals)
         for (x <- value) {

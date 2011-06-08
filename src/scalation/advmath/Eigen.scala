@@ -177,7 +177,7 @@ class Eigenvalue (a: MatrixD)
     /**
      * Get the eigenvalue e vector.
      */
-    def getE: VecD = e
+    def getE: Vec[Double] = e
 } // Eigenvalue class
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
@@ -188,7 +188,7 @@ class Eigenvalue (a: MatrixD)
  * @param a   the matrix whose eigenvectors are sought 
  * @param _e  the vector of eigenvalues of matrix a
  */
-class Eigenvector (a: MatrixD, _e: VecD = null)
+class Eigenvector (a: MatrixD, _e: Vec[Double] = null)
       extends Error
 {
     /** The matrix of eigenvectors (each row holds an eigenvector)

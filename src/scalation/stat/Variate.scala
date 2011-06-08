@@ -277,7 +277,7 @@ case class Deterministic (x: Double = 1, stream: Int = 0)
  * @param cummulative  whether dist is cummulative (cdf) or not (pmf)
  * @param stream       the random number stream
  */
-case class Discrete (dist: VecD = Vec (.2, .2, .2, .2, .2), x: VecD = null,
+case class Discrete (dist: Vec[Double] = Vec (.2, .2, .2, .2, .2), x: Vec[Double] = null,
                      cummulative: Boolean = false, stream: Int = 0)
      extends Variate (stream)
 {

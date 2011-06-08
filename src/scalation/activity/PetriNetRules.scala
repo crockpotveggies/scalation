@@ -50,7 +50,7 @@ trait PetriNetRules
      * @param  f  The fluid Vec (amount of fluid per color)
      * @param  b  The base constant Vec
      */
-    def thresholdD (f: VecD, b: VecD): Boolean = f >= b
+    def thresholdD (f: Vec[Double], b: Vec[Double]): Boolean = f >= b
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
@@ -65,7 +65,7 @@ trait PetriNetRules
      * @param  w_f  the weight for the fluid Vec
      * @param  f    the aggregate fluid level Vec (summed over all input places)
      */
-    def calcFiringDelay (v: Variate, w_t: VecD, t: VecI, w_f: VecD, f: VecD): Double =
+    def calcFiringDelay (v: Variate, w_t: Vec[Double], t: VecI, w_f: Vec[Double], f: Vec[Double]): Double =
     {
         var delay = v.gen
         if (w_t != null) delay += w_t dot t.toDouble
@@ -98,7 +98,7 @@ trait PetriNetRules
      * @param r  the rate Vec (amounts of fluids per unit time)
      * @param d  the time delay
      */
-    def fluidFlow (f: VecD, b: VecD, r: VecD = null, d: Double = 0): VecD =
+    def fluidFlow (f: Vec[Double], b: Vec[Double], r: Vec[Double] = null, d: Double = 0): Vec[Double] =
     {
         f min (if (d == 0 || r == null) b else b + r * (f - b) * d)
     } // fluidFlow
@@ -113,7 +113,7 @@ trait PetriNetRules
      * @param t0    the current time
      * @param d     the time delay
      */
-    def fluidFlow (f: VecD, derv: Array [Derivative], t0: Double, d: Double): VecD =
+    def fluidFlow (f: Vec[Double], derv: Array [Derivative], t0: Double, d: Double): Vec[Double] =
     {
         println ("fluidFlow: f = " + f + " t0 = " + t0 + " t = " + (t0 + d))
         val g = integrateV (derv, f, t0 + d, t0)
