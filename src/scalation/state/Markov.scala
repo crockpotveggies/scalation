@@ -7,19 +7,19 @@
  * @see     LICENSE (MIT style license file).
  */
 
-package scalation.state
+package scalation
+package state
 
 import scala.math._
 
-import scalation.animation._
-import scalation.animation.CommandType._
-import scalation.advmath._
-import scalation.advmath.Matrices._
-import scalation.advmath.Vectors._
-import scalation.stat._
-import scalation.scala2d._
-import scalation.scala2d.Colors._
-import scalation.util.Error
+import animation._
+import animation.CommandType._
+import advmath._
+import advmath.Matrices._
+import stat._
+import scala2d._
+import scala2d.Colors._
+import util.Error
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 /**
@@ -77,9 +77,9 @@ class Markov (tr: MatrixD) extends Error
      * @param p  the current state probability vector
      * @param k  compute for the kth step/epoch
      */
-    def next (p: VectorD, k: Int = 1): VectorD =
+    def next (p: VecD, k: Int = 1): VecD =
     {
-        var p2 = new VectorD (p)
+        var p2 = Vec.fromSeq(p)
         for (i <- 1 to k) p2 = p2 * tr
         p2
     } // next
@@ -91,7 +91,7 @@ class Markov (tr: MatrixD) extends Error
      * eigenvalue is 1.  Solve for p by computing the left nullspace of the tr - I
      * matrix (appropriately sliced) and then normalize p so ||p|| = 1.
      */
-    def limit: VectorD =
+    def limit: VecD =
     {
         val ident = new MatrixN (tr.dim1, 1., 0.)
         (tr - ident).t.slice (0, tr.dim1 - 1).nullspace.normalize
@@ -218,7 +218,7 @@ object MarkovTest extends Application
                                          .0, .2, .8, .0,
                                          .3, .0, .5, .2,
                                          .1, .0, .7, .2))
-    var p = new VectorD (1., 0., 0., 0.)
+    var p = Vec(1., 0., 0., 0.)
 
     println ("\nDiscrete-Time Markov Chain mc = " + mc + "\n")
     println ("\nDiscrete-Time Markov Chain: transient solution:")

@@ -12,12 +12,12 @@
  *   McGraw-Hill, Inc., NY, 1991.
  */
 
-package scalation.stat
+package scalation
+package stat
 
 import scala.math._
-import scalation.advmath._
-import scalation.advmath.Vectors._
-import scalation.util.Error
+import advmath._
+import util.Error
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 /**
@@ -277,16 +277,16 @@ case class Deterministic (x: Double = 1, stream: Int = 0)
  * @param cummulative  whether dist is cummulative (cdf) or not (pmf)
  * @param stream       the random number stream
  */
-case class Discrete (dist: VectorD = new VectorD (.2, .2, .2, .2, .2), x: VectorD = null,
+case class Discrete (dist: VecD = Vec (.2, .2, .2, .2, .2), x: VecD = null,
                      cummulative: Boolean = false, stream: Int = 0)
      extends Variate (stream)
 {
-    private val cdf = if (cummulative) dist.apply () else dist.cummulate.apply ()
-    private val n   = dist.dim
-    private val xx  = if (x == null || x.dim == 0) dist.increasing ().apply () else x.apply ()
+    private val cdf = if (cummulative) dist else dist.cummulate
+    private val n   = dist.length
+    private val xx  = if (x == null || x.length == 0) dist.increasing() else x
 
     {
-        if (xx.length != dist.dim) flaw ("Discrete", "dist and xx must have the same length")
+        if (xx.length != dist.length) flaw ("Discrete", "dist and xx must have the same length")
         _discrete = true
     } // primary constructor
 
@@ -656,7 +656,7 @@ case class LogNormal (mu: Double = 0, sigma2: Double = 1, stream: Int = 0)
  * @param n       the number of independent trials
  * @param stream  the random number stream
  */
-case class Multinomial (p: ArrayD = Array (.4, .3, .3), n: Int = 5, stream: Int = 0)
+case class Multinomial (p: Array[Double] = Array (.4, .3, .3), n: Int = 5, stream: Int = 0)
      extends Variate (stream)
 {
     {

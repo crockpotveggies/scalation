@@ -7,19 +7,19 @@
  * @see     LICENSE (MIT style license file).
  */
 
-package scalation.state
+package scalation
+package state
 
 import scala.math._
 
-import scalation.animation._
-import scalation.animation.CommandType._
-import scalation.advmath._
-import scalation.advmath.Vectors._
-import scalation.advmath.Matrices._
-import scalation.stat._
-import scalation.scala2d._
-import scalation.scala2d.Colors._
-import scalation.util.Error
+import animation._
+import animation.CommandType._
+import advmath._
+import advmath.Matrices._
+import stat._
+import scala2d._
+import scala2d.Colors._
+import util.Error
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 /**
@@ -93,7 +93,7 @@ class MarkovC (tr: MatrixD) extends Error
      * @param p  the current state probability vector
      * @param t  compute for time t
      */
-    def next (p: VectorD, t: Double = 1.): VectorD =
+    def next (p: VecD, t: Double = 1.): VecD =
     {
         null  // FIX, not implemented yet
     } // next
@@ -104,7 +104,7 @@ class MarkovC (tr: MatrixD) extends Error
      * left nullspace of the tr matrix: solve for p such that p * tr = 0 and
      * normalize p, i.e., ||p|| = 1.
      */
-    def limit: VectorD =
+    def limit: VecD =
     {
         tr.t.slice (0, tr.dim1 - 1).nullspace.normalize
     } // limit

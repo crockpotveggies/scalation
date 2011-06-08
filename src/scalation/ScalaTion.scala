@@ -40,8 +40,6 @@ trait ScalaTion
 	// val MatrixN = scalation.advmath.MatrixN
 	// @todo make this available once MatrixN has been refactored
 	
-	implicit def NumericIndexedSeqIsVec[A: Numeric: ClassManifest](seq: IndexedSeq[A]) =
-		Vec.fromSeq[A](seq)
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
@@ -91,24 +89,12 @@ trait ScalaTion
 	 */
 	def ∑[A: Numeric](set: Set[A]): A =
         set.reduceLeft (implicitly[Numeric[A]] plus (_, _))
-    
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
-	 * Set summation
-	 */    
-    def sum[A: Numeric](set: Set[A]): A = ∑(set)
             
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Vector summation
      */
-    def ∑[A: Numeric](vector: VectorN[A]): A = vector.sum
-    
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
-     * Vector summation
-     */
-    def sum[A: Numeric](vector: VectorN[A]): A = ∑(vector)
+    def ∑[A: Numeric](vector: Vec[A]): A = vector.sum
  
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
@@ -116,28 +102,23 @@ trait ScalaTion
      */
     def ∑[A <: Range](range: A) = range.toSet.reduceLeft(_+_)
     
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
-     * Range summation
-     */
-    def sum[A <: Range](range: A) = ∑(range)
-    
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/    	
     /**
-     * Product series 
+     * Summation series 
      */
-    def ∑[A: Numeric, B: Numeric](a: Int, b: Int, f: (A) => B): B = 
-    {
+    def ∑[A: Numeric, B: Numeric](a: Int, b: Int, f: (A) => B): B = {
 		val series = for (i <- a to b) yield f(implicitly[Numeric[A]] fromInt i)
 		series reduceLeft (implicitly[Numeric[B]] plus (_,_)) 
 	}
 	
-	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-	/**
-     * Product series 
+	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/    	
+    /**
+     * Summation series 
      */
-    def sum[A: Numeric, B: Numeric](a: Int, b: Int, f: (A) => B): B = 
-    	∑(a, b, f)
+    def ∑[A: Numeric, B: Numeric](r: Range, f: (A) => B): B = {
+		val series = for (i <- r) yield f(implicitly[Numeric[A]] fromInt i)
+		series reduceLeft (implicitly[Numeric[B]] plus (_,_)) 
+	}
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
@@ -148,58 +129,44 @@ trait ScalaTion
     
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
-     * Set product
-     */
-    def product[A: Numeric](set: Set[A]): A = ∏(set)
-    	
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
      * Vector product
      */
-    def ∏[A: Numeric](vector: VectorN[A]): A = vector.product
-    
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
-     * Vector product with map
-     */
-    def ∏[A: Numeric, B: Numeric](vector: VectorN[A], f: (A) => B): B = {
-    	vector.map(f).product
-    }
-    
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
-     * Vector product
-     */
-    def product[A: Numeric](vector: VectorN[A]): A = ∏(vector)
-        	
+    def ∏[A: Numeric](vector: Vec[A]): A = vector.product
+  
+      	
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Range product
      */
     def ∏[A <: Range](range: A) = range.toSet.reduceLeft(_*_)
     
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
-     * Range product
-     */
-    def product[A <: Range](range: A) = ∏(range)
-    
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/    	
     /**
      * Product series 
      */
-    def ∏[A: Numeric, B: Numeric](a: Int, b: Int, f: (A) => B): B = 
-    {
+    def ∏[A: Numeric, B: Numeric](a: Int, b: Int, f: (A) => B): B = {
 		val series = for (i <- a to b) yield f(implicitly[Numeric[A]] fromInt i)
 		series reduceLeft (implicitly[Numeric[B]] times (_,_)) 
 	}
-	
-	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-	/**
+    
+        /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/    	
+    /**
      * Product series 
      */
-    def product[A: Numeric, B: Numeric](a: Int, b: Int, f: (A) => B): B = 
-    	∏(a, b, f)
+    def ∏[A: Numeric, B: Numeric](r: Range, f: (A) => B): B = {
+		val series = for (i <- r) yield f(implicitly[Numeric[A]] fromInt i)
+		series reduceLeft (implicitly[Numeric[B]] times (_,_)) 
+	}
+    
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /**
+     * Returns the value of the definite integral
+     */
+    def ∫(r: Range, f: (Double) => Double): Double = {
+        val dx = 0.0001
+        val series = for (i <- r.first.toDouble to r.end by dx) yield f(i) * dx
+        series reduceLeft (_+_) 
+    }
     
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /** 

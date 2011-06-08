@@ -6,12 +6,12 @@
  * @see     LICENSE (MIT style license file).
  */
 
-package scalation.advmath
+package scalation
+package advmath
 
 import scala.math.abs
 
-import scalation.advmath.Vectors._
-import scalation.util.Error
+import util.Error
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 /**
@@ -20,9 +20,13 @@ import scalation.util.Error
  * It is stored as two vectors, the diagonal and the sub-diagonal. 
  * @param d1  the first/row dimension (symmetric => d2 = d1)
  */
-case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
+case class SymmetricTridMatrixN [T <% Ordered [T]: Numeric: ClassManifest] (d1: Int)
      extends Matrix [T] (d1, d1) with Error
 {
+  
+    private val nu = implicitly[Numeric[T]]
+    import nu._
+  
     /** Size of the sub-diagonal.
      */
     private val d1_1 = d1 - 1
@@ -37,11 +41,11 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
 
     /** Diagonal of the matrix.
      */
-    private var _dg: VectorN [T] = new VectorN [T] (d1)
+    private var _dg: Vec[T] = Vec.ofLength[T](d1)
 
     /** Sub-diagonal (also same for sup-diagonal) of the matrix.
      */
-    private var _sd: VectorN [T] = new VectorN [T] (d1_1)
+    private var _sd: Vec[T] = Vec.ofLength[T](d1_1)
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
@@ -49,9 +53,9 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
      * @param v1  the diagonal vector
      * @param v2  the sub-diagonal vector
      */
-    def this (v1: VectorN [T], v2: VectorN [T])
+    def this (v1: Vec[T], v2: Vec[T])
     {
-        this (v1.dim)
+        this (v1.length)
         for (i <- range_d) _dg(i) = v1(i)
         for (i <- range_s) _sd(i) = v2(i)
     } // constructor
@@ -72,27 +76,27 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
     /**
      * Get the diagonal of the matrix.
      */
-    def dg: VectorN [T] = _dg
+    def dg: Vec[T] = _dg
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Set the diagonal of the matrix.
      * @param v  the vector to assign to the diagonal
      */
-    def dg_ (v: VectorN [T]) { _dg = v }
+    def dg_ (v: Vec[T]) { _dg = v }
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Get the sub-diagonal of the matrix.
      */
-    def sd: VectorN [T] = _sd
+    def sd: Vec[T] = _sd
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Set the sub-diagonal of the matrix.
      * @param v  the vector to assign to the sub-diagonal
      */
-    def sd_ (v: VectorN [T]) { _sd = v }
+    def sd_ (v: Vec[T]) { _sd = v }
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
@@ -113,9 +117,9 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
      * Get this matrix's vector at the i-th index position (i-th row).
      * @param i  the row index
      */
-    def apply (i: Int): VectorN [T] =
+    def apply (i: Int): Vec[T] =
     {
-        val v = new VectorN [T] (d1)
+        val v = Vec.ofLength[T](d1)
         v(i)  = _dg(i)
         if (i > 0)    v(i - 1) = _sd(i - 1)
         if (i < d1_1) v(i + 1) = _sd(i)
@@ -144,7 +148,7 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
      * @param i  the row index
      * @param u  the vector value to assign
      */
-    def update (i: Int, u: VectorN [T])
+    def update (i: Int, u: Vec[T])
     {
         _dg(i) = u(i)
         if (i > 0)    _sd(i - 1) = u(i - 1)
@@ -163,7 +167,7 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
      * Add this matrix and matrix b.
      * @param b  the matrix to add (requires sameCrossDimensions)
      */
-    def + (b: Matrix [T]) (implicit nu: Numeric [T]): Matrix [T] = 
+    def + (b: Matrix [T]): Matrix [T] = 
     {
         val trid = b.asInstanceOf [SymmetricTridMatrixN [T]]
 	if (d1 == trid.d1) {
@@ -179,7 +183,7 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
      * Add inplace this matrix and matrix b.
      * @param b  the matrix to add (requires sameCrossDimensions)
      */
-    def += (b: Matrix [T]) (implicit nu: Numeric [T]) = 
+    def += (b: Matrix [T])  = 
     {
         val trid = b.asInstanceOf[SymmetricTridMatrixN [T]]
         if (d1 == trid.d1) {
@@ -195,7 +199,7 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
      * Add this matrix and scalar s.
      * @param s  the scalar to add
      */
-    def + (s: T) (implicit nu: Numeric [T]): Matrix [T] = 
+    def + (s: T): Matrix [T] = 
     {
         new SymmetricTridMatrixN [T] (_dg + s, _sd + s)
     } // +
@@ -205,7 +209,7 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
      * Add inplace this matrix and scalar s.
      * @param s  the scalar to add
      */
-    def += (s: T) (implicit nu: Numeric [T]) = 
+    def += (s: T)  = 
     {
         _dg += s; _sd += s
     } // +=
@@ -215,7 +219,7 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
      * From this matrix substract matrix b.
      * @param b  the matrix to subtract (requires sameCrossDimensions)
      */
-    def - (b: Matrix [T]) (implicit nu: Numeric [T]): Matrix [T] = 
+    def - (b: Matrix [T]): Matrix [T] = 
     {
         val trid = b.asInstanceOf [SymmetricTridMatrixN [T]]
         if (d1 == trid.d1) {
@@ -231,7 +235,7 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
      * From this matrix substract inplace matrix b.
      * @param b  the matrix to subtract (requires sameCrossDimensions)
      */
-    def -= (b: Matrix [T]) (implicit nu: Numeric [T]) = 
+    def -= (b: Matrix [T])  = 
     {
         val trid = b.asInstanceOf [SymmetricTridMatrixN [T]]
         if (d1 == trid.d1) {
@@ -247,7 +251,7 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
      * From this matrix subtract scalar s.
      * @param s  the scalar to subtract
      */
-    def - (s: T) (implicit nu: Numeric [T]): Matrix [T] = 
+    def - (s: T): Matrix [T] = 
     {
         new SymmetricTridMatrixN [T] (_dg - s, _sd - s)
     } // -
@@ -257,7 +261,7 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
      * From this matrix subtract inplace scalar s.
      * @param s  the scalar to subtract
      */
-    def -= (s: T) (implicit nu: Numeric [T]) = 
+    def -= (s: T)  = 
     {
         _dg -= s; _sd-=s
     } // -=
@@ -267,9 +271,9 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
      * Multiply this matrix by vector b.
      * @param b  the vector to multiply by
      */
-    def * (b: VectorN [T]) (implicit nu: Numeric [T]): VectorN [T] = 
+    def * (b: Vec[T]): Vec[T] = 
     {
-        val c = VectorN [T] (d1)
+        val c = Vec.ofLength[T](d1)
         c(0)  = nu.plus (nu.times(b(0), _dg(0)), nu.times(_sd(0), b(1)))
         for (i <- 1 until d1_1) {
             c(i) = nu.times (_sd(i - 1), b(i - 1))
@@ -286,7 +290,7 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
      * Multiply this matrix by scalar s.
      * @param s  the scalar to multiply by
      */
-    def * (s: T) (implicit nu: Numeric [T]): Matrix [T] = 
+    def * (s: T): Matrix [T] = 
     {
         new SymmetricTridMatrixN [T] (_dg * s, _sd * s)
     } // *
@@ -296,7 +300,7 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
      * Multiply inplace this matrix by scalar s.
      * @param s  the scalar to multiply by
      */
-    def *= (s: T) (implicit nu: Numeric [T]) = 
+    def *= (s: T)  = 
     {
         _dg *= s; _sd *= s
     } // *=
@@ -312,7 +316,7 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
     /**
      * Compute the determinant of this matrix.
      */
-    def det (implicit nu: Numeric [T]): T = 
+    override def det(): T = 
     {
         detHelper (d1 - 1)
     } // det
@@ -322,12 +326,12 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
      * Solve for x in the equation a*x = d where a is this matrix
      * @param d  the constant vector.
      */
-    def solve (d: VectorN [T]) (implicit nu: Fractional [T]): VectorN [T] =
+    override def solve (d: Vec[T]) (implicit nu: Fractional [T]): Vec[T] =
     {
-        val x = new VectorN [T] (d1)
-        val c = new VectorN [T] (d1)
-        val a = new VectorN [T] (d1)
-        val b = new VectorN [T] (d1)
+        val x = Vec.ofLength[T](d1)
+        val c = Vec.ofLength[T](d1)
+        val a = Vec.ofLength[T](d1)
+        val b = Vec.ofLength[T](d1)
         for (i <- range_s) { c(i) = _sd(i); a(i) = _sd(i) }
         for (i <- range_d) b(i) = _dg(i)
 
@@ -357,7 +361,7 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
      * Helper method for computing the determinant of this matrix.
      * @param n  the current dimension
      */
-    private def detHelper (n: Int) (implicit nu: Numeric [T]): T =
+    private def detHelper (n: Int): T =
     {
         if (n == 0)      _dg(0)
         else if (n == 1) nu.minus (nu.times (_dg(0), _dg(1)), nu.times (_sd(0), _sd(0)))
@@ -383,22 +387,22 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
         throw new NoSuchMethodException ("convert to other matrix type first")
     } // sliceExclude
 
-    def * (b: Matrix [T]) (implicit nu: Numeric [T]): Matrix [T] = 
+    def * (b: Matrix [T]) : Matrix [T] = 
     {
         throw new Exception("convert to other matrix type first")
     } // *
 
-    def *= (b: Matrix [T]) (implicit nu: Numeric [T]) = 
+    def *= (b: Matrix [T]) = 
     {
         throw new Exception("convert to other matrix type first")
     } // *=
 
-    def ** (b: VectorN [T]) (implicit nu: Numeric [T]): Matrix [T] = 
+    def ** (b: Vec[T]): Matrix [T] = 
     {
         throw new NoSuchMethodException ("convert to other matrix type first")
     } // **
 
-    def **= (b: VectorN [T]) (implicit nu: Numeric [T]) = 
+    def **= (b: Vec [T]) = 
     {
         throw new NoSuchMethodException ("convert to other matrix type first")
     } // **=
@@ -413,24 +417,23 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
         throw new NoSuchMethodException ("not implemented")
     } // lud_ip
 
-    def solve (l: Matrix [T], u: Matrix [T], b: VectorN [T])
-              (implicit nu: Fractional [T]): VectorN [T] = 
+    def solve (l: Matrix [T], u: Matrix [T], b: Vec[T]) = 
     {
         throw new NoSuchMethodException ("not implemented")
     } // solve
 
-    def solve (lu: Tuple2 [Matrix [T], Matrix [T]], b: VectorN [T])
-              (implicit nu: Fractional [T]): VectorN [T] = 
+    override def solve (lu: Tuple2 [Matrix [T], Matrix [T]], b: Vec[T])
+              (implicit nu: Fractional [T]): Vec[T] = 
     {
         throw new NoSuchMethodException ("not implemented")
     } // solve
 
-    def diag (b: Matrix [T]) (implicit nu: Numeric [T]): Matrix [T] = 
+    def diag (b: Matrix [T]) : Matrix [T] = 
     {
         throw new NoSuchMethodException ("not implemented")
     } // diag
 
-    def diag (p: Int, q: Int) (implicit nu: Numeric [T]): Matrix [T] = 
+    def diag (p: Int, q: Int) : Matrix [T] = 
     {
         throw new NoSuchMethodException("not implemented")
     } // diag
@@ -463,15 +466,15 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: ClassManifest] (d1: Int)
  */
 object SymmetricTridMatrixNTest extends Application
 {
-    val a = new SymmetricTridMatrixN [Double] (new VectorD (1., 2., 3.),
-                                               new VectorD (4., 5.))
+    val a = new SymmetricTridMatrixN [Double] (Vec(1., 2., 3.),
+                                               Vec(4., 5.))
 
-    val b = new SymmetricTridMatrixN [Double] (new VectorD (2., 3., 4.),
-                                               new VectorD (5., 6.))
+    val b = new SymmetricTridMatrixN [Double] (Vec(2., 3., 4.),
+                                               Vec(5., 6.))
 
     println ("a     = " + a)
     println ("b     = " + b)
-    println ("a.det = " + a.det)	
+    println ("a.det = " + a.det())	
     println ("a + b = " + (a + b))	
 
 } // SymmetricTridMatrixNTest object

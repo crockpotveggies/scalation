@@ -11,7 +11,6 @@ import scalation.activity._
 import scalation.dynamics.RungeKutta._
 import scalation.advmath._
 import scalation.stat._
-import scalation.advmath.VectorN._
 import scalation.scala2d.Colors._
 
 /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -29,9 +28,9 @@ object Reaction extends Application
 
     //:: Define the places along with their initial markings by color.
 
-    val place = Array [PlaceD] (new PlaceD (100, 250, VectorN (2, Array(20.,  0.))),
-                                new PlaceD (200, 350, VectorN (2, Array( 0., 10.))),
-                                new PlaceD (500, 250, VectorN (2, Array( 0.,  0.))))
+    val place = Array [PlaceD] (new PlaceD (100, 250, Vec(20.,  0.)),
+                                new PlaceD (200, 350, Vec( 0., 10.)),
+                                new PlaceD (500, 250, Vec( 0.,  0.)))
 
     //:: Define the transitions.
 
@@ -50,10 +49,10 @@ object Reaction extends Application
     //:: Also, establish a back link to the containing Petri net.
 
     transt(0).connect (pnet,
-        Array [ArcD] (new ArcD (place(0), transt(0), true,  VectorN (2, Array(0., 0.)), null, Array [Derivative] (derv1, derv2)),
-                      new ArcD (place(1), transt(0), true,  VectorN (2, Array(0., 10.)))),
-        Array [ArcD] (new ArcD (place(1), transt(0), false, VectorN (2, Array(0., 10.))),
-                      new ArcD (place(2), transt(0), false, VectorN (2, Array(10., 0.)))))
+        Array [ArcD] (new ArcD (place(0), transt(0), true,  Vec(0., 0.), null, Array [Derivative] (derv1, derv2)),
+                      new ArcD (place(1), transt(0), true,  Vec(0., 10.))),
+        Array [ArcD] (new ArcD (place(1), transt(0), false, Vec(0., 10.)),
+                      new ArcD (place(2), transt(0), false, Vec(10., 0.))))
 
     println (pnet)
     pnet.simulate (2, 20)

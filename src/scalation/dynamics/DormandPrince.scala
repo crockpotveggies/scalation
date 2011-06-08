@@ -7,13 +7,13 @@
  * @see     LICENSE (MIT style license file).
  */
 
-package scalation.dynamics
+package scalation
+package dynamics
 
 import scala.math._
-import scalation.advmath._
-import scalation.stat._
-import scalation.advmath.Vectors._
-import scalation.util.Error
+import advmath._
+import stat._
+import util.Error
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 /**

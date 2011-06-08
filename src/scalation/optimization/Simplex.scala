@@ -8,13 +8,13 @@
  * @see     LICENSE (MIT style license file).
  */
 
-package scalation.optimization
+package scalation
+package optimization
 
 import scala.math.abs
 
-import scalation.advmath._
-import scalation.advmath.Matrices._
-import scalation.advmath.Vectors._
+import advmath._
+import advmath.Matrices._
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 /**
@@ -37,7 +37,7 @@ import scalation.advmath.Vectors._
  * @param b  the M-length constant vector
  * @param c  the N-length cost/revenue vector
  */
-class Simplex (a: MatrixD, b: VectorD, c: VectorD)
+class Simplex (a: MatrixD, b: VecD, c: VecD)
 {
     /** Constant for a value almost 0
      */
@@ -45,11 +45,11 @@ class Simplex (a: MatrixD, b: VectorD, c: VectorD)
 
     /** The number of constraints (rows in matrix a/elements in vector b)
      */
-    private val M = b.dim
+    private val M = b.length
 
     /** The number of original variables (columns in matrix a/elements in vector c)
      */
-    private val N = c.dim
+    private val N = c.length
 
     /** The (M+1)-by-(N+M+1) simplex tableaux
      */
@@ -64,7 +64,7 @@ class Simplex (a: MatrixD, b: VectorD, c: VectorD)
      *  The the variables not in the basis are set to zero.
      *  basis(i) = the basic variable corresponding to row i
      */
-    private val basis = new VectorI (M, null)
+    private val basis = Vec.ofLength[Int](M)
     for (i <- 0 until M) basis(i) = N + i     // start with the slack variables in the basis
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
@@ -139,9 +139,9 @@ class Simplex (a: MatrixD, b: VectorD, c: VectorD)
     /**
      * Return the primal solution vector (x).
      */
-    def primal: VectorD =
+    def primal: VecD =
     {
-        val x = new VectorD (N, null)
+        val x = Vec.ofLength[Double](N)
         for (i <- 0 until M if basis(i) < N) x(basis(i)) = t(i, M + N)
         x
     } // primal
@@ -150,9 +150,9 @@ class Simplex (a: MatrixD, b: VectorD, c: VectorD)
     /**
      * Return the dual solution vector (y).
      */
-    def dual: VectorD =
+    def dual: VecD =
     {
-        val y = new VectorD (M, null)
+        val y = Vec.ofLength[Double](M)
         for (i <- 0 until M) y(i) = -t(M, N + i)
         y
     } // dual
@@ -247,7 +247,7 @@ object SimplexTest extends Application
      * @param b the constant vector
      * @param c the cost vector
      */
-    def test (a: MatrixD, b: VectorD, c: VectorD)
+    def test (a: MatrixD, b: VecD, c: VecD)
     {
         val lp = new Simplex (a, b, c)
         lp.solve ()
@@ -269,8 +269,8 @@ object SimplexTest extends Application
                                  2.,  1.,  0.,
                                  3., -4.,  0.,
                                  0.,  0.,  1.)
-        val b = new VectorD (5., 45., 27., 24., 4.)
-        val c = new VectorD (1.,  1.,  1.)
+        val b = Vec(5., 45., 27., 24., 4.)
+        val c = Vec(1.,  1.,  1.)
         test (a, b, c)
     } // test1
 
@@ -283,8 +283,8 @@ object SimplexTest extends Application
         val a = new MatrixD (3,  5., 15.,                      // 3-by-2 matrix
                                  4.,  4.,
                                 35., 20.)
-        val b = new VectorD (480., 160., 1190.)
-        val c = new VectorD ( 13.,  23.)
+        val b = Vec(480., 160., 1190.)
+        val c = Vec( 13.,  23.)
         test (a, b, c)
     } // test2
 
@@ -298,8 +298,8 @@ object SimplexTest extends Application
         val a = new MatrixD (3, .5, -5.5, -2.5, 9.,            // 3-by-4 matrix
                                 .5, -1.5, -0.5, 1.,
                                1.0,  0.0,  0.0, 0.)
-        val b = new VectorD ( 0.,   0.,  1.)
-        val c = new VectorD (10., -57., -9., -24.)
+        val b = Vec( 0.,   0.,  1.)
+        val c = Vec(10., -57., -9., -24.)
         test (a, b, c)
     } // test3
 
@@ -311,8 +311,8 @@ object SimplexTest extends Application
     {
         val a = new MatrixD (2, -2., -9.,  1.,  9.,            // 2-by-4 matrix
                                  1.,  1., -1., -2.)
-        val b = new VectorD (3., 2.)
-        val c = new VectorD (2., 3., -1., -12.)
+        val b = Vec(3., 2.)
+        val c = Vec(2., 3., -1., -12.)
         test (a, b, c)
     } // test4
 

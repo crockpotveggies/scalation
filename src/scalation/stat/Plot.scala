@@ -7,16 +7,16 @@
  * @see     LICENSE (MIT style license file). 
  */
 
-package scalation.stat
+package scalation
+package stat
 
 import scala.math._
 import scala.swing.{MainFrame, Panel, SimpleGUIApplication}
 
-import scalation.advmath._
-import scalation.advmath.Vectors._
-import scalation.scala2d._
-import scalation.scala2d.Colors._
-import scalation.scala2d.Shapes._
+import advmath._
+import scala2d._
+import scala2d.Colors._
+import scala2d.Shapes._
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 /**
@@ -26,7 +26,7 @@ import scalation.scala2d.Shapes._
  * @param y       the y vector of data values (vertical)
  * @param _title  title of the plot
  */
-class Plot (x: VectorD, y: VectorD, _title: String = "Plot")
+class Plot (x: VecD, y: VecD, _title: String = "Plot")
       extends MainFrame
 {
     private val frameSize = new Dimension (600, 600)
@@ -98,7 +98,7 @@ class Plot (x: VectorD, y: VectorD, _title: String = "Plot")
 
             //:: Draw the dots for the data points being plotted
 
-            for (i <- 0 until x.dim) {
+            for (i <- 0 until x.length) {
                 val xx = round (x(i) * (frameW - 2 * offset).asInstanceOf [Double])
                 x_pos = (xx / deltaX).asInstanceOf [Int] + offset
                 val yy = round ((maxY - y(i)) * (frameH - 2 * offset).asInstanceOf [Double])
@@ -143,11 +143,11 @@ class Plot (x: VectorD, y: VectorD, _title: String = "Plot")
 object PlotTest extends Application
 {
 /*
-    val x = new VectorD (0., 1., 2., 3.,  4.,  5.,  6., 7., 8., 9., 10.)
-    val y = new VectorD (0., 1., 4., 9., 16., 25., 16., 9., 4., 1.,  0.)
+    val x = new VecD (0., 1., 2., 3.,  4.,  5.,  6., 7., 8., 9., 10.)
+    val y = new VecD (0., 1., 4., 9., 16., 25., 16., 9., 4., 1.,  0.)
 */
-    val x = VectorN [Double] (100)
-    val y = VectorN [Double] (100)
+    val x = Vec.ofLength [Double] (100)
+    val y = Vec.ofLength [Double] (100)
     for (i <- 0 until 100) { x(i) = i / 10.; y(i) = pow (x(i) - 5, 2) }
     val plot = new Plot (x, y)
     println ("plot = " + plot)

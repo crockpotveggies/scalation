@@ -7,24 +7,24 @@
  * @see     LICENSE (MIT style license file).
  */
 
-package scalation.activity
+package scalation
+package activity
 
-import scalation.dynamics.RungeKutta._
-import scalation.advmath._
-import scalation.advmath.Vectors._
-import scalation.stat._
+import dynamics.RungeKutta._
+import advmath._
+import stat._
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 /**
  * This class is used to define firing rules for the PetriNet class.
  * It supports both constant flow and linear flow models of token
  * (integer valued) and fluid (real valued) flow.
- * Typically, in the constant flow model, a base flow vector is used
+ * Typically, in the constant flow model, a base flow Vec is used
  * for the threshold (require at least this number of tokens/amount
  * of fluid) and the flow (move this number this number of tokens/amount
  * of fluid over the arc).  It is also possible to set the flow
  * below the threshold.
- * In the the linear flow model, a base flow vector can be augmented
+ * In the the linear flow model, a base flow Vec can be augmented
  * by additional flow that is a function of the residual left after
  * the base is taken and the time it takes to fire the transition.
  * The total flow may not exceed the the number/amount at the place.
@@ -37,35 +37,35 @@ trait PetriNetRules
      * Return whether the matrix inequality is true: t >= b.
      * The firing threshold should be checked for every incoming arc.
      * If all return true, the transition should fire.
-     * @param  t  the token vector (number of tokens per color)
-     * @param  b  the base constant vector
+     * @param  t  the token Vec (number of tokens per color)
+     * @param  b  the base constant Vec
      */
-    def thresholdI (t: VectorI, b: VectorI): Boolean = t >= b 
+    def thresholdI (t: VecI, b: VecI): Boolean = t >= b 
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Return whether the matrix inequality is true: f >= b.
      * The firing threshold should be checked for every incoming arc.
      * If all return true, the transition should fire.
-     * @param  f  The fluid vector (amount of fluid per color)
-     * @param  b  The base constant vector
+     * @param  f  The fluid Vec (amount of fluid per color)
+     * @param  b  The base constant Vec
      */
-    def thresholdD (f: VectorD, b: VectorD): Boolean = f >= b
+    def thresholdD (f: VecD, b: VecD): Boolean = f >= b
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Function to compute the delay in firing a transition.
      * The base time is given by a random variate.
-     * This is adjusted by weight vectors multiplying the number of
+     * This is adjusted by weight Vecs multiplying the number of
      * aggregate tokens and the aggreagate amount of fluids summed over
      * all input places: delay = v + w_t * t + w_f * f.
      * @param  v    the random variate used to compute base firing time
-     * @param  w_t  the weight for the token vector
-     * @param  t    the aggregate token vector (summed over all input places)
-     * @param  w_f  the weight for the fluid vector
-     * @param  f    the aggregate fluid level vector (summed over all input places)
+     * @param  w_t  the weight for the token Vec
+     * @param  t    the aggregate token Vec (summed over all input places)
+     * @param  w_f  the weight for the fluid Vec
+     * @param  f    the aggregate fluid level Vec (summed over all input places)
      */
-    def calcFiringDelay (v: Variate, w_t: VectorD, t: VectorI, w_f: VectorD, f: VectorD): Double =
+    def calcFiringDelay (v: Variate, w_t: VecD, t: VecI, w_f: VecD, f: VecD): Double =
     {
         var delay = v.gen
         if (w_t != null) delay += w_t dot t.toDouble
@@ -76,29 +76,29 @@ trait PetriNetRules
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Compute the number of tokens to flow over an arc according to the
-     * vector expression: b + r * (t-b) * d.  If d is 0, returns b.
+     * Vec expression: b + r * (t-b) * d.  If d is 0, returns b.
      * Supports linear (w.r.t. time delay) and constant (d == 0) flow models.
-     * @param t  the token vector (number of tokens per color)
-     * @param b  the constant vector for base token flow
-     * @param r  the rate vector (number of tokens per unit time)
+     * @param t  the token Vec (number of tokens per color)
+     * @param b  the constant Vec for base token flow
+     * @param r  the rate Vec (number of tokens per unit time)
      * @param d  the time delay
      */
-    def tokenFlow (t: VectorI, b: VectorI, r: VectorI = null, d: Double = 0): VectorI =
+    def tokenFlow (t: VecI, b: VecI, r: VecI = null, d: Double = 0): VecI =
     {
         t min (if (d == 0 || r == null) b else b + ((r * (t - b)).toDouble * d).toInt)
-    } // tokenFlow
+    } // tokenFlowDouble 
 
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
      * Compute the amount of fluid to flow over an arc according to the
      * matrix expression: b + r * (f-b) * d.  If r is 0, returns b.
      * Supports linear (w.r.t. time delay) and constant (d == 0) flow models.
-     * @param f  the fluid vector (amount of fluid per color)
-     * @param b  the constant vector for base fluid flow
-     * @param r  the rate vector (amounts of fluids per unit time)
+     * @param f  the fluid Vec (amount of fluid per color)
+     * @param b  the constant Vec for base fluid flow
+     * @param r  the rate Vec (amounts of fluids per unit time)
      * @param d  the time delay
      */
-    def fluidFlow (f: VectorD, b: VectorD, r: VectorD = null, d: Double = 0): VectorD =
+    def fluidFlow (f: VecD, b: VecD, r: VecD = null, d: Double = 0): VecD =
     {
         f min (if (d == 0 || r == null) b else b + r * (f - b) * d)
     } // fluidFlow
@@ -108,12 +108,12 @@ trait PetriNetRules
      * Compute the amount of fluid to flow over an arc according to the
      * system of first-order Ordinary Differential Equation (ODE's):
      * "integral derv from t0 to t".  Supports ODE base flow models.
-     * @param f     the fluid vector (amount of fluid per color)
+     * @param f     the fluid Vec (amount of fluid per color)
      * @param derv  the array of derivative functions
      * @param t0    the current time
      * @param d     the time delay
      */
-    def fluidFlow (f: VectorD, derv: Array [Derivative], t0: Double, d: Double): VectorD =
+    def fluidFlow (f: VecD, derv: Array [Derivative], t0: Double, d: Double): VecD =
     {
         println ("fluidFlow: f = " + f + " t0 = " + t0 + " t = " + (t0 + d))
         val g = integrateV (derv, f, t0 + d, t0)
@@ -135,27 +135,27 @@ object PetriNetRulesTest extends Application with PetriNetRules
 
     //:: Set sample values for tokens.
 
-    val t   = new VectorI (5, 4)       // tokens
-    val r_t = new VectorI (1, 1)       // rates
-    val b_t = new VectorI (1, 2)       // base requirement
-    val w_t = new VectorD (.01, .01)   // weight
+    val t   = Vec(5, 4)       // tokens
+    val r_t = Vec(1, 1)       // rates
+    val b_t = Vec(1, 2)       // base requirement
+    val w_t = Vec(.01, .01)   // weight
 
     //:: Set sample values for fluid.
 
-    val f   = new VectorD (5.5, 4.5)   // fluid levels
-    val r_f = new VectorD (.5, 1.0)    // rates
-    val b_f = new VectorD (1.5, 2.5)   // base requirement
-    val w_f = new VectorD (.01, .01)   // weight
+    val f   = Vec(5.5, 4.5)   // fluid levels
+    val r_f = Vec(.5, 1.0)    // rates
+    val b_f = Vec(1.5, 2.5)   // base requirement
+    val w_f = Vec(.01, .01)   // weight
 
     //:: Test the firing rules.
 
     println ("\n *** Show initial conditions\n")
 
-    println ("Token vector t      = " + t)
-    println ("Rate vector r_t     = " + r_t)
+    println ("Token Vec t      = " + t)
+    println ("Rate Vec r_t     = " + r_t)
     println ("Base token flow b_t = " + b_t)
-    println ("Fluid vector f      = " + f)
-    println ("Rate vector f_t     = " + r_t)
+    println ("Fluid Vec f      = " + f)
+    println ("Rate Vec f_t     = " + r_t)
     println ("Base fluid flow b_f = " + b_f)
 
     println ("\n *** Test token and fluid firing thresholds (t >= b_t)\n")

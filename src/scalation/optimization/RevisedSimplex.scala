@@ -7,11 +7,11 @@
  * @see     LICENSE (MIT style license file).
  */
 
-package scalation.optimization
+package scalation
+package optimization
 
-import scalation.advmath._
-import scalation.advmath.Matrices._
-import scalation.advmath.Vectors._
+import advmath._
+import advmath.Matrices._
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 /**
@@ -26,7 +26,7 @@ import scalation.advmath.Vectors._
  * @param b  the constant vector
  * @param c  the cost/revenue vector
  */
-class RevisedSimplex (a: MatrixD, b: VectorD, c: VectorD)
+class RevisedSimplex (a: MatrixD, b: VecD, c: VecD)
 {
     /** Constant for a value almost 0
      */
@@ -36,7 +36,7 @@ class RevisedSimplex (a: MatrixD, b: VectorD, c: VectorD)
     /**
      * Solve a Linear Programming (LP) problem using the Revised Simplex Algorithm.
      */
-    def solve: Tuple2 [Double, VectorD] =
+    def solve: Tuple2 [Double, VecD] =
     {
         null       // not implemented yet
     } // solve
@@ -68,8 +68,8 @@ object RevisedSimplexTest extends Application
     //
     val a = new MatrixD (2, 3., 2., 1.,                        // 2-by-3 matrix
                             2., 5., 3.)
-    val b = new VectorD (10., 15.)
-    val c = new VectorD (2., 3., 4.)
+    val b = Vec(10., 15.)
+    val c = Vec(2., 3., 4.)
 
     val sa = new RevisedSimplex (a, b, c)
 

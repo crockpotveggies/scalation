@@ -7,13 +7,13 @@
  * @see     LICENSE (MIT style license file).
  */
 
-package scalation.dynamics
+package scalation
+package dynamics
 
 import scala.math.exp
-import scalation.advmath._
-import scalation.advmath.Matrices._
-import scalation.advmath.Vectors._
-import scalation.util.Error
+import advmath._
+import advmath.Matrices._
+import util.Error
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 /**
@@ -29,11 +29,11 @@ import scalation.util.Error
  * @param a   the coefficient matrix
  * @param y0  the initial value vector
  */
-class LinearDiffEq (a: MatrixD, y0: VectorD)
+class LinearDiffEq (a: MatrixD, y0: VecD)
       extends Error
 {
      {
-         if (a.dim2 != y0.dim) flaw ("constructor", "incompatible dimensions")
+         if (a.dim2 != y0.length) flaw ("constructor", "incompatible dimensions")
      } // primary constructor
 
      /** Vector of eigenvalues
@@ -57,10 +57,10 @@ class LinearDiffEq (a: MatrixD, y0: VectorD)
       * Apply the exponential 'exp' function to each element of a vector.
       * @param v  the vector to apply the exp function to
       */
-     def expV (v: VectorD): VectorD =
+     def expV (v: VecD): VecD =
      {
-         val z = VectorN [Double] (v.dim)
-         for (i <- 0 until z.dim) z(i) = exp (v(i))
+         val z = Vec.ofLength[Double] (v.length)
+         for (i <- 0 until z.length) z(i) = exp (v(i))
          z
      } // expV
 
@@ -69,7 +69,7 @@ class LinearDiffEq (a: MatrixD, y0: VectorD)
       * Evaluate the solution for y(t) at time t.
       * @param t  the time point
       */
-     def eval (t: Double): VectorD = k * expV (e * t)
+     def eval (t: Double): VecD = k * expV (e * t)
 
      /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
      /**
@@ -103,7 +103,7 @@ object LinearDiffEqTest extends Application
 {
     val a  = new MatrixD (2, -2.,  0.5,                         // 2-by-2 matrix
                               2., -2.)
-    val y0 = new VectorD (1., 0.5)
+    val y0 = Vec(1., 0.5)
     val de = new LinearDiffEq (a, y0)
     de.print
 

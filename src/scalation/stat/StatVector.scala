@@ -7,10 +7,11 @@
  * @see     LICENSE (MIT style license file).
  */
 
-package scalation.stat
+package scalation
+package stat
 
 import scala.math._
-import scalation.advmath._
+import advmath._
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 /**
@@ -18,7 +19,7 @@ import scalation.advmath._
  * a data vector.
  * @param dim  the dimension/size of the vector
  */
-class StatVector (dim: Int) extends VectorN [Double] (dim)
+class StatVector (dim: Int) extends Vec [Double] (Array.ofDim[Double](dim))
 {
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**
@@ -36,10 +37,10 @@ class StatVector (dim: Int) extends VectorN [Double] (dim)
      * Construct a StatVector from a VectorN.
      * @param u  the vector to initialize StatVector
      */
-    def this (u: VectorN [Double])
+    def this (u: VecD)
     {
-        this (u.dim)
-        setAll (u())
+        this (u.length)
+        setAll (u.toArray)
     } // constructor
 
    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
@@ -47,12 +48,6 @@ class StatVector (dim: Int) extends VectorN [Double] (dim)
     * Get the number of samples.
     */
     def num: Int = dim
-
-   /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-   /**
-    * Compute the mean of this vector.
-    */
-    def mean: Double = sum / dim
 
    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
    /**
@@ -99,7 +94,7 @@ object StatVectorTest extends Application
     println ("v          = " + v)
     println ("v.min      = " + v.min)
     println ("v.max      = " + v.max)
-    println ("v.mean     = " + v.mean)
+    println ("v.mean     = " + v.mean) 
     println ("v.variance = " + v.variance)
     println ("v.stddev   = " + v.stddev)
     println ("v.rms      = " + v.rms)

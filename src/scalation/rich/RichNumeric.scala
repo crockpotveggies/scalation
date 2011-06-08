@@ -3,6 +3,7 @@ package scalation.rich
 class RichNumeric[N: Numeric](elem: N) extends scalation.ScalaTion {
 
 	private val evidence = implicitly[Numeric[N]]
+	import evidence._
 	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
@@ -30,6 +31,24 @@ class RichNumeric[N: Numeric](elem: N) extends scalation.ScalaTion {
 		}
 	}
 	
+	/**
+	 * Returns the rising factorial
+	 * x⇑n = (x+0)(x+1)...(x+n-1)
+	 */
+	def ⇑(n: Int) = {
+	    val values = for (i <- 0 until n) yield elem + evidence.fromInt(i)
+	    values.reduceLeft(_*_)
+	}
+	
+	/**
+	 * Returns the falling factorial
+	 * x⇓n = (x-0)(x-1)...(x-(n-1))
+	 */
+	def ⇓(n: Int) = {
+	    val values = for (i <- 0 until n) yield elem - evidence.fromInt(i)
+	    values.reduceLeft(_*_)
+	}
+	
 	/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 	/**
 	 * Returns the value of the number raised to the p power as a Double. Using
@@ -43,4 +62,13 @@ class RichNumeric[N: Numeric](elem: N) extends scalation.ScalaTion {
 		pow(x, y)
 	}
 	
+	def ↓[A: Numeric](p: A): Double = {
+	    val y = 1.0 / implicitly[Numeric[A]].toDouble(p)
+	    ↑(y)
+	}
+	
+	def ⋯[A: Numeric](rhs: A) = {
+	    val b = implicitly[Numeric[A]].toInt(rhs)
+	    elem.toInt to b
+	}
 }
