@@ -3,18 +3,27 @@ package stat
 
 import advmath._
 
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 /** Companion object for RandVec class.
  */
-object RandVec {
-    def ofLength(length: Int) = new RandVec(length)
+object RandVec 
+{   
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /** Returns a new RandVec of a specified length.
+     */
+    def ofLength(length: Int, v: VecD = null, p: VecD = null) = new RandVec(length, v, p)
 }
 
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 /** The RandVec class is a random numeric vector of a specific length. If values
  *  and probabilities are provided, then the mean statistic takes into
  *  consideration the probability distribution. If no probability distribution
  *  is provided, then RandVec assumes a uniform distribution of probabilities.
  */
-class RandVec (length: Int, var v: VecD = null, var p: VecD = null) extends Vec[Double] (Array.ofDim[Double](length)) {
+class RandVec (length: Int, var v: VecD = null, var p: VecD = null) 
+extends Vec[Double] (Array.ofDim[Double](length)) 
+    with ScalaTion 
+{
 
     // random distribution
     private val r = new Random(0)
@@ -30,12 +39,10 @@ class RandVec (length: Int, var v: VecD = null, var p: VecD = null) extends Vec[
     }
     
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /** Return the mean of the random vector.
+    /** Return the mean statistic of the random vector. (weighted average)
      */
-    override def mean(): Double = {
-        val values = for (i <- range) yield this(i) * p(i)
-        values.reduceLeft(_+_)
-    }
+    override def mean(): Double = ∑(range, (i: Int) => this(i) * p(i))
+
     
     
 }
