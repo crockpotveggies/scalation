@@ -313,7 +313,7 @@ object Constants
 /**
  * The PolygonTest object tests the Polygon, Triangle, Quad and Hexagon classes.
  */
-object PolygonTest extends Application
+object PolygonTest extends App
 {
     private val dot        = Ellipse ()
     private val triangle   = new Triangle (R2 (100, 100), 100, 150)

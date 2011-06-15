@@ -697,7 +697,7 @@ object Counter
 /**
  * This object is used to test the PetriNet class.
  */
-object PetriNetTest extends Application
+object PetriNetTest extends App
 {
     //:: Set up the colors for tokens and fluids (note: colors for tokens and fluids must be disjoint).
 

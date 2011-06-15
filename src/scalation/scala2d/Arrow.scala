@@ -114,7 +114,7 @@ case class Arrow (var p1:  R2  = R2 (0., 0.),
 /**
  * This object is used to test the Arrow class.
  */
-object ArrowTest extends Application
+object ArrowTest extends App
 {
     private val arrow1 = new Arrow (R2 (200, 200), R2 (300, 200))
     private val arrow2 = new Arrow (R2 (200, 200), R2 (300, 300))

@@ -799,7 +799,7 @@ case class SparseMatrixN [T <% Ordered [T]: Numeric: ClassManifest] (d1: Int, d2
 /**
  * This object is used to test the SparseMatrixN class.
  */
-object SparseMatrixNTest extends Application
+object SparseMatrixNTest extends App
 {
      val y = new SparseMatrixN [Double] (3, 3, 7., 0.)
      val z = new SparseMatrixN [Double] (3, 8., 0.)

@@ -327,7 +327,7 @@ object QCurveCalc
 /**
  * The QCurveTest object tests QCurve's (quad curves).
  */
-object QCurveTest extends Application
+object QCurveTest extends App
 {
     private val line1 = new QCurve (R2 (200, 200), R2 (400, 200))
     private val line2 = new QCurve (R2 (200, 200), R2 (200, 400))
@@ -381,7 +381,7 @@ object QCurveTest extends Application
 /**
  * The QCurveTest2 object tests traversals of QCurve's (quad curves).
  */
-object QCurveTest2 extends Application
+object QCurveTest2 extends App
 {
     private class QCurveAnimator extends MainFrame with Actor
     {

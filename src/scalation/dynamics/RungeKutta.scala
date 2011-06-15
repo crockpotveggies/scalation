@@ -58,7 +58,7 @@ object RungeKutta
 
             if (abs (y) > Double.MaxValue / 10.) {
                 flaw ("integrate", "probable overflow since y = " + y)
-            } else if (abs (y) < Double.Epsilon * 10.) {
+            } else if (abs (y) < Double.MinPositiveValue * 10.) {
                 flaw ("integrate", "probable underflow since y = " + y)
             } // if
             if (i % 1000 == 0) println ("integrate: iteration " + i + " ti = " + ti + " y = " + y)
@@ -73,7 +73,7 @@ object RungeKutta
 /**
  * This object is used to test the RungeKutta object.
  */
-object RungeKuttaTest extends Application
+object RungeKuttaTest extends App
 {
     import scalation.dynamics.RungeKutta._
 

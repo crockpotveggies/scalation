@@ -221,7 +221,7 @@ class Eigenvector (a: MatrixD, _e: Vec[Double] = null)
  * and Eigenvectors for the non-symmetric/general case.
  * @see http://en.wikipedia.org/wiki/QR_decomposition
  */
-object EigenTest extends Application
+object EigenTest extends App
 {
     val b = new MatrixD (3, -149., -50., -154.,                 // 3-by-3 matrix
                              537., 180.,  546.,

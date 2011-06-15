@@ -20,7 +20,7 @@ import scalation.scala2d.Colors._
  * @see scalation.activity.PetriNetTest, scalation.activity.PetriNetRulesTest
  * for more examples of test code.
  */
-object Reaction extends Application
+object Reaction extends App
 {
     //:: Set up the colors for fluids (green for glycans, blue for enzymes)
 

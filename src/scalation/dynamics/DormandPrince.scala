@@ -132,7 +132,7 @@ object DormandPrince
 /**
  * This object is used to test the DormandPrince object.
  */
-object DormandPrinceTest extends Application
+object DormandPrinceTest extends App
 {
     import scalation.dynamics.DormandPrince._
 

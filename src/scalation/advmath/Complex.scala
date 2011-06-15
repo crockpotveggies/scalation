@@ -147,7 +147,7 @@ extends Numeric [Complex]
 /**
  * This object is used to test the Complex class.
  */
-object ComplexTest extends Application
+object ComplexTest extends App
 {
 
     val c = Complex (2., 3.)

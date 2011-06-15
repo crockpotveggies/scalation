@@ -171,7 +171,7 @@ class Histogram (value: Vec[Double], numIntervals: Int, _title: String = "Histog
 /**
  * This object is used to test the Histogram class.
  */
-object HistogramTest extends Application
+object HistogramTest extends App
 {
     val intervals  = 100
     val samples    = 40000

@@ -464,7 +464,7 @@ case class SymmetricTridMatrixN [T <% Ordered [T]: Numeric: ClassManifest] (d1: 
 /**
  * This object is used to test the SymmetricTridMatrixN class.
  */
-object SymmetricTridMatrixNTest extends Application
+object SymmetricTridMatrixNTest extends App
 {
     val a = new SymmetricTridMatrixN [Double] (Vec(1., 2., 3.),
                                                Vec(4., 5.))

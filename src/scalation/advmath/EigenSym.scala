@@ -184,7 +184,7 @@ class EigenvalueSym (a: MatrixN [Double])
  * This object is used to test the all the classes used in computing Eigenvalues
  * and Eigenvectors for the symmetric/special case.
  */
-object EigenSymTest extends Application
+object EigenSymTest extends App
 {
     val t = new MatrixD (2, 2.64,  -0.48,
                             -0.48,  2.64)

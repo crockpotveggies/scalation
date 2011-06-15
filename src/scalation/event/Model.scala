@@ -187,7 +187,7 @@ class Model (name: String)
 /**
  * This object is used to test the Model class.
  */
-object ModelTest extends Application
+object ModelTest extends App
 {
     new SimpleModel ("phone", Uniform (5000, 7000), 100, Uniform (4000, 6000))
 

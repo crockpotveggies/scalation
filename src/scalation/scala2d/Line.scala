@@ -77,7 +77,7 @@ case class Line (var p1:  R2 = R2 (0., 0.),
 /**
  * This object is used to test the Line class.
  */
-object LineTest extends Application
+object LineTest extends App
 {
     private val line1 = new Line (R2 (200, 200), R2 (300, 200))
     private val line2 = new Line (R2 (200, 200), R2 (300, 300))

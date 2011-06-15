@@ -99,7 +99,7 @@ class LinearDiffEq (a: MatrixD, y0: Vec[Double])
  * The eigenvalues should be (-3, -1)
  * The constant matrix should be [ (.375, .625), (-.75, 1.25) ]
  */
-object LinearDiffEqTest extends Application
+object LinearDiffEqTest extends App
 {
     val a  = new MatrixD (2, -2.,  0.5,                         // 2-by-2 matrix
                               2., -2.)

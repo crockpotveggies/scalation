@@ -439,7 +439,7 @@ object Counter
 /**
  * Object to test the Dgraph class.
  */
-object DgraphTest extends Application
+object DgraphTest extends App
 {
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**

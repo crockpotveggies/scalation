@@ -224,7 +224,7 @@ class Model (name: String)
 /**
  * The ModelTest object is used to test the Model class.
  */
-object ModelTest extends Application
+object ModelTest extends App
 {
     new SimpleModel ("bank", 10, Uniform (4000, 6000), Uniform (2900, 3100))
 

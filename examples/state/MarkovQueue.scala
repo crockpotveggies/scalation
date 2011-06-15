@@ -17,7 +17,7 @@ import scalation.advmath.Matrices._
  * @see scalation.state.MarkovTest, scalation.state.MarkovCTest for example
  * test code for discrete-time and continuous-time Markov chains, respectively.
  */
-object MarkovQueue extends Application
+object MarkovQueue extends App
 {
     /** The transition rate matrix
      */

@@ -62,7 +62,7 @@ class RevisedSimplex (a: MatrixD, b: Vec[Double], c: Vec[Double])
  * where z is the objective variable, x are the decision variables and
  * y are slack variables.
  */
-object RevisedSimplexTest extends Application
+object RevisedSimplexTest extends App
 {
     // initialize matrix a and vectors b and c
     //

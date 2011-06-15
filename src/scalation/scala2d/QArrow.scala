@@ -146,7 +146,7 @@ case class QArrow (var p1:  R2  = R2 (0., 0.),
 /**
  * This object is used to test the QArrow class.
  */
-object QArrowTest extends Application
+object QArrowTest extends App
 {
     private val arc1 = new QArrow (R2 (200, 200), R2 (300, 200), .25)
     private val arc2 = new QArrow (R2 (200, 200), R2 (300, 300), .25)

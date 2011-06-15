@@ -210,7 +210,7 @@ class Markov (tr: MatrixD) extends Error
 /**
  * This object tests the Markov class (Discrete-Time Markov Chains).
  */
-object MarkovTest extends Application
+object MarkovTest extends App
 {
     val endTime = 20   // number of epochs (milliseconds), but may represent any time unit
 

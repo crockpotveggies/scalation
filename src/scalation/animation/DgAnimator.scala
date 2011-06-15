@@ -241,7 +241,7 @@ class DgAnimator (_title: String, fgColor: Color, bgColor: Color)
 /**
  * The DgAnimatorTest object is used to test the DgAnimator class.
  */
-object DgAnimatorTest extends Application
+object DgAnimatorTest extends App
 {
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**

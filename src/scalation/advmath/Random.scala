@@ -174,7 +174,7 @@ object RNG
 /**
  * The SeedFinder object find seeds for all the random number streams.
  */
-object SeedFinder extends Application
+object SeedFinder extends App
 {
     val rng = Random ()
 

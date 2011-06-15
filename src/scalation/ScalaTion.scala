@@ -164,7 +164,7 @@ trait ScalaTion
      */
     def ∫(r: Range, f: (Double) => Double): Double = {
         val dx = 0.0001
-        val series = for (i <- r.first.toDouble to r.end by dx) yield f(i) * dx
+        val series = for (i <- r.head.toDouble to r.end by dx) yield f(i) * dx
         series reduceLeft (_+_) 
     }
     

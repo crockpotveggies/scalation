@@ -140,7 +140,7 @@ class Plot (x: Vec[Double], y: Vec[Double], _title: String = "Plot")
 /**
  * This object is used to test the Plot class.
  */
-object PlotTest extends Application
+object PlotTest extends App
 {
 /*
     val x = new Vec[Double] (0., 1., 2., 3.,  4.,  5.,  6., 7., 8., 9., 10.)

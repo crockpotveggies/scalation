@@ -115,7 +115,7 @@ class Statistic extends Error
      */
     def labels (): String =
     {
-        format ("| %4s | %9s | %9s | %9s | %9s | %9s |", "num", "min", "max", "mean", "stdDev", "interval")
+        "| %4s | %9s | %9s | %9s | %9s | %9s |".format("num", "min", "max", "mean", "stdDev", "interval")
     } // labels
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
@@ -124,7 +124,7 @@ class Statistic extends Error
      */
     override def toString: String = 
     {
-        format ("| %4d | %9.3f | %9.3f | %9.3f | %9.3f | %9.3f |", num, min, max, mean, stddev, interval ())
+        "| %4d | %9.3f | %9.3f | %9.3f | %9.3f | %9.3f |".format(num, min, max, mean, stddev, interval ())
     } // toString
 
 } // Statistic class
@@ -172,7 +172,7 @@ class TimeStatistic (var lastTime: Double = 0.) extends Statistic
 /**
  * This object is used to test the Statistic and TimeStatistic classes.
  */
-object StatisticTest extends Application
+object StatisticTest extends App
 {
     val rv   = Uniform (0, 10)
 

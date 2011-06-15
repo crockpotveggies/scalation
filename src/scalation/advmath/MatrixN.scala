@@ -820,7 +820,7 @@ case class MatrixN [T <% Ordered [T]: Numeric: ClassManifest] (d1: Int,
 /**
  * The MatrixN object tests the operations provided by MatrixN.
  */
-object MatrixNTest extends Application
+object MatrixNTest extends App
 {
     for (l <- 1 to 4) {
         println ("\n\tTest MatrixN on integer matrices of dim " + l)

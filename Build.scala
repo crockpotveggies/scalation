@@ -23,7 +23,7 @@ import java.{ util => jutil }
  * build functions.  Note, this Build object may be replaced with the
  * Simple Build Tool (sbt) in the future.
  */
-object Build extends Application {
+object Build extends App {
 
 	private val base_dir = ""
 	private val source_dir = base_dir + "src"

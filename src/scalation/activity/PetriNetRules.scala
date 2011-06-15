@@ -127,7 +127,7 @@ trait PetriNetRules
 /**
  * This object is used to test the PetriNetRules trait.
  */
-object PetriNetRulesTest extends Application with PetriNetRules
+object PetriNetRulesTest extends App with PetriNetRules
 {
     //:: Set the initial time.
 

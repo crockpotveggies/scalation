@@ -22,7 +22,7 @@ case class MyClass (v: Int) extends Ordered [MyClass]
 //}
 
 
-object PQ extends Application
+object PQ extends App
 {
 //    implicit def myClass2Ordering(n: MyClass): Ordering[MyClass] = n.asInstanceOf[Ordering[MyClass]]
 

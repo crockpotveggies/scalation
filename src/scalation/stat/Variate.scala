@@ -970,7 +970,7 @@ case class Weibull (alpha: Double = 2, beta: Double = 2, stream: Int = 0)
  * Conduct two simple tests of the Random Variate Generators: (1) Means Test
  * (2) Goodness of Fit Test.
  */
-object VariateTest extends Application
+object VariateTest extends App
 {
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**

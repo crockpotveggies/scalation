@@ -208,7 +208,7 @@ class MarkovC (tr: MatrixD) extends Error
 /**
  * This object tests the MarkovC class (Continuous-Time Markov Chains).
  */
-object MarkovCTest extends Application
+object MarkovCTest extends App
 {
     val endTime = 200.     // number of time units (e.g., milliseconds)
 

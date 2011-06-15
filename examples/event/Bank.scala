@@ -14,7 +14,7 @@ import scalation.advmath._
  * This object defines a particular scenario under which to execute the bank model.
  * @see scalation.event.ModelTest for another example of test code.
  */
-object Bank extends Application
+object Bank extends App
 {
     new BankModel ("bank", 100, Uniform (4000, 6000), Uniform (3000, 5000))
 } // Bank

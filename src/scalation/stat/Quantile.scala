@@ -195,7 +195,7 @@ object Quantile extends Combinatorics with Error
 /**
  * This object test the the Quantile object.
  */
-object QuantileTest extends Application
+object QuantileTest extends App
 {
     println ("\nTest the normalInv function")
     println ("normalInv (.50)  = " + Quantile.normalInv (.50))

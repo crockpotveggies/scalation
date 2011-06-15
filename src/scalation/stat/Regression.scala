@@ -54,7 +54,7 @@ object Regression
 /**
  * Object to test Regression object (y = x * b = b0 + b1*x1 + b2*x2).
  */
-object RegressionTest extends Application
+object RegressionTest extends App
 {
      // five data points: constant term, x1 coordinate, x2 coordinate
      val x = new MatrixD (5, 1., 36.,  66.,                    // 5-by-3 matrix
@@ -78,7 +78,7 @@ object RegressionTest extends Application
 /**
  * Object to test Regression object (y = x * b = b0 + b1*x1 + b2*x2).
  */
-object RegressionTest2 extends Application
+object RegressionTest2 extends App
 {
      // four data points: constant term, x1 coordinate, x2 coordinate
      val x = new MatrixD (4, 1., 1., 1.,                       // 4-by-3 matrix

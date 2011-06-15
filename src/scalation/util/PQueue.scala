@@ -125,7 +125,7 @@ class PQueue [T <: PQItem] extends ResizableArray [T]
 /**
  * This object is used to test the PQueue class.
  */
-object PQueueTest extends Application
+object PQueueTest extends App
 {
     class Element (time: Double) extends PQItem
     {

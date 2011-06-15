@@ -18,7 +18,7 @@ import scala.collection.mutable.ArrayBuffer
  * This object is used to create "index.html" files in source code directories
  * to enable Web browsing of source code.
  */
-object GenIndexHtml extends Application
+object GenIndexHtml extends App
 {
     val currentDir = System.getenv ("SCALATION_HOME") + "/src/scalation"
     println ("Generate index.html files starting from currentDir = " + currentDir)

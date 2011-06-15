@@ -115,7 +115,7 @@ trait Combinatorics extends Error
 /**
  * This objects test the methods in the Combinatorics trait.
  */
-object CombinatoricsTest extends Application with Combinatorics
+object CombinatoricsTest extends App with Combinatorics
 {
     println ("\nTest Combinatorics functions")
     println ("approx (5, 5)   = " + approx (5, 5))

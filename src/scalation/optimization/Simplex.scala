@@ -237,7 +237,7 @@ class Simplex (a: MatrixD, b: Vec[Double], c: Vec[Double])
 /**
  * This object is used to test the Simplex class.
  */
-object SimplexTest extends Application
+object SimplexTest extends App
 {
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /**

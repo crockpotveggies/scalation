@@ -88,7 +88,7 @@ class StatVector (dim: Int) extends Vec [Double] (Array.ofDim[Double](dim))
 /**
  * Object to test the StatVector class.
  */
-object StatVectorTest extends Application
+object StatVectorTest extends App
 {
     val v = new StatVector (Array (1., 2., 3., 4., 5., 6.))
     println ("v          = " + v)

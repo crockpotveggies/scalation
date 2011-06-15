@@ -71,8 +71,15 @@ package object stat {
      */
     object BatchMeans extends Stat with ScalaTion {
         
-        // @TODO include the code for batch means
+        /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+        /** Simulate to collect b*n sample data points.
+         */
+        def makeBatch(b: Int, n: Int = 1): RandVec = RandVec.ofLength(b*n)
         
+        def µBatch(x: RandVec, b: Int): RandVec = {
+            val n = x.length / b
+            Vec.fromSeq(for (i <- 0 until n-1) yield µ(x((i*b) ⋯ ((i+1)*b-1))))
+        }
     }
     
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
