@@ -1,6 +1,5 @@
 
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * @author  John Miller
  * @version 1.0
  * @date    Wed Aug 26 18:41:26 EDT 2009
@@ -9,15 +8,17 @@
 
 package scalation.stat
 
-import scala.math._
-import scalation.stat._
+import math.sqrt
+
+import scalation.random.{Quantile, Uniform}
 import scalation.util.Error
 
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
- * This class is used to collect values and compute statistics on them.
+//:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/** This class is used to collect values and compute sample statistics on them
+ *  (e.g., Waiting Time).  Constrast with TimeStatistic defined below.
+ *  @param name  the name for this statistic (e.g., WatingTime or tellerQ)
  */
-class Statistic extends Error
+class Statistic (val name: String = "stat") extends Error
 {
     /** The number of samples
      */
@@ -39,8 +40,7 @@ class Statistic extends Error
      */
     protected var maxX = 0.
 
-    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Tally the next value and update accumulators.
      * @param x  the value to tally
      */
@@ -53,92 +53,84 @@ class Statistic extends Error
         if (x > maxX) maxX = x
     } // tally
 
-    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Get the number of samples.
      */
     def num: Int = n
 
-    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Get the minimum value in sample.
      */
-    def min: Double = minX
+    def min: Double = if (n == 0) 0. else minX
 
-    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Get the maximum value in sample.
      */
     def max: Double = maxX
 
-    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Compute/estimate the sample mean.
      */
-    def mean: Double = if (n == 0) 0.0 else sum / n.asInstanceOf [Double]
+    def mean: Double = if (n == 0) 0. else sum / n.asInstanceOf [Double]
 
-    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Compute/estimate the sample variance.
      */
-    def variance: Double = if (n == 0) 0. else sumSq / n.asInstanceOf [Double] - pow (mean, 2)
+    def variance: Double = if (n == 0) 0. else sumSq / n.asInstanceOf [Double] - mean * mean
 
-    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Compute/estimate the sample standard deviation.
      */
     def stddev: Double = sqrt (variance)
 
-    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Compute/estimate the root mean square.
      */
     def rms: Double = sqrt (sumSq / n.asInstanceOf [Double])
 
-    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Compute the confidence interval half-width for the given confidence level.
      * @param p  the confidence level
      */
     def interval (p: Double = .95): Double =
     {
-        val df = n - 1   // degrees of freedom
-        if (df < 1) flaw ("interval", "must have at least 2 observations")
-        val pp = 1 - (1 - p) / 2.0            // e.g., .95 --> .975 (two tails)
+        val df = n - 1              // degrees of freedom
+        if (df < 1) return 0.       // flaw ("interval", "must have at least 2 observations")
+        val pp = 1 - (1 - p) / 2.   // e.g., .95 --> .975 (two tails)
         val t = Quantile.studentTInv (pp, df)
         t * stddev / sqrt (df)
     } // interval
 
-    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Generate a header of statisical labels as a string.
      */
     def labels (): String =
     {
-        format ("| %4s | %9s | %9s | %9s | %9s | %9s |", "num", "min", "max", "mean", "stdDev", "interval")
+        "| %4s | %9s | %9s | %9s | %9s | %9s |".format ("num", "min", "max", "mean", "stdDev", "interval")
     } // labels
 
-    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Generate a row of statistical results as a string.
      */
     override def toString: String = 
     {
-        format ("| %4d | %9.3f | %9.3f | %9.3f | %9.3f | %9.3f |", num, min, max, mean, stddev, interval ())
+        "| %4d | %9.3f | %9.3f | %9.3f | %9.3f | %9.3f |".format (num, min, max, mean, stddev, interval ())
     } // toString
 
 } // Statistic class
 
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
- * This class is used to collect values and compute time persistent statistics
- * on them.
+
+/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+ * This class is used to collect values and compute time-persistent statistics
+ * on them (e.g., Number in Queue).
  * @param lastTime  the time of previous observation
+ *  @param name  the name for this statistic (e.g., NumberInQueue or tellerQ)
  */
-class TimeStatistic (var lastTime: Double = 0.) extends Statistic
+class TimeStatistic (override val name: String = "timeStat",
+                              var lastTime: Double = 0.)
+      extends Statistic (name)
 {
-    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Disable the tally method (it is for sample statistics, not time persistent
      * statistics.
      * @param x  the value to tally
@@ -148,8 +140,7 @@ class TimeStatistic (var lastTime: Double = 0.) extends Statistic
         flaw ("tally", "this method must not be called from TimeStatistic")
     } // tally
 
-    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Accumulate the next value weighted by its time duration and update accumulators.
      * @param x  the value to accumulate
      * @param t  the time of the observation
@@ -168,11 +159,10 @@ class TimeStatistic (var lastTime: Double = 0.) extends Statistic
 
 } // TimeStatistic class
 
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * This object is used to test the Statistic and TimeStatistic classes.
  */
-object StatisticTest extends Application
+object StatisticTest extends App
 {
     val rv   = Uniform (0, 10)
 

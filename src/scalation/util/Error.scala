@@ -1,6 +1,5 @@
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * @author  John Miller
  * @version 1.0
  * @date    Fri Sep 25 15:05:06 EDT 2009
@@ -9,8 +8,7 @@
 
 package scalation.util
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * This trait is used to report errors showing the class and method within
  * which the error or flaw occured.
  */
@@ -20,8 +18,7 @@ trait Error
      */
     private val className = getClass.getSimpleName ()
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Show the flaw by printing the error message.
      * @param method   the method where the error occured
      * @param message  the error message

@@ -1,6 +1,5 @@
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * @author  John Miller
  * @version 1.0
  * @date    Mon Sep 14 14:15:51 EDT 2009
@@ -9,19 +8,21 @@
 
 package scalation.animation
 
-import scala.math.round
-import scala.actors.Actor
-import scala.collection.mutable.SynchronizedQueue
-import scala.swing.{MainFrame, Panel}
+import java.awt.Font
+
+import math.round
+import actors.Actor
+import collection.mutable.SynchronizedQueue
+import swing.{MainFrame, Panel}
+import util.control.Breaks.{breakable, break}
 
 import scalation.animation.CommandType._
-import scalation.scala2d._
+import scalation.scala2d.{CurvilinearShape, Ellipse, QCurve, Rectangle}
 import scalation.scala2d.Colors._
-import scalation.scala2d.Shapes._
+import scalation.scala2d.Shapes.{Dimension, Graphics2D, RectangularShape}
 import scalation.util.Error
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * This class is an animation engine for animating graphs.
  * For example, it can animate bipartite graphs to animate Petri Nets.
  * @param title    the title for the display frame
@@ -32,7 +33,7 @@ class DgAnimator (_title: String, fgColor: Color, bgColor: Color)
 {
     /** Size/dimensions of the frame
      */
-    private val frameSize = new Dimension (700, 600)
+    private val frameSize = new Dimension (700, 400)
 
     /** Clock for animation engine
      */
@@ -54,17 +55,16 @@ class DgAnimator (_title: String, fgColor: Color, bgColor: Color)
      */    
     private val cmdQ = new SynchronizedQueue [AnimateCommand] ()
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * The canvas Panel is used to place shapes in the drawing region.
      */
     val canvas = new Panel
     {
         background    = bgColor
         preferredSize = frameSize
+        val f = new Font ("Serif", Font.BOLD, 12)
 
-        /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-        /**
+        /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
          * Paint the display panel component.
          * @param g2d  the high-resolution Graphics context
          */
@@ -74,8 +74,9 @@ class DgAnimator (_title: String, fgColor: Color, bgColor: Color)
 
             //:: Display the animation clock
 
+            g2d.setFont (f)
             g2d.setPaint (fgColor)
-            g2d.drawString ("CLOCK = " + clock, 20, (frameSize.getHeight ()).asInstanceOf [Int])
+            g2d.drawString ("CLOCK = " + "%10.3f".format(clock), 20, (frameSize.getHeight ()).asInstanceOf [Int])
 
             //:: Display all nodes in graph and tokens bound to these nodes.
 
@@ -83,7 +84,9 @@ class DgAnimator (_title: String, fgColor: Color, bgColor: Color)
             for (node <- graph.nodes) {
                 g2d.setPaint (node.color)
                 g2d.fill (node.shape)
-                val x = node.shape.getCenterX ().asInstanceOf [Float] - 6.f
+                g2d.setPaint (black)
+                g2d.draw (node.shape)
+                val x = node.shape.getCenterX ().asInstanceOf [Float] - 20.f
                 val y = node.shape.getMaxY ().asInstanceOf [Float] + 12.f
                 g2d.drawString (node.label, x, y)
                 for (token <- node.tokens) {
@@ -98,10 +101,10 @@ class DgAnimator (_title: String, fgColor: Color, bgColor: Color)
             for (edge <- graph.edges) {
                 g2d.setPaint (edge.color)
                 g2d.draw (edge.shape)
-                val x = edge.shape.getCenterX ().asInstanceOf [Float] + 4.f
+                val x = edge.shape.getCenterX ().asInstanceOf [Float] - 30.f
                 val y = edge.shape.getCenterY ().asInstanceOf [Float]
                 g2d.drawString (edge.label, x, y)
-                for (token <- edge.tokens) {
+                for (token <- edge.tokens if token.shape.getWidth () > 0.) {
                     g2d.setPaint (token.color)
                     g2d.fill (token.shape)
                 } // for
@@ -110,7 +113,7 @@ class DgAnimator (_title: String, fgColor: Color, bgColor: Color)
             //:: Display all free tokens in the graph.
 
             // println ("paintComponent: paint " + graph.freeTokens.length + " free tokens")
-            for (token <- graph.freeTokens) {
+            for (token <- graph.freeTokens if token.shape.getWidth () > 0.) {
                 g2d.setPaint (token.color)
                 g2d.fill (token.shape)
             } // for
@@ -124,8 +127,7 @@ class DgAnimator (_title: String, fgColor: Color, bgColor: Color)
         visible  = true
     } // primary constructor
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Invoke the animation command.
      * @param c  the animation command to invoke
      */
@@ -176,8 +178,7 @@ class DgAnimator (_title: String, fgColor: Color, bgColor: Color)
         } // match
     } // invokeCommand
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Repeatedly execute animation commands, sleep and repaint.
      */
     def act ()
@@ -187,15 +188,16 @@ class DgAnimator (_title: String, fgColor: Color, bgColor: Color)
         var delay: Long = 0
         println ("DgAnimator.act: start animation at time " + clock)
 
-        while (clock < stopTime) {
+        breakable { while (clock < stopTime) {
 
             //:: Get the next animation command from the shared queue.
 
-            cmd = cmdQ.dequeue ()
-            if (cmd == null) {
+            if (cmdQ.isEmpty) {
                 println ("DgAnimator.act: command queue is empty")
-                return
+                break
             } // if
+
+            cmd = cmdQ.dequeue ()
             when  = cmd.time
             delay = round ((when - clock) * ani.timeDilationFactor)
 
@@ -211,13 +213,12 @@ class DgAnimator (_title: String, fgColor: Color, bgColor: Color)
             //:: Repaint the canvas.
 
             repaint ()
-        } // while
+        }} // while
 
         println ("DgAnimator.act: end animation at time " + clock)
     } // act
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Start the animation by staring the animation actor.
      * @param tStart  the animation start time
      * @param tStop   the animation stop time
@@ -229,22 +230,19 @@ class DgAnimator (_title: String, fgColor: Color, bgColor: Color)
         start ()
     } // startAnimation
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Get the animation command queue.
      */
     def getCommandQueue = cmdQ
 
 } // DgAnimator class
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * The DgAnimatorTest object is used to test the DgAnimator class.
  */
-object DgAnimatorTest extends Application
+object DgAnimatorTest extends App
 {
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Sample method for loading the shared command queue.
      * Ordinarily these commands would come from some simulation engine.
      * @param cq  the animation command queue

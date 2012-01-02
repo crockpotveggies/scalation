@@ -1,44 +1,50 @@
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
- * @author  John Miller
- * @version 1.0
- * @date    Mon Sep  7 15:05:06 EDT 2009
- * @see     LICENSE (MIT style license file).
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/** @author  John Miller
+ *  @version 1.0
+ *  @date    Mon Sep  7 15:05:06 EDT 2009
+ *  @see     LICENSE (MIT style license file).
  */
 
 package scalation.process
 
-import scala.collection.mutable._
+import collection.mutable.Queue
 
-import scalation.animation._
 import scalation.animation.CommandType._
-import scalation.scala2d._
+import scalation.scala2d.Rectangle
 import scalation.scala2d.Colors._
-import scalation.util.Monitor
+import scalation.util.Monitor.trace
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
- * The WaitQueue class simply a wrapper for monitoring scala's Queue class.
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/** The WaitQueue class simply a wrapper for monitoring scala's Queue class.
+ *  @param name  the name of the wait-queue
+ *  @param at    the location of the wait-queue (x, y, w, h)
  */
 class WaitQueue (name: String, at: Array [Double])
-      extends Queue [SimActor] with Component with Monitor
+      extends Queue [SimActor] with Component
 {
-    setName (name)
-    setAt (at)
+    initComponent (name, at)
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
-     * Tell the animation queue to display this WaitQueue.
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** Auxiliary constuctor that uses defaults for width (w) and height (h).
+     *  @param name  the name of the wait-queue
+     *  @param xy    the (x, y) coordinates for the top-left corner of the wait-queue.
+     */
+    def this (name: String, xy: Tuple2 [Double, Double])
+    {
+        this (name, Array (xy._1, xy._2, 70., 20.))
+    } // constructor
+
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** Tell the animation queue to display this WaitQueue.
      */
     def display ()
     {
-        director.animate (this, CreateNode, yellow, Rectangle (), at)
+        director.animate (this, CreateNode, cyan, Rectangle (), at)
     } // display
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
-     * Wait in the queue.
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** Wait in the queue.
      */
     def waitIn ()
     {

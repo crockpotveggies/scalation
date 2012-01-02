@@ -1,6 +1,5 @@
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * @author  John Miller
  * @version 1.0
  * @date    Sun Jan 10 17:08:32 EST 2010
@@ -43,8 +42,7 @@
 
 package scalation.scala2d
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * Scala type aliases for basic Java2D types.
  */
 object Shapes
@@ -56,39 +54,33 @@ object Shapes
     type Shape            = java.awt.Shape
 } // Shapes
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * Convenience case class for Point2D.
  */
 case class R2 (xx: Double, yy: Double) extends java.awt.geom.Point2D.Double (xx, yy)
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * Convenience case class for Path2D.  Its subtypes (case class Polygon, etc.)
  * are defined other files in the scala2d package.
  */
 case class Path () extends java.awt.geom.Path2D.Double
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * Convenience case class for Arc2D (a subclass of RectangularShape).
  */
 case class Arc () extends java.awt.geom.Arc2D.Double
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * Convenience case class for Ellipse2D (a subclass of RectangularShape).
  */
 case class Ellipse () extends java.awt.geom.Ellipse2D.Double
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * Convenience case class for Rectangle2D (a subclass of RectangularShape).
  */
 case class Rectangle () extends java.awt.geom.Rectangle2D.Double
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * Convenience case class for RoundRectangle2D (a subclass of RectangularShape).
  */
 case class RoundRectangle () extends java.awt.geom.RoundRectangle2D.Double

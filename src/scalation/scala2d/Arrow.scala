@@ -1,6 +1,5 @@
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * @author  John Miller
  * @version 1.0
  * @date    Tue Jan  5 16:14:38 EST 2010
@@ -9,16 +8,14 @@
 
 package scalation.scala2d
 
-import scala.math._
-import scala.swing.{MainFrame, Panel}
+import math.{atan, cos, Pi, sin}
+import swing.{MainFrame, Panel}
 
 import scalation.scala2d.Colors._
-import scalation.scala2d.QCurveCalc._
-import scalation.scala2d.Shapes._
+import scalation.scala2d.Shapes.{Dimension, Graphics2D}
 import scalation.util.Error
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * The Arrow class uses Java's Path2D class to create a line with an arrowhead
  * on the far end.  The main line is defined by points p1 and p2.  Points p3
  * and p4 are the corners of the triangular arrowhead.
@@ -49,8 +46,7 @@ case class Arrow (var p1:  R2  = R2 (0., 0.),
         lineTo (p2.x, p2.y)
     } // primary constructor
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Get the x-coordinate of the center of the main line.
      */
     def getCenterX (): Double =
@@ -58,8 +54,7 @@ case class Arrow (var p1:  R2  = R2 (0., 0.),
         (p1.x + p2.x) / 2.
     } // getCenterX
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Get the y-coordinate of the center of the main line.
      */
     def getCenterY (): Double =
@@ -67,8 +62,7 @@ case class Arrow (var p1:  R2  = R2 (0., 0.),
         (p1.y + p2.y) / 2.
     } // getCenterY
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Set (or reset) the location for the Arrow as a line.
      * @param _p1  the starting point
      * @param _p2  the ending point
@@ -93,8 +87,7 @@ case class Arrow (var p1:  R2  = R2 (0., 0.),
         lineTo (p2.x, p2.y)
     } // setLine
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Set (or reset) the location for the Arrow as a line. The bend parameter
      * is ignored for this class, since arrows are straight.
      * @param _p1   the starting point
@@ -109,11 +102,10 @@ case class Arrow (var p1:  R2  = R2 (0., 0.),
     
 } // Arrow class
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * This object is used to test the Arrow class.
  */
-object ArrowTest extends Application
+object ArrowTest extends App
 {
     private val arrow1 = new Arrow (R2 (200, 200), R2 (300, 200))
     private val arrow2 = new Arrow (R2 (200, 200), R2 (300, 300))

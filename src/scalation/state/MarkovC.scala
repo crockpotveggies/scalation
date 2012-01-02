@@ -1,6 +1,5 @@
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * @author  John Miller
  * @version 1.0
  * @date    Sat Dec 12 13:11:30 EST 2009
@@ -9,20 +8,18 @@
 
 package scalation.state
 
-import scala.math._
+import math.{abs, cos, Pi, sin}
 
-import scalation.animation._
+import scalation.animation.{AnimateCommand, DgAnimator}
 import scalation.animation.CommandType._
-import scalation.advmath._
-import scalation.advmath.Vectors._
-import scalation.advmath.Matrices._
-import scalation.stat._
-import scalation.scala2d._
+import scalation.math.Vectors.VectorD
+import scalation.math.Matrices.MatrixD
+import scalation.random.{Discrete, Exponential}
+import scalation.scala2d.{Ellipse, QArrow}
 import scalation.scala2d.Colors._
 import scalation.util.Error
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * This class supports the creation and use of Continuous-Time Markov Chains
  * (CTMC).  Note: the transition matrix tr gives the state transition rates
  * off-diagonal.  The diagonal elements must equal minus the sum of the rest
@@ -35,7 +32,7 @@ class MarkovC (tr: MatrixD) extends Error
 {
     /** The jump matrix derived from the transition rate matrix (tr)
      */
-    val jump = MatrixN [Double] (tr.dim1, tr.dim2)
+    val jump = new MatrixD (tr.dim1, tr.dim2)
    
     {
         if ( ! tr.isSquare) flaw ("constructor", "transition rate matrices must be square")
@@ -87,8 +84,7 @@ class MarkovC (tr: MatrixD) extends Error
      */
     private val EPSILON = .000001
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Compute the next probabilistic state at t time units in the future.
      * @param p  the current state probability vector
      * @param t  compute for time t
@@ -98,8 +94,7 @@ class MarkovC (tr: MatrixD) extends Error
         null  // FIX, not implemented yet
     } // next
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Compute the limiting probabilistic state as t -> infinity, by finding the
      * left nullspace of the tr matrix: solve for p such that p * tr = 0 and
      * normalize p, i.e., ||p|| = 1.
@@ -109,8 +104,7 @@ class MarkovC (tr: MatrixD) extends Error
         tr.t.slice (0, tr.dim1 - 1).nullspace.normalize
     } // limit
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Simulate the continuous-time Markov chain, by starting in state i0 and after
      * the state's holding, making a transition to the next state according to the
      * jump matrix.
@@ -153,8 +147,7 @@ class MarkovC (tr: MatrixD) extends Error
 
     } // simulate
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Animate this continuous-time Markov Chain.  Place the nodes around a circle
      * and connect them if there is a such a transition.
      */
@@ -195,8 +188,7 @@ class MarkovC (tr: MatrixD) extends Error
         } // if
     } // animate
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Convert this continuous-time Markov Chain to s string.
      */
     override def toString: String = "MarkovC(" + tr + ")"
@@ -204,16 +196,15 @@ class MarkovC (tr: MatrixD) extends Error
 } // MarkovC class
 
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * This object tests the MarkovC class (Continuous-Time Markov Chains).
  */
-object MarkovCTest extends Application
+object MarkovCTest extends App
 {
     val endTime = 200.     // number of time units (e.g., milliseconds)
 
-    val mc = new MarkovC (new MatrixD (2, -4.,  4.,             // 2-by-2 matrix
-                                           5., -5.))
+    val mc = new MarkovC (new MatrixD ((2, 2), -4.,  4.,        // 2-by-2 matrix
+                                                5., -5.))
 
     println ("\nContinuous-Time Markov Chain mc = " + mc + "\n")
     println ("\nContinuous-Time Markov Chain: transient solution:")
@@ -223,12 +214,12 @@ object MarkovCTest extends Application
     println ("\njump matrix  \tj = " + mc.jump)
     println ("\nsteady-state \tp = " + mc.limit)
 
-    val mc2 = new MarkovC (new MatrixD (6, -2., 1.,  0.,  1.,  0., 0.,   // 6-by-6 matrix
-                                            0., 0.,  0.,  0.,  0., 0.,
-                                            0., 1., -4.,  0.,  0., 3.,
-                                            2., 0.,  0., -4.,  2., 0.,
-                                            0., 3.,  1.,  0., -5., 1.,
-                                            0., 0.,  0.,  0.,  0., 0.))
+    val mc2 = new MarkovC (new MatrixD ((6, 6), -2., 1.,  0.,  1.,  0., 0.,   // 6-by-6 matrix
+                                                 0., 0.,  0.,  0.,  0., 0.,
+                                                 0., 1., -4.,  0.,  0., 3.,
+                                                 2., 0.,  0., -4.,  2., 0.,
+                                                 0., 3.,  1.,  0., -5., 1.,
+                                                 0., 0.,  0.,  0.,  0., 0.))
 
     println ("\nContinuous-Time Markov Chain mc2 = " + mc2 + "\n")
     println ("\nContinuous-Time Markov Chain: simulation:")

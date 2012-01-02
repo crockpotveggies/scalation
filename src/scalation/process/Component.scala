@@ -1,10 +1,9 @@
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
- * @author  John Miller
- * @version 1.0
- * @date    Mon Sep  7 15:05:06 EDT 2009
- * @see     LICENSE (MIT style license file).
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/** @author  John Miller
+ *  @version 1.0
+ *  @date    Mon Sep  7 15:05:06 EDT 2009
+ *  @see     LICENSE (MIT style license file).
  */
 
 package scalation.process
@@ -12,28 +11,11 @@ package scalation.process
 import scalation.stat.{Statistic, TimeStatistic}
 import scalation.util.Identity
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
- * The Component trait provides basic common feature for simulation components.
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/** The Component trait provides basic common feature for simulation components.
  */
 trait Component extends Identity
 {
-    /** Director of the Model (to which the component belongs)
-     */
-    private var _director: Model = null
-
-    /** Where the component is at (its location)
-     */
-    private var _at: Array [Double] = null
-
-    /** Collector of sample statistics (e.g., waiting time)
-     */
-    private val _durationStat = new Statistic ()
-
-    /** Collector of time persistent statistics (e.g., number in queue)
-     */
-    private val _persistentStat = new TimeStatistic ()
-
     /** Radius of a token (for animating entities)
      */
     val RAD = 5.
@@ -42,72 +24,105 @@ trait Component extends Identity
      */
     val DIAM = 2. * RAD
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
-     * Director who controls the play.
+    /** Director of the play/simulation model (to which this component belongs)
+     */
+    private var _director: Model = null
+
+    /** Where this component is at (its location)
+     */
+    private var _at: Array [Double] = null
+
+    /** Collector of sample statistics (e.g., waiting time)
+     */
+    private var _durationStat: Statistic = null
+
+    /** Collector of time persistent statistics (e.g., number in queue)
+     */
+    private var _persistentStat: TimeStatistic = null
+
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** Initialize this component (all of its vars).
+     *  @param label  the name of this component
+     *  @param loc    the location of this component
+     */
+    def initComponent (label: String, loc: Array [Double])
+    {
+        setName (label)
+        setAt (loc)
+        initStats (label)
+    } // initComponent
+
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** Initialize this component's statistical collectors.
+     *  @param label  the name of this component
+     */
+    def initStats (label: String)
+    {
+        _durationStat   = new Statistic (name)
+        _persistentStat = new TimeStatistic (name)
+    } // initStats
+
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** Return the director who controls the play/simulation this component is in.
      */
     def director = _director
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
-     * Set the name of the director (controlling model).
-     * @param director  the director of the play.
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** Set this component's director (the controller of the simulation model).
+     *  @param dir  the director of the play/simulation
      */
-    def setDirector (__director: Model)
+    def setDirector (dir: Model)
     {
-        if (_director == null && __director != null) {
-            _director = __director
+        if (_director == null && dir != null) {
+            _director = dir
         } else {
             flaw ("setDirector", "director may only be set once")
         } // if
     } // setDirector
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
-     * Where the component is at.
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** Return where this component is at (its location).
      */
     def at = _at
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
-     * Set the name of the director (controlling model).
-     * @param director  the director of the play.
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** Set the location of this component.
+     *  @param loc  the location of this component
      */
-    def setAt (__at: Array [Double])
+    def setAt (loc: Array [Double])
     {
-        if (_at == null && __at != null) {
-            _at = __at
+        if (_at == null && loc != null) {
+            _at = loc
         } else {
             flaw ("setAt", "location may only be set once")
         } // if
     } // setAt
 
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** Abstract display method.
+     */
     def display (): Unit
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
-     * Tally the duration (e.g., waiting time) of an activity or delay.
-     * @param duration  the time duration
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** Tally the duration (e.g., waiting time) of an activity or delay.
+     *  @param duration  the time duration
      */
     def tally (duration: Double) { _durationStat.tally (duration) }
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
-     * Accumulate the a value (e.g., number in  queue) weighted by its time duration.
-     * @param value  the value to accumulate
-     * @param time   the current time of the observation
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** Accumulate the value (e.g., number in  queue) weighted by its time duration.
+     *  @param value  the value to accumulate
+     *  @param time   the current time of the observation
      */
     def accumulate (value: Double, time: Double) { _persistentStat.accumulate (value, time) }
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
-     * Sample statistics for durations for the component.
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** Return sample statistics for durations for this component (e.g., Time in queue).
      */
     def durationStat = _durationStat
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
-     * Persistent statistics for value for the component.
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** Return time persistent statistics for value for this component (e.g. Number in queue).
      */
     def persistentStat = _persistentStat
 

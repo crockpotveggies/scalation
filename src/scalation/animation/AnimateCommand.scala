@@ -1,6 +1,5 @@
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * @author  John Miller
  * @version 1.0
  * @date    Mon Sep 21 15:05:06 EDT 2009
@@ -9,11 +8,10 @@
 
 package scalation.animation
 
-import scalation.scala2d.Colors._
-import scalation.scala2d.Shapes._
+import scalation.scala2d.Colors.Color
+import scalation.scala2d.Shapes.Shape
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * This class implements a message which is passed from a simulation engine to
  * the animation engine.  A message specifies one of the commands defined in
  * the Animator interface.
@@ -40,8 +38,7 @@ object CommandType extends Enumeration
     val TimeDilation    = Value ("TimeDilation")
 } // CommandType object
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * This class provides a template for animation commands.
  * @param action    the animation action to perform
  * @param eid       the external id for the component acted upon
@@ -58,16 +55,14 @@ case class AnimateCommand (action: CommandType.Value, eid: Int, shape: Shape, la
                            primary: Boolean, color: Color, pts: Array [Double], time: Double,
                            from_eid: Int = -1, to_eid: Int = -1)
 {
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * This method compares two AnimateCommand objects to see which one has
      * the most recent timestamp.
      * @param command2  the AnimateCommand to compare this to
      */
     def compare (command2: AnimateCommand) = time compare command2.time
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Show the elements of the array and handle the null case.
      * @param array  the array to be shown
      */
@@ -76,8 +71,7 @@ case class AnimateCommand (action: CommandType.Value, eid: Int, shape: Shape, la
        if (array == null) "Array ( null )" else array.deep
     } // show
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Convert the command to a string representation useful to printing/debugging.
      * @return String  the string representation for this AnimateCommand
      */

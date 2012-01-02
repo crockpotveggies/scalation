@@ -1,6 +1,5 @@
 
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * @author  John Miller
  * @version 1.0
  * @date    Wed Aug 26 18:41:26 EDT 2009
@@ -9,19 +8,19 @@
 
 package scalation.stat
 
-import scala.math._
-import scalation.advmath._
+import math.sqrt
 
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+import scalation.math.Vectors.VectorD
+import scalation.random.Quantile
+
+/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * The StatVector class provides methods for computing common statistics on
  * a data vector.
  * @param dim  the dimension/size of the vector
  */
-class StatVector (dim: Int) extends VectorN [Double] (dim)
+class StatVector (dim: Int) extends VectorD (dim)
 {
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Construct a StatVector from an Array.
      * @param u  the array to initialize StatVector
      */
@@ -31,49 +30,42 @@ class StatVector (dim: Int) extends VectorN [Double] (dim)
         setAll (u)
     } // constructor
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
-     * Construct a StatVector from a VectorN.
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+     * Construct a StatVector from a VectorN [Double], i.e., VectorD
      * @param u  the vector to initialize StatVector
      */
-    def this (u: VectorN [Double])
+    def this (u: VectorD)
     {
         this (u.dim)
         setAll (u())
     } // constructor
 
-   /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-   /**
+   /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     * Get the number of samples.
     */
     def num: Int = dim
 
-   /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-   /**
+   /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     * Compute the mean of this vector.
     */
     def mean: Double = sum / dim
 
-   /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-   /**
+   /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     * Compute the variance of this vector.
     */
-    def variance: Double = (norm2 - pow (sum, 2) / dim) / dim 
+    def variance: Double = (normSq - sum * sum / dim) / dim 
 
-   /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-   /**
+   /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     * Compute the standard deviation of this vector.
     */
     def stddev: Double = sqrt (variance)
 
-    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Compute the root mean square.
      */
-    def rms: Double = sqrt (norm2 / dim.asInstanceOf [Double])
+    def rms: Double = sqrt (normSq / dim.asInstanceOf [Double])
 
-   /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-   /**
+   /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     * Compute the confidence interval half-width for the given confidence level.
     * @param p  the confidence level
     */
@@ -89,16 +81,16 @@ class StatVector (dim: Int) extends VectorN [Double] (dim)
 
 } // StatVector class
 
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+
+/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * Object to test the StatVector class.
  */
-object StatVectorTest extends Application
+object StatVectorTest extends App
 {
     val v = new StatVector (Array (1., 2., 3., 4., 5., 6.))
     println ("v          = " + v)
-    println ("v.min      = " + v.min)
-    println ("v.max      = " + v.max)
+    println ("v.min      = " + v.min ())
+    println ("v.max      = " + v.max ())
     println ("v.mean     = " + v.mean)
     println ("v.variance = " + v.variance)
     println ("v.stddev   = " + v.stddev)

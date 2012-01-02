@@ -1,6 +1,5 @@
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * @author  John Miller
  * @version 1.0
  * @date    Sun Nov 15 15:05:06 EDT 2009
@@ -9,14 +8,12 @@
 
 package scalation.event
 
-import scalation.animation._
 import scalation.animation.CommandType._
-import scalation.scala2d._
+import scalation.scala2d.Ellipse
 import scalation.scala2d.Colors._
 import scalation.util.PQItem
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * This class provides facilities for defining simulation events.  Subclasses of
  * of Event provide event-logic in their implementation of the occur method.
  * Note: unique identification and the event/activation time (actTime) are mixed
@@ -35,8 +32,7 @@ abstract class Event (val proto: Event, entity: Entity, links: Array [CausalLink
          if (proto == null) display ()  // the prototype event does not have a prototype
      } // primary constructor
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Execute the event where the event-logic is specified as follows:
      * (i) Each model will define causal links that connect events. One event
      * may schedule other events, depending upon whether the respective
@@ -48,15 +44,16 @@ abstract class Event (val proto: Event, entity: Entity, links: Array [CausalLink
      */
     def occur ()
     {
-        for (arc <- links if arc.condition ()) {
-            val delayTime = arc.delay.gen
-            arc.tally (delayTime)
-            director.schedule (arc.makeEvent (), delayTime)
-        } // for
+        if (links != null) {
+            for (arc <- links if arc.condition ()) {
+                val delayTime = arc.delay.gen
+                arc.tally (delayTime)
+                director.schedule (arc.makeEvent (), delayTime)
+            } // for
+        } // if
     } // occur
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Tell the animation engine to display this Event as a node.
      */
     def display ()
@@ -64,8 +61,7 @@ abstract class Event (val proto: Event, entity: Entity, links: Array [CausalLink
         director.animate (this, CreateNode, blue, Ellipse (), at)
     } // display
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Tell the animation engine to display this node's outgoing CausalLink's as edges.
      * @param outLinks  this nodes outgoing casual links
      */
@@ -74,8 +70,7 @@ abstract class Event (val proto: Event, entity: Entity, links: Array [CausalLink
         for (l <- outLinks) l.display (this, l.causedEvent)
     } // displayLinks
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Convert the event to a string.
      */
     override def toString = "Event ( " + getClass.getSimpleName () + ", " + me + ", " + entity + " )"

@@ -1,38 +1,37 @@
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
- * @author  John Miller
- * @version 1.0
- * @date    Mon Sep  7 15:05:06 EDT 2009
- * @see     LICENSE (MIT style license file).
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/** @author  John Miller
+ *  @version 1.0
+ *  @date    Mon Sep  7 15:05:06 EDT 2009
+ *  @see     LICENSE (MIT style license file).
  */
 
 package scalation.process
 
-import scala.math._
-import scalation.animation._
-import scalation.animation.CommandType._
-import scalation.advmath._
-import scalation.stat._
-import scalation.scala2d._
-import scalation.scala2d.Colors._
-import scalation.util.Monitor
+import math.abs
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
- * The Transport class provides a pathway between two other components.
- * The Components in a Model conceptually form a 'graph' in which the 'edges'
- * are Transport objects and the 'nodes' are other Component objects.
- * @param name      the name of the transport
- * @param tripTime  the time to move down the transport
- * @param from      the starting component
- * @param to        the ending component
- * @param bend      the bend or curvature of the transport (0 => line)
+import scalation.animation.CommandType._
+import scalation.random.Variate
+import scalation.scala2d.{QCurve, R2}
+import scalation.scala2d.Colors._
+import scalation.scala2d.QCurveCalc.computeControlPoint
+import scalation.util.Monitor.trace
+
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/** The Transport class provides a pathway between two other components.
+ *  The Components in a Model conceptually form a 'graph' in which the 'edges'
+ *  are Transport objects and the 'nodes' are other Component objects.
+ *  @param name      the name of the transport
+ *  @param tripTime  the time to move down the transport
+ *  @param from      the starting component
+ *  @param to        the ending component
+ *  @param bend      the bend or curvature of the transport (0 => line)
  */
-class Transport (name: String, tripTime: Variate,
-                 from: Component, to: Component, bend: Double = 0.)
-                 extends Component with Monitor
+class Transport (name: String, tripTime: Variate, from: Component, to: Component, bend: Double = 0.)
+      extends Component
 {
+    initComponent (name, Array ())
+
     /** A very small real number
      */
     private val EPSILON = .000001
@@ -42,9 +41,6 @@ class Transport (name: String, tripTime: Variate,
     private val curve = QCurve ()
 
     {
-        setName (name)
-        setAt (Array ())
-
         val w1 = from.at(2)
         val h1 = from.at(3)
         var x1 = from.at(0)
@@ -59,31 +55,29 @@ class Transport (name: String, tripTime: Variate,
 
         val p1 = R2 (x1, y1)
         val p2 = R2 (x2, y2)
-        val pc = QCurveCalc.computeControlPoint (p1, p2, bend)
+        val pc = computeControlPoint (p1, p2, bend)
 
         if (abs (bend) < EPSILON) {
-            println (" 1. Transport.constructor: p1 = " + p1 + ", p2 = " + p2 + ", pc = " + pc)
+//          println (" 1. Transport.constructor: p1 = " + p1 + ", p2 = " + p2 + ", pc = " + pc)
             curve.setLine (p1, p2)
         } else {
-            println (" 2. Transport.constructor: p1 = " + p1 + ", p2 = " + p2 + ", pc = " + pc)
+//          println (" 2. Transport.constructor: p1 = " + p1 + ", p2 = " + p2 + ", pc = " + pc)
             curve.setLine (p1, p2, bend)
-            // curve.setLine (p1, pc, p2)
-            println ("loc = " + curve.getFirst)
+//          curve.setLine (p1, pc, p2)
+//          println ("loc = " + curve.getFirst)
         } // if
     } // primary constructor
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
-     * Tell the animation engine to display this Transport.
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** Tell the animation engine to display this Transport.
      */
     def display ()
     {
         director.animate (this, CreateEdge, blue, QCurve (), from, to, Array (bend))
     } // display
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
-     * Give the location of the curve to be its starting point.
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** Give the location of the curve to be its starting point.
      */
     override def at: Array [Double] =
     {
@@ -91,10 +85,9 @@ class Transport (name: String, tripTime: Variate,
        Array (p1.x, p1.y)
     } // at
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
-     * Jump the entity (SimActor) down this Transport.  Place it in the middle
-     * of the Transport/Edge/QCurve for the entire trip time.
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** Jump the entity (SimActor) down this Transport.  Place it in the middle
+     *  of the Transport/Edge/QCurve for the entire trip time.
      */
     def jump ()
     {
@@ -111,12 +104,11 @@ class Transport (name: String, tripTime: Variate,
         actor.yieldToDirector ()
     } // jump
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
-     * Move the entity (SimActor) smoothly down this Transport.  Repeatedely
-     * move it along the Transport/Edge/QCurve.  Caveat: tokens coordinates
-     * are computed using a shadow QCurve (same coordinates as the one that
-     * will be created by the animation engine).
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** Move the entity (SimActor) smoothly down this Transport.  Repeatedely
+     *  move it along the Transport/Edge/QCurve.  Caveat: tokens coordinates
+     *  are computed using a shadow QCurve (same coordinates as the one that
+     *  will be created by the animation engine).
      */
     def move ()
     {
@@ -133,9 +125,9 @@ class Transport (name: String, tripTime: Variate,
                 director.animate (actor, MoveToken, null, null, Array (loc.x, loc.y))
                 actor.schedule (duration / steps.asInstanceOf [Double])
                 actor.yieldToDirector ()
-                println ("Transport.move: -- before loc = " + loc)
+//              println ("Transport.move: -- before loc = " + loc)
                 loc = curve.next (DIAM, DIAM)
-                println ("Transport.move: -- after  loc = " + loc)
+//              println ("Transport.move: -- after  loc = " + loc)
             } // if
 		
         } // for

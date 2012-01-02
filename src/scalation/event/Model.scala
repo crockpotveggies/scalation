@@ -1,46 +1,39 @@
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
- * @author  John Miller
- * @version 1.0
- * @date    Sun Nov 15 15:05:06 EDT 2009
- * @see     LICENSE (MIT style license file).
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/** @author  John Miller
+ *  @version 1.0
+ *  @date    Sun Nov 15 15:05:06 EDT 2009
+ *  @see     LICENSE (MIT style license file).
  */
 
 package scalation.event
 
-import scalation.animation._
+import collection.mutable.ListBuffer
+
+import scalation.ModelT
+import scalation.animation.{AnimateCommand, DgAnimator}
 import scalation.animation.CommandType._
-import scalation.stat._
-import scalation.scala2d._
+import scalation.random.{Uniform, Variate}
+import scalation.scala2d.Ellipse
 import scalation.scala2d.Colors._
-import scalation.scala2d.Shapes._
+import scalation.scala2d.Shapes.Shape
+import scalation.stat.Statistic
 import scalation.util.{Identity, Monitor, PQItem, PQueue}
+import scalation.util.Monitor._
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
- * This class schedules events and implements the time advance mechanism for
- * simulation model following the event-scheduling world view.
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/** This class schedules events and implements the time advance mechanism for
+ *  simulation model following the event-scheduling world view.
+ *  @param name       the name of the model
+ *  @param animation  whether to animate the model
  */
-class Model (name: String)
-      extends Monitor with Identity
+class Model (name: String, animation: Boolean = true)
+      extends ModelT with Identity
 {
-    /** The clock that keeps track of the current simulation time
-     */
-    private var _clock = 0.0
-
     /** The future event list
      */
     private val eventList = new PQueue [Event] () 
 //  private val eventList = new PriorityQueue [Event] ()(Ordering.ordered [Event])
-
-    /** Simulation termination flag
-     */
-    private var simulating = true
-
-    /** Animation flag (set to false to turn off animation)
-     */
-    private var animating = true
 
     /** The animation engine
      */
@@ -50,13 +43,12 @@ class Model (name: String)
      */
     private val aniQ = dgAni.getCommandQueue
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
-     * Place an event on the Future Event List (FEL) for later execution, thus
-     * scheduling the event to occur sometime in the future.  Events are ordered
-     * by their event/act time.
-     * @param event      the event to schedule
-     * @param timeDelay  how far in the future to schedule the event
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** Place an event on the Future Event List (FEL) for later execution, thus
+     *  scheduling the event to occur sometime in the future.  Events are ordered
+     *  by their event/act time.
+     *  @param event      the event to schedule
+     *  @param timeDelay  how far in the future to schedule the event
      */
     def schedule (event: Event, timeDelay: Double)
     {
@@ -66,27 +58,24 @@ class Model (name: String)
                "ev" + event.id, false, black, null, _clock, event.proto.id)
     } // schedule
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
-     * Remove an event from the Future Event List (FEL) before it occurs, thus
-     * cancelling the event.
-     * @param event  the event to cancel
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** Remove an event from the Future Event List (FEL) before it occurs, thus
+     *  cancelling the event.
+     *  @param event  the event to cancel
      */
     def cancel (event: Event)
     {
         if (! (eventList -= event)) flaw ("cancel", "unable to cancel event " + event)
     } // cancel
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
-     * Run the simulation by iteratively processing events in time order.
-     * @param startTime   the time at which the simulation is to begin
-     * @param firstEvent  the first event is used to prime the simulation
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** Run the simulation by iteratively processing events in time order.
+     *  Requires at least one to already be scheduled (see next method).
+     *  @param startTime   the time at which the simulation is to begin
      */
-    def simulate (startTime: Double, firstEvent: Event)
+    def simulate (startTime: Double = 0.): ListBuffer [Statistic] =
     {
         _clock = startTime
-        schedule (firstEvent, _clock)
         trace (this, "starts", this, _clock)
 
         var nextEvent: Event = null
@@ -99,17 +88,27 @@ class Model (name: String)
                     null, false, null, null, _clock, nextEvent.proto.id)
         } // while
 
-        dgAni.animate (0, 100000)
+        if (animation) dgAni.animate (0, 100000)
         trace (this, "terminates", this, _clock)
-
+        getStatistics
     } // simulate
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
-     * Report on the statistical results of the simulation for a given type of
-     * event.
-     * @param eventType  the type of event (e.g., Arrival, Departure)
-     * @param links      the causal links enimating from this event type
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** Run the simulation by iteratively processing events in time order.
+     *  @param firstEvent  the first event is used to prime the simulation
+     *  @param startTime   the time at which the simulation is to begin
+     */
+    def simulate (firstEvent: Event, startTime: Double): ListBuffer [Statistic] =
+    {
+        schedule (firstEvent, startTime)
+        simulate (startTime)
+    } // simulate
+
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** Report on the statistical results of the simulation for a given type of
+     *  event.
+     *  @param eventType  the type of event (e.g., Arrival, Departure)
+     *  @param links      the causal links enimating from this event type
      */
     def report (eventType: String, links: Array [CausalLink] = Array ())
     {
@@ -125,10 +124,9 @@ class Model (name: String)
         } // if
     } // report
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
-     * Report on the statistical results of the simulation for the overall model.
-     * @param vars       the result/output variables for the simulation
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** Report on the statistical results of the simulation for the overall model.
+     *  @param vars  the result/output variables for the simulation
      */
     def report (vars: Array [Tuple2 [String, Double]])
     {
@@ -138,16 +136,33 @@ class Model (name: String)
         } // for
     } // report
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
-     * Put a node/token command on the animation queue.
-     * @param who    who is being animated
-     * @param what   what animation command
-     * @param color  the color the node/token
-     * @param shape  the shape of the node/token
-     * @param at     the location of the node/token
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** Report on the statistical results of the simulation for the overall model.
      */
-    def animate (who: Identity, what: CommandType.Value, color: Color, shape: Shape, at: Array [Double])
+    def report
+    {
+        // FIX
+    } // report
+
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** Return the statistical results of the simulation (statistics for each part).
+     */
+    def getStatistics: ListBuffer [Statistic] =
+    {
+        val stat = new ListBuffer [Statistic] ()
+        // FIX
+        stat      
+    } // getStatistics
+
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** Put a node/token command on the animation queue.
+     *  @param who    who is being animated
+     *  @param what   what animation command
+     *  @param color  the color the node/token
+     *  @param shape  the shape of the node/token
+     *  @param at     the location of the node/token
+     */
+    def animate (who: Identity, what: Value, color: Color, shape: Shape, at: Array [Double])
     {
         if (animating) {
             val eid   = who.id
@@ -158,18 +173,17 @@ class Model (name: String)
         } // if
     } // animate
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
-     * Put a edge command on the animation queue.
-     * @param who    who is being animated
-     * @param what   what animation command
-     * @param color  the color the edge
-     * @param shape  the shape of the edge
-     * @param from   the location of the origination node
-     * @param to     the location of the destination node
-     * @param at     the location of the edge (empty array => implicitly determined)
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** Put a edge command on the animation queue.
+     *  @param who    who is being animated
+     *  @param what   what animation command
+     *  @param color  the color the edge
+     *  @param shape  the shape of the edge
+     *  @param from   the location of the origination node
+     *  @param to     the location of the destination node
+     *  @param at     the location of the edge (empty array => implicitly determined)
      */
-    def animate (who: Identity, what: CommandType.Value, color: Color,
+    def animate (who: Identity, what: Value, color: Color,
                  shape: Shape, from: Event, to: Event, at: Array [Double] = Array ())
     {
         if (animating) {
@@ -183,23 +197,22 @@ class Model (name: String)
 
 } // Model class
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
- * This object is used to test the Model class.
- */
-object ModelTest extends Application
-{
-    new SimpleModel ("phone", Uniform (5000, 7000), 100, Uniform (4000, 6000))
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
-     * This class models a simple phone simulation.
-     * @param name         the name of the simulation model
-     * @param arrivalDist  the inter-arrival time distribution     
-     * @param maxCalls     the maximum number of phone call (stopping condition)
-     * @param servideDist  the service time distribution
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/** This object is used to test the Model class.
+ */
+object ModelTest extends App
+{
+    new PhoneModel ("phone", Uniform (5000, 7000), 100, Uniform (4000, 6000))
+
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** This class models a simple phone simulation.
+     *  @param name         the name of the simulation model
+     *  @param arrivalDist  the inter-arrival time distribution     
+     *  @param maxCalls     the maximum number of phone call (stopping condition)
+     *  @param servideDist  the service time distribution
      */
-    class SimpleModel (name: String, arrivalDist: Variate, maxCalls: Int, serviceDist: Variate)
+    class PhoneModel (name: String, arrivalDist: Variate, maxCalls: Int, serviceDist: Variate)
           extends Model (name)
     {
         //:: define the state variables for the simulation
@@ -223,10 +236,9 @@ object ModelTest extends Application
 
         protoArrival.displayLinks (aLinks)
 
-        /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-        /**
-         * Create a subclass of Event for Arrival events.
-         * @param call  the entity that arrives, in this case a phone call
+        //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        /** Create a subclass of Event for Arrival events.
+         *  @param call  the entity that arrives, in this case a phone call
          */
         case class Arrival (call: Entity)
              extends Event (protoArrival, call, aLinks, this, Array (150., 200., 50., 50.))
@@ -241,10 +253,9 @@ object ModelTest extends Application
 
         } // Arrival class
 
-        /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-        /**
-         * Create a subclass of Event for Departure events.
-         * @param call  the entity that departs, in this case a phone call
+        //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        /** Create a subclass of Event for Departure events.
+         *  @param call  the entity that departs, in this case a phone call
          */
         case class Departure (call: Entity)
              extends Event (protoDeparture, call, null, this, Array (450., 200., 50., 50.))
@@ -257,15 +268,15 @@ object ModelTest extends Application
 
         } // Departure class
 
-        //:: start the simulation, passing the start time and the first priming event
+        //:: start the simulation, passing the first priming event and the start time
 
-        simulate (0., Arrival (null))
+        simulate (Arrival (null), 0.)
         Thread.sleep (2000)
         report (Array (("nCalls", nCalls), ("nDrops", nDrops), ("nHangups", nHangups)))
         report ("Arrival", aLinks)
         report ("Departure")
 
-    } // SimpleModel
+    } // PhoneModel
 
 } // ModelTest object
 

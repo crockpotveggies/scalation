@@ -1,18 +1,18 @@
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
- * @author  John Miller
- * @version 1.0
- * @date    Mon Sep  21 15:05:06 EDT 2009
- * @see     LICENSE (MIT style license file).
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/** @author  John Miller
+ *  @version 1.0
+ *  @date    Mon Sep  21 15:05:06 EDT 2009
+ *  @see     LICENSE (MIT style license file).
  */
 
 package scalation.scala2d
+
+import scalation.random.Randi
  
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
- * A convenience object defining numerous common colors.
- * Source of colors:  http://www.webmoments.com/colorchart.htm
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/** A convenience object defining numerous common colors.
+ *  Source of colors:  http://www.webmoments.com/colorchart.htm
  */
 object Colors
 {
@@ -162,19 +162,44 @@ object Colors
     val yellow           = new Color (0xFFFF00)
     val yellowgreen      = new Color (0x9ACD32)
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
-     * Based upon an object's id, generate (somewhat randomly) a color.
-     * @param id  identifier for some object
-     */
     def randomColor (id: Int) =
     {
-        id % 3 match {
-        case 0 => new Color (255, (31 * id) % 224, 0)
-        case 1 => new Color (255, 0, (31 * id) % 256)
-        case _ => new Color (32 + (31 * id) % 224, 0, 255)
+        val rc = Randi (0x1F, 0xB7)
+        id % 6 match {
+            case 0 => new Color (0xF7,    rc.igen, rc.igen)
+            case 1 => new Color (0xF7,    0xF7,    rc.igen)
+            case 2 => new Color (rc.igen, 0xF7,    rc.igen)
+            case 3 => new Color (rc.igen, 0xF7,    0xF7)
+            case 4 => new Color (rc.igen, rc.igen, 0xF7)
+            case _ => new Color (0xF7,    rc.igen, 0xF7)
         } // match
     } // randomColor
 
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** Based upon an object's id, generate (somewhat randomly) a color.
+     *  @param id  the identifier/index for some object
+    def randomColor (id: Int) =
+    {
+        rc = Randi (0x1F, 0xF7)
+        id % 3 match {
+            case 0 => new Color (255, (31 * id) % 224, 0)
+            case 1 => new Color (255, 0, (31 * id) % 256)
+            case _ => new Color (32 + (31 * id) % 224, 0, 255)
+        } // match
+    } // randomColor
+
+     */
+
 } // Colors object
+
+
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/** This object is used to test the Colors object.
+ */
+object ColorsTest extends App
+{
+    import Colors.randomColor
+    for (i <- 0 until 20) println ("color " + i + " = " + randomColor (i))
+
+} // ColorsTest object
 

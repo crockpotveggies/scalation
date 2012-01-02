@@ -1,6 +1,5 @@
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * @author  John Miller
  * @version 1.0
  * @date    Sat Dec 12 13:11:30 EST 2009
@@ -9,20 +8,18 @@
 
 package scalation.state
 
-import scala.math._
+import math.{abs, cos, Pi, sin}
 
-import scalation.animation._
+import scalation.animation.{AnimateCommand, DgAnimator}
 import scalation.animation.CommandType._
-import scalation.advmath._
-import scalation.advmath.Matrices._
-import scalation.advmath.Vectors._
-import scalation.stat._
-import scalation.scala2d._
+import scalation.math.Matrices.MatrixD
+import scalation.math.Vectors.VectorD
+import scalation.random.Discrete
+import scalation.scala2d.{Ellipse, QArrow}
 import scalation.scala2d.Colors._
 import scalation.util.Error
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * This class supports the creation and use of Discrete-Time Markov Chains (DTMC).
  * Transient solution: compute the next state p' = p * tr where 'p' is the current
  * state probability vector and 'tr' is the transition probability matrix.
@@ -71,8 +68,7 @@ class Markov (tr: MatrixD) extends Error
      */
     private val EPSILON = .000001
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Compute the kth next probabilistic state (p * tr^k).
      * @param p  the current state probability vector
      * @param k  compute for the kth step/epoch
@@ -84,8 +80,7 @@ class Markov (tr: MatrixD) extends Error
         p2
     } // next
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Compute the limiting probabilistic state (p * tr^k) as k -> infinity, by
      * solving a left eigenvalue problem: p = p * tr => p * (tr - I) = 0, where the
      * eigenvalue is 1.  Solve for p by computing the left nullspace of the tr - I
@@ -93,12 +88,11 @@ class Markov (tr: MatrixD) extends Error
      */
     def limit: VectorD =
     {
-        val ident = new MatrixN (tr.dim1, 1., 0.)
+        val ident = new MatrixD (tr.dim1, 1., 0.)
         (tr - ident).t.slice (0, tr.dim1 - 1).nullspace.normalize
     } // limit
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Simulate the discrete-time Markov chain, by starting in state i0 and after
      * the state's holding, making a transition to the next state according to the
      * jump matrix.
@@ -139,8 +133,7 @@ class Markov (tr: MatrixD) extends Error
 
     } // simulate
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Animate this Markov Chain.  Place the nodes around a circle and connect them
      * if there is a such a transition.
      */
@@ -186,8 +179,7 @@ class Markov (tr: MatrixD) extends Error
         } // if
     } // animate
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Check whether the transition matrix is stochastic.
      */
     def isStochastic: Boolean =
@@ -197,8 +189,7 @@ class Markov (tr: MatrixD) extends Error
         true
     } // isStochastic
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Convert this discrete-time Markov Chain to s string.
      */ 
     override def toString: String = "Markov(" + tr + ")"
@@ -206,18 +197,17 @@ class Markov (tr: MatrixD) extends Error
 } // Markov class
 
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * This object tests the Markov class (Discrete-Time Markov Chains).
  */
-object MarkovTest extends Application
+object MarkovTest extends App
 {
     val endTime = 20   // number of epochs (milliseconds), but may represent any time unit
 
-    val mc = new Markov (new MatrixD (4, .4, .6, .0, .0,         // 4-by-4 matrix
-                                         .0, .2, .8, .0,
-                                         .3, .0, .5, .2,
-                                         .1, .0, .7, .2))
+    val mc = new Markov (new MatrixD ((4, 4), .4, .6, .0, .0,    // 4-by-4 matrix
+                                              .0, .2, .8, .0,
+                                              .3, .0, .5, .2,
+                                              .1, .0, .7, .2))
     var p = new VectorD (1., 0., 0., 0.)
 
     println ("\nDiscrete-Time Markov Chain mc = " + mc + "\n")

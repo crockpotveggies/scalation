@@ -1,6 +1,5 @@
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * @author  John Miller
  * @version 1.0
  * @date    Sun Jan 10 17:08:32 EST 2010
@@ -9,18 +8,16 @@
 
 package scalation.scala2d
 
-import scalation.scala2d.Shapes._
+import scalation.scala2d.Shapes.{RectangularShape}
 import scalation.util.Error
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * The Transform trait provides a simple technique for transforming
  * (translation, scaling and rotation) rectangular shapes.
  */
 trait Transform extends Error
 {
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Move/translate the shape to location (x, y).
      * @param shape  the shape/object to move
      * @param x      the x-coordinate
@@ -31,8 +28,7 @@ trait Transform extends Error
         shape.setFrame (x, y, shape.getWidth, shape.getHeight)
     } // move
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Move/translate the shape to location (x, y).
      * @param shape  the shape/object to move
      * @param p      the point (x, y)-coordinates
@@ -46,8 +42,7 @@ trait Transform extends Error
         } // if
     } // move
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Scale/resize the shape to the new width and height parameters.
      * @param shape  the shape/object to scale (change size)
      * @param w      the width
@@ -58,8 +53,7 @@ trait Transform extends Error
         shape.setFrame (shape.getX, shape.getY, w, h)
     } // scale
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Scale/resize the shape to the new width and height parameters.
      * @param shape  the shape/object to scale (change size)
      * @param p      the point (w, h) parameters
@@ -73,8 +67,7 @@ trait Transform extends Error
         } // if
     } // scale
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Rotate the shape by theta radians.
      * @param shape  the shape/object to rotate
      * @param theta   the rotation angle in radians

@@ -1,6 +1,5 @@
 
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+/**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * @author  John Miller
  * @version 1.0
  * @date    Mon Oct 12 18:41:26 EDT 2009
@@ -9,13 +8,13 @@
 
 package scalation.activity
 
-import scalation.dynamics.RungeKutta._
-import scalation.advmath._
-import scalation.advmath.Vectors._
-import scalation.stat._
+import scalation.dynamics.Calculus.Derivative
+//import scalation.dynamics.DormandPrince.integrateV
+import scalation.dynamics.RungeKutta.integrateV
+import scalation.math.Vectors.{VectorI, VectorD}
+import scalation.random.{Deterministic, Variate}
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * This class is used to define firing rules for the PetriNet class.
  * It supports both constant flow and linear flow models of token
  * (integer valued) and fluid (real valued) flow.
@@ -32,9 +31,8 @@ import scalation.stat._
  */
 trait PetriNetRules
 {
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
-     * Return whether the matrix inequality is true: t >= b.
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+     * Return whether the vector inequality is true: t >= b.
      * The firing threshold should be checked for every incoming arc.
      * If all return true, the transition should fire.
      * @param  t  the token vector (number of tokens per color)
@@ -42,9 +40,8 @@ trait PetriNetRules
      */
     def thresholdI (t: VectorI, b: VectorI): Boolean = t >= b 
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
-     * Return whether the matrix inequality is true: f >= b.
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+     * Return whether the vector inequality is true: f >= b.
      * The firing threshold should be checked for every incoming arc.
      * If all return true, the transition should fire.
      * @param  f  The fluid vector (amount of fluid per color)
@@ -52,8 +49,7 @@ trait PetriNetRules
      */
     def thresholdD (f: VectorD, b: VectorD): Boolean = f >= b
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Function to compute the delay in firing a transition.
      * The base time is given by a random variate.
      * This is adjusted by weight vectors multiplying the number of
@@ -73,8 +69,7 @@ trait PetriNetRules
         delay
     } // calcFiringTime
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Compute the number of tokens to flow over an arc according to the
      * vector expression: b + r * (t-b) * d.  If d is 0, returns b.
      * Supports linear (w.r.t. time delay) and constant (d == 0) flow models.
@@ -88,10 +83,9 @@ trait PetriNetRules
         t min (if (d == 0 || r == null) b else b + ((r * (t - b)).toDouble * d).toInt)
     } // tokenFlow
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Compute the amount of fluid to flow over an arc according to the
-     * matrix expression: b + r * (f-b) * d.  If r is 0, returns b.
+     * vector expression: b + r * (f-b) * d.  If r is 0, returns b.
      * Supports linear (w.r.t. time delay) and constant (d == 0) flow models.
      * @param f  the fluid vector (amount of fluid per color)
      * @param b  the constant vector for base fluid flow
@@ -103,8 +97,7 @@ trait PetriNetRules
         f min (if (d == 0 || r == null) b else b + r * (f - b) * d)
     } // fluidFlow
 
-    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    /**
+    /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      * Compute the amount of fluid to flow over an arc according to the
      * system of first-order Ordinary Differential Equation (ODE's):
      * "integral derv from t0 to t".  Supports ODE base flow models.
@@ -123,11 +116,10 @@ trait PetriNetRules
 
 } // PetriNetRules trait
 
-/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/**
+/**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * This object is used to test the PetriNetRules trait.
  */
-object PetriNetRulesTest extends Application with PetriNetRules
+object PetriNetRulesTest extends App with PetriNetRules
 {
     //:: Set the initial time.
 
