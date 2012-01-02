@@ -1,0 +1,646 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>Scaladoc for scalation.util.CubicCurve</title>
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta>
+		      <script type="text/javascript" src="../../lib/jquery.js"></script>
+          
+		  <style type="text/css">
+		    @import url(../../lib/template.css) screen;
+		  </style>
+		  <script type="text/javascript" src="../../lib/template.js"></script>
+    
+        </head>
+        <body class="type">
+      
+      <p id="owner"><a href="../package.html">scalation</a>.<a href="package.html">util</a></p>
+
+      <div id="definition">
+        <img src="../../lib/class_big.png"></img>
+        <h1>CubicCurve</h1>
+      </div>
+
+      <div class="signature">
+      <div class="kind">class</div>
+      <div class="symbol">
+        <span class="name">CubicCurve</span>
+        
+        <span class="params">()</span>
+        <span class="result">extends<span>Double with Product</span></span>
+      </div>
+        </div>
+      
+      
+      
+      <div id="template">
+      
+        <div id="mbrsel">
+              <div id="ancestors">
+                <h3>Inherits</h3>
+                <ol><li class="in" name="scala.Product">Product</li><li class="in" name="scala.Equals">Equals</li><li class="in" name="java.awt.geom.CubicCurve2D.Double">Double</li><li class="in" name="java.io.Serializable">Serializable</li><li class="in" name="java.awt.geom.CubicCurve2D">CubicCurve2D</li><li class="in" name="java.lang.Cloneable">Cloneable</li><li class="in" name="java.awt.Shape">Shape</li><li class="in" name="scala.AnyRef">AnyRef</li><li class="in" name="scala.Any">Any</li></ol>
+              </div>
+            </div>
+        
+        
+        
+        <div class="members" id="values">
+              <h3>Value Members</h3>
+              <ol><li name="scalation.util.CubicCurve#canEqual">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">canEqual</span>
+        
+        <span class="params">(<span name="arg0">arg0: Any</span>)</span>
+        <span class="result">:<span>Boolean</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>override</li></ol>
+      
+    </li><li name="java.awt.geom.CubicCurve2D#clone">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">clone</span>
+        
+        <span class="params">()</span>
+        <span class="result">:<span>AnyRef</span></span>
+      </div>
+        </div>
+      
+      
+      <div class="comment"><p>This method creates and returns a copy of the receiver object.</p><p><p>
+The default implementation of the <code>clone</code> method is platform dependent.
+</p></div>
+    </li><li name="java.awt.geom.CubicCurve2D#contains">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">contains</span>
+        
+        <span class="params">(<span name="arg0">arg0: Rectangle2D</span>)</span>
+        <span class="result">:<span>Boolean</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="java.awt.geom.CubicCurve2D#contains">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">contains</span>
+        
+        <span class="params">(<span name="arg0">arg0: Double</span>,<span name="arg1">arg1: Double</span>,<span name="arg2">arg2: Double</span>,<span name="arg3">arg3: Double</span>)</span>
+        <span class="result">:<span>Boolean</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="java.awt.geom.CubicCurve2D#contains">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">contains</span>
+        
+        <span class="params">(<span name="arg0">arg0: Point2D</span>)</span>
+        <span class="result">:<span>Boolean</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="java.awt.geom.CubicCurve2D#contains">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">contains</span>
+        
+        <span class="params">(<span name="arg0">arg0: Double</span>,<span name="arg1">arg1: Double</span>)</span>
+        <span class="result">:<span>Boolean</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalation.util.CubicCurve#equals">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">equals</span>
+        
+        <span class="params">(<span name="arg0">arg0: Any</span>)</span>
+        <span class="result">:<span>Boolean</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>override</li></ol>
+      <div class="comment"><p>This method is used to compare the receiver object (<code>this</code>)
+with the argument object (<code>arg0</code>) for equivalence.</p><p><p>
+The default implementations of this method is an <a
+href="http://en.wikipedia.org/wiki/Equivalence_relation">equivalence
+relation</a>:
+  <ul>
+ <li>It is reflexive: for any instance <code>x</code> of type <code>Any</code>,
+ <code>x.equals(x)</code> should return <code>true</code>.</li>
+ <li>It is symmetric: for any instances <code>x</code> and <code>y</code> of type
+ <code>Any</code>, <code>x.equals(y)</code> should return <code>true</code> if and only
+ if <code>y.equals(x)</code> returns <code>true</code>.</li>
+ <li>It is transitive: for any instances
+ <code>x</code>, <code>y</code>, and <code>z</code> of type <code>AnyRef</code>
+ if <code>x.equals(y)</code> returns <code>true</code> and
+ <code>y.equals(z)</code> returns
+ <code>true</code>, then <code>x.equals(z)</code> should return <code>true</code>.</li>
+</ul>
+</p></p><p><p>
+If you override this method, you should verify that
+your implementation remains an equivalence relation.
+Additionally, when overriding this method it is often necessary to
+override <code>hashCode</code> to ensure that objects that are
+"equal" (<code>o1.equals(o2)</code> returns <code>true</code>)
+hash to the same <a href="Int.html"><code>Int</code></a>
+(<code>o1.hashCode.equals(o2.hashCode)</code>).
+</p></div>
+    </li><li name="java.awt.geom.CubicCurve2D#getBounds">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">getBounds</span>
+        
+        <span class="params">()</span>
+        <span class="result">:<span>Rectangle</span></span>
+      </div>
+        </div>
+      
+      
+      
+    </li><li name="java.awt.geom.CubicCurve2D.Double#getBounds2D">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">getBounds2D</span>
+        
+        <span class="params">()</span>
+        <span class="result">:<span>Rectangle2D</span></span>
+      </div>
+        </div>
+      
+      
+      
+    </li><li name="java.awt.geom.CubicCurve2D.Double#getCtrlP1">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">getCtrlP1</span>
+        
+        <span class="params">()</span>
+        <span class="result">:<span>Point2D</span></span>
+      </div>
+        </div>
+      
+      
+      
+    </li><li name="java.awt.geom.CubicCurve2D.Double#getCtrlP2">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">getCtrlP2</span>
+        
+        <span class="params">()</span>
+        <span class="result">:<span>Point2D</span></span>
+      </div>
+        </div>
+      
+      
+      
+    </li><li name="java.awt.geom.CubicCurve2D.Double#getCtrlX1">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">getCtrlX1</span>
+        
+        <span class="params">()</span>
+        <span class="result">:<span>Double</span></span>
+      </div>
+        </div>
+      
+      
+      
+    </li><li name="java.awt.geom.CubicCurve2D.Double#getCtrlX2">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">getCtrlX2</span>
+        
+        <span class="params">()</span>
+        <span class="result">:<span>Double</span></span>
+      </div>
+        </div>
+      
+      
+      
+    </li><li name="java.awt.geom.CubicCurve2D.Double#getCtrlY1">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">getCtrlY1</span>
+        
+        <span class="params">()</span>
+        <span class="result">:<span>Double</span></span>
+      </div>
+        </div>
+      
+      
+      
+    </li><li name="java.awt.geom.CubicCurve2D.Double#getCtrlY2">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">getCtrlY2</span>
+        
+        <span class="params">()</span>
+        <span class="result">:<span>Double</span></span>
+      </div>
+        </div>
+      
+      
+      
+    </li><li name="java.awt.geom.CubicCurve2D#getFlatness">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">getFlatness</span>
+        
+        <span class="params">()</span>
+        <span class="result">:<span>Double</span></span>
+      </div>
+        </div>
+      
+      
+      
+    </li><li name="java.awt.geom.CubicCurve2D#getFlatnessSq">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">getFlatnessSq</span>
+        
+        <span class="params">()</span>
+        <span class="result">:<span>Double</span></span>
+      </div>
+        </div>
+      
+      
+      
+    </li><li name="java.awt.geom.CubicCurve2D.Double#getP1">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">getP1</span>
+        
+        <span class="params">()</span>
+        <span class="result">:<span>Point2D</span></span>
+      </div>
+        </div>
+      
+      
+      
+    </li><li name="java.awt.geom.CubicCurve2D.Double#getP2">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">getP2</span>
+        
+        <span class="params">()</span>
+        <span class="result">:<span>Point2D</span></span>
+      </div>
+        </div>
+      
+      
+      
+    </li><li name="java.awt.geom.CubicCurve2D#getPathIterator">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">getPathIterator</span>
+        
+        <span class="params">(<span name="arg0">arg0: AffineTransform</span>,<span name="arg1">arg1: Double</span>)</span>
+        <span class="result">:<span>PathIterator</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="java.awt.geom.CubicCurve2D#getPathIterator">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">getPathIterator</span>
+        
+        <span class="params">(<span name="arg0">arg0: AffineTransform</span>)</span>
+        <span class="result">:<span>PathIterator</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="java.awt.geom.CubicCurve2D.Double#getX1">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">getX1</span>
+        
+        <span class="params">()</span>
+        <span class="result">:<span>Double</span></span>
+      </div>
+        </div>
+      
+      
+      
+    </li><li name="java.awt.geom.CubicCurve2D.Double#getX2">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">getX2</span>
+        
+        <span class="params">()</span>
+        <span class="result">:<span>Double</span></span>
+      </div>
+        </div>
+      
+      
+      
+    </li><li name="java.awt.geom.CubicCurve2D.Double#getY1">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">getY1</span>
+        
+        <span class="params">()</span>
+        <span class="result">:<span>Double</span></span>
+      </div>
+        </div>
+      
+      
+      
+    </li><li name="java.awt.geom.CubicCurve2D.Double#getY2">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">getY2</span>
+        
+        <span class="params">()</span>
+        <span class="result">:<span>Double</span></span>
+      </div>
+        </div>
+      
+      
+      
+    </li><li name="scalation.util.CubicCurve#hashCode">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">hashCode</span>
+        
+        <span class="params">()</span>
+        <span class="result">:<span>Int</span></span>
+      </div>
+        </div>
+      
+      <ol class="attributes"><li>override</li></ol>
+      <div class="comment"><p>Returns a hash code value for the object.</p><p><p>
+The default hashing algorithm is platform dependent.</p><p>Note that it is allowed for two objects to have identical hash
+codes (<code>o1.hashCode.equals(o2.hashCode)</code>) yet not be
+equal (<code>o1.equals(o2)</code> returns <code>false</code>).  A
+degenerate implementation could always return <code>0</code>.
+However, it is required that if two objects are equal
+(<code>o1.equals(o2)</code> returns <code>true</code>) that they
+have identical hash codes
+(<code>o1.hashCode.equals(o2.hashCode)</code>).  Therefore, when
+overriding this method, be sure to verify that the behavior is
+consistent with the <code>equals</code> method.
+</p></p><p><p></p></div>
+    </li><li name="java.awt.geom.CubicCurve2D#intersects">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">intersects</span>
+        
+        <span class="params">(<span name="arg0">arg0: Rectangle2D</span>)</span>
+        <span class="result">:<span>Boolean</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="java.awt.geom.CubicCurve2D#intersects">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">intersects</span>
+        
+        <span class="params">(<span name="arg0">arg0: Double</span>,<span name="arg1">arg1: Double</span>,<span name="arg2">arg2: Double</span>,<span name="arg3">arg3: Double</span>)</span>
+        <span class="result">:<span>Boolean</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalation.util.CubicCurve#productArity">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">productArity</span>
+        
+        
+        <span class="result">:<span>Int</span></span>
+      </div>
+        </div>
+      
+      <ol class="attributes"><li>override</li></ol>
+      
+    </li><li name="scalation.util.CubicCurve#productElement">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">productElement</span>
+        
+        <span class="params">(<span name="arg0">arg0: Int</span>)</span>
+        <span class="result">:<span>Any</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>override</li></ol>
+      
+    </li><li name="scala.Product#productElements">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">productElements</span>
+        
+        
+        <span class="result">:<span>Iterator[Any]</span></span>
+      </div>
+        </div>
+      
+      
+      
+    </li><li name="scala.Product#productIterator">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">productIterator</span>
+        
+        
+        <span class="result">:<span>Iterator[Any]</span></span>
+      </div>
+        </div>
+      
+      
+      
+    </li><li name="scalation.util.CubicCurve#productPrefix">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">productPrefix</span>
+        
+        
+        <span class="result">:<span>String</span></span>
+      </div>
+        </div>
+      
+      <ol class="attributes"><li>override</li></ol>
+      
+    </li><li name="java.awt.geom.CubicCurve2D.Double#setCurve">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">setCurve</span>
+        
+        <span class="params">(<span name="arg0">arg0: Double</span>,<span name="arg1">arg1: Double</span>,<span name="arg2">arg2: Double</span>,<span name="arg3">arg3: Double</span>,<span name="arg4">arg4: Double</span>,<span name="arg5">arg5: Double</span>,<span name="arg6">arg6: Double</span>,<span name="arg7">arg7: Double</span>)</span>
+        <span class="result">:<span>Unit</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="java.awt.geom.CubicCurve2D#setCurve">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">setCurve</span>
+        
+        <span class="params">(<span name="arg0">arg0: CubicCurve2D</span>)</span>
+        <span class="result">:<span>Unit</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="java.awt.geom.CubicCurve2D#setCurve">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">setCurve</span>
+        
+        <span class="params">(<span name="arg0">arg0: Array[Point2D]</span>,<span name="arg1">arg1: Int</span>)</span>
+        <span class="result">:<span>Unit</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="java.awt.geom.CubicCurve2D#setCurve">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">setCurve</span>
+        
+        <span class="params">(<span name="arg0">arg0: Point2D</span>,<span name="arg1">arg1: Point2D</span>,<span name="arg2">arg2: Point2D</span>,<span name="arg3">arg3: Point2D</span>)</span>
+        <span class="result">:<span>Unit</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="java.awt.geom.CubicCurve2D#setCurve">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">setCurve</span>
+        
+        <span class="params">(<span name="arg0">arg0: Array[Double]</span>,<span name="arg1">arg1: Int</span>)</span>
+        <span class="result">:<span>Unit</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="java.awt.geom.CubicCurve2D#subdivide">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">subdivide</span>
+        
+        <span class="params">(<span name="arg0">arg0: CubicCurve2D</span>,<span name="arg1">arg1: CubicCurve2D</span>)</span>
+        <span class="result">:<span>Unit</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalation.util.CubicCurve#toString">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">toString</span>
+        
+        <span class="params">()</span>
+        <span class="result">:<span>String</span></span>
+      </div>
+        </div>
+      
+      <ol class="attributes"><li>override</li></ol>
+      <div class="comment"><p>Returns a string representation of the object.
+<p>
+The default representation is platform dependent.
+</p></div>
+    </li></ol>
+            </div>
+        
+        <div class="members" id="constructors">
+              <h3>Instance constructors</h3>
+              <ol><li name="scalation.util.CubicCurve#this">
+      <div class="signature">
+      <div class="kind">new</div>
+      <div class="symbol">
+        <span class="name">CubicCurve</span>
+        
+        <span class="params">()</span>
+        
+      </div>
+        </div>
+      
+      
+      
+    </li><li name="java.awt.geom.CubicCurve2D.Double#this">
+      <div class="signature">
+      <div class="kind">new</div>
+      <div class="symbol">
+        <span class="name">CubicCurve</span>
+        
+        <span class="params">(<span name="arg0">arg0: Double</span>,<span name="arg1">arg1: Double</span>,<span name="arg2">arg2: Double</span>,<span name="arg3">arg3: Double</span>,<span name="arg4">arg4: Double</span>,<span name="arg5">arg5: Double</span>,<span name="arg6">arg6: Double</span>,<span name="arg7">arg7: Double</span>)</span>
+        
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li></ol>
+            </div>
+        
+      </div>
+      
+    </body>
+      </html>

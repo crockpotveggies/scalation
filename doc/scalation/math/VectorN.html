@@ -1,0 +1,1139 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>scalation.math.VectorN</title>
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link type="text/css" media="screen" rel="stylesheet" href="../../lib/template.css" />
+      <script type="text/javascript" src="../../lib/jquery.js"></script>
+      <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <img src="../../lib/class_big.png" />
+        <p id="owner"><a name="scalation" class="extype" href="../package.html">scalation</a>.<a name="scalation.math" class="extype" href="package.html">math</a></p>
+        <h1>VectorN</h1>
+      </div>
+
+      <h4 class="signature" id="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <span class="name">VectorN</span>
+        <span class="tparams">[<span name="T">T</span>]</span>
+        <span class="result"> extends PartiallyOrdered[<a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]] with <a name="scalation.util.Error" class="extype" href="../util/Error.html">Error</a></span>
+      </span>
+      </h4>
+      
+          <div class="fullcommenttop" id="comment"><div class="comment cmt"><p>The VectorN class stores and operates on Numeric Vectors of various sizes
+ and types.  The element type may be any subtype of Numeric.</p></div><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><a name="scalation.util.Error" class="extype" href="../util/Error.html">Error</a>, <span name="scala.math.PartiallyOrdered" class="extype">PartiallyOrdered</span>[<a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]], AnyRef, <span name="scala.Any" class="extype">Any</span></div>
+        </div><div class="toggleContainer block">
+          <span class="toggle">Known Subclasses</span>
+          <div class="subClasses hiddenContent"><a name="scalation.stat.StatVector" class="extype" href="../stat/StatVector.html">StatVector</a></div>
+        </div></div>
+        
+
+      <div id="template">
+
+        <div id="mbrsel">
+          <div id="textfilter"><span class="pre"></span><span class="input"><input accesskey="/" type="text" /></span><span class="post"></span></div>
+          <div id="order">
+                <span class="filtertype">Ordering</span>
+                <ol><li class="alpha in"><span>Alphabetic</span></li><li class="inherit out"><span>By inheritance</span></li></ol>
+              </div>
+          <div id="ancestors">
+                <span class="filtertype">Inherited</span>
+                <ol><li class="hideall out"><span>Hide All</span></li>
+                <li class="showall in"><span>Show all</span></li></ol>
+                <ol id="linearization"><li name="scalation.math.VectorN" class="in"><span>VectorN</span></li><li name="scalation.util.Error" class="in"><span>Error</span></li><li name="scala.math.PartiallyOrdered" class="in"><span>PartiallyOrdered</span></li><li name="scala.AnyRef" class="in"><span>AnyRef</span></li><li name="scala.Any" class="in"><span>Any</span></li></ol>
+              </div>
+          <div id="visbl">
+              <span class="filtertype">Visibility</span>
+              <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+            </div>
+        </div>
+
+        <div class="members" id="constructors">
+              <h3>Instance Constructors</h3>
+              <ol><li visbl="pub" name="scalation.math.VectorN#this" data-isabs="false">
+      <a id="this:VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">new</span>
+      <span class="symbol"> 
+        <span class="name">VectorN</span>
+        
+        <span class="params">(<span name="u">u: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: (T) ⇒ Ordered[T]</span>, <span name="arg1">arg1: ClassManifest[T]</span>, <span name="arg2">arg2: Numeric[T]</span>)</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Construct a vector and assign values from vector u.</p><div class="fullcomment"><div class="comment cmt"><p>Construct a vector and assign values from vector u.</p></div><dl class="paramcmts block"><dt class="param">u</dt><dd class="cmt"><p>the other vector
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#this" data-isabs="false">
+      <a id="this:VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">new</span>
+      <span class="symbol"> 
+        <span class="name">VectorN</span>
+        
+        <span class="params">(<span name="u0">u0: T</span>, <span name="u1">u1: T</span>, <span name="u">u: T*</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: (T) ⇒ Ordered[T]</span>, <span name="arg1">arg1: ClassManifest[T]</span>, <span name="arg2">arg2: Numeric[T]</span>)</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Construct a vector from two or more values (repeated values T*).</p><div class="fullcomment"><div class="comment cmt"><p>Construct a vector from two or more values (repeated values T*).</p></div><dl class="paramcmts block"><dt class="param">u0</dt><dd class="cmt"><p>the first value</p></dd><dt class="param">u1</dt><dd class="cmt"><p>the second value</p></dd><dt class="param">u</dt><dd class="cmt"><p>the rest of the values (zero or more additional values)
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#this" data-isabs="false">
+      <a id="this:VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">new</span>
+      <span class="symbol"> 
+        <span class="name">VectorN</span>
+        
+        <span class="params">(<span name="u">u: <span name="scala.Array" class="extype">Array</span>[T]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: (T) ⇒ Ordered[T]</span>, <span name="arg1">arg1: ClassManifest[T]</span>, <span name="arg2">arg2: Numeric[T]</span>)</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Construct a vector from an array of values.</p><div class="fullcomment"><div class="comment cmt"><p>Construct a vector from an array of values.</p></div><dl class="paramcmts block"><dt class="param">u</dt><dd class="cmt"><p>the array of values
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#this" data-isabs="false">
+      <a id="this:VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">new</span>
+      <span class="symbol"> 
+        <span class="name">VectorN</span>
+        
+        <span class="params">(<span name="dim">dim: <span name="scala.Int" class="extype">Int</span></span>, <span name="v">v: <span name="scala.Array" class="extype">Array</span>[T]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: (T) ⇒ Ordered[T]</span>, <span name="arg1">arg1: ClassManifest[T]</span>, <span name="arg2">arg2: Numeric[T]</span>)</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">dim</dt><dd class="cmt"><p>the dimension/size of the vector</p></dd><dt class="param">v</dt><dd class="cmt"><p>the 1D array used to store vector elements
+</p></dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+        
+        
+
+        <div class="values members" id="values">
+              <h3>Value Members</h3>
+              <ol><li visbl="pub" name="scala.AnyRef#!=" data-isabs="false">
+      <a id="!=(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">!=</span>
+        
+        <span class="params">(<span name="arg0">arg0: AnyRef</span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="scala.Any#!=" data-isabs="false">
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">!=</span>
+        
+        <span class="params">(<span name="arg0">arg0: <span name="scala.Any" class="extype">Any</span></span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef###" data-isabs="false">
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">##</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#*" data-isabs="false">
+      <a id="*(MatrixN[T]):VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">*</span>
+        
+        <span class="params">(<span name="m">m: <a name="scalation.math.MatrixN" class="extype" href="MatrixN.html">MatrixN</a>[T]</span>)</span><span class="result">: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Multiply this 'row' vector by matrix m.</p><div class="fullcomment"><div class="comment cmt"><p>Multiply this 'row' vector by matrix m.</p></div><dl class="paramcmts block"><dt class="param">m</dt><dd class="cmt"><p>the matrix to multiply by
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#*" data-isabs="false">
+      <a id="*(VectorN[T]):VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">*</span>
+        
+        <span class="params">(<span name="b">b: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>)</span><span class="result">: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Multiply this vector by vector b.</p><div class="fullcomment"><div class="comment cmt"><p>Multiply this vector by vector b.</p></div><dl class="paramcmts block"><dt class="param">b</dt><dd class="cmt"><p>the vector to multiply by
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#*" data-isabs="false">
+      <a id="*(T):VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">*</span>
+        
+        <span class="params">(<span name="s">s: T</span>)</span><span class="result">: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Multiply this vector by scalar s.</p><div class="fullcomment"><div class="comment cmt"><p>Multiply this vector by scalar s.</p></div><dl class="paramcmts block"><dt class="param">s</dt><dd class="cmt"><p>the scalar to multiply by
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#+" data-isabs="false">
+      <a id="+((T, Int)):VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">+</span>
+        
+        <span class="params">(<span name="s">s: (T, <span name="scala.Int" class="extype">Int</span>)</span>)</span><span class="result">: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Add this vector and scalar s.</p><div class="fullcomment"><div class="comment cmt"><p>Add this vector and scalar s._1 only at position s._2.</p></div><dl class="paramcmts block"><dt class="param">s</dt><dd class="cmt"><p>the (scalar, position) to add
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#+" data-isabs="false">
+      <a id="+(T):VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">+</span>
+        
+        <span class="params">(<span name="s">s: T</span>)</span><span class="result">: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Add this vector and scalar s.</p><div class="fullcomment"><div class="comment cmt"><p>Add this vector and scalar s.</p></div><dl class="paramcmts block"><dt class="param">s</dt><dd class="cmt"><p>the scalar to add
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#+" data-isabs="false">
+      <a id="+(VectorN[T]):VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">+</span>
+        
+        <span class="params">(<span name="b">b: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>)</span><span class="result">: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Add this vector and vector b.</p><div class="fullcomment"><div class="comment cmt"><p>Add this vector and vector b.</p></div><dl class="paramcmts block"><dt class="param">b</dt><dd class="cmt"><p>the vector to add
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#++" data-isabs="false">
+      <a id="++(VectorN[T]):VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">++</span>
+        
+        <span class="params">(<span name="b">b: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>)</span><span class="result">: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Concatenate this vector and vector b.</p><div class="fullcomment"><div class="comment cmt"><p>Concatenate this vector and vector b.</p></div><dl class="paramcmts block"><dt class="param">b</dt><dd class="cmt"><p>the vector to be concatenated
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#++" data-isabs="false">
+      <a id="++(T):VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">++</span>
+        
+        <span class="params">(<span name="b">b: T</span>)</span><span class="result">: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Concatenate this vector and scalar b.</p><div class="fullcomment"><div class="comment cmt"><p>Concatenate this vector and scalar b.</p></div><dl class="paramcmts block"><dt class="param">b</dt><dd class="cmt"><p>the vector to be concatenated
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#-" data-isabs="false">
+      <a id="-((T, Int)):VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">-</span>
+        
+        <span class="params">(<span name="s">s: (T, <span name="scala.Int" class="extype">Int</span>)</span>)</span><span class="result">: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">From this vector subtract scalar s.</p><div class="fullcomment"><div class="comment cmt"><p>From this vector subtract scalar s._1 only at position s._2.</p></div><dl class="paramcmts block"><dt class="param">s</dt><dd class="cmt"><p>the (scalar, position) to subtract
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#-" data-isabs="false">
+      <a id="-(T):VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">-</span>
+        
+        <span class="params">(<span name="s">s: T</span>)</span><span class="result">: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">From this vector subtract scalar s.</p><div class="fullcomment"><div class="comment cmt"><p>From this vector subtract scalar s.</p></div><dl class="paramcmts block"><dt class="param">s</dt><dd class="cmt"><p>the scalar to subtract
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#-" data-isabs="false">
+      <a id="-(VectorN[T]):VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">-</span>
+        
+        <span class="params">(<span name="b">b: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>)</span><span class="result">: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">From this vector substract vector b.</p><div class="fullcomment"><div class="comment cmt"><p>From this vector substract vector b.</p></div><dl class="paramcmts block"><dt class="param">b</dt><dd class="cmt"><p>the vector to subtract
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#/" data-isabs="false">
+      <a id="/(T)(Fractional[T]):VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">/</span>
+        
+        <span class="params">(<span name="s">s: T</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="fr">fr: Fractional[T]</span>)</span><span class="result">: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Divide this vector by scalar s.</p><div class="fullcomment"><div class="comment cmt"><p>Divide this vector by scalar s.</p></div><dl class="paramcmts block"><dt class="param">s</dt><dd class="cmt"><p>the scalar to divide by
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#/" data-isabs="false">
+      <a id="/(VectorN[T])(Fractional[T]):VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">/</span>
+        
+        <span class="params">(<span name="b">b: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="fr">fr: Fractional[T]</span>)</span><span class="result">: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Divide this vector by vector b (element-by-element).</p><div class="fullcomment"><div class="comment cmt"><p>Divide this vector by vector b (element-by-element).</p></div><dl class="paramcmts block"><dt class="param">b</dt><dd class="cmt"><p>the vector to divide by
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scala.math.PartiallyOrdered#&lt;" data-isabs="false">
+      <a id="&lt;[B&gt;:VectorN[T]](B)((B) ⇒ PartiallyOrdered[B]):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">&lt;</span>
+        <span class="tparams">[<span name="B">B &gt;: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>]</span>
+        <span class="params">(<span name="that">that: B</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: (B) ⇒ <span name="scala.math.PartiallyOrdered" class="extype">PartiallyOrdered</span>[B]</span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>PartiallyOrdered</dd></dl></div>
+    </li><li visbl="pub" name="scala.math.PartiallyOrdered#&lt;=" data-isabs="false">
+      <a id="&lt;=[B&gt;:VectorN[T]](B)((B) ⇒ PartiallyOrdered[B]):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">&lt;=</span>
+        <span class="tparams">[<span name="B">B &gt;: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>]</span>
+        <span class="params">(<span name="that">that: B</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: (B) ⇒ <span name="scala.math.PartiallyOrdered" class="extype">PartiallyOrdered</span>[B]</span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>PartiallyOrdered</dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#==" data-isabs="false">
+      <a id="==(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">==</span>
+        
+        <span class="params">(<span name="arg0">arg0: AnyRef</span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="scala.Any#==" data-isabs="false">
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">==</span>
+        
+        <span class="params">(<span name="arg0">arg0: <span name="scala.Any" class="extype">Any</span></span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li visbl="pub" name="scala.math.PartiallyOrdered#&gt;" data-isabs="false">
+      <a id="&gt;[B&gt;:VectorN[T]](B)((B) ⇒ PartiallyOrdered[B]):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">&gt;</span>
+        <span class="tparams">[<span name="B">B &gt;: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>]</span>
+        <span class="params">(<span name="that">that: B</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: (B) ⇒ <span name="scala.math.PartiallyOrdered" class="extype">PartiallyOrdered</span>[B]</span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>PartiallyOrdered</dd></dl></div>
+    </li><li visbl="pub" name="scala.math.PartiallyOrdered#&gt;=" data-isabs="false">
+      <a id="&gt;=[B&gt;:VectorN[T]](B)((B) ⇒ PartiallyOrdered[B]):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">&gt;=</span>
+        <span class="tparams">[<span name="B">B &gt;: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>]</span>
+        <span class="params">(<span name="that">that: B</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: (B) ⇒ <span name="scala.math.PartiallyOrdered" class="extype">PartiallyOrdered</span>[B]</span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>PartiallyOrdered</dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#_oneAt" data-isabs="false">
+      <a id="_oneAt(Int,Int):VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">_oneAt</span>
+        
+        <span class="params">(<span name="j">j: <span name="scala.Int" class="extype">Int</span></span>, <span name="size">size: <span name="scala.Int" class="extype">Int</span> = <span class="symbol"><span class="name"><a href="#dim:Int">dim</a></span></span></span>)</span><span class="result">: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Create a vector of the form (0, .</p><div class="fullcomment"><div class="comment cmt"><p>Create a vector of the form (0, ... -1, ... 0) where the -1 is at position j.</p></div><dl class="paramcmts block"><dt class="param">j</dt><dd class="cmt"><p>the position to place the 1</p></dd><dt class="param">size</dt><dd class="cmt"><p>the size of the vector (upper bound = size - 1)
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#abs" data-isabs="false">
+      <a id="abs:VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">abs</span>
+        
+        <span class="result">: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Return the vector is absolute values.</p>
+    </li><li visbl="pub" name="scalation.math.VectorN#apply" data-isabs="false">
+      <a id="apply():Array[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">apply</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Array" class="extype">Array</span>[T]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Get this vector's entire array.</p>
+    </li><li visbl="pub" name="scalation.math.VectorN#apply" data-isabs="false">
+      <a id="apply(Range):VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">apply</span>
+        
+        <span class="params">(<span name="r">r: Range</span>)</span><span class="result">: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Get this vector's elements within the given range (vector slicing).</p><div class="fullcomment"><div class="comment cmt"><p>Get this vector's elements within the given range (vector slicing).</p></div><dl class="paramcmts block"><dt class="param">r</dt><dd class="cmt"><p>the given range
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#apply" data-isabs="false">
+      <a id="apply(Int):T"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">apply</span>
+        
+        <span class="params">(<span name="i">i: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: T</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Get this vector's element at the i-th index position.</p><div class="fullcomment"><div class="comment cmt"><p>Get this vector's element at the i-th index position.</p></div><dl class="paramcmts block"><dt class="param">i</dt><dd class="cmt"><p>the given index
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#argmax" data-isabs="false">
+      <a id="argmax(Int):Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">argmax</span>
+        
+        <span class="params">(<span name="e">e: <span name="scala.Int" class="extype">Int</span> = <span class="symbol"><span class="name"><a href="#dim:Int">dim</a></span></span></span>)</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Find the argument maximum of this vector (index of maximum element).</p><div class="fullcomment"><div class="comment cmt"><p>Find the argument maximum of this vector (index of maximum element).</p></div><dl class="paramcmts block"><dt class="param">e</dt><dd class="cmt"><p>the ending index (exclusive) for the search
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#argmaxPos" data-isabs="false">
+      <a id="argmaxPos(Int):Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">argmaxPos</span>
+        
+        <span class="params">(<span name="e">e: <span name="scala.Int" class="extype">Int</span> = <span class="symbol"><span class="name"><a href="#dim:Int">dim</a></span></span></span>)</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Return the argument maximum of this vector (-1 if its not positive).</p><div class="fullcomment"><div class="comment cmt"><p>Return the argument maximum of this vector (-1 if its not positive).</p></div><dl class="paramcmts block"><dt class="param">e</dt><dd class="cmt"><p>the ending index (exclusive) for the search
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#argmin" data-isabs="false">
+      <a id="argmin(Int):Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">argmin</span>
+        
+        <span class="params">(<span name="e">e: <span name="scala.Int" class="extype">Int</span> = <span class="symbol"><span class="name"><a href="#dim:Int">dim</a></span></span></span>)</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Find the argument minimum of this vector (index of minimum element).</p><div class="fullcomment"><div class="comment cmt"><p>Find the argument minimum of this vector (index of minimum element).</p></div><dl class="paramcmts block"><dt class="param">e</dt><dd class="cmt"><p>the ending index (exclusive) for the search
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#argminNeg" data-isabs="false">
+      <a id="argminNeg(Int):Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">argminNeg</span>
+        
+        <span class="params">(<span name="e">e: <span name="scala.Int" class="extype">Int</span> = <span class="symbol"><span class="name"><a href="#dim:Int">dim</a></span></span></span>)</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Return the argument minimum of this vector (-1 if its not negative).</p><div class="fullcomment"><div class="comment cmt"><p>Return the argument minimum of this vector (-1 if its not negative).</p></div><dl class="paramcmts block"><dt class="param">e</dt><dd class="cmt"><p>the ending index (exclusive) for the search
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scala.Any#asInstanceOf" data-isabs="false">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">asInstanceOf</span>
+        <span class="tparams">[<span name="T0">T0</span>]</span>
+        <span class="result">: T0</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li visbl="prt" name="scala.AnyRef#clone" data-isabs="false">
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">clone</span>
+        
+        <span class="params">()</span><span class="result">: AnyRef</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a name="java.lang" class="extype" href="../../java/lang/package.html">lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#contains" data-isabs="false">
+      <a id="contains(T):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">contains</span>
+        
+        <span class="params">(<span name="x">x: T</span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Determine whether x is contained in this vector.</p><div class="fullcomment"><div class="comment cmt"><p>Determine whether x is contained in this vector.</p></div><dl class="paramcmts block"><dt class="param">x</dt><dd class="cmt"><p>the element to be checked
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#countNeg" data-isabs="false">
+      <a id="countNeg:Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">countNeg</span>
+        
+        <span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Count the number of strictly negative entries in this vector.</p>
+    </li><li visbl="pub" name="scalation.math.VectorN#countPos" data-isabs="false">
+      <a id="countPos:Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">countPos</span>
+        
+        <span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Count the number of strictly positive entries in this vector.</p>
+    </li><li visbl="pub" name="scalation.math.VectorN#cumulate" data-isabs="false">
+      <a id="cumulate:VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">cumulate</span>
+        
+        <span class="result">: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Cumulate the values of this vector from left to right (e.</p><div class="fullcomment"><div class="comment cmt"><p>Cumulate the values of this vector from left to right (e.g., create a
+ cdf from a pmf). Example: (4, 2, 3, 1) --&gt; (4, 6, 9, 10)
+</p></div></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#dim" data-isabs="false">
+      <a id="dim:Int"></a>
+      <h4 class="signature">
+      <span class="kind">val</span>
+      <span class="symbol"> 
+        <span class="name">dim</span>
+        
+        <span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">the dimension/size of the vector</p>
+    </li><li visbl="pub" name="scalation.math.VectorN#dot" data-isabs="false">
+      <a id="dot(VectorN[T]):T"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">dot</span>
+        
+        <span class="params">(<span name="b">b: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>)</span><span class="result">: T</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Compute the dot product (or inner product) of this vector with vector b.</p><div class="fullcomment"><div class="comment cmt"><p>Compute the dot product (or inner product) of this vector with vector b.</p></div><dl class="paramcmts block"><dt class="param">b</dt><dd class="cmt"><p>the other vector
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#eq" data-isabs="false">
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">eq</span>
+        
+        <span class="params">(<span name="arg0">arg0: AnyRef</span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#equals" data-isabs="false">
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">equals</span>
+        
+        <span class="params">(<span name="arg0">arg0: <span name="scala.Any" class="extype">Any</span></span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#expand" data-isabs="false">
+      <a id="expand(Int):VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">expand</span>
+        
+        <span class="params">(<span name="more">more: <span name="scala.Int" class="extype">Int</span> = <span class="symbol"><span class="name"><a href="#dim:Int">dim</a></span></span></span>)</span><span class="result">: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Expand the size (dim) of this vector by 'more' elements.</p>
+    </li><li visbl="prt" name="scala.AnyRef#finalize" data-isabs="false">
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">finalize</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a name="java.lang" class="extype" href="../../java/lang/package.html">lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#firstNeg" data-isabs="false">
+      <a id="firstNeg(Int):Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">firstNeg</span>
+        
+        <span class="params">(<span name="e">e: <span name="scala.Int" class="extype">Int</span> = <span class="symbol"><span class="name"><a href="#dim:Int">dim</a></span></span></span>)</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Return the index of the first negative element in this vector (-1 otherwise).</p><div class="fullcomment"><div class="comment cmt"><p>Return the index of the first negative element in this vector (-1 otherwise).</p></div><dl class="paramcmts block"><dt class="param">e</dt><dd class="cmt"><p>the ending index (exclusive) for the search
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#firstPos" data-isabs="false">
+      <a id="firstPos(Int):Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">firstPos</span>
+        
+        <span class="params">(<span name="e">e: <span name="scala.Int" class="extype">Int</span> = <span class="symbol"><span class="name"><a href="#dim:Int">dim</a></span></span></span>)</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Return the index of the first positive element in this vector (-1 otherwise).</p><div class="fullcomment"><div class="comment cmt"><p>Return the index of the first positive element in this vector (-1 otherwise).</p></div><dl class="paramcmts block"><dt class="param">e</dt><dd class="cmt"><p>the ending index (exclusive) for the search
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.util.Error#flaw" data-isabs="false">
+      <a id="flaw(String,String):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">flaw</span>
+        
+        <span class="params">(<span name="method">method: String</span>, <span name="message">message: String</span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Show the flaw by printing the error message.</p><div class="fullcomment"><div class="comment cmt"><p>:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Show the flaw by printing the error message.</p></div><dl class="paramcmts block"><dt class="param">method</dt><dd class="cmt"><p>the method where the error occured</p></dd><dt class="param">message</dt><dd class="cmt"><p>the error message
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="scalation.util.Error" class="extype" href="../util/Error.html">Error</a></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#foreach" data-isabs="false">
+      <a id="foreach[U]((T) ⇒ U):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">foreach</span>
+        <span class="tparams">[<span name="U">U</span>]</span>
+        <span class="params">(<span name="f">f: (T) ⇒ U</span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Iterate over the vector element by element.</p><div class="fullcomment"><div class="comment cmt"><p>Iterate over the vector element by element.</p></div><dl class="paramcmts block"><dt class="param">f</dt><dd class="cmt"><p>the function to apply
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#getClass" data-isabs="false">
+      <a id="getClass():java.lang.Class[_]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">getClass</span>
+        
+        <span class="params">()</span><span class="result">: java.lang.Class[_]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#hashCode" data-isabs="false">
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">hashCode</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Hash a vector into an integer.</p><div class="fullcomment"><div class="comment cmt"><p>Hash a vector into an integer.  Serves as the default hash function for
+ vectors.  Warning, collisions may be unavoidable.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="scalation.math.VectorN" class="extype" href="">VectorN</a> → AnyRef → Any</dd></dl></div>
+    </li><li visbl="pub" name="scala.Any#isInstanceOf" data-isabs="false">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">isInstanceOf</span>
+        <span class="tparams">[<span name="T0">T0</span>]</span>
+        <span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#isNonnegative" data-isabs="false">
+      <a id="isNonnegative:Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">isNonnegative</span>
+        
+        <span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Check whether this vector is nonnegative (has no negative elements).</p>
+    </li><li visbl="pub" name="scalation.math.VectorN#max" data-isabs="false">
+      <a id="max(VectorN[T]):VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">max</span>
+        
+        <span class="params">(<span name="b">b: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>)</span><span class="result">: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Take the maximum of this vector with vector b (element-by element).</p><div class="fullcomment"><div class="comment cmt"><p>Take the maximum of this vector with vector b (element-by element).</p></div><dl class="paramcmts block"><dt class="param">b</dt><dd class="cmt"><p>the other vector
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#max" data-isabs="false">
+      <a id="max(Int):T"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">max</span>
+        
+        <span class="params">(<span name="e">e: <span name="scala.Int" class="extype">Int</span> = <span class="symbol"><span class="name"><a href="#dim:Int">dim</a></span></span></span>)</span><span class="result">: T</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Find the maximum element in this vector.</p><div class="fullcomment"><div class="comment cmt"><p>Find the maximum element in this vector.</p></div><dl class="paramcmts block"><dt class="param">e</dt><dd class="cmt"><p>the ending index (exclusive) for the search
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#min" data-isabs="false">
+      <a id="min(VectorN[T]):VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">min</span>
+        
+        <span class="params">(<span name="b">b: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>)</span><span class="result">: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Take the minimum of this vector with vector b (element-by element).</p><div class="fullcomment"><div class="comment cmt"><p>:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Take the minimum of this vector with vector b (element-by element).</p></div><dl class="paramcmts block"><dt class="param">b</dt><dd class="cmt"><p>the other vector
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#min" data-isabs="false">
+      <a id="min(Int):T"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">min</span>
+        
+        <span class="params">(<span name="e">e: <span name="scala.Int" class="extype">Int</span> = <span class="symbol"><span class="name"><a href="#dim:Int">dim</a></span></span></span>)</span><span class="result">: T</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Find the minimum element in this vector.</p><div class="fullcomment"><div class="comment cmt"><p>Find the minimum element in this vector.</p></div><dl class="paramcmts block"><dt class="param">e</dt><dd class="cmt"><p>the ending index (exclusive) for the search
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#ne" data-isabs="false">
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">ne</span>
+        
+        <span class="params">(<span name="arg0">arg0: AnyRef</span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#norm" data-isabs="false">
+      <a id="norm(Fractional[T]):Double"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">norm</span>
+        
+        <span class="params">(<span class="implicit">implicit </span><span name="fr">fr: Fractional[T]</span>)</span><span class="result">: <span name="scala.Double" class="extype">Double</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Compute the Euclidean norm (2-norm) of this vector (requires Fractional type).</p>
+    </li><li visbl="pub" name="scalation.math.VectorN#normSq" data-isabs="false">
+      <a id="normSq:T"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">normSq</span>
+        
+        <span class="result">: T</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Compute the Euclidean norm (2-norm) squared of this vector.</p>
+    </li><li visbl="pub" name="scalation.math.VectorN#normalize" data-isabs="false">
+      <a id="normalize(Fractional[T]):VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">normalize</span>
+        
+        <span class="params">(<span class="implicit">implicit </span><span name="fr">fr: Fractional[T]</span>)</span><span class="result">: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Normalize this vector so that it sums to one (like a probability vector).</p>
+    </li><li visbl="pub" name="scala.AnyRef#notify" data-isabs="false">
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">notify</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#notifyAll" data-isabs="false">
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">notifyAll</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#oneAt" data-isabs="false">
+      <a id="oneAt(Int,Int):VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">oneAt</span>
+        
+        <span class="params">(<span name="j">j: <span name="scala.Int" class="extype">Int</span></span>, <span name="size">size: <span name="scala.Int" class="extype">Int</span> = <span class="symbol"><span class="name"><a href="#dim:Int">dim</a></span></span></span>)</span><span class="result">: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Create a vector of the form (0, .</p><div class="fullcomment"><div class="comment cmt"><p>Create a vector of the form (0, ... 1, ... 0) where the 1 is at position j.</p></div><dl class="paramcmts block"><dt class="param">j</dt><dd class="cmt"><p>the position to place the 1</p></dd><dt class="param">size</dt><dd class="cmt"><p>the size of the vector (upper bound = size - 1)
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#outer" data-isabs="false">
+      <a id="outer(VectorN[T]):MatrixN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">outer</span>
+        
+        <span class="params">(<span name="b">b: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>)</span><span class="result">: <a name="scalation.math.MatrixN" class="extype" href="MatrixN.html">MatrixN</a>[T]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Compute the outer product of this vector with vector b.</p><div class="fullcomment"><div class="comment cmt"><p>Compute the outer product of this vector with vector b.</p></div><dl class="paramcmts block"><dt class="param">b</dt><dd class="cmt"><p>the other vector
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#ramp" data-isabs="false">
+      <a id="ramp(Int):VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">ramp</span>
+        
+        <span class="params">(<span name="size">size: <span name="scala.Int" class="extype">Int</span> = <span class="symbol"><span class="name"><a href="#dim:Int">dim</a></span></span></span>)</span><span class="result">: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Create a ramp-up vector of increasing values: 0, 1, 2, .</p><div class="fullcomment"><div class="comment cmt"><p>Create a ramp-up vector of increasing values: 0, 1, 2, ..., size - 1.</p></div><dl class="paramcmts block"><dt class="param">size</dt><dd class="cmt"><p>the size of the vector (upper bound = size - 1)
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#sameDimensions" data-isabs="false">
+      <a id="sameDimensions(VectorN[T]):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">sameDimensions</span>
+        
+        <span class="params">(<span name="b">b: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Check whether the other vector is at least as long as this vector.</p><div class="fullcomment"><div class="comment cmt"><p>Check whether the other vector is at least as long as this vector.</p></div><dl class="paramcmts block"><dt class="param">b</dt><dd class="cmt"><p>the other vector
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#select" data-isabs="false">
+      <a id="select(VectorI):VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">select</span>
+        
+        <span class="params">(<span name="basis">basis: VectorI</span>)</span><span class="result">: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Select a subset of elements of this vector corresponding to a basis.</p><div class="fullcomment"><div class="comment cmt"><p>Select a subset of elements of this vector corresponding to a basis.</p></div><dl class="paramcmts block"><dt class="param">basis</dt><dd class="cmt"><p>the set of index positions (e.g., 0, 2, 5)
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#set" data-isabs="false">
+      <a id="set(T):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">set</span>
+        
+        <span class="params">(<span name="x">x: T</span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Set each value in this vector to x.</p><div class="fullcomment"><div class="comment cmt"><p>Set each value in this vector to x.</p></div><dl class="paramcmts block"><dt class="param">x</dt><dd class="cmt"><p>the value to be assigned
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#setAll" data-isabs="false">
+      <a id="setAll(Array[T]):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">setAll</span>
+        
+        <span class="params">(<span name="u">u: <span name="scala.Array" class="extype">Array</span>[T]</span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Set the values in this vector to the values in array u.</p><div class="fullcomment"><div class="comment cmt"><p>Set the values in this vector to the values in array u.</p></div><dl class="paramcmts block"><dt class="param">u</dt><dd class="cmt"><p>the array of values to be assigned
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#slice" data-isabs="false">
+      <a id="slice(Int,Int):VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">slice</span>
+        
+        <span class="params">(<span name="from">from: <span name="scala.Int" class="extype">Int</span></span>, <span name="till">till: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Slice this vector from to end.</p><div class="fullcomment"><div class="comment cmt"><p>Slice this vector from to end.</p></div><dl class="paramcmts block"><dt class="param">from</dt><dd class="cmt"><p>the start of the slice (included)</p></dd><dt class="param">till</dt><dd class="cmt"><p>the end of the slice (excluded)
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#sq" data-isabs="false">
+      <a id="sq:VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">sq</span>
+        
+        <span class="result">: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Square each element of this vector.</p>
+    </li><li visbl="pub" name="scalation.math.VectorN#sum" data-isabs="false">
+      <a id="sum:T"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">sum</span>
+        
+        <span class="result">: T</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Sum the elements of this vector.</p>
+    </li><li visbl="pub" name="scalation.math.VectorN#sum_ne" data-isabs="false">
+      <a id="sum_ne(Int):T"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">sum_ne</span>
+        
+        <span class="params">(<span name="i">i: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: T</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Sum the elements of this vector skipping the ith element.</p><div class="fullcomment"><div class="comment cmt"><p>Sum the elements of this vector skipping the ith element.</p></div><dl class="paramcmts block"><dt class="param">i</dt><dd class="cmt"><p>the index of the element to skip
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#sum_pos" data-isabs="false">
+      <a id="sum_pos:T"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">sum_pos</span>
+        
+        <span class="result">: T</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Sum the positive (&gt; 0) elements of this vector.</p>
+    </li><li visbl="pub" name="scala.AnyRef#synchronized" data-isabs="false">
+      <a id="synchronized[T0](⇒ T0):T0"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">synchronized</span>
+        <span class="tparams">[<span name="T0">T0</span>]</span>
+        <span class="params">(<span name="arg0">arg0: ⇒ T0</span>)</span><span class="result">: T0</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#toDouble" data-isabs="false">
+      <a id="toDouble:VectorD"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">toDouble</span>
+        
+        <span class="result">: VectorD</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Convert a VectorN [T] into a VectorN [Double] (VectorD).</p>
+    </li><li visbl="pub" name="scalation.math.VectorN#toInt" data-isabs="false">
+      <a id="toInt:VectorI"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">toInt</span>
+        
+        <span class="result">: VectorI</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Convert a VectorN [T] into a VectorN [Int] (VectorI).</p>
+    </li><li visbl="pub" name="scalation.math.VectorN#toString" data-isabs="false">
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">toString</span>
+        
+        <span class="params">()</span><span class="result">: String</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Convert this vector to a string.</p><div class="fullcomment"><div class="comment cmt"><p>Convert this vector to a string.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="scalation.math.VectorN" class="extype" href="">VectorN</a> → AnyRef → Any</dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#tryCompareTo" data-isabs="false">
+      <a id="tryCompareTo[B&gt;:VectorN[T]](B)((B) ⇒ PartiallyOrdered[B]):Option[Int]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">tryCompareTo</span>
+        <span class="tparams">[<span name="B">B &gt;: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>]</span>
+        <span class="params">(<span name="b">b: B</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: (B) ⇒ PartiallyOrdered[B]</span>)</span><span class="result">: <span name="scala.Option" class="extype">Option</span>[<span name="scala.Int" class="extype">Int</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Compare this vector with vector b.</p><div class="fullcomment"><div class="comment cmt"><p>Compare this vector with vector b.</p></div><dl class="paramcmts block"><dt class="param">b</dt><dd class="cmt"><p>the other vector
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="scalation.math.VectorN" class="extype" href="">VectorN</a> → PartiallyOrdered</dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#unary_-" data-isabs="false">
+      <a id="unary_-():VectorN[T]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">unary_-</span>
+        
+        <span class="params">()</span><span class="result">: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Return the negative of this vector (unary minus).</p>
+    </li><li visbl="pub" name="scalation.math.VectorN#update" data-isabs="false">
+      <a id="update(Range,VectorN[T]):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">update</span>
+        
+        <span class="params">(<span name="r">r: Range</span>, <span name="u">u: <a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]</span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Set this vector's elements over the given range (vector slicing).</p><div class="fullcomment"><div class="comment cmt"><p>Set this vector's elements over the given range (vector slicing).</p></div><dl class="paramcmts block"><dt class="param">r</dt><dd class="cmt"><p>the given range</p></dd><dt class="param">u</dt><dd class="cmt"><p>the vector to assign
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#update" data-isabs="false">
+      <a id="update(Range,T):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">update</span>
+        
+        <span class="params">(<span name="r">r: Range</span>, <span name="x">x: T</span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Set this vector's elements over the given range (vector slicing).</p><div class="fullcomment"><div class="comment cmt"><p>Set this vector's elements over the given range (vector slicing).</p></div><dl class="paramcmts block"><dt class="param">r</dt><dd class="cmt"><p>the given range</p></dd><dt class="param">x</dt><dd class="cmt"><p>the value to assign
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scalation.math.VectorN#update" data-isabs="false">
+      <a id="update(Int,T):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">update</span>
+        
+        <span class="params">(<span name="i">i: <span name="scala.Int" class="extype">Int</span></span>, <span name="x">x: T</span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Set this vector's element at the i-th index position.</p><div class="fullcomment"><div class="comment cmt"><p>Set this vector's element at the i-th index position.</p></div><dl class="paramcmts block"><dt class="param">i</dt><dd class="cmt"><p>the given index</p></dd><dt class="param">x</dt><dd class="cmt"><p>the value to assign
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#wait" data-isabs="false">
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">wait</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#wait" data-isabs="false">
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">wait</span>
+        
+        <span class="params">(<span name="arg0">arg0: <span name="scala.Long" class="extype">Long</span></span>, <span name="arg1">arg1: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#wait" data-isabs="false">
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">wait</span>
+        
+        <span class="params">(<span name="arg0">arg0: <span name="scala.Long" class="extype">Long</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li></ol>
+            </div>
+
+        <div name="scalation.util.Error" class="parent">
+              <h3>Inherited from <a name="scalation.util.Error" class="extype" href="../util/Error.html">Error</a></h3>
+            </div><div name="scala.math.PartiallyOrdered" class="parent">
+              <h3>Inherited from <span name="scala.math.PartiallyOrdered" class="extype">PartiallyOrdered</span>[<a name="scalation.math.VectorN" class="extype" href="">VectorN</a>[T]]</h3>
+            </div><div name="scala.AnyRef" class="parent">
+              <h3>Inherited from AnyRef</h3>
+            </div><div name="scala.Any" class="parent">
+              <h3>Inherited from <span name="scala.Any" class="extype">Any</span></h3>
+            </div>
+
+      </div>
+      
+      <div id="tooltip"></div>
+      
+    </body>
+      </html>

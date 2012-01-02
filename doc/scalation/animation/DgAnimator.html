@@ -5,39 +5,36 @@
           <title>scalation.animation.DgAnimator</title>
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
-      <link href="../../lib/template.css" rel="stylesheet" type="text/css" media="screen" />
+      <link type="text/css" media="screen" rel="stylesheet" href="../../lib/template.css" />
       <script type="text/javascript" src="../../lib/jquery.js"></script>
       <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../lib/template.js"></script>
       <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
     
         </head>
-        <body class="type" onload="windowTitle();">
-
-      <p id="owner"><a href="../package.html" class="extype" name="scalation">scalation</a>.<a href="package.html" class="extype" name="scalation.animation">animation</a></p>
-
+        <body class="type">
       <div id="definition">
         <img src="../../lib/class_big.png" />
+        <p id="owner"><a name="scalation" class="extype" href="../package.html">scalation</a>.<a name="scalation.animation" class="extype" href="package.html">animation</a></p>
         <h1>DgAnimator</h1>
       </div>
 
       <h4 class="signature" id="signature">
       <span class="kind">class</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">DgAnimator</span>
         
-        
-        <span class="result"> extends <span class="extype" name="scala.swing.MainFrame">MainFrame</span> with <span class="extype" name="scala.actors.Actor">Actor</span> with <a href="../util/Error.html" class="extype" name="scalation.util.Error">Error</a></span>
+        <span class="result"> extends <span name="scala.swing.MainFrame" class="extype">MainFrame</span> with <span name="scala.actors.Actor" class="extype">Actor</span> with <a name="scalation.util.Error" class="extype" href="../util/Error.html">Error</a></span>
       </span>
       </h4>
-      <div class="fullcomment" id="comment"><div class="comment cmt"><p>This class is an animation engine for animating graphs.
-For example, it can animate bipartite graphs to animate Petri Nets.</p></div><div class="block">
-            linear super types: <a href="../util/Error.html" class="extype" name="scalation.util.Error">Error</a>, <span class="extype" name="scala.actors.Actor">Actor</span>, <span class="extype" name="scala.actors.InputChannel">InputChannel</span>[<span class="extype" name="scala.Any">Any</span>], <span class="extype" name="scala.actors.ActorCanReply">ActorCanReply</span>, <span class="extype" name="scala.actors.ReplyReactor">ReplyReactor</span>, <span class="extype" name="scala.actors.ReactorCanReply">ReactorCanReply</span>, <span class="extype" name="scala.actors.Reactor">Reactor</span>[<span class="extype" name="scala.Any">Any</span>], <span class="extype" name="scala.actors.Combinators">Combinators</span>, <span class="extype" name="scala.actors.AbstractActor">AbstractActor</span>, <span class="extype" name="scala.actors.CanReply">CanReply</span>[<span class="extype" name="scala.Any">Any</span>, <span class="extype" name="scala.Any">Any</span>], <span class="extype" name="scala.actors.OutputChannel">OutputChannel</span>[<span class="extype" name="scala.Any">Any</span>], <span class="extype" name="scala.swing.MainFrame">MainFrame</span>, <span class="extype" name="scala.swing.Frame">Frame</span>, <span class="extype" name="scala.swing.RichWindow">RichWindow</span>, <span class="extype" name="scala.swing.Window">Window</span>, <span class="extype" name="scala.swing.RootPanel">RootPanel</span>, <span class="extype" name="scala.swing.Container">Container</span>, <span class="extype" name="scala.swing.UIElement">UIElement</span>, <span class="extype" name="scala.swing.LazyPublisher">LazyPublisher</span>, <span class="extype" name="scala.swing.Publisher">Publisher</span>, <span class="extype" name="scala.swing.Reactor">Reactor</span>, <span class="extype" name="scala.Proxy">Proxy</span>, AnyRef, <span class="extype" name="scala.Any">Any</span>
-          </div>
-            
-            
-            
-          </div>
+      
+          <div class="fullcommenttop" id="comment"><div class="comment cmt"><p>:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+This class is an animation engine for animating graphs.
+For example, it can animate bipartite graphs to animate Petri Nets.</p></div><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><a name="scalation.util.Error" class="extype" href="../util/Error.html">Error</a>, <span name="scala.actors.Actor" class="extype">Actor</span>, <span name="scala.Serializable" class="extype">Serializable</span>, <span name="java.io.Serializable" class="extype">Serializable</span>, <span name="scala.actors.InputChannel" class="extype">InputChannel</span>[<span name="scala.Any" class="extype">Any</span>], <span name="scala.actors.ActorCanReply" class="extype">ActorCanReply</span>, <span name="scala.actors.ReplyReactor" class="extype">ReplyReactor</span>, <span name="scala.actors.ReactorCanReply" class="extype">ReactorCanReply</span>, <span name="scala.actors.Reactor" class="extype">Reactor</span>[<span name="scala.Any" class="extype">Any</span>], <span name="scala.actors.Combinators" class="extype">Combinators</span>, <span name="scala.actors.AbstractActor" class="extype">AbstractActor</span>, <span name="scala.actors.CanReply" class="extype">CanReply</span>[<span name="scala.Any" class="extype">Any</span>, <span name="scala.Any" class="extype">Any</span>], <span name="scala.actors.OutputChannel" class="extype">OutputChannel</span>[<span name="scala.Any" class="extype">Any</span>], <span name="scala.swing.MainFrame" class="extype">MainFrame</span>, <span name="scala.swing.Frame" class="extype">Frame</span>, <span name="scala.swing.RichWindow" class="extype">RichWindow</span>, <span name="scala.swing.Window" class="extype">Window</span>, <span name="scala.swing.RootPanel" class="extype">RootPanel</span>, <span name="scala.swing.Container" class="extype">Container</span>, <span name="scala.swing.UIElement" class="extype">UIElement</span>, <span name="scala.swing.LazyPublisher" class="extype">LazyPublisher</span>, <span name="scala.swing.Publisher" class="extype">Publisher</span>, <span name="scala.swing.Reactor" class="extype">Reactor</span>, <span name="scala.Proxy" class="extype">Proxy</span>, AnyRef, <span name="scala.Any" class="extype">Any</span></div>
+        </div></div>
+        
 
       <div id="template">
 
@@ -45,2484 +42,1524 @@ For example, it can animate bipartite graphs to animate Petri Nets.</p></div><di
           <div id="textfilter"><span class="pre"></span><span class="input"><input accesskey="/" type="text" /></span><span class="post"></span></div>
           <div id="order">
                 <span class="filtertype">Ordering</span>
-                <ol><li class="alpha in">Alphabetic</li><li class="inherit out">By inheritance</li></ol>
+                <ol><li class="alpha in"><span>Alphabetic</span></li><li class="inherit out"><span>By inheritance</span></li></ol>
               </div>
           <div id="ancestors">
                 <span class="filtertype">Inherited</span>
-                <ol><li class="hideall">Hide All</li><li class="showall">Show all</li></ol>
-                <ol id="linearization"><li class="in" name="scalation.animation.DgAnimator">DgAnimator</li><li class="in" name="scalation.util.Error">Error</li><li class="in" name="scala.actors.Actor">Actor</li><li class="in" name="scala.actors.InputChannel">InputChannel</li><li class="in" name="scala.actors.ActorCanReply">ActorCanReply</li><li class="in" name="scala.actors.ReplyReactor">ReplyReactor</li><li class="in" name="scala.actors.ReactorCanReply">ReactorCanReply</li><li class="in" name="scala.actors.Reactor">Reactor</li><li class="in" name="scala.actors.Combinators">Combinators</li><li class="in" name="scala.actors.AbstractActor">AbstractActor</li><li class="in" name="scala.actors.CanReply">CanReply</li><li class="in" name="scala.actors.OutputChannel">OutputChannel</li><li class="in" name="scala.swing.MainFrame">MainFrame</li><li class="in" name="scala.swing.Frame">Frame</li><li class="in" name="scala.swing.RichWindow">RichWindow</li><li class="in" name="scala.swing.Window">Window</li><li class="in" name="scala.swing.RootPanel">RootPanel</li><li class="in" name="scala.swing.Container">Container</li><li class="in" name="scala.swing.UIElement">UIElement</li><li class="in" name="scala.swing.LazyPublisher">LazyPublisher</li><li class="in" name="scala.swing.Publisher">Publisher</li><li class="in" name="scala.swing.Reactor">Reactor</li><li class="in" name="scala.Proxy">Proxy</li><li class="in" name="scala.AnyRef">AnyRef</li><li class="in" name="scala.Any">Any</li></ol>
+                <ol><li class="hideall out"><span>Hide All</span></li>
+                <li class="showall in"><span>Show all</span></li></ol>
+                <ol id="linearization"><li name="scalation.animation.DgAnimator" class="in"><span>DgAnimator</span></li><li name="scalation.util.Error" class="in"><span>Error</span></li><li name="scala.actors.Actor" class="in"><span>Actor</span></li><li name="scala.Serializable" class="in"><span>Serializable</span></li><li name="java.io.Serializable" class="in"><span>Serializable</span></li><li name="scala.actors.InputChannel" class="in"><span>InputChannel</span></li><li name="scala.actors.ActorCanReply" class="in"><span>ActorCanReply</span></li><li name="scala.actors.ReplyReactor" class="in"><span>ReplyReactor</span></li><li name="scala.actors.ReactorCanReply" class="in"><span>ReactorCanReply</span></li><li name="scala.actors.Reactor" class="in"><span>Reactor</span></li><li name="scala.actors.Combinators" class="in"><span>Combinators</span></li><li name="scala.actors.AbstractActor" class="in"><span>AbstractActor</span></li><li name="scala.actors.CanReply" class="in"><span>CanReply</span></li><li name="scala.actors.OutputChannel" class="in"><span>OutputChannel</span></li><li name="scala.swing.MainFrame" class="in"><span>MainFrame</span></li><li name="scala.swing.Frame" class="in"><span>Frame</span></li><li name="scala.swing.RichWindow" class="in"><span>RichWindow</span></li><li name="scala.swing.Window" class="in"><span>Window</span></li><li name="scala.swing.RootPanel" class="in"><span>RootPanel</span></li><li name="scala.swing.Container" class="in"><span>Container</span></li><li name="scala.swing.UIElement" class="in"><span>UIElement</span></li><li name="scala.swing.LazyPublisher" class="in"><span>LazyPublisher</span></li><li name="scala.swing.Publisher" class="in"><span>Publisher</span></li><li name="scala.swing.Reactor" class="in"><span>Reactor</span></li><li name="scala.Proxy" class="in"><span>Proxy</span></li><li name="scala.AnyRef" class="in"><span>AnyRef</span></li><li name="scala.Any" class="in"><span>Any</span></li></ol>
               </div>
           <div id="visbl">
               <span class="filtertype">Visibility</span>
-              <ol><li class="public in">Public</li><li class="all out">All</li></ol>
-            </div>
-          <div id="impl">
-              <span class="filtertype">Impl.</span>
-              <ol><li class="concrete in">Concrete</li><li class="abstract in">Abstract</li></ol>
+              <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
             </div>
         </div>
 
         <div class="members" id="constructors">
-              <h3>Instance constructors</h3>
-              <ol><li visbl="pub" data-isabs="false" name="scalation.animation.DgAnimator#this">
+              <h3>Instance Constructors</h3>
+              <ol><li visbl="pub" name="scalation.animation.DgAnimator#this" data-isabs="false">
       <a id="this:DgAnimator"></a>
       <h4 class="signature">
       <span class="kind">new</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">DgAnimator</span>
         
         <span class="params">(<span name="_title">_title: String</span>, <span name="fgColor">fgColor: Color</span>, <span name="bgColor">bgColor: Color</span>)</span>
-        
       </span>
       </h4>
-      
-            <p class="shortcomment cmt"></p>
-            <div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">bgColor</dt><dd class="cmt"><p>the background color
-</p></dd></dl>
-            
-            
-            
-          </div>
-          
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">bgColor</dt><dd class="cmt"><p>the background color
+</p></dd></dl></div>
     </li></ol>
             </div>
 
         <div class="types members" id="types">
               <h3>Type Members</h3>
-              <ol><li visbl="pub" data-isabs="false" name="scala.actors.ReactorCanReply#Future">
+              <ol><li visbl="pub" name="scala.actors.ReactorCanReply#Future" data-isabs="false">
       <a id="Future:Future[P]"></a>
       <h4 class="signature">
       <span class="kind">type</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">Future</span>
         <span class="tparams">[<span name="P">+P</span>]</span>
-        
-        <span class="result"> = <span class="extype" name="scala.actors.Future">Future</span>[P]</span>
+        <span class="result"> = <span name="scala.actors.Future" class="extype">Future</span>[P]</span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: ReactorCanReply → CanReply
-        </div></div>
-          
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>ReactorCanReply → CanReply</dd></dl></div>
     </li></ol>
             </div>
+        
+        
 
         <div class="values members" id="values">
               <h3>Value Members</h3>
-              <ol><li visbl="pub" data-isabs="false" name="scala.actors.ReplyReactor#!">
+              <ol><li visbl="pub" name="scala.actors.ReplyReactor#!" data-isabs="false">
       <a id="!(Any):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">!</span>
         
-        <span class="params">(<span name="msg">msg: <span class="extype" name="scala.Any">Any</span></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="msg">msg: <span name="scala.Any" class="extype">Any</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: ReplyReactor → Reactor → OutputChannel
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.actors.ActorCanReply#!!">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>ReplyReactor → Reactor → OutputChannel</dd></dl></div>
+    </li><li visbl="pub" name="scala.actors.ActorCanReply#!!" data-isabs="false">
       <a id="!!(Any):Future[Any]"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">!!</span>
         
-        <span class="params">(<span name="msg">msg: <span class="extype" name="scala.Any">Any</span></span>)</span>
-        <span class="result">: Future[<span class="extype" name="scala.Any">Any</span>]</span>
+        <span class="params">(<span name="msg">msg: <span name="scala.Any" class="extype">Any</span></span>)</span><span class="result">: Future[<span name="scala.Any" class="extype">Any</span>]</span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: ActorCanReply → ReactorCanReply → CanReply
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.actors.ActorCanReply#!!">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>ActorCanReply → ReactorCanReply → CanReply</dd></dl></div>
+    </li><li visbl="pub" name="scala.actors.ActorCanReply#!!" data-isabs="false">
       <a id="!![A](Any,PartialFunction[Any, A]):Future[A]"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">!!</span>
         <span class="tparams">[<span name="A">A</span>]</span>
-        <span class="params">(<span name="msg">msg: <span class="extype" name="scala.Any">Any</span></span>, <span name="handler">handler: <span class="extype" name="scala.PartialFunction">PartialFunction</span>[<span class="extype" name="scala.Any">Any</span>, A]</span>)</span>
-        <span class="result">: Future[A]</span>
+        <span class="params">(<span name="msg">msg: <span name="scala.Any" class="extype">Any</span></span>, <span name="handler">handler: <span name="scala.PartialFunction" class="extype">PartialFunction</span>[<span name="scala.Any" class="extype">Any</span>, A]</span>)</span><span class="result">: Future[A]</span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: ActorCanReply → ReactorCanReply → CanReply
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#!=">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>ActorCanReply → ReactorCanReply → CanReply</dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#!=" data-isabs="false">
       <a id="!=(AnyRef):Boolean"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">!=</span>
         
-        <span class="params">(<span name="arg0">arg0: AnyRef</span>)</span>
-        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="params">(<span name="arg0">arg0: AnyRef</span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: final 
-        </div><div class="block">
-          definition classes: AnyRef
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.Any#!=">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="scala.Any#!=" data-isabs="false">
       <a id="!=(Any):Boolean"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">!=</span>
         
-        <span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="params">(<span name="arg0">arg0: <span name="scala.Any" class="extype">Any</span></span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
       </span>
       </h4>
-      
-            <p class="shortcomment cmt"><code>o != arg0</code> is the same as <code>!(o == (arg0))</code>.</p>
-            <div class="fullcomment"><div class="comment cmt"><p><code>o != arg0</code> is the same as <code>!(o == (arg0))</code>.
-</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for dis-equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>false</code> if the receiver object is equivalent to the argument; <code>true</code> otherwise.</p></dd></dl><div class="block">
-          attributes: final 
-        </div><div class="block">
-          definition classes: Any
-        </div>
-            
-            
-            
-          </div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.actors.ActorCanReply#!?">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li visbl="pub" name="scala.actors.ActorCanReply#!?" data-isabs="false">
       <a id="!?(Long,Any):Option[Any]"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">!?</span>
         
-        <span class="params">(<span name="msec">msec: <span class="extype" name="scala.Long">Long</span></span>, <span name="msg">msg: <span class="extype" name="scala.Any">Any</span></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Any">Any</span>]</span>
+        <span class="params">(<span name="msec">msec: <span name="scala.Long" class="extype">Long</span></span>, <span name="msg">msg: <span name="scala.Any" class="extype">Any</span></span>)</span><span class="result">: <span name="scala.Option" class="extype">Option</span>[<span name="scala.Any" class="extype">Any</span>]</span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: ActorCanReply → ReactorCanReply → CanReply
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.actors.ActorCanReply#!?">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>ActorCanReply → ReactorCanReply → CanReply</dd></dl></div>
+    </li><li visbl="pub" name="scala.actors.ActorCanReply#!?" data-isabs="false">
       <a id="!?(Any):Any"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">!?</span>
         
-        <span class="params">(<span name="msg">msg: <span class="extype" name="scala.Any">Any</span></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Any">Any</span></span>
+        <span class="params">(<span name="msg">msg: <span name="scala.Any" class="extype">Any</span></span>)</span><span class="result">: <span name="scala.Any" class="extype">Any</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: ActorCanReply → ReactorCanReply → CanReply
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef###">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>ActorCanReply → ReactorCanReply → CanReply</dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef###" data-isabs="false">
       <a id="##():Int"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">##</span>
         
-        <span class="params">()</span>
-        <span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+        <span class="params">()</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: final 
-        </div><div class="block">
-          definition classes: AnyRef → Any
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#$asInstanceOf">
-      <a id="$asInstanceOf[T0]():T0"></a>
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol">
-        <span class="name">$asInstanceOf</span>
-        <span class="tparams">[<span name="T0">T0</span>]</span>
-        <span class="params">()</span>
-        <span class="result">: T0</span>
-      </span>
-      </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: final 
-        </div><div class="block">
-          definition classes: AnyRef
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#$isInstanceOf">
-      <a id="$isInstanceOf[T0]():Boolean"></a>
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol">
-        <span class="name">$isInstanceOf</span>
-        <span class="tparams">[<span name="T0">T0</span>]</span>
-        <span class="params">()</span>
-        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
-      </span>
-      </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: final 
-        </div><div class="block">
-          definition classes: AnyRef
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#==">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#==" data-isabs="false">
       <a id="==(AnyRef):Boolean"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">==</span>
         
-        <span class="params">(<span name="arg0">arg0: AnyRef</span>)</span>
-        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="params">(<span name="arg0">arg0: AnyRef</span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
       </span>
       </h4>
-      
-            <p class="shortcomment cmt"><code>o == arg0</code> is the same as <code>if (o eq null) arg0 eq null else o.equals(arg0)</code>.</p>
-            <div class="fullcomment"><div class="comment cmt"><p><code>o == arg0</code> is the same as <code>if (o eq null) arg0 eq null else o.equals(arg0)</code>.
-</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the receiver object is equivalent to the argument; <code>false</code> otherwise.</p></dd></dl><div class="block">
-          attributes: final 
-        </div><div class="block">
-          definition classes: AnyRef
-        </div>
-            
-            
-            
-          </div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.Any#==">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="scala.Any#==" data-isabs="false">
       <a id="==(Any):Boolean"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">==</span>
         
-        <span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="params">(<span name="arg0">arg0: <span name="scala.Any" class="extype">Any</span></span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
       </span>
       </h4>
-      
-            <p class="shortcomment cmt"><code>o == arg0</code> is the same as <code>o.equals(arg0)</code>.</p>
-            <div class="fullcomment"><div class="comment cmt"><p><code>o == arg0</code> is the same as <code>o.equals(arg0)</code>.
-</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the receiver object is equivalent to the argument; <code>false</code> otherwise.</p></dd></dl><div class="block">
-          attributes: final 
-        </div><div class="block">
-          definition classes: Any
-        </div>
-            
-            
-            
-          </div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.actors.Actor#?">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li visbl="pub" name="scala.actors.Actor#?" data-isabs="false">
       <a id="?:Any"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">?</span>
         
-        
-        <span class="result">: <span class="extype" name="scala.Any">Any</span></span>
+        <span class="result">: <span name="scala.Any" class="extype">Any</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Actor → InputChannel
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scalation.animation.DgAnimator#act">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Actor → InputChannel</dd></dl></div>
+    </li><li visbl="pub" name="scalation.animation.DgAnimator#act" data-isabs="false">
       <a id="act():Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">act</span>
         
-        <span class="params">()</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            <p class="shortcomment cmt">Repeatedly execute animation commands, sleep and repaint.</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Repeatedly execute animation commands, sleep and repaint.
-</p></div><div class="block">
-          definition classes: <a href="" class="extype" name="scalation.animation.DgAnimator">DgAnimator</a> → Reactor
-        </div>
-            
-            
-            
-          </div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scalation.animation.DgAnimator#animate">
+      <p class="shortcomment cmt">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Repeatedly execute animation commands, sleep and repaint.</p><div class="fullcomment"><div class="comment cmt"><p>:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Repeatedly execute animation commands, sleep and repaint.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="scalation.animation.DgAnimator" class="extype" href="">DgAnimator</a> → Reactor</dd></dl></div>
+    </li><li visbl="pub" name="scalation.animation.DgAnimator#animate" data-isabs="false">
       <a id="animate(Double,Double):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">animate</span>
         
-        <span class="params">(<span name="tStart">tStart: <span class="extype" name="scala.Double">Double</span></span>, <span name="tStop">tStop: <span class="extype" name="scala.Double">Double</span></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="tStart">tStart: <span name="scala.Double" class="extype">Double</span></span>, <span name="tStop">tStop: <span name="scala.Double" class="extype">Double</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            <p class="shortcomment cmt">Start the animation by staring the animation actor.</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Start the animation by staring the animation actor.</p></div><dl class="paramcmts block"><dt class="param">tStart</dt><dd class="cmt"><p>the animation start time</p></dd><dt class="param">tStop</dt><dd class="cmt"><p>the animation stop time
-</p></dd></dl>
-            
-            
-            
-          </div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.Any#asInstanceOf">
+      <p class="shortcomment cmt">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Start the animation by staring the animation actor.</p><div class="fullcomment"><div class="comment cmt"><p>:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Start the animation by staring the animation actor.</p></div><dl class="paramcmts block"><dt class="param">tStart</dt><dd class="cmt"><p>the animation start time</p></dd><dt class="param">tStop</dt><dd class="cmt"><p>the animation stop time
+</p></dd></dl></div>
+    </li><li visbl="pub" name="scala.Any#asInstanceOf" data-isabs="false">
       <a id="asInstanceOf[T0]:T0"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">asInstanceOf</span>
         <span class="tparams">[<span name="T0">T0</span>]</span>
-        
         <span class="result">: T0</span>
       </span>
       </h4>
-      
-            <p class="shortcomment cmt">This method is used to cast the receiver object to be of type <code>T0</code>.</p>
-            <div class="fullcomment"><div class="comment cmt"><p>This method is used to cast the receiver object to be of type <code>T0</code>.</p><p>Note that the success of a cast at runtime is modulo Scala's erasure semantics.  Therefore the expression<code>1.asInstanceOf[String]</code> will throw a <code>ClassCastException</code> at runtime, while the expression<code>List(1).asInstanceOf[List[String]]</code> will not.  In the latter example, because the type argument is erased as
-part of compilation it is not possible to check whether the contents of the list are of the requested typed.
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>the receiver object.</p></dd></dl><div class="block">
-          attributes: final 
-        </div><div class="block">
-          definition classes: Any
-        </div>
-            
-            
-            
-          </div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.UIElement#background">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.UIElement#background" data-isabs="false">
       <a id="background:Color"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">background</span>
-        
         
         <span class="result">: Color</span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: UIElement
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.UIElement#background_=">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>UIElement</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.UIElement#background_=" data-isabs="false">
       <a id="background_=(Color):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">background_=</span>
         
-        <span class="params">(<span name="c">c: Color</span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="c">c: Color</span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: UIElement
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.UIElement#bounds">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>UIElement</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.UIElement#bounds" data-isabs="false">
       <a id="bounds:Rectangle"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">bounds</span>
         
-        
-        <span class="result">: <span class="extype" name="java.awt.Rectangle">Rectangle</span></span>
+        <span class="result">: <span name="java.awt.Rectangle" class="extype">Rectangle</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: UIElement
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.Window#bounds_=">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>UIElement</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.Window#bounds_=" data-isabs="false">
       <a id="bounds_=(Rectangle):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">bounds_=</span>
         
-        <span class="params">(<span name="rect">rect: Rectangle</span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="rect">rect: Rectangle</span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Window
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scalation.animation.DgAnimator#canvas">
-      <a id="canvas:Panel"></a>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Window</dd></dl></div>
+    </li><li visbl="pub" name="scalation.animation.DgAnimator#canvas" data-isabs="false">
+      <a id="canvas:Panel { val f: java.awt.Font }"></a>
       <h4 class="signature">
       <span class="kind">val</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">canvas</span>
         
-        
-        <span class="result">: <span class="extype" name="scala.swing.Panel">Panel</span></span>
+        <span class="result">: <span name="scala.swing.Panel" class="extype">Panel</span> { val f: java.awt.Font }</span>
       </span>
       </h4>
-      
-            <p class="shortcomment cmt">The canvas Panel is used to place shapes in the drawing region.</p>
-            <div class="fullcomment"><div class="comment cmt"><p>The canvas Panel is used to place shapes in the drawing region.
-</p></div>
-            
-            
-            
-          </div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.Window#centerOnScreen">
+      <p class="shortcomment cmt">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+The canvas Panel is used to place shapes in the drawing region.</p>
+    </li><li visbl="pub" name="scala.swing.Window#centerOnScreen" data-isabs="false">
       <a id="centerOnScreen():Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">centerOnScreen</span>
         
-        <span class="params">()</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Window
-        </div></div>
-          
-    </li><li visbl="prt" data-isabs="false" name="scala.AnyRef#clone">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Window</dd></dl></div>
+    </li><li visbl="prt" name="scala.AnyRef#clone" data-isabs="false">
       <a id="clone():AnyRef"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">clone</span>
         
-        <span class="params">()</span>
-        <span class="result">: AnyRef</span>
+        <span class="params">()</span><span class="result">: AnyRef</span>
       </span>
       </h4>
-      
-            <p class="shortcomment cmt">This method creates and returns a copy of the receiver object.</p>
-            <div class="fullcomment"><div class="comment cmt"><p>This method creates and returns a copy of the receiver object.</p><p>The default implementation of the <code>clone</code> method is platform dependent.
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>a copy of the receiver object.</p></dd></dl><div class="block">
-          attributes: protected 
-        </div><div class="block">
-          definition classes: AnyRef
-        </div>
-            
-            
-            
-          </div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.Window#close">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a name="java.lang" class="extype" href="../../java/lang/package.html">lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.Window#close" data-isabs="false">
       <a id="close():Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">close</span>
         
-        <span class="params">()</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Window
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.MainFrame#closeOperation">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Window</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.MainFrame#closeOperation" data-isabs="false">
       <a id="closeOperation():Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">closeOperation</span>
         
-        <span class="params">()</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: MainFrame → Window
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.RootPanel#contents">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>MainFrame → Window</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.RootPanel#contents" data-isabs="false">
       <a id="contents:Seq[Component]"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">contents</span>
         
-        
-        <span class="result">: Seq[<span class="extype" name="scala.swing.Component">Component</span>]</span>
+        <span class="result">: Seq[<span name="scala.swing.Component" class="extype">Component</span>]</span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: RootPanel → Container
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.Window#contents_=">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>RootPanel → Container</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.Window#contents_=" data-isabs="false">
       <a id="contents_=(Component):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">contents_=</span>
         
-        <span class="params">(<span name="c">c: <span class="extype" name="scala.swing.Component">Component</span></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="c">c: <span name="scala.swing.Component" class="extype">Component</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Window → RootPanel
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.actors.Combinators#continue">
-      <a id="continue:Unit"></a>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Window → RootPanel</dd></dl></div>
+    </li><li visbl="pub" name="scala.actors.Combinators#continue" data-isabs="false">
+      <a id="continue():Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">continue</span>
         
-        
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Combinators
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.UIElement#cursor">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Combinators</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.UIElement#cursor" data-isabs="false">
       <a id="cursor:Cursor"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">cursor</span>
         
-        
-        <span class="result">: <span class="extype" name="java.awt.Cursor">Cursor</span></span>
+        <span class="result">: <span name="java.awt.Cursor" class="extype">Cursor</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: UIElement
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.UIElement#cursor_=">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>UIElement</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.UIElement#cursor_=" data-isabs="false">
       <a id="cursor_=(Cursor):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">cursor_=</span>
         
-        <span class="params">(<span name="c">c: <span class="extype" name="java.awt.Cursor">Cursor</span></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="c">c: <span name="java.awt.Cursor" class="extype">Cursor</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: UIElement
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.Reactor#deafTo">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>UIElement</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.Reactor#deafTo" data-isabs="false">
       <a id="deafTo(Publisher*):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">deafTo</span>
         
-        <span class="params">(<span name="ps">ps: <span class="extype" name="scala.swing.Publisher">Publisher</span>*</span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="ps">ps: <span name="scala.swing.Publisher" class="extype">Publisher</span>*</span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Reactor
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.Window#defaultButton">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Reactor</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.Window#defaultButton" data-isabs="false">
       <a id="defaultButton:Option[Button]"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">defaultButton</span>
         
-        
-        <span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.swing.Button">Button</span>]</span>
+        <span class="result">: <span name="scala.Option" class="extype">Option</span>[<span name="scala.swing.Button" class="extype">Button</span>]</span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Window
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.Window#defaultButton_=">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Window</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.Window#defaultButton_=" data-isabs="false">
       <a id="defaultButton_=(Option[Button]):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">defaultButton_=</span>
         
-        <span class="params">(<span name="b">b: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.swing.Button">Button</span>]</span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="b">b: <span name="scala.Option" class="extype">Option</span>[<span name="scala.swing.Button" class="extype">Button</span>]</span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Window
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.Window#defaultButton_=">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Window</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.Window#defaultButton_=" data-isabs="false">
       <a id="defaultButton_=(Button):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">defaultButton_=</span>
         
-        <span class="params">(<span name="b">b: <span class="extype" name="scala.swing.Button">Button</span></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="b">b: <span name="scala.swing.Button" class="extype">Button</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Window
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.UIElement#displayable">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Window</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.UIElement#displayable" data-isabs="false">
       <a id="displayable:Boolean"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">displayable</span>
         
-        
-        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: UIElement
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.Window#dispose">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>UIElement</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.Window#dispose" data-isabs="false">
       <a id="dispose():Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">dispose</span>
         
-        <span class="params">()</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Window
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#eq">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Window</dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#eq" data-isabs="false">
       <a id="eq(AnyRef):Boolean"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">eq</span>
         
-        <span class="params">(<span name="arg0">arg0: AnyRef</span>)</span>
-        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="params">(<span name="arg0">arg0: AnyRef</span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
       </span>
       </h4>
-      
-            <p class="shortcomment cmt">This method is used to test whether the argument (<code>arg0</code>) is a reference to the
-receiver object (<code>this</code>).</p>
-            <div class="fullcomment"><div class="comment cmt"><p>This method is used to test whether the argument (<code>arg0</code>) is a reference to the
-receiver object (<code>this</code>).</p><p>The <code>eq</code> method implements an [http://en.wikipedia.org/wiki/Equivalence_relation equivalence relation] on
-non-null instances of <code>AnyRef</code>:
- * It is reflexive: for any non-null instance <code>x</code> of type <code>AnyRef</code>, <code>x.eq(x)</code> returns <code>true</code>.
- * It is symmetric: for any non-null instances <code>x</code> and <code>y</code> of type <code>AnyRef</code>, <code>x.eq(y)</code> returns <code>true</code> if and
-   only if <code>y.eq(x)</code> returns <code>true</code>.
- * It is transitive: for any non-null instances <code>x</code>, <code>y</code>, and <code>z</code> of type <code>AnyRef</code> if <code>x.eq(y)</code> returns <code>true</code>   and <code>y.eq(z)</code> returns <code>true</code>, then <code>x.eq(z)</code> returns <code>true</code>.</p><p>Additionally, the <code>eq</code> method has three other properties.
- * It is consistent: for any non-null instances <code>x</code> and <code>y</code> of type <code>AnyRef</code>, multiple invocations of
-   <code>x.eq(y)</code> consistently returns <code>true</code> or consistently returns <code>false</code>.
- * For any non-null instance <code>x</code> of type <code>AnyRef</code>, <code>x.eq(null)</code> and <code>null.eq(x)</code> returns <code>false</code>.
- * <code>null.eq(null)</code> returns <code>true</code>.</p><p>When overriding the <code>equals</code> or <code>hashCode</code> methods, it is important to ensure that their behavior is
-consistent with reference equality.  Therefore, if two objects are references to each other (<code>o1 eq o2</code>), they
-should be equal to each other (<code>o1 == o2</code>) and they should hash to the same value (<code>o1.hashCode == o2.hashCode</code>).
-</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for reference equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the argument is a reference to the receiver object; <code>false</code> otherwise.</p></dd></dl><div class="block">
-          attributes: final 
-        </div><div class="block">
-          definition classes: AnyRef
-        </div>
-            
-            
-            
-          </div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.Proxy#equals">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="scala.Proxy#equals" data-isabs="false">
       <a id="equals(Any):Boolean"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">equals</span>
         
-        <span class="params">(<span name="that">that: <span class="extype" name="scala.Any">Any</span></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="params">(<span name="that">that: <span name="scala.Any" class="extype">Any</span></span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
       </span>
       </h4>
-      
-            <p class="shortcomment cmt">This method is used to compare the receiver object (<code>this</code>) with the argument object (<code>arg0</code>) for equivalence.</p>
-            <div class="fullcomment"><div class="comment cmt"><p>This method is used to compare the receiver object (<code>this</code>) with the argument object (<code>arg0</code>) for equivalence.</p><p>The default implementations of this method is an [http://en.wikipedia.org/wiki/Equivalence_relation equivalence
-relation]:
- * It is reflexive: for any instance <code>x</code> of type <code>Any</code>, <code>x.equals(x)</code> should return <code>true</code>.
- * It is symmetric: for any instances <code>x</code> and <code>y</code> of type <code>Any</code>, <code>x.equals(y)</code> should return <code>true</code> if and
-   only if <code>y.equals(x)</code> returns <code>true</code>.
- * It is transitive: for any instances <code>x</code>, <code>y</code>, and <code>z</code> of type <code>AnyRef</code> if <code>x.equals(y)</code> returns <code>true</code> and
-   <code>y.equals(z)</code> returns <code>true</code>, then <code>x.equals(z)</code> should return <code>true</code>.</p><p>If you override this method, you should verify that your implementation remains an equivalence relation.
-Additionally, when overriding this method it is often necessary to override <code>hashCode</code> to ensure that objects
-that are &quot;equal&quot; (<code>o1.equals(o2)</code> returns <code>true</code>) hash to the same 
-scala.Int
-(<code>o1.hashCode.equals(o2.hashCode)</code>).
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p><code>true</code> if the receiver object is equivalent to the argument; <code>false</code> otherwise.</p></dd></dl><div class="block">
-          definition classes: Proxy → AnyRef → Any
-        </div>
-            
-            
-            
-          </div>
-          
-    </li><li visbl="prt" data-isabs="false" name="scala.actors.Reactor#exceptionHandler">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Proxy → AnyRef → Any</dd></dl></div>
+    </li><li visbl="prt" name="scala.actors.Reactor#exceptionHandler" data-isabs="false">
       <a id="exceptionHandler:PartialFunction[Exception, Unit]"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">exceptionHandler</span>
         
-        
-        <span class="result">: <span class="extype" name="scala.PartialFunction">PartialFunction</span>[Exception, <span class="extype" name="scala.Unit">Unit</span>]</span>
+        <span class="result">: <span name="scala.PartialFunction" class="extype">PartialFunction</span>[Exception, <span name="scala.Unit" class="extype">Unit</span>]</span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: protected[<a href="../../scala/actors/package.html" class="extype" name="scala.actors">actors</a>] 
-        </div><div class="block">
-          definition classes: Reactor
-        </div></div>
-          
-    </li><li visbl="prt" data-isabs="false" name="scala.actors.Actor#exit">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a name="scala.actors" class="extype" href="../../scala/actors/package.html">actors</a>] </dd><dt>Definition Classes</dt><dd>Reactor</dd></dl></div>
+    </li><li visbl="prt" name="scala.actors.Actor#exit" data-isabs="false">
       <a id="exit():Nothing"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">exit</span>
         
-        <span class="params">()</span>
-        <span class="result">: <span class="extype" name="scala.Nothing">Nothing</span></span>
+        <span class="params">()</span><span class="result">: <span name="scala.Nothing" class="extype">Nothing</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: protected[<a href="../../scala/actors/package.html" class="extype" name="scala.actors">actors</a>] 
-        </div><div class="block">
-          definition classes: Actor → Reactor
-        </div></div>
-          
-    </li><li visbl="prt" data-isabs="false" name="scala.actors.Actor#exit">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a name="scala.actors" class="extype" href="../../scala/actors/package.html">actors</a>] </dd><dt>Definition Classes</dt><dd>Actor → Reactor</dd></dl></div>
+    </li><li visbl="prt" name="scala.actors.Actor#exit" data-isabs="false">
       <a id="exit(AnyRef):Nothing"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">exit</span>
         
-        <span class="params">(<span name="reason">reason: AnyRef</span>)</span>
-        <span class="result">: <span class="extype" name="scala.Nothing">Nothing</span></span>
+        <span class="params">(<span name="reason">reason: AnyRef</span>)</span><span class="result">: <span name="scala.Nothing" class="extype">Nothing</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: protected[<a href="../../scala/actors/package.html" class="extype" name="scala.actors">actors</a>] 
-        </div><div class="block">
-          definition classes: Actor
-        </div></div>
-          
-    </li><li visbl="prt" data-isabs="false" name="scala.AnyRef#finalize">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a name="scala.actors" class="extype" href="../../scala/actors/package.html">actors</a>] </dd><dt>Definition Classes</dt><dd>Actor</dd></dl></div>
+    </li><li visbl="prt" name="scala.AnyRef#finalize" data-isabs="false">
       <a id="finalize():Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">finalize</span>
         
-        <span class="params">()</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            <p class="shortcomment cmt">This method is called by the garbage collector on the receiver object when garbage collection determines that
-there are no more references to the object.</p>
-            <div class="fullcomment"><div class="comment cmt"><p>This method is called by the garbage collector on the receiver object when garbage collection determines that
-there are no more references to the object.</p><p>The details of when and if the <code>finalize</code> method are invoked, as well as the interaction between <code>finalize</code>and non-local returns and exceptions, are all platform dependent.</p></div><div class="block">
-          attributes: protected 
-        </div><div class="block">
-          definition classes: AnyRef
-        </div>
-            
-            
-            
-          </div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scalation.util.Error#flaw">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a name="java.lang" class="extype" href="../../java/lang/package.html">lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li visbl="pub" name="scalation.util.Error#flaw" data-isabs="false">
       <a id="flaw(String,String):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">flaw</span>
         
-        <span class="params">(<span name="method">method: String</span>, <span name="message">message: String</span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="method">method: String</span>, <span name="message">message: String</span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            <p class="shortcomment cmt">Show the flaw by printing the error message.</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Show the flaw by printing the error message.</p></div><dl class="paramcmts block"><dt class="param">method</dt><dd class="cmt"><p>the method where the error occured</p></dd><dt class="param">message</dt><dd class="cmt"><p>the error message
-</p></dd></dl><div class="block">
-          definition classes: <a href="../util/Error.html" class="extype" name="scalation.util.Error">Error</a>
-        </div>
-            
-            
-            
-          </div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.UIElement#font">
+      <p class="shortcomment cmt">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Show the flaw by printing the error message.</p><div class="fullcomment"><div class="comment cmt"><p>:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Show the flaw by printing the error message.</p></div><dl class="paramcmts block"><dt class="param">method</dt><dd class="cmt"><p>the method where the error occured</p></dd><dt class="param">message</dt><dd class="cmt"><p>the error message
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="scalation.util.Error" class="extype" href="../util/Error.html">Error</a></dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.UIElement#font" data-isabs="false">
       <a id="font:Font"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">font</span>
-        
         
         <span class="result">: Font</span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: UIElement
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.UIElement#font_=">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>UIElement</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.UIElement#font_=" data-isabs="false">
       <a id="font_=(Font):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">font_=</span>
         
-        <span class="params">(<span name="f">f: Font</span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="f">f: Font</span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: UIElement
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.UIElement#foreground">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>UIElement</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.UIElement#foreground" data-isabs="false">
       <a id="foreground:Color"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">foreground</span>
-        
         
         <span class="result">: Color</span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: UIElement
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.UIElement#foreground_=">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>UIElement</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.UIElement#foreground_=" data-isabs="false">
       <a id="foreground_=(Color):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">foreground_=</span>
         
-        <span class="params">(<span name="c">c: Color</span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="c">c: Color</span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: UIElement
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.actors.ReplyReactor#forward">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>UIElement</dd></dl></div>
+    </li><li visbl="pub" name="scala.actors.ReplyReactor#forward" data-isabs="false">
       <a id="forward(Any):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">forward</span>
         
-        <span class="params">(<span name="msg">msg: <span class="extype" name="scala.Any">Any</span></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="msg">msg: <span name="scala.Any" class="extype">Any</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: ReplyReactor → Reactor → OutputChannel
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#getClass">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>ReplyReactor → Reactor → OutputChannel</dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#getClass" data-isabs="false">
       <a id="getClass():java.lang.Class[_]"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">getClass</span>
         
-        <span class="params">()</span>
-        <span class="result">: java.lang.Class[_]</span>
+        <span class="params">()</span><span class="result">: java.lang.Class[_]</span>
       </span>
       </h4>
-      
-            <p class="shortcomment cmt">Returns a representation that corresponds to the dynamic class of the receiver object.</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Returns a representation that corresponds to the dynamic class of the receiver object.</p><p>The nature of the representation is platform dependent.
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>a representation that corresponds to the dynamic class of the receiver object.</p></dd></dl><div class="block">
-          attributes: final 
-        </div><div class="block">
-          definition classes: AnyRef
-        </div>
-            
-            
-            
-          </div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scalation.animation.DgAnimator#getCommandQueue">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="scalation.animation.DgAnimator#getCommandQueue" data-isabs="false">
       <a id="getCommandQueue:SynchronizedQueue[AnimateCommand]"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">getCommandQueue</span>
         
-        
-        <span class="result">: <span class="extype" name="scala.collection.mutable.SynchronizedQueue">SynchronizedQueue</span>[<a href="AnimateCommand.html" class="extype" name="scalation.animation.AnimateCommand">AnimateCommand</a>]</span>
+        <span class="result">: <span name="scala.collection.mutable.SynchronizedQueue" class="extype">SynchronizedQueue</span>[<a name="scalation.animation.AnimateCommand" class="extype" href="AnimateCommand.html">AnimateCommand</a>]</span>
       </span>
       </h4>
-      
-            <p class="shortcomment cmt">Get the animation command queue.</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Get the animation command queue.
-</p></div>
-            
-            
-            
-          </div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.actors.Actor#getState">
+      <p class="shortcomment cmt">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Get the animation command queue.</p>
+    </li><li visbl="pub" name="scala.actors.Actor#getState" data-isabs="false">
       <a id="getState:Value"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">getState</span>
         
-        
-        <span class="result">: <span class="extype" name="scala.Enumeration.Value">Value</span></span>
+        <span class="result">: <span name="scala.Enumeration.Value" class="extype">Value</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Actor → ReplyReactor → Reactor
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.Proxy#hashCode">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Actor → ReplyReactor → Reactor</dd></dl></div>
+    </li><li visbl="pub" name="scala.Proxy#hashCode" data-isabs="false">
       <a id="hashCode():Int"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">hashCode</span>
         
-        <span class="params">()</span>
-        <span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+        <span class="params">()</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
       </span>
       </h4>
-      
-            <p class="shortcomment cmt">Returns a hash code value for the object.</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Returns a hash code value for the object.</p><p>The default hashing algorithm is platform dependent.</p><p>Note that it is allowed for two objects to have identical hash codes (<code>o1.hashCode.equals(o2.hashCode)</code>) yet
-not be equal (<code>o1.equals(o2)</code> returns <code>false</code>).  A degenerate implementation could always return <code>0</code>.
-However, it is required that if two objects are equal (<code>o1.equals(o2)</code> returns <code>true</code>) that they have
-identical hash codes (<code>o1.hashCode.equals(o2.hashCode)</code>).  Therefore, when overriding this method, be sure
-to verify that the behavior is consistent with the <code>equals</code> method.
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>the hash code value for the object.</p></dd></dl><div class="block">
-          definition classes: Proxy → AnyRef → Any
-        </div>
-            
-            
-            
-          </div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.Frame#iconImage">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Proxy → AnyRef → Any</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.Frame#iconImage" data-isabs="false">
       <a id="iconImage:Image"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">iconImage</span>
-        
         
         <span class="result">: Image</span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Frame
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.Frame#iconImage_=">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Frame</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.Frame#iconImage_=" data-isabs="false">
       <a id="iconImage_=(Image):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">iconImage_=</span>
         
-        <span class="params">(<span name="i">i: Image</span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="i">i: Image</span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Frame
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.Frame#iconified">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Frame</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.Frame#iconified" data-isabs="false">
       <a id="iconified():Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">iconified</span>
         
-        <span class="params">()</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Frame
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.Frame#iconify">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Frame</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.Frame#iconify" data-isabs="false">
       <a id="iconify():Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">iconify</span>
         
-        <span class="params">()</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Frame
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.UIElement#ignoreRepaint">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Frame</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.UIElement#ignoreRepaint" data-isabs="false">
       <a id="ignoreRepaint:Boolean"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">ignoreRepaint</span>
         
-        
-        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: UIElement
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.UIElement#ignoreRepaint_=">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>UIElement</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.UIElement#ignoreRepaint_=" data-isabs="false">
       <a id="ignoreRepaint_=(Boolean):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">ignoreRepaint_=</span>
         
-        <span class="params">(<span name="b">b: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="b">b: <span name="scala.Boolean" class="extype">Boolean</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: UIElement
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.Any#isInstanceOf">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>UIElement</dd></dl></div>
+    </li><li visbl="pub" name="scala.Any#isInstanceOf" data-isabs="false">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">isInstanceOf</span>
         <span class="tparams">[<span name="T0">T0</span>]</span>
-        
-        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
       </span>
       </h4>
-      
-            <p class="shortcomment cmt">This method is used to test whether the dynamic type of the receiver object is <code>T0</code>.</p>
-            <div class="fullcomment"><div class="comment cmt"><p>This method is used to test whether the dynamic type of the receiver object is <code>T0</code>.</p><p>Note that the test result of the test is modulo Scala's erasure semantics.  Therefore the expression<code>1.isInstanceOf[String]</code> will return <code>false</code>, while the expression <code>List(1).isInstanceOf[List[String]]</code> will
-return <code>true</code>.  In the latter example, because the type argument is erased as part of compilation it is not
-possible to check whether the contents of the list are of the requested typed.
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p><code>true</code> if the receiver object is an instance of erasure of type <code>T0</code>; <code>false</code> otherwise.</p></dd></dl><div class="block">
-          attributes: final 
-        </div><div class="block">
-          definition classes: Any
-        </div>
-            
-            
-            
-          </div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.actors.Actor#link">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li visbl="pub" name="scala.actors.Actor#link" data-isabs="false">
       <a id="link(⇒ Unit):Actor"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">link</span>
         
-        <span class="params">(<span name="body">body: ⇒ <span class="extype" name="scala.Unit">Unit</span></span>)</span>
-        <span class="result">: <span class="extype" name="scala.actors.Actor">Actor</span></span>
+        <span class="params">(<span name="body">body: ⇒ <span name="scala.Unit" class="extype">Unit</span></span>)</span><span class="result">: <span name="scala.actors.Actor" class="extype">Actor</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Actor
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.actors.Actor#link">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Actor</dd></dl></div>
+    </li><li visbl="pub" name="scala.actors.Actor#link" data-isabs="false">
       <a id="link(AbstractActor):AbstractActor"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">link</span>
         
-        <span class="params">(<span name="to">to: <span class="extype" name="scala.actors.AbstractActor">AbstractActor</span></span>)</span>
-        <span class="result">: <span class="extype" name="scala.actors.AbstractActor">AbstractActor</span></span>
+        <span class="params">(<span name="to">to: <span name="scala.actors.AbstractActor" class="extype">AbstractActor</span></span>)</span><span class="result">: <span name="scala.actors.AbstractActor" class="extype">AbstractActor</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Actor
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.Reactor#listenTo">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Actor</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.Reactor#listenTo" data-isabs="false">
       <a id="listenTo(Publisher*):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">listenTo</span>
         
-        <span class="params">(<span name="ps">ps: <span class="extype" name="scala.swing.Publisher">Publisher</span>*</span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="ps">ps: <span name="scala.swing.Publisher" class="extype">Publisher</span>*</span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Reactor
-        </div></div>
-          
-    </li><li visbl="prt" data-isabs="false" name="scala.swing.Publisher#listeners">
-      <a id="listeners:RefSet[Reaction] {...}"></a>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Reactor</dd></dl></div>
+    </li><li visbl="prt" name="scala.swing.Publisher#listeners" data-isabs="false">
+      <a id="listeners:RefSet[Reaction] { val underlying: scala.collection.mutable.HashSet[scala.ref.Reference[scala.swing.Reactions.Reaction]] }"></a>
       <h4 class="signature">
       <span class="kind">val</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">listeners</span>
         
-        
-        <span class="result">: <span class="extype" name="scala.swing.RefSet">RefSet</span>[Reaction] {...}</span>
+        <span class="result">: <span name="scala.swing.RefSet" class="extype">RefSet</span>[Reaction] { val underlying: scala.collection.mutable.HashSet[scala.ref.Reference[scala.swing.Reactions.Reaction]] }</span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: protected 
-        </div><div class="block">
-          definition classes: Publisher
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.UIElement#locale">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd>Publisher</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.UIElement#locale" data-isabs="false">
       <a id="locale:Locale"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">locale</span>
         
-        
-        <span class="result">: <span class="extype" name="java.util.Locale">Locale</span></span>
+        <span class="result">: <span name="java.util.Locale" class="extype">Locale</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: UIElement
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.UIElement#location">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>UIElement</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.UIElement#location" data-isabs="false">
       <a id="location:Point"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">location</span>
         
-        
-        <span class="result">: <span class="extype" name="java.awt.Point">Point</span></span>
+        <span class="result">: <span name="java.awt.Point" class="extype">Point</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: UIElement
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.UIElement#locationOnScreen">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>UIElement</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.UIElement#locationOnScreen" data-isabs="false">
       <a id="locationOnScreen:Point"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">locationOnScreen</span>
         
-        
-        <span class="result">: <span class="extype" name="java.awt.Point">Point</span></span>
+        <span class="result">: <span name="java.awt.Point" class="extype">Point</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: UIElement
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.Window#location_=">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>UIElement</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.Window#location_=" data-isabs="false">
       <a id="location_=(Point):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">location_=</span>
         
-        <span class="params">(<span name="p">p: Point</span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="p">p: Point</span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Window
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.actors.Combinators#loop">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Window</dd></dl></div>
+    </li><li visbl="pub" name="scala.actors.Combinators#loop" data-isabs="false">
       <a id="loop(⇒ Unit):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">loop</span>
         
-        <span class="params">(<span name="body">body: ⇒ <span class="extype" name="scala.Unit">Unit</span></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="body">body: ⇒ <span name="scala.Unit" class="extype">Unit</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Combinators
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.actors.Combinators#loopWhile">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Combinators</dd></dl></div>
+    </li><li visbl="pub" name="scala.actors.Combinators#loopWhile" data-isabs="false">
       <a id="loopWhile(⇒ Boolean)(⇒ Unit):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">loopWhile</span>
         
-        <span class="params">(<span name="cond">cond: ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="params">(<span name="body">body: ⇒ <span class="extype" name="scala.Unit">Unit</span></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="cond">cond: ⇒ <span name="scala.Boolean" class="extype">Boolean</span></span>)</span><span class="params">(<span name="body">body: ⇒ <span name="scala.Unit" class="extype">Unit</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Combinators
-        </div></div>
-          
-    </li><li visbl="prt" data-isabs="false" name="scala.actors.Reactor#mailboxSize">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Combinators</dd></dl></div>
+    </li><li visbl="prt" name="scala.actors.Reactor#mailboxSize" data-isabs="false">
       <a id="mailboxSize:Int"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">mailboxSize</span>
         
-        
-        <span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+        <span class="result">: <span name="scala.Int" class="extype">Int</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: protected[<a href="../../scala/actors/package.html" class="extype" name="scala.actors">actors</a>] 
-        </div><div class="block">
-          definition classes: Reactor
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.Frame#maximize">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a name="scala.actors" class="extype" href="../../scala/actors/package.html">actors</a>] </dd><dt>Definition Classes</dt><dd>Reactor</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.Frame#maximize" data-isabs="false">
       <a id="maximize():Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">maximize</span>
         
-        <span class="params">()</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Frame
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.Frame#maximized">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Frame</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.Frame#maximized" data-isabs="false">
       <a id="maximized():Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">maximized</span>
         
-        <span class="params">()</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Frame
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.UIElement#maximumSize">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Frame</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.UIElement#maximumSize" data-isabs="false">
       <a id="maximumSize:Dimension"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">maximumSize</span>
         
-        
-        <span class="result">: <span class="extype" name="java.awt.Dimension">Dimension</span></span>
+        <span class="result">: <span name="java.awt.Dimension" class="extype">Dimension</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: UIElement
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.UIElement#maximumSize_=">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>UIElement</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.UIElement#maximumSize_=" data-isabs="false">
       <a id="maximumSize_=(Dimension):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">maximumSize_=</span>
         
-        <span class="params">(<span name="x">x: Dimension</span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="x">x: Dimension</span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: UIElement
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.RichWindow#menuBar">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>UIElement</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.RichWindow#menuBar" data-isabs="false">
       <a id="menuBar:MenuBar"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">menuBar</span>
         
-        
-        <span class="result">: <span class="extype" name="scala.swing.MenuBar">MenuBar</span></span>
+        <span class="result">: <span name="scala.swing.MenuBar" class="extype">MenuBar</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: RichWindow
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.RichWindow#menuBar_=">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>RichWindow</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.RichWindow#menuBar_=" data-isabs="false">
       <a id="menuBar_=(MenuBar):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">menuBar_=</span>
         
-        <span class="params">(<span name="m">m: <span class="extype" name="scala.swing.MenuBar">MenuBar</span></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="m">m: <span name="scala.swing.MenuBar" class="extype">MenuBar</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: RichWindow
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.UIElement#minimumSize">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>RichWindow</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.UIElement#minimumSize" data-isabs="false">
       <a id="minimumSize:Dimension"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">minimumSize</span>
         
-        
-        <span class="result">: <span class="extype" name="java.awt.Dimension">Dimension</span></span>
+        <span class="result">: <span name="java.awt.Dimension" class="extype">Dimension</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: UIElement
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.UIElement#minimumSize_=">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>UIElement</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.UIElement#minimumSize_=" data-isabs="false">
       <a id="minimumSize_=(Dimension):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">minimumSize_=</span>
         
-        <span class="params">(<span name="x">x: Dimension</span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="x">x: Dimension</span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: UIElement
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.actors.Reactor#mkBody">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>UIElement</dd></dl></div>
+    </li><li visbl="pub" name="scala.actors.Reactor#mkBody" data-isabs="false">
       <a id="mkBody[A](⇒ A):Body[A]"></a>
       <h4 class="signature">
       <span class="kind">implicit def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">mkBody</span>
         <span class="tparams">[<span name="A">A</span>]</span>
-        <span class="params">(<span name="body">body: ⇒ A</span>)</span>
-        <span class="result">: <span class="extype" name="scala.actors.Actor.Body">Body</span>[A]</span>
+        <span class="params">(<span name="body">body: ⇒ A</span>)</span><span class="result">: <span name="scala.actors.Actor.Body" class="extype">Body</span>[A]</span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: implicit 
-        </div><div class="block">
-          definition classes: Reactor → Combinators
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#ne">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>implicit </dd><dt>Definition Classes</dt><dd>Reactor → Combinators</dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#ne" data-isabs="false">
       <a id="ne(AnyRef):Boolean"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">ne</span>
         
-        <span class="params">(<span name="arg0">arg0: AnyRef</span>)</span>
-        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="params">(<span name="arg0">arg0: AnyRef</span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
       </span>
       </h4>
-      
-            <p class="shortcomment cmt"><code>o.ne(arg0)</code> is the same as <code>!(o.eq(arg0))</code>.</p>
-            <div class="fullcomment"><div class="comment cmt"><p><code>o.ne(arg0)</code> is the same as <code>!(o.eq(arg0))</code>.
-</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for reference dis-equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>false</code> if the argument is not a reference to the receiver object; <code>true</code> otherwise.</p></dd></dl><div class="block">
-          attributes: final 
-        </div><div class="block">
-          definition classes: AnyRef
-        </div>
-            
-            
-            
-          </div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#notify">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#notify" data-isabs="false">
       <a id="notify():Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">notify</span>
         
-        <span class="params">()</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            <p class="shortcomment cmt">Wakes up a single thread that is waiting on the receiver object's monitor.</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Wakes up a single thread that is waiting on the receiver object's monitor.</p></div><div class="block">
-          attributes: final 
-        </div><div class="block">
-          definition classes: AnyRef
-        </div>
-            
-            
-            
-          </div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#notifyAll">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#notifyAll" data-isabs="false">
       <a id="notifyAll():Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">notifyAll</span>
         
-        <span class="params">()</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            <p class="shortcomment cmt">Wakes up all threads that are waiting on the receiver object's monitor.</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Wakes up all threads that are waiting on the receiver object's monitor.</p></div><div class="block">
-          attributes: final 
-        </div><div class="block">
-          definition classes: AnyRef
-        </div>
-            
-            
-            
-          </div>
-          
-    </li><li visbl="prt" data-isabs="false" name="scala.swing.UIElement#onFirstSubscribe">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="prt" name="scala.swing.UIElement#onFirstSubscribe" data-isabs="false">
       <a id="onFirstSubscribe():Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">onFirstSubscribe</span>
         
-        <span class="params">()</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: protected 
-        </div><div class="block">
-          definition classes: UIElement → LazyPublisher
-        </div></div>
-          
-    </li><li visbl="prt" data-isabs="false" name="scala.swing.UIElement#onLastUnsubscribe">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd>UIElement → LazyPublisher</dd></dl></div>
+    </li><li visbl="prt" name="scala.swing.UIElement#onLastUnsubscribe" data-isabs="false">
       <a id="onLastUnsubscribe():Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">onLastUnsubscribe</span>
         
-        <span class="params">()</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: protected 
-        </div><div class="block">
-          definition classes: UIElement → LazyPublisher
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.Window#open">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd>UIElement → LazyPublisher</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.Window#open" data-isabs="false">
       <a id="open():Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">open</span>
         
-        <span class="params">()</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Window
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.Window#owner">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Window</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.Window#owner" data-isabs="false">
       <a id="owner:Window"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">owner</span>
         
-        
-        <span class="result">: <span class="extype" name="scala.swing.Window">Window</span></span>
+        <span class="result">: <span name="scala.swing.Window" class="extype">Window</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Window
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.Window#pack">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Window</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.Window#pack" data-isabs="false">
       <a id="pack():DgAnimator.this.type"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">pack</span>
         
-        <span class="params">()</span>
-        <span class="result">: DgAnimator.this.type</span>
+        <span class="params">()</span><span class="result">: DgAnimator.this.type</span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Window
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.Frame#peer">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Window</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.Frame#peer" data-isabs="false">
       <a id="peer:JFrame with InterfaceMixin"></a>
       <h4 class="signature">
       <span class="kind">lazy val</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">peer</span>
         
-        
-        <span class="result">: <span class="extype" name="javax.swing.JFrame">JFrame</span> with <span class="extype" name="scala.swing.RichWindow.InterfaceMixin">InterfaceMixin</span></span>
+        <span class="result">: <span name="javax.swing.JFrame" class="extype">JFrame</span> with <span name="scala.swing.RichWindow.InterfaceMixin" class="extype">InterfaceMixin</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Frame → RichWindow → Window → RootPanel → UIElement
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.UIElement#preferredSize">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Frame → RichWindow → Window → RootPanel → UIElement</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.UIElement#preferredSize" data-isabs="false">
       <a id="preferredSize:Dimension"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">preferredSize</span>
         
-        
-        <span class="result">: <span class="extype" name="java.awt.Dimension">Dimension</span></span>
+        <span class="result">: <span name="java.awt.Dimension" class="extype">Dimension</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: UIElement
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.UIElement#preferredSize_=">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>UIElement</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.UIElement#preferredSize_=" data-isabs="false">
       <a id="preferredSize_=(Dimension):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">preferredSize_=</span>
         
-        <span class="params">(<span name="x">x: Dimension</span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="x">x: Dimension</span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: UIElement
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.Publisher#publish">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>UIElement</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.Publisher#publish" data-isabs="false">
       <a id="publish(Event):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">publish</span>
         
-        <span class="params">(<span name="e">e: <span class="extype" name="scala.swing.event.Event">Event</span></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="e">e: <span name="scala.swing.event.Event" class="extype">Event</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Publisher
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.actors.Actor#react">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Publisher</dd></dl></div>
+    </li><li visbl="pub" name="scala.actors.Actor#react" data-isabs="false">
       <a id="react(PartialFunction[Any, Unit]):Nothing"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">react</span>
         
-        <span class="params">(<span name="handler">handler: <span class="extype" name="scala.PartialFunction">PartialFunction</span>[<span class="extype" name="scala.Any">Any</span>, <span class="extype" name="scala.Unit">Unit</span>]</span>)</span>
-        <span class="result">: <span class="extype" name="scala.Nothing">Nothing</span></span>
+        <span class="params">(<span name="handler">handler: <span name="scala.PartialFunction" class="extype">PartialFunction</span>[<span name="scala.Any" class="extype">Any</span>, <span name="scala.Unit" class="extype">Unit</span>]</span>)</span><span class="result">: <span name="scala.Nothing" class="extype">Nothing</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Actor → InputChannel → ReplyReactor → Reactor
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.actors.Actor#reactWithin">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Actor → InputChannel → ReplyReactor → Reactor</dd></dl></div>
+    </li><li visbl="pub" name="scala.actors.Actor#reactWithin" data-isabs="false">
       <a id="reactWithin(Long)(PartialFunction[Any, Unit]):Nothing"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">reactWithin</span>
         
-        <span class="params">(<span name="msec">msec: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="params">(<span name="handler">handler: <span class="extype" name="scala.PartialFunction">PartialFunction</span>[<span class="extype" name="scala.Any">Any</span>, <span class="extype" name="scala.Unit">Unit</span>]</span>)</span>
-        <span class="result">: <span class="extype" name="scala.Nothing">Nothing</span></span>
+        <span class="params">(<span name="msec">msec: <span name="scala.Long" class="extype">Long</span></span>)</span><span class="params">(<span name="handler">handler: <span name="scala.PartialFunction" class="extype">PartialFunction</span>[<span name="scala.Any" class="extype">Any</span>, <span name="scala.Unit" class="extype">Unit</span>]</span>)</span><span class="result">: <span name="scala.Nothing" class="extype">Nothing</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Actor → InputChannel → ReplyReactor
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.Reactor#reactions">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Actor → InputChannel → ReplyReactor</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.Reactor#reactions" data-isabs="false">
       <a id="reactions:Reactions"></a>
       <h4 class="signature">
       <span class="kind">val</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">reactions</span>
         
-        
-        <span class="result">: <span class="extype" name="scala.swing.Reactions">Reactions</span></span>
+        <span class="result">: <span name="scala.swing.Reactions" class="extype">Reactions</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Reactor
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.actors.Actor#receive">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Reactor</dd></dl></div>
+    </li><li visbl="pub" name="scala.actors.Actor#receive" data-isabs="false">
       <a id="receive[R](PartialFunction[Any, R]):R"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">receive</span>
         <span class="tparams">[<span name="R">R</span>]</span>
-        <span class="params">(<span name="f">f: <span class="extype" name="scala.PartialFunction">PartialFunction</span>[<span class="extype" name="scala.Any">Any</span>, R]</span>)</span>
-        <span class="result">: R</span>
+        <span class="params">(<span name="f">f: <span name="scala.PartialFunction" class="extype">PartialFunction</span>[<span name="scala.Any" class="extype">Any</span>, R]</span>)</span><span class="result">: R</span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Actor → InputChannel
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.actors.Actor#receiveWithin">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Actor → InputChannel</dd></dl></div>
+    </li><li visbl="pub" name="scala.actors.Actor#receiveWithin" data-isabs="false">
       <a id="receiveWithin[R](Long)(PartialFunction[Any, R]):R"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">receiveWithin</span>
         <span class="tparams">[<span name="R">R</span>]</span>
-        <span class="params">(<span name="msec">msec: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="params">(<span name="f">f: <span class="extype" name="scala.PartialFunction">PartialFunction</span>[<span class="extype" name="scala.Any">Any</span>, R]</span>)</span>
-        <span class="result">: R</span>
+        <span class="params">(<span name="msec">msec: <span name="scala.Long" class="extype">Long</span></span>)</span><span class="params">(<span name="f">f: <span name="scala.PartialFunction" class="extype">PartialFunction</span>[<span name="scala.Any" class="extype">Any</span>, R]</span>)</span><span class="result">: R</span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Actor → InputChannel
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.actors.Reactor#receiver">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Actor → InputChannel</dd></dl></div>
+    </li><li visbl="pub" name="scala.actors.Reactor#receiver" data-isabs="false">
       <a id="receiver:Actor"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">receiver</span>
         
-        
-        <span class="result">: <span class="extype" name="scala.actors.Actor">Actor</span></span>
+        <span class="result">: <span name="scala.actors.Actor" class="extype">Actor</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Reactor → OutputChannel
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.UIElement#repaint">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Reactor → OutputChannel</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.UIElement#repaint" data-isabs="false">
       <a id="repaint(Rectangle):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">repaint</span>
         
-        <span class="params">(<span name="rect">rect: Rectangle</span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="rect">rect: Rectangle</span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: UIElement
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.UIElement#repaint">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>UIElement</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.UIElement#repaint" data-isabs="false">
       <a id="repaint():Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">repaint</span>
         
-        <span class="params">()</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: UIElement
-        </div></div>
-          
-    </li><li visbl="prt" data-isabs="false" name="scala.actors.ReplyReactor#reply">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>UIElement</dd></dl></div>
+    </li><li visbl="prt" name="scala.actors.ReplyReactor#reply" data-isabs="false">
       <a id="reply(Any):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">reply</span>
         
-        <span class="params">(<span name="msg">msg: <span class="extype" name="scala.Any">Any</span></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="msg">msg: <span name="scala.Any" class="extype">Any</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: protected[<a href="../../scala/actors/package.html" class="extype" name="scala.actors">actors</a>] 
-        </div><div class="block">
-          definition classes: ReplyReactor
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.RichWindow#resizable">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a name="scala.actors" class="extype" href="../../scala/actors/package.html">actors</a>] </dd><dt>Definition Classes</dt><dd>ReplyReactor</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.RichWindow#resizable" data-isabs="false">
       <a id="resizable:Boolean"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">resizable</span>
         
-        
-        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: RichWindow
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.RichWindow#resizable_=">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>RichWindow</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.RichWindow#resizable_=" data-isabs="false">
       <a id="resizable_=(Boolean):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">resizable_=</span>
         
-        <span class="params">(<span name="b">b: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="b">b: <span name="scala.Boolean" class="extype">Boolean</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: RichWindow
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.actors.Reactor#restart">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>RichWindow</dd></dl></div>
+    </li><li visbl="pub" name="scala.actors.Reactor#restart" data-isabs="false">
       <a id="restart():Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">restart</span>
         
-        <span class="params">()</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Reactor
-        </div></div>
-          
-    </li><li visbl="prt" data-isabs="false" name="scala.actors.Actor#scheduler">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Reactor</dd></dl></div>
+    </li><li visbl="prt" name="scala.actors.Actor#scheduler" data-isabs="false">
       <a id="scheduler:IScheduler"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">scheduler</span>
         
-        
-        <span class="result">: <span class="extype" name="scala.actors.IScheduler">IScheduler</span></span>
+        <span class="result">: <span name="scala.actors.IScheduler" class="extype">IScheduler</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: protected[<a href="../../scala/actors/package.html" class="extype" name="scala.actors">actors</a>] 
-        </div><div class="block">
-          definition classes: Actor → Reactor
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.UIElement#self">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a name="scala.actors" class="extype" href="../../scala/actors/package.html">actors</a>] </dd><dt>Definition Classes</dt><dd>Actor → Reactor</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.UIElement#self" data-isabs="false">
       <a id="self:Component"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">self</span>
         
-        
-        <span class="result">: <span class="extype" name="java.awt.Component">Component</span></span>
+        <span class="result">: <span name="java.awt.Component" class="extype">Component</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: UIElement → Proxy
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.actors.Reactor#send">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>UIElement → Proxy</dd></dl></div>
+    </li><li visbl="pub" name="scala.actors.Reactor#send" data-isabs="false">
       <a id="send(Any,OutputChannel[Any]):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">send</span>
         
-        <span class="params">(<span name="msg">msg: <span class="extype" name="scala.Any">Any</span></span>, <span name="replyTo">replyTo: <span class="extype" name="scala.actors.OutputChannel">OutputChannel</span>[<span class="extype" name="scala.Any">Any</span>]</span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="msg">msg: <span name="scala.Any" class="extype">Any</span></span>, <span name="replyTo">replyTo: <span name="scala.actors.OutputChannel" class="extype">OutputChannel</span>[<span name="scala.Any" class="extype">Any</span>]</span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Reactor → OutputChannel
-        </div></div>
-          
-    </li><li visbl="prt" data-isabs="false" name="scala.actors.ReplyReactor#sender">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Reactor → OutputChannel</dd></dl></div>
+    </li><li visbl="prt" name="scala.actors.ReplyReactor#sender" data-isabs="false">
       <a id="sender:OutputChannel[Any]"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">sender</span>
         
-        
-        <span class="result">: <span class="extype" name="scala.actors.OutputChannel">OutputChannel</span>[<span class="extype" name="scala.Any">Any</span>]</span>
+        <span class="result">: <span name="scala.actors.OutputChannel" class="extype">OutputChannel</span>[<span name="scala.Any" class="extype">Any</span>]</span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: protected[<a href="../../scala/actors/package.html" class="extype" name="scala.actors">actors</a>] 
-        </div><div class="block">
-          definition classes: ReplyReactor
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.Window#setLocationRelativeTo">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a name="scala.actors" class="extype" href="../../scala/actors/package.html">actors</a>] </dd><dt>Definition Classes</dt><dd>ReplyReactor</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.Window#setLocationRelativeTo" data-isabs="false">
       <a id="setLocationRelativeTo(UIElement):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">setLocationRelativeTo</span>
         
-        <span class="params">(<span name="c">c: <span class="extype" name="scala.swing.UIElement">UIElement</span></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="c">c: <span name="scala.swing.UIElement" class="extype">UIElement</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Window
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.UIElement#showing">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Window</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.UIElement#showing" data-isabs="false">
       <a id="showing:Boolean"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">showing</span>
         
-        
-        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: UIElement
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.UIElement#size">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>UIElement</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.UIElement#size" data-isabs="false">
       <a id="size:Dimension"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">size</span>
         
-        
-        <span class="result">: <span class="extype" name="java.awt.Dimension">Dimension</span></span>
+        <span class="result">: <span name="java.awt.Dimension" class="extype">Dimension</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: UIElement
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.Window#size_=">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>UIElement</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.Window#size_=" data-isabs="false">
       <a id="size_=(Dimension):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">size_=</span>
         
-        <span class="params">(<span name="size">size: Dimension</span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="size">size: Dimension</span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Window → UIElement
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.actors.Actor#start">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Window → UIElement</dd></dl></div>
+    </li><li visbl="pub" name="scala.actors.Actor#start" data-isabs="false">
       <a id="start():Actor"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">start</span>
         
-        <span class="params">()</span>
-        <span class="result">: <span class="extype" name="scala.actors.Actor">Actor</span></span>
+        <span class="params">()</span><span class="result">: <span name="scala.actors.Actor" class="extype">Actor</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Actor → Reactor
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.LazyPublisher#subscribe">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Actor → Reactor</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.LazyPublisher#subscribe" data-isabs="false">
       <a id="subscribe(Reaction):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">subscribe</span>
         
-        <span class="params">(<span name="listener">listener: Reaction</span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="listener">listener: Reaction</span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: LazyPublisher → Publisher
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#synchronized">
-      <a id="synchronized[T0](T0):T0"></a>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>LazyPublisher → Publisher</dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#synchronized" data-isabs="false">
+      <a id="synchronized[T0](⇒ T0):T0"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">synchronized</span>
         <span class="tparams">[<span name="T0">T0</span>]</span>
-        <span class="params">(<span name="arg0">arg0: T0</span>)</span>
-        <span class="result">: T0</span>
+        <span class="params">(<span name="arg0">arg0: ⇒ T0</span>)</span><span class="result">: T0</span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: final 
-        </div><div class="block">
-          definition classes: AnyRef
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.RichWindow#title">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.RichWindow#title" data-isabs="false">
       <a id="title:String"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">title</span>
-        
         
         <span class="result">: String</span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: RichWindow
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.RichWindow#title_=">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>RichWindow</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.RichWindow#title_=" data-isabs="false">
       <a id="title_=(String):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">title_=</span>
         
-        <span class="params">(<span name="s">s: String</span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="s">s: String</span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: RichWindow
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.Proxy#toString">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>RichWindow</dd></dl></div>
+    </li><li visbl="pub" name="scala.Proxy#toString" data-isabs="false">
       <a id="toString():String"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">toString</span>
         
-        <span class="params">()</span>
-        <span class="result">: String</span>
+        <span class="params">()</span><span class="result">: String</span>
       </span>
       </h4>
-      
-            <p class="shortcomment cmt">Returns a string representation of the object.</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Returns a string representation of the object.</p><p>The default representation is platform dependent.
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>a string representation of the object.</p></dd></dl><div class="block">
-          definition classes: Proxy → AnyRef → Any
-        </div>
-            
-            
-            
-          </div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.UIElement#toolkit">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Proxy → AnyRef → Any</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.UIElement#toolkit" data-isabs="false">
       <a id="toolkit:Toolkit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">toolkit</span>
         
-        
-        <span class="result">: <span class="extype" name="java.awt.Toolkit">Toolkit</span></span>
+        <span class="result">: <span name="java.awt.Toolkit" class="extype">Toolkit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: UIElement
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.actors.Actor#trapExit">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>UIElement</dd></dl></div>
+    </li><li visbl="pub" name="scala.actors.Actor#trapExit" data-isabs="false">
       <a id="trapExit:Boolean"></a>
       <h4 class="signature">
       <span class="kind">var</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">trapExit</span>
         
-        
-        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Actor
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.Frame#uniconify">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Actor</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.Frame#uniconify" data-isabs="false">
       <a id="uniconify():Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">uniconify</span>
         
-        <span class="params">()</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Frame
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.actors.Actor#unlink">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Frame</dd></dl></div>
+    </li><li visbl="pub" name="scala.actors.Actor#unlink" data-isabs="false">
       <a id="unlink(AbstractActor):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">unlink</span>
         
-        <span class="params">(<span name="from">from: <span class="extype" name="scala.actors.AbstractActor">AbstractActor</span></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="from">from: <span name="scala.actors.AbstractActor" class="extype">AbstractActor</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Actor
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.Frame#unmaximize">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Actor</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.Frame#unmaximize" data-isabs="false">
       <a id="unmaximize():Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">unmaximize</span>
         
-        <span class="params">()</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: Frame
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.LazyPublisher#unsubscribe">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Frame</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.LazyPublisher#unsubscribe" data-isabs="false">
       <a id="unsubscribe(Reaction):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">unsubscribe</span>
         
-        <span class="params">(<span name="listener">listener: Reaction</span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="listener">listener: Reaction</span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: LazyPublisher → Publisher
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.UIElement#visible">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>LazyPublisher → Publisher</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.UIElement#visible" data-isabs="false">
       <a id="visible:Boolean"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">visible</span>
         
-        
-        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: UIElement
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.swing.UIElement#visible_=">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>UIElement</dd></dl></div>
+    </li><li visbl="pub" name="scala.swing.UIElement#visible_=" data-isabs="false">
       <a id="visible_=(Boolean):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">visible_=</span>
         
-        <span class="params">(<span name="b">b: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="b">b: <span name="scala.Boolean" class="extype">Boolean</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: UIElement
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#wait">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>UIElement</dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#wait" data-isabs="false">
       <a id="wait():Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">wait</span>
         
-        <span class="params">()</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: final 
-        </div><div class="block">
-          definition classes: AnyRef
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#wait">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#wait" data-isabs="false">
       <a id="wait(Long,Int):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">wait</span>
         
-        <span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="arg0">arg0: <span name="scala.Long" class="extype">Long</span></span>, <span name="arg1">arg1: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: final 
-        </div><div class="block">
-          definition classes: AnyRef
-        </div></div>
-          
-    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#wait">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#wait" data-isabs="false">
       <a id="wait(Long):Unit"></a>
       <h4 class="signature">
       <span class="kind">def</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">wait</span>
         
-        <span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="params">(<span name="arg0">arg0: <span name="scala.Long" class="extype">Long</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: final 
-        </div><div class="block">
-          definition classes: AnyRef
-        </div></div>
-          
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">()</span>
+              
+        </dd></dl></div>
     </li></ol>
             </div>
 
-        <div class="parent" name="scalation.util.Error">
-              <h3>Inherited from <a href="../util/Error.html" class="extype" name="scalation.util.Error">Error</a></h3>
-            </div><div class="parent" name="scala.actors.Actor">
-              <h3>Inherited from <span class="extype" name="scala.actors.Actor">Actor</span></h3>
-            </div><div class="parent" name="scala.actors.InputChannel">
-              <h3>Inherited from <span class="extype" name="scala.actors.InputChannel">InputChannel</span>[<span class="extype" name="scala.Any">Any</span>]</h3>
-            </div><div class="parent" name="scala.actors.ActorCanReply">
-              <h3>Inherited from <span class="extype" name="scala.actors.ActorCanReply">ActorCanReply</span></h3>
-            </div><div class="parent" name="scala.actors.ReplyReactor">
-              <h3>Inherited from <span class="extype" name="scala.actors.ReplyReactor">ReplyReactor</span></h3>
-            </div><div class="parent" name="scala.actors.ReactorCanReply">
-              <h3>Inherited from <span class="extype" name="scala.actors.ReactorCanReply">ReactorCanReply</span></h3>
-            </div><div class="parent" name="scala.actors.Reactor">
-              <h3>Inherited from <span class="extype" name="scala.actors.Reactor">Reactor</span>[<span class="extype" name="scala.Any">Any</span>]</h3>
-            </div><div class="parent" name="scala.actors.Combinators">
-              <h3>Inherited from <span class="extype" name="scala.actors.Combinators">Combinators</span></h3>
-            </div><div class="parent" name="scala.actors.AbstractActor">
-              <h3>Inherited from <span class="extype" name="scala.actors.AbstractActor">AbstractActor</span></h3>
-            </div><div class="parent" name="scala.actors.CanReply">
-              <h3>Inherited from <span class="extype" name="scala.actors.CanReply">CanReply</span>[<span class="extype" name="scala.Any">Any</span>, <span class="extype" name="scala.Any">Any</span>]</h3>
-            </div><div class="parent" name="scala.actors.OutputChannel">
-              <h3>Inherited from <span class="extype" name="scala.actors.OutputChannel">OutputChannel</span>[<span class="extype" name="scala.Any">Any</span>]</h3>
-            </div><div class="parent" name="scala.swing.MainFrame">
-              <h3>Inherited from <span class="extype" name="scala.swing.MainFrame">MainFrame</span></h3>
-            </div><div class="parent" name="scala.swing.Frame">
-              <h3>Inherited from <span class="extype" name="scala.swing.Frame">Frame</span></h3>
-            </div><div class="parent" name="scala.swing.RichWindow">
-              <h3>Inherited from <span class="extype" name="scala.swing.RichWindow">RichWindow</span></h3>
-            </div><div class="parent" name="scala.swing.Window">
-              <h3>Inherited from <span class="extype" name="scala.swing.Window">Window</span></h3>
-            </div><div class="parent" name="scala.swing.RootPanel">
-              <h3>Inherited from <span class="extype" name="scala.swing.RootPanel">RootPanel</span></h3>
-            </div><div class="parent" name="scala.swing.Container">
-              <h3>Inherited from <span class="extype" name="scala.swing.Container">Container</span></h3>
-            </div><div class="parent" name="scala.swing.UIElement">
-              <h3>Inherited from <span class="extype" name="scala.swing.UIElement">UIElement</span></h3>
-            </div><div class="parent" name="scala.swing.LazyPublisher">
-              <h3>Inherited from <span class="extype" name="scala.swing.LazyPublisher">LazyPublisher</span></h3>
-            </div><div class="parent" name="scala.swing.Publisher">
-              <h3>Inherited from <span class="extype" name="scala.swing.Publisher">Publisher</span></h3>
-            </div><div class="parent" name="scala.swing.Reactor">
-              <h3>Inherited from <span class="extype" name="scala.swing.Reactor">Reactor</span></h3>
-            </div><div class="parent" name="scala.Proxy">
-              <h3>Inherited from <span class="extype" name="scala.Proxy">Proxy</span></h3>
-            </div><div class="parent" name="scala.AnyRef">
+        <div name="scalation.util.Error" class="parent">
+              <h3>Inherited from <a name="scalation.util.Error" class="extype" href="../util/Error.html">Error</a></h3>
+            </div><div name="scala.actors.Actor" class="parent">
+              <h3>Inherited from <span name="scala.actors.Actor" class="extype">Actor</span></h3>
+            </div><div name="scala.Serializable" class="parent">
+              <h3>Inherited from <span name="scala.Serializable" class="extype">Serializable</span></h3>
+            </div><div name="java.io.Serializable" class="parent">
+              <h3>Inherited from <span name="java.io.Serializable" class="extype">Serializable</span></h3>
+            </div><div name="scala.actors.InputChannel" class="parent">
+              <h3>Inherited from <span name="scala.actors.InputChannel" class="extype">InputChannel</span>[<span name="scala.Any" class="extype">Any</span>]</h3>
+            </div><div name="scala.actors.ActorCanReply" class="parent">
+              <h3>Inherited from <span name="scala.actors.ActorCanReply" class="extype">ActorCanReply</span></h3>
+            </div><div name="scala.actors.ReplyReactor" class="parent">
+              <h3>Inherited from <span name="scala.actors.ReplyReactor" class="extype">ReplyReactor</span></h3>
+            </div><div name="scala.actors.ReactorCanReply" class="parent">
+              <h3>Inherited from <span name="scala.actors.ReactorCanReply" class="extype">ReactorCanReply</span></h3>
+            </div><div name="scala.actors.Reactor" class="parent">
+              <h3>Inherited from <span name="scala.actors.Reactor" class="extype">Reactor</span>[<span name="scala.Any" class="extype">Any</span>]</h3>
+            </div><div name="scala.actors.Combinators" class="parent">
+              <h3>Inherited from <span name="scala.actors.Combinators" class="extype">Combinators</span></h3>
+            </div><div name="scala.actors.AbstractActor" class="parent">
+              <h3>Inherited from <span name="scala.actors.AbstractActor" class="extype">AbstractActor</span></h3>
+            </div><div name="scala.actors.CanReply" class="parent">
+              <h3>Inherited from <span name="scala.actors.CanReply" class="extype">CanReply</span>[<span name="scala.Any" class="extype">Any</span>, <span name="scala.Any" class="extype">Any</span>]</h3>
+            </div><div name="scala.actors.OutputChannel" class="parent">
+              <h3>Inherited from <span name="scala.actors.OutputChannel" class="extype">OutputChannel</span>[<span name="scala.Any" class="extype">Any</span>]</h3>
+            </div><div name="scala.swing.MainFrame" class="parent">
+              <h3>Inherited from <span name="scala.swing.MainFrame" class="extype">MainFrame</span></h3>
+            </div><div name="scala.swing.Frame" class="parent">
+              <h3>Inherited from <span name="scala.swing.Frame" class="extype">Frame</span></h3>
+            </div><div name="scala.swing.RichWindow" class="parent">
+              <h3>Inherited from <span name="scala.swing.RichWindow" class="extype">RichWindow</span></h3>
+            </div><div name="scala.swing.Window" class="parent">
+              <h3>Inherited from <span name="scala.swing.Window" class="extype">Window</span></h3>
+            </div><div name="scala.swing.RootPanel" class="parent">
+              <h3>Inherited from <span name="scala.swing.RootPanel" class="extype">RootPanel</span></h3>
+            </div><div name="scala.swing.Container" class="parent">
+              <h3>Inherited from <span name="scala.swing.Container" class="extype">Container</span></h3>
+            </div><div name="scala.swing.UIElement" class="parent">
+              <h3>Inherited from <span name="scala.swing.UIElement" class="extype">UIElement</span></h3>
+            </div><div name="scala.swing.LazyPublisher" class="parent">
+              <h3>Inherited from <span name="scala.swing.LazyPublisher" class="extype">LazyPublisher</span></h3>
+            </div><div name="scala.swing.Publisher" class="parent">
+              <h3>Inherited from <span name="scala.swing.Publisher" class="extype">Publisher</span></h3>
+            </div><div name="scala.swing.Reactor" class="parent">
+              <h3>Inherited from <span name="scala.swing.Reactor" class="extype">Reactor</span></h3>
+            </div><div name="scala.Proxy" class="parent">
+              <h3>Inherited from <span name="scala.Proxy" class="extype">Proxy</span></h3>
+            </div><div name="scala.AnyRef" class="parent">
               <h3>Inherited from AnyRef</h3>
-            </div><div class="parent" name="scala.Any">
-              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div><div name="scala.Any" class="parent">
+              <h3>Inherited from <span name="scala.Any" class="extype">Any</span></h3>
             </div>
 
       </div>

@@ -5,32 +5,31 @@
           <title>scalation.scala2d</title>
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
-      <link href="../../lib/template.css" rel="stylesheet" type="text/css" media="screen" />
+      <link type="text/css" media="screen" rel="stylesheet" href="../../lib/template.css" />
       <script type="text/javascript" src="../../lib/jquery.js"></script>
       <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../lib/template.js"></script>
       <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
     
         </head>
-        <body class="value" onload="windowTitle();">
-
-      <p id="owner"><a href="../package.html" class="extype" name="scalation">scalation</a></p>
-
+        <body class="value">
       <div id="definition">
         <img src="../../lib/package_big.png" />
+        <p id="owner"><a name="scalation" class="extype" href="../package.html">scalation</a></p>
         <h1>scala2d</h1>
       </div>
 
       <h4 class="signature" id="signature">
       <span class="kind">package</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">scala2d</span>
-        
         
         
       </span>
       </h4>
-      <div class="fullcomment" id="comment"></div>
+      
+          <div class="fullcommenttop" id="comment"></div>
+        
 
       <div id="template">
 
@@ -40,11 +39,7 @@
           
           <div id="visbl">
               <span class="filtertype">Visibility</span>
-              <ol><li class="public in">Public</li><li class="all out">All</li></ol>
-            </div>
-          <div id="impl">
-              <span class="filtertype">Impl.</span>
-              <ol><li class="concrete in">Concrete</li><li class="abstract in">Abstract</li></ol>
+              <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
             </div>
         </div>
 
@@ -52,350 +47,362 @@
 
         <div class="types members" id="types">
               <h3>Type Members</h3>
-              <ol><li visbl="pub" data-isabs="false" name="scalation.scala2d.Arc">
+              <ol><li visbl="pub" name="scalation.scala2d.Arc" data-isabs="false">
       <a id="Arc:Arc"></a>
-      <h4 class="signature"><a href="Arc.html">
+      <h4 class="signature">
       <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">Arc</span>
+      <span class="symbol"> 
+        <a href="Arc.html"><span class="name">Arc</span></a>
         
-        <span class="params">()</span>
-        <span class="result"> extends Double with Product</span>
+        <span class="params">()</span><span class="result"> extends Double with Product with Serializable</span>
       </span>
-      </a></h4>
-      <p class="comment cmt">Convenience case class for Arc2D (a subclass of RectangularShape).</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.scala2d.Arrow">
+      </h4>
+      <p class="comment cmt">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Convenience case class for Arc2D (a subclass of RectangularShape).</p>
+    </li><li visbl="pub" name="scalation.scala2d.Arrow" data-isabs="false">
       <a id="Arrow:Arrow"></a>
-      <h4 class="signature"><a href="Arrow.html">
+      <h4 class="signature">
       <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">Arrow</span>
+      <span class="symbol"> 
+        <a href="Arrow.html"><span class="name">Arrow</span></a>
         
-        <span class="params">(<span name="p1">p1: R2</span>, <span name="p2">p2: R2</span>, <span name="len">len: Int</span>)</span>
-        <span class="result"> extends Double with CurvilinearShape with Product</span>
+        <span class="params">(<span name="p1">p1: R2</span>, <span name="p2">p2: R2</span>, <span name="len">len: Int</span>)</span><span class="result"> extends Double with CurvilinearShape with Product with Serializable</span>
       </span>
-      </a></h4>
-      <p class="comment cmt">The Arrow class uses Java's Path2D class to create a line with an arrowhead
+      </h4>
+      <p class="comment cmt">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+The Arrow class uses Java's Path2D class to create a line with an arrowhead
 on the far end.</p>
-    </li><li visbl="pub" data-isabs="true" name="scalation.scala2d.CurvilinearShape">
+    </li><li visbl="pub" name="scalation.scala2d.CurvilinearShape" data-isabs="true">
       <a id="CurvilinearShape:CurvilinearShape"></a>
-      <h4 class="signature"><a href="CurvilinearShape.html">
+      <h4 class="signature">
       <span class="kind">trait</span>
-      <span class="symbol">
-        <span class="name">CurvilinearShape</span>
-        
+      <span class="symbol"> 
+        <a href="CurvilinearShape.html"><span class="name">CurvilinearShape</span></a>
         
         <span class="result"> extends Shape with Error</span>
       </span>
-      </a></h4>
-      <p class="comment cmt">The CurvilinearShape trait provides a general type for line and curves.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.scala2d.Ellipse">
+      </h4>
+      <p class="comment cmt">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+The CurvilinearShape trait provides a general type for line and curves.</p>
+    </li><li visbl="pub" name="scalation.scala2d.Ellipse" data-isabs="false">
       <a id="Ellipse:Ellipse"></a>
-      <h4 class="signature"><a href="Ellipse.html">
+      <h4 class="signature">
       <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">Ellipse</span>
+      <span class="symbol"> 
+        <a href="Ellipse.html"><span class="name">Ellipse</span></a>
         
-        <span class="params">()</span>
-        <span class="result"> extends Double with Product</span>
+        <span class="params">()</span><span class="result"> extends Double with Product with Serializable</span>
       </span>
-      </a></h4>
-      <p class="comment cmt">Convenience case class for Ellipse2D (a subclass of RectangularShape).</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.scala2d.Hexagon">
+      </h4>
+      <p class="comment cmt">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Convenience case class for Ellipse2D (a subclass of RectangularShape).</p>
+    </li><li visbl="pub" name="scalation.scala2d.Hexagon" data-isabs="false">
       <a id="Hexagon:Hexagon"></a>
-      <h4 class="signature"><a href="Hexagon.html">
+      <h4 class="signature">
       <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">Hexagon</span>
+      <span class="symbol"> 
+        <a href="Hexagon.html"><span class="name">Hexagon</span></a>
         
-        <span class="params">(<span name="vertex">vertex: Array[R2]</span>)</span>
-        <span class="result"> extends Double with Error with Product</span>
+        <span class="params">(<span name="vertex">vertex: Array[R2]</span>)</span><span class="result"> extends Double with Error with Product with Serializable</span>
       </span>
-      </a></h4>
-      <p class="comment cmt">The Hexagon class enhances the Path2D.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.scala2d.Line">
+      </h4>
+      <p class="comment cmt">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+The Hexagon class enhances the Path2D.</p>
+    </li><li visbl="pub" name="scalation.scala2d.Line" data-isabs="false">
       <a id="Line:Line"></a>
-      <h4 class="signature"><a href="Line.html">
+      <h4 class="signature">
       <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">Line</span>
+      <span class="symbol"> 
+        <a href="Line.html"><span class="name">Line</span></a>
         
-        <span class="params">(<span name="p1">p1: R2</span>, <span name="p2">p2: R2</span>)</span>
-        <span class="result"> extends Double with CurvilinearShape with Product</span>
+        <span class="params">(<span name="p1">p1: R2</span>, <span name="p2">p2: R2</span>)</span><span class="result"> extends Double with CurvilinearShape with Product with Serializable</span>
       </span>
-      </a></h4>
-      <p class="comment cmt">The Line class uses Java's Line2D class to create a line.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.scala2d.Octogon">
+      </h4>
+      <p class="comment cmt">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+The Line class uses Java's Line2D class to create a line.</p>
+    </li><li visbl="pub" name="scalation.scala2d.Octogon" data-isabs="false">
       <a id="Octogon:Octogon"></a>
-      <h4 class="signature"><a href="Octogon.html">
+      <h4 class="signature">
       <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">Octogon</span>
+      <span class="symbol"> 
+        <a href="Octogon.html"><span class="name">Octogon</span></a>
         
-        <span class="params">(<span name="vertex">vertex: Array[R2]</span>)</span>
-        <span class="result"> extends Double with Error with Product</span>
+        <span class="params">(<span name="vertex">vertex: Array[R2]</span>)</span><span class="result"> extends Double with Error with Product with Serializable</span>
       </span>
-      </a></h4>
-      <p class="comment cmt">The Octogon class enhances the Path2D.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.scala2d.Path">
+      </h4>
+      <p class="comment cmt">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+The Octogon class enhances the Path2D.</p>
+    </li><li visbl="pub" name="scalation.scala2d.Path" data-isabs="false">
       <a id="Path:Path"></a>
-      <h4 class="signature"><a href="Path.html">
+      <h4 class="signature">
       <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">Path</span>
+      <span class="symbol"> 
+        <a href="Path.html"><span class="name">Path</span></a>
         
-        <span class="params">()</span>
-        <span class="result"> extends Double with Product</span>
+        <span class="params">()</span><span class="result"> extends Double with Product with Serializable</span>
       </span>
-      </a></h4>
-      <p class="comment cmt">Convenience case class for Path2D.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.scala2d.Pentagon">
+      </h4>
+      <p class="comment cmt">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Convenience case class for Path2D.</p>
+    </li><li visbl="pub" name="scalation.scala2d.Pentagon" data-isabs="false">
       <a id="Pentagon:Pentagon"></a>
-      <h4 class="signature"><a href="Pentagon.html">
+      <h4 class="signature">
       <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">Pentagon</span>
+      <span class="symbol"> 
+        <a href="Pentagon.html"><span class="name">Pentagon</span></a>
         
-        <span class="params">(<span name="vertex">vertex: Array[R2]</span>)</span>
-        <span class="result"> extends Double with Error with Product</span>
+        <span class="params">(<span name="vertex">vertex: Array[R2]</span>)</span><span class="result"> extends Double with Error with Product with Serializable</span>
       </span>
-      </a></h4>
-      <p class="comment cmt">The Pentagon class enhances the Path2D.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.scala2d.Polygon">
+      </h4>
+      <p class="comment cmt">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+The Pentagon class enhances the Path2D.</p>
+    </li><li visbl="pub" name="scalation.scala2d.Polygon" data-isabs="false">
       <a id="Polygon:Polygon"></a>
-      <h4 class="signature"><a href="Polygon.html">
+      <h4 class="signature">
       <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">Polygon</span>
+      <span class="symbol"> 
+        <a href="Polygon.html"><span class="name">Polygon</span></a>
         
-        <span class="params">(<span name="vertex">vertex: Array[R2]</span>)</span>
-        <span class="result"> extends Double with Error with Product</span>
+        <span class="params">(<span name="vertex">vertex: Array[R2]</span>)</span><span class="result"> extends Double with Error with Product with Serializable</span>
       </span>
-      </a></h4>
-      <p class="comment cmt">The Polygon class enhances the Path2D.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.scala2d.QArrow">
+      </h4>
+      <p class="comment cmt">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+The Polygon class enhances the Path2D.</p>
+    </li><li visbl="pub" name="scalation.scala2d.QArrow" data-isabs="false">
       <a id="QArrow:QArrow"></a>
-      <h4 class="signature"><a href="QArrow.html">
+      <h4 class="signature">
       <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">QArrow</span>
+      <span class="symbol"> 
+        <a href="QArrow.html"><span class="name">QArrow</span></a>
         
-        <span class="params">(<span name="p1">p1: R2</span>, <span name="pc">pc: R2</span>, <span name="p2">p2: R2</span>, <span name="len">len: Int</span>)</span>
-        <span class="result"> extends Double with CurvilinearShape with Product</span>
+        <span class="params">(<span name="p1">p1: R2</span>, <span name="pc">pc: R2</span>, <span name="p2">p2: R2</span>, <span name="len">len: Int</span>)</span><span class="result"> extends Double with CurvilinearShape with Product with Serializable</span>
       </span>
-      </a></h4>
-      <p class="comment cmt">The QArrow class uses Java's Path2D class to create a quad curve with an arrowhead
+      </h4>
+      <p class="comment cmt">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+The QArrow class uses Java's Path2D class to create a quad curve with an arrowhead
 on the far end.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.scala2d.QCurve">
+    </li><li visbl="pub" name="scalation.scala2d.QCurve" data-isabs="false">
       <a id="QCurve:QCurve"></a>
-      <h4 class="signature"><a href="QCurve.html">
+      <h4 class="signature">
       <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">QCurve</span>
+      <span class="symbol"> 
+        <a href="QCurve.html"><span class="name">QCurve</span></a>
         
-        <span class="params">(<span name="p1">p1: R2</span>, <span name="pc">pc: R2</span>, <span name="p2">p2: R2</span>, <span name="straight">straight: Boolean</span>)</span>
-        <span class="result"> extends Double with CurvilinearShape with Error with Product</span>
+        <span class="params">(<span name="p1">p1: R2</span>, <span name="pc">pc: R2</span>, <span name="p2">p2: R2</span>, <span name="straight">straight: Boolean</span>)</span><span class="result"> extends Double with CurvilinearShape with Error with Product with Serializable</span>
       </span>
-      </a></h4>
-      <p class="comment cmt">The QCurve class enhances the QuadCurve.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.scala2d.Quad">
+      </h4>
+      <p class="comment cmt">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+The QCurve class enhances the QuadCurve.</p>
+    </li><li visbl="pub" name="scalation.scala2d.Quad" data-isabs="false">
       <a id="Quad:Quad"></a>
-      <h4 class="signature"><a href="Quad.html">
+      <h4 class="signature">
       <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">Quad</span>
+      <span class="symbol"> 
+        <a href="Quad.html"><span class="name">Quad</span></a>
         
-        <span class="params">(<span name="vertex">vertex: Array[R2]</span>)</span>
-        <span class="result"> extends Double with Error with Product</span>
+        <span class="params">(<span name="vertex">vertex: Array[R2]</span>)</span><span class="result"> extends Double with Error with Product with Serializable</span>
       </span>
-      </a></h4>
-      <p class="comment cmt">The Quad class enhances the Path2D.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.scala2d.R2">
+      </h4>
+      <p class="comment cmt">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+The Quad class enhances the Path2D.</p>
+    </li><li visbl="pub" name="scalation.scala2d.R2" data-isabs="false">
       <a id="R2:R2"></a>
-      <h4 class="signature"><a href="R2.html">
+      <h4 class="signature">
       <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">R2</span>
+      <span class="symbol"> 
+        <a href="R2.html"><span class="name">R2</span></a>
         
-        <span class="params">(<span name="xx">xx: Double</span>, <span name="yy">yy: Double</span>)</span>
-        <span class="result"> extends Double with Product</span>
+        <span class="params">(<span name="xx">xx: Double</span>, <span name="yy">yy: Double</span>)</span><span class="result"> extends Double with Product with Serializable</span>
       </span>
-      </a></h4>
-      <p class="comment cmt">Convenience case class for Point2D.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.scala2d.Rectangle">
+      </h4>
+      <p class="comment cmt">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Convenience case class for Point2D.</p>
+    </li><li visbl="pub" name="scalation.scala2d.Rectangle" data-isabs="false">
       <a id="Rectangle:Rectangle"></a>
-      <h4 class="signature"><a href="Rectangle.html">
+      <h4 class="signature">
       <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">Rectangle</span>
+      <span class="symbol"> 
+        <a href="Rectangle.html"><span class="name">Rectangle</span></a>
         
-        <span class="params">()</span>
-        <span class="result"> extends Double with Product</span>
+        <span class="params">()</span><span class="result"> extends Double with Product with Serializable</span>
       </span>
-      </a></h4>
-      <p class="comment cmt">Convenience case class for Rectangle2D (a subclass of RectangularShape).</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.scala2d.RoundRectangle">
+      </h4>
+      <p class="comment cmt">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Convenience case class for Rectangle2D (a subclass of RectangularShape).</p>
+    </li><li visbl="pub" name="scalation.scala2d.RoundRectangle" data-isabs="false">
       <a id="RoundRectangle:RoundRectangle"></a>
-      <h4 class="signature"><a href="RoundRectangle.html">
+      <h4 class="signature">
       <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">RoundRectangle</span>
+      <span class="symbol"> 
+        <a href="RoundRectangle.html"><span class="name">RoundRectangle</span></a>
         
-        <span class="params">()</span>
-        <span class="result"> extends Double with Product</span>
+        <span class="params">()</span><span class="result"> extends Double with Product with Serializable</span>
       </span>
-      </a></h4>
-      <p class="comment cmt">Convenience case class for RoundRectangle2D (a subclass of RectangularShape).</p>
-    </li><li visbl="pub" data-isabs="true" name="scalation.scala2d.Transform">
+      </h4>
+      <p class="comment cmt">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Convenience case class for RoundRectangle2D (a subclass of RectangularShape).</p>
+    </li><li visbl="pub" name="scalation.scala2d.Transform" data-isabs="true">
       <a id="Transform:Transform"></a>
-      <h4 class="signature"><a href="Transform.html">
+      <h4 class="signature">
       <span class="kind">trait</span>
-      <span class="symbol">
-        <span class="name">Transform</span>
-        
+      <span class="symbol"> 
+        <a href="Transform.html"><span class="name">Transform</span></a>
         
         <span class="result"> extends Error</span>
       </span>
-      </a></h4>
-      <p class="comment cmt">The Transform trait provides a simple technique for transforming
+      </h4>
+      <p class="comment cmt">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+The Transform trait provides a simple technique for transforming
 (translation, scaling and rotation) rectangular shapes.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.scala2d.Triangle">
+    </li><li visbl="pub" name="scalation.scala2d.Triangle" data-isabs="false">
       <a id="Triangle:Triangle"></a>
-      <h4 class="signature"><a href="Triangle.html">
+      <h4 class="signature">
       <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">Triangle</span>
+      <span class="symbol"> 
+        <a href="Triangle.html"><span class="name">Triangle</span></a>
         
-        <span class="params">(<span name="vertex">vertex: Array[R2]</span>)</span>
-        <span class="result"> extends Double with Error with Product</span>
+        <span class="params">(<span name="vertex">vertex: Array[R2]</span>)</span><span class="result"> extends Double with Error with Product with Serializable</span>
       </span>
-      </a></h4>
-      <p class="comment cmt">The Triangle class enhances the Path2D.</p>
+      </h4>
+      <p class="comment cmt">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+The Triangle class enhances the Path2D.</p>
     </li></ol>
             </div>
+        
+        
 
         <div class="values members" id="values">
               <h3>Value Members</h3>
-              <ol><li visbl="pub" data-isabs="false" name="scalation.scala2d.ArrowTest">
+              <ol><li visbl="pub" name="scalation.scala2d.ArrowTest" data-isabs="false">
       <a id="ArrowTest:ArrowTest"></a>
-      <h4 class="signature"><a href="ArrowTest$.html">
+      <h4 class="signature">
       <span class="kind">object</span>
-      <span class="symbol">
-        <span class="name">ArrowTest</span>
+      <span class="symbol"> 
+        <a href="ArrowTest$.html"><span class="name">ArrowTest</span></a>
         
-        
-        <span class="result"> extends Application</span>
+        <span class="result"> extends App</span>
       </span>
-      </a></h4>
-      <p class="comment cmt">This object is used to test the Arrow class.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.scala2d.Colors">
+      </h4>
+      <p class="comment cmt">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+This object is used to test the Arrow class.</p>
+    </li><li visbl="pub" name="scalation.scala2d.Colors" data-isabs="false">
       <a id="Colors:Colors"></a>
-      <h4 class="signature"><a href="Colors$.html">
+      <h4 class="signature">
       <span class="kind">object</span>
-      <span class="symbol">
-        <span class="name">Colors</span>
-        
+      <span class="symbol"> 
+        <a href="Colors$.html"><span class="name">Colors</span></a>
         
         <span class="result"> extends AnyRef</span>
       </span>
-      </a></h4>
+      </h4>
       <p class="comment cmt">A convenience object defining numerous common colors.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.scala2d.Constants">
+    </li><li visbl="pub" name="scalation.scala2d.ColorsTest" data-isabs="false">
+      <a id="ColorsTest:ColorsTest"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="ColorsTest$.html"><span class="name">ColorsTest</span></a>
+        
+        <span class="result"> extends App</span>
+      </span>
+      </h4>
+      <p class="comment cmt">This object is used to test the Colors object.</p>
+    </li><li visbl="pub" name="scalation.scala2d.Constants" data-isabs="false">
       <a id="Constants:Constants"></a>
-      <h4 class="signature"><a href="Constants$.html">
+      <h4 class="signature">
       <span class="kind">object</span>
-      <span class="symbol">
-        <span class="name">Constants</span>
-        
+      <span class="symbol"> 
+        <a href="Constants$.html"><span class="name">Constants</span></a>
         
         <span class="result"> extends AnyRef</span>
       </span>
-      </a></h4>
-      <p class="comment cmt">Useful constants.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.scala2d.LineTest">
+      </h4>
+      <p class="comment cmt">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Useful constants.</p>
+    </li><li visbl="pub" name="scalation.scala2d.LineTest" data-isabs="false">
       <a id="LineTest:LineTest"></a>
-      <h4 class="signature"><a href="LineTest$.html">
+      <h4 class="signature">
       <span class="kind">object</span>
-      <span class="symbol">
-        <span class="name">LineTest</span>
+      <span class="symbol"> 
+        <a href="LineTest$.html"><span class="name">LineTest</span></a>
         
-        
-        <span class="result"> extends Application</span>
+        <span class="result"> extends App</span>
       </span>
-      </a></h4>
-      <p class="comment cmt">This object is used to test the Line class.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.scala2d.PolygonTest">
+      </h4>
+      <p class="comment cmt">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+This object is used to test the Line class.</p>
+    </li><li visbl="pub" name="scalation.scala2d.PolygonTest" data-isabs="false">
       <a id="PolygonTest:PolygonTest"></a>
-      <h4 class="signature"><a href="PolygonTest$.html">
+      <h4 class="signature">
       <span class="kind">object</span>
-      <span class="symbol">
-        <span class="name">PolygonTest</span>
+      <span class="symbol"> 
+        <a href="PolygonTest$.html"><span class="name">PolygonTest</span></a>
         
-        
-        <span class="result"> extends Application</span>
+        <span class="result"> extends App</span>
       </span>
-      </a></h4>
-      <p class="comment cmt">The PolygonTest object tests the Polygon, Triangle, Quad and Hexagon classes.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.scala2d.QArrowTest">
+      </h4>
+      <p class="comment cmt">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+The PolygonTest object tests the Polygon, Triangle, Quad and Hexagon classes.</p>
+    </li><li visbl="pub" name="scalation.scala2d.QArrowTest" data-isabs="false">
       <a id="QArrowTest:QArrowTest"></a>
-      <h4 class="signature"><a href="QArrowTest$.html">
+      <h4 class="signature">
       <span class="kind">object</span>
-      <span class="symbol">
-        <span class="name">QArrowTest</span>
+      <span class="symbol"> 
+        <a href="QArrowTest$.html"><span class="name">QArrowTest</span></a>
         
-        
-        <span class="result"> extends Application</span>
+        <span class="result"> extends App</span>
       </span>
-      </a></h4>
-      <p class="comment cmt">This object is used to test the QArrow class.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.scala2d.QCurveCalc">
+      </h4>
+      <p class="comment cmt">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+This object is used to test the QArrow class.</p>
+    </li><li visbl="pub" name="scalation.scala2d.QCurveCalc" data-isabs="false">
       <a id="QCurveCalc:QCurveCalc"></a>
-      <h4 class="signature"><a href="QCurveCalc$.html">
+      <h4 class="signature">
       <span class="kind">object</span>
-      <span class="symbol">
-        <span class="name">QCurveCalc</span>
-        
+      <span class="symbol"> 
+        <a href="QCurveCalc$.html"><span class="name">QCurveCalc</span></a>
         
         <span class="result"> extends AnyRef</span>
       </span>
-      </a></h4>
-      <p class="comment cmt">This object provides formulas used by the QCurve class.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.scala2d.QCurveTest">
+      </h4>
+      <p class="comment cmt">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+This object provides formulas used by the QCurve class.</p>
+    </li><li visbl="pub" name="scalation.scala2d.QCurveTest" data-isabs="false">
       <a id="QCurveTest:QCurveTest"></a>
-      <h4 class="signature"><a href="QCurveTest$.html">
+      <h4 class="signature">
       <span class="kind">object</span>
-      <span class="symbol">
-        <span class="name">QCurveTest</span>
+      <span class="symbol"> 
+        <a href="QCurveTest$.html"><span class="name">QCurveTest</span></a>
         
-        
-        <span class="result"> extends Application</span>
+        <span class="result"> extends App</span>
       </span>
-      </a></h4>
-      <p class="comment cmt">The QCurveTest object tests QCurve's (quad curves).</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.scala2d.QCurveTest2">
+      </h4>
+      <p class="comment cmt">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+The QCurveTest object tests QCurve's (quad curves).</p>
+    </li><li visbl="pub" name="scalation.scala2d.QCurveTest2" data-isabs="false">
       <a id="QCurveTest2:QCurveTest2"></a>
-      <h4 class="signature"><a href="QCurveTest2$.html">
+      <h4 class="signature">
       <span class="kind">object</span>
-      <span class="symbol">
-        <span class="name">QCurveTest2</span>
+      <span class="symbol"> 
+        <a href="QCurveTest2$.html"><span class="name">QCurveTest2</span></a>
         
-        
-        <span class="result"> extends Application</span>
+        <span class="result"> extends App</span>
       </span>
-      </a></h4>
-      <p class="comment cmt">The QCurveTest2 object tests traversals of QCurve's (quad curves).</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.scala2d.Shapes">
+      </h4>
+      <p class="comment cmt">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+The QCurveTest2 object tests traversals of QCurve's (quad curves).</p>
+    </li><li visbl="pub" name="scalation.scala2d.Shapes" data-isabs="false">
       <a id="Shapes:Shapes"></a>
-      <h4 class="signature"><a href="Shapes$.html">
+      <h4 class="signature">
       <span class="kind">object</span>
-      <span class="symbol">
-        <span class="name">Shapes</span>
-        
+      <span class="symbol"> 
+        <a href="Shapes$.html"><span class="name">Shapes</span></a>
         
         <span class="result"> extends AnyRef</span>
       </span>
-      </a></h4>
-      <p class="comment cmt">Scala type aliases for basic Java2D types.</p>
+      </h4>
+      <p class="comment cmt">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Scala type aliases for basic Java2D types.</p>
     </li></ol>
             </div>
 

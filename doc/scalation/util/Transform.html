@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>Scaladoc for scalation.util.Transform</title>
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta>
+		      <script type="text/javascript" src="../../lib/jquery.js"></script>
+          
+		  <style type="text/css">
+		    @import url(../../lib/template.css) screen;
+		  </style>
+		  <script type="text/javascript" src="../../lib/template.js"></script>
+    
+        </head>
+        <body class="type">
+      
+      <p id="owner"><a href="../package.html">scalation</a>.<a href="package.html">util</a></p>
+
+      <div id="definition">
+        <img src="../../lib/trait_big.png"></img>
+        <h1>Transform</h1>
+      </div>
+
+      <div class="signature">
+      <div class="kind">trait</div>
+      <div class="symbol">
+        <span class="name">Transform</span>
+        
+        
+        <span class="result">extends<span>Error</span></span>
+      </div>
+        </div>
+      
+      <div id="comment"><p>:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+The Transform trait provides a simple technique for transforming
+(translation, scaling and rotation) rectangular shapes.</p></div>
+      
+      <div id="template">
+      
+        <div id="mbrsel">
+              <div id="ancestors">
+                <h3>Inherits</h3>
+                <ol><li class="in" name="scalation.util.Error">Error</li><li class="in" name="scala.AnyRef">AnyRef</li><li class="in" name="scala.Any">Any</li></ol>
+              </div>
+            </div>
+        
+        
+        
+        <div class="members" id="values">
+              <h3>Value Members</h3>
+              <ol><li name="scala.AnyRef#equals">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">equals</span>
+        
+        <span class="params">(<span name="arg0">arg0: Any</span>)</span>
+        <span class="result">:<span>Boolean</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>This method is used to compare the receiver object (<code>this</code>)
+with the argument object (<code>arg0</code>) for equivalence.</p><p><p>
+The default implementations of this method is an <a
+href="http://en.wikipedia.org/wiki/Equivalence_relation">equivalence
+relation</a>:
+  <ul>
+ <li>It is reflexive: for any instance <code>x</code> of type <code>Any</code>,
+ <code>x.equals(x)</code> should return <code>true</code>.</li>
+ <li>It is symmetric: for any instances <code>x</code> and <code>y</code> of type
+ <code>Any</code>, <code>x.equals(y)</code> should return <code>true</code> if and only
+ if <code>y.equals(x)</code> returns <code>true</code>.</li>
+ <li>It is transitive: for any instances
+ <code>x</code>, <code>y</code>, and <code>z</code> of type <code>AnyRef</code>
+ if <code>x.equals(y)</code> returns <code>true</code> and
+ <code>y.equals(z)</code> returns
+ <code>true</code>, then <code>x.equals(z)</code> should return <code>true</code>.</li>
+</ul>
+</p></p><p><p>
+If you override this method, you should verify that
+your implementation remains an equivalence relation.
+Additionally, when overriding this method it is often necessary to
+override <code>hashCode</code> to ensure that objects that are
+"equal" (<code>o1.equals(o2)</code> returns <code>true</code>)
+hash to the same <a href="Int.html"><code>Int</code></a>
+(<code>o1.hashCode.equals(o2.hashCode)</code>).
+</p></div>
+    </li><li name="scalation.util.Error#flaw">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">flaw</span>
+        
+        <span class="params">(<span name="method">method: String</span>,<span name="message">message: String</span>)</span>
+        <span class="result">:<span>Unit</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Show the flaw by printing the error message.</p></div>
+    </li><li name="scala.AnyRef#hashCode">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">hashCode</span>
+        
+        <span class="params">()</span>
+        <span class="result">:<span>Int</span></span>
+      </div>
+        </div>
+      
+      
+      <div class="comment"><p>Returns a hash code value for the object.</p><p><p>
+The default hashing algorithm is platform dependent.</p><p>Note that it is allowed for two objects to have identical hash
+codes (<code>o1.hashCode.equals(o2.hashCode)</code>) yet not be
+equal (<code>o1.equals(o2)</code> returns <code>false</code>).  A
+degenerate implementation could always return <code>0</code>.
+However, it is required that if two objects are equal
+(<code>o1.equals(o2)</code> returns <code>true</code>) that they
+have identical hash codes
+(<code>o1.hashCode.equals(o2.hashCode)</code>).  Therefore, when
+overriding this method, be sure to verify that the behavior is
+consistent with the <code>equals</code> method.
+</p></p><p><p></p></div>
+    </li><li name="scalation.util.Transform#move">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">move</span>
+        
+        <span class="params">(<span name="shape">shape: RectangularShape</span>,<span name="p">p: Array[Double]</span>)</span>
+        <span class="result">:<span>Unit</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Move/translate the shape to location (x, y).</p></div>
+    </li><li name="scalation.util.Transform#move">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">move</span>
+        
+        <span class="params">(<span name="shape">shape: RectangularShape</span>,<span name="x">x: Double</span>,<span name="y">y: Double</span>)</span>
+        <span class="result">:<span>Unit</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Move/translate the shape to location (x, y).</p></div>
+    </li><li name="scalation.util.Transform#rotate">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">rotate</span>
+        
+        <span class="params">(<span name="shape">shape: RectangularShape</span>,<span name="theta">theta: Double</span>)</span>
+        <span class="result">:<span>Unit</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Rotate the shape by theta radians.</p></div>
+    </li><li name="scalation.util.Transform#scale">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">scale</span>
+        
+        <span class="params">(<span name="shape">shape: RectangularShape</span>,<span name="p">p: Array[Double]</span>)</span>
+        <span class="result">:<span>Unit</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Scale/resize the shape to the new width and height parameters.</p></div>
+    </li><li name="scalation.util.Transform#scale">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">scale</span>
+        
+        <span class="params">(<span name="shape">shape: RectangularShape</span>,<span name="w">w: Double</span>,<span name="h">h: Double</span>)</span>
+        <span class="result">:<span>Unit</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Scale/resize the shape to the new width and height parameters.</p></div>
+    </li><li name="scala.AnyRef#toString">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">toString</span>
+        
+        <span class="params">()</span>
+        <span class="result">:<span>String</span></span>
+      </div>
+        </div>
+      
+      
+      <div class="comment"><p>Returns a string representation of the object.
+<p>
+The default representation is platform dependent.
+</p></div>
+    </li></ol>
+            </div>
+        
+        
+        
+      </div>
+      
+    </body>
+      </html>

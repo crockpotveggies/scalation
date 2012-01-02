@@ -5,32 +5,31 @@
           <title>scalation.stat</title>
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
-      <link href="../../lib/template.css" rel="stylesheet" type="text/css" media="screen" />
+      <link type="text/css" media="screen" rel="stylesheet" href="../../lib/template.css" />
       <script type="text/javascript" src="../../lib/jquery.js"></script>
       <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
       <script type="text/javascript" src="../../lib/template.js"></script>
       <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
     
         </head>
-        <body class="value" onload="windowTitle();">
-
-      <p id="owner"><a href="../package.html" class="extype" name="scalation">scalation</a></p>
-
+        <body class="value">
       <div id="definition">
         <img src="../../lib/package_big.png" />
+        <p id="owner"><a name="scalation" class="extype" href="../package.html">scalation</a></p>
         <h1>stat</h1>
       </div>
 
       <h4 class="signature" id="signature">
       <span class="kind">package</span>
-      <span class="symbol">
+      <span class="symbol"> 
         <span class="name">stat</span>
-        
         
         
       </span>
       </h4>
-      <div class="fullcomment" id="comment"></div>
+      
+          <div class="fullcommenttop" id="comment"></div>
+        
 
       <div id="template">
 
@@ -40,11 +39,7 @@
           
           <div id="visbl">
               <span class="filtertype">Visibility</span>
-              <ol><li class="public in">Public</li><li class="all out">All</li></ol>
-            </div>
-          <div id="impl">
-              <span class="filtertype">Impl.</span>
-              <ol><li class="concrete in">Concrete</li><li class="abstract in">Abstract</li></ol>
+              <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
             </div>
         </div>
 
@@ -52,514 +47,157 @@
 
         <div class="types members" id="types">
               <h3>Type Members</h3>
-              <ol><li visbl="pub" data-isabs="false" name="scalation.stat.Bernoulli">
-      <a id="Bernoulli:Bernoulli"></a>
-      <h4 class="signature"><a href="Bernoulli.html">
-      <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">Bernoulli</span>
-        
-        <span class="params">(<span name="p">p: Double</span>, <span name="stream">stream: Int</span>)</span>
-        <span class="result"> extends Variate with Product</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">This class generates Bernoulli random variates.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.Beta">
-      <a id="Beta:Beta"></a>
-      <h4 class="signature"><a href="Beta.html">
-      <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">Beta</span>
-        
-        <span class="params">(<span name="alpha">alpha: Double</span>, <span name="beta">beta: Double</span>, <span name="stream">stream: Int</span>)</span>
-        <span class="result"> extends Variate with Product</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">This class generates Beta random variates.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.Binomial">
-      <a id="Binomial:Binomial"></a>
-      <h4 class="signature"><a href="Binomial.html">
-      <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">Binomial</span>
-        
-        <span class="params">(<span name="p">p: Double</span>, <span name="n">n: Int</span>, <span name="stream">stream: Int</span>)</span>
-        <span class="result"> extends Variate with Product</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">This class generates Binomial random variates.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.Cauchy">
-      <a id="Cauchy:Cauchy"></a>
-      <h4 class="signature"><a href="Cauchy.html">
-      <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">Cauchy</span>
-        
-        <span class="params">(<span name="alpha">alpha: Double</span>, <span name="beta">beta: Double</span>, <span name="stream">stream: Int</span>)</span>
-        <span class="result"> extends Variate with Product</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">This class generates Cauchy (or Lorentz) random variates.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.ChiSquare">
-      <a id="ChiSquare:ChiSquare"></a>
-      <h4 class="signature"><a href="ChiSquare.html">
-      <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">ChiSquare</span>
-        
-        <span class="params">(<span name="df">df: Int</span>, <span name="stream">stream: Int</span>)</span>
-        <span class="result"> extends Variate with Product</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">This class generates ChiSquare random variates.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.Deterministic">
-      <a id="Deterministic:Deterministic"></a>
-      <h4 class="signature"><a href="Deterministic.html">
-      <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">Deterministic</span>
-        
-        <span class="params">(<span name="x">x: Double</span>, <span name="stream">stream: Int</span>)</span>
-        <span class="result"> extends Variate with Product</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">This class generates Deterministic random variates.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.Discrete">
-      <a id="Discrete:Discrete"></a>
-      <h4 class="signature"><a href="Discrete.html">
-      <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">Discrete</span>
-        
-        <span class="params">(<span name="dist">dist: VectorD</span>, <span name="x">x: VectorD</span>, <span name="cummulative">cummulative: Boolean</span>, <span name="stream">stream: Int</span>)</span>
-        <span class="result"> extends Variate with Product</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">This class generates generalized Discrete random variates for a given
-distribution specified using either a probability mass function (pmf)
-or a cummulative distribution function (cdf).</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.Erlang">
-      <a id="Erlang:Erlang"></a>
-      <h4 class="signature"><a href="Erlang.html">
-      <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">Erlang</span>
-        
-        <span class="params">(<span name="mu">mu: Double</span>, <span name="k">k: Int</span>, <span name="stream">stream: Int</span>)</span>
-        <span class="result"> extends Variate with Product</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">This class generates Erlang random variates.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.Exponential">
-      <a id="Exponential:Exponential"></a>
-      <h4 class="signature"><a href="Exponential.html">
-      <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">Exponential</span>
-        
-        <span class="params">(<span name="mu">mu: Double</span>, <span name="stream">stream: Int</span>)</span>
-        <span class="result"> extends Variate with Product</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">This class generates Exponential random variates.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.Fisher">
-      <a id="Fisher:Fisher"></a>
-      <h4 class="signature"><a href="Fisher.html">
-      <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">Fisher</span>
-        
-        <span class="params">(<span name="df1">df1: Int</span>, <span name="df2">df2: Int</span>, <span name="stream">stream: Int</span>)</span>
-        <span class="result"> extends Variate with Product</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">This class generates Fisher (F-Distribution) random variates.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.Gamma">
-      <a id="Gamma:Gamma"></a>
-      <h4 class="signature"><a href="Gamma.html">
-      <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">Gamma</span>
-        
-        <span class="params">(<span name="alpha">alpha: Double</span>, <span name="beta">beta: Double</span>, <span name="stream">stream: Int</span>)</span>
-        <span class="result"> extends Variate with Product</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">This class generates Gamma random variates.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.Geometric">
-      <a id="Geometric:Geometric"></a>
-      <h4 class="signature"><a href="Geometric.html">
-      <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">Geometric</span>
-        
-        <span class="params">(<span name="p">p: Double</span>, <span name="stream">stream: Int</span>)</span>
-        <span class="result"> extends Variate with Product</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">This class generates Geometric random variates.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.Histogram">
-      <a id="Histogram:Histogram"></a>
-      <h4 class="signature"><a href="Histogram.html">
+              <ol><li visbl="pub" name="scalation.stat.Anova" data-isabs="false">
+      <a id="Anova:Anova"></a>
+      <h4 class="signature">
       <span class="kind">class</span>
-      <span class="symbol">
-        <span class="name">Histogram</span>
-        
-        
-        <span class="result"> extends MainFrame</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">The Histogram class takes a vector of values, counts the number of values
-in each of several intervals and displays the counts vertically in a
-histogram.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.HyperExponential">
-      <a id="HyperExponential:HyperExponential"></a>
-      <h4 class="signature"><a href="HyperExponential.html">
-      <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">HyperExponential</span>
-        
-        <span class="params">(<span name="p">p: Double</span>, <span name="mu1">mu1: Double</span>, <span name="mu2">mu2: Double</span>, <span name="stream">stream: Int</span>)</span>
-        <span class="result"> extends Variate with Product</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">This class generates HyperExponential random variates (two rates).</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.HyperGeometric">
-      <a id="HyperGeometric:HyperGeometric"></a>
-      <h4 class="signature"><a href="HyperGeometric.html">
-      <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">HyperGeometric</span>
-        
-        <span class="params">(<span name="p">p: Double</span>, <span name="n">n: Int</span>, <span name="pop">pop: Int</span>, <span name="stream">stream: Int</span>)</span>
-        <span class="result"> extends Variate with Product</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">This class generates HyperGeometric random variates.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.LogNormal">
-      <a id="LogNormal:LogNormal"></a>
-      <h4 class="signature"><a href="LogNormal.html">
-      <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">LogNormal</span>
-        
-        <span class="params">(<span name="mu">mu: Double</span>, <span name="sigma2">sigma2: Double</span>, <span name="stream">stream: Int</span>)</span>
-        <span class="result"> extends Variate with Product</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">This class generates LogNormal random variates.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.Multinomial">
-      <a id="Multinomial:Multinomial"></a>
-      <h4 class="signature"><a href="Multinomial.html">
-      <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">Multinomial</span>
-        
-        <span class="params">(<span name="p">p: ArrayD</span>, <span name="n">n: Int</span>, <span name="stream">stream: Int</span>)</span>
-        <span class="result"> extends Variate with Product</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">This class generates Multinomial random variates.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.NegativeBinomial">
-      <a id="NegativeBinomial:NegativeBinomial"></a>
-      <h4 class="signature"><a href="NegativeBinomial.html">
-      <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">NegativeBinomial</span>
-        
-        <span class="params">(<span name="p">p: Double</span>, <span name="s">s: Int</span>, <span name="stream">stream: Int</span>)</span>
-        <span class="result"> extends Variate with Product</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">This class generates NegativeBinomial random variates.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.Normal">
-      <a id="Normal:Normal"></a>
-      <h4 class="signature"><a href="Normal.html">
-      <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">Normal</span>
-        
-        <span class="params">(<span name="mu">mu: Double</span>, <span name="sigma2">sigma2: Double</span>, <span name="stream">stream: Int</span>)</span>
-        <span class="result"> extends Variate with Product</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">This class generates Normal (Gaussian) random variates.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.Plot">
-      <a id="Plot:Plot"></a>
-      <h4 class="signature"><a href="Plot.html">
-      <span class="kind">class</span>
-      <span class="symbol">
-        <span class="name">Plot</span>
-        
-        
-        <span class="result"> extends MainFrame</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">The Plot class takes x and y vectors of data values and plots the (x, y)
-data points.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.Poisson">
-      <a id="Poisson:Poisson"></a>
-      <h4 class="signature"><a href="Poisson.html">
-      <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">Poisson</span>
-        
-        <span class="params">(<span name="mu">mu: Double</span>, <span name="stream">stream: Int</span>)</span>
-        <span class="result"> extends Variate with Product</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">This class generates Poisson random variates (discrete).</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.Randi">
-      <a id="Randi:Randi"></a>
-      <h4 class="signature"><a href="Randi.html">
-      <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">Randi</span>
-        
-        <span class="params">(<span name="a">a: Int</span>, <span name="b">b: Int</span>, <span name="stream">stream: Int</span>)</span>
-        <span class="result"> extends Variate with Product</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">This class generates Randi random variates (random integers).</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.StatVector">
-      <a id="StatVector:StatVector"></a>
-      <h4 class="signature"><a href="StatVector.html">
-      <span class="kind">class</span>
-      <span class="symbol">
-        <span class="name">StatVector</span>
-        
-        
-        <span class="result"> extends VectorN[Double]</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">The StatVector class provides methods for computing common statistics on
-a data vector.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.Statistic">
-      <a id="Statistic:Statistic"></a>
-      <h4 class="signature"><a href="Statistic.html">
-      <span class="kind">class</span>
-      <span class="symbol">
-        <span class="name">Statistic</span>
-        
-        
-        <span class="result"> extends Error</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">This class is used to collect values and compute statistics on them.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.StudentT">
-      <a id="StudentT:StudentT"></a>
-      <h4 class="signature"><a href="StudentT.html">
-      <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">StudentT</span>
-        
-        <span class="params">(<span name="df">df: Int</span>, <span name="stream">stream: Int</span>)</span>
-        <span class="result"> extends Variate with Product</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">This class generates StudentT random variates.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.TimeStatistic">
-      <a id="TimeStatistic:TimeStatistic"></a>
-      <h4 class="signature"><a href="TimeStatistic.html">
-      <span class="kind">class</span>
-      <span class="symbol">
-        <span class="name">TimeStatistic</span>
-        
-        
-        <span class="result"> extends Statistic</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">This class is used to collect values and compute time persistent statistics
-on them.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.Triangular">
-      <a id="Triangular:Triangular"></a>
-      <h4 class="signature"><a href="Triangular.html">
-      <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">Triangular</span>
-        
-        <span class="params">(<span name="a">a: Double</span>, <span name="b">b: Double</span>, <span name="c">c: Double</span>, <span name="stream">stream: Int</span>)</span>
-        <span class="result"> extends Variate with Product</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">This class generates simple Triangular random variates with the mode in the middle.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.Uniform">
-      <a id="Uniform:Uniform"></a>
-      <h4 class="signature"><a href="Uniform.html">
-      <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">Uniform</span>
-        
-        <span class="params">(<span name="a">a: Double</span>, <span name="b">b: Double</span>, <span name="stream">stream: Int</span>)</span>
-        <span class="result"> extends Variate with Product</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">This class generates Uniform random variates in the range (a, b).</p>
-    </li><li visbl="pub" data-isabs="true" name="scalation.stat.Variate">
-      <a id="Variate:Variate"></a>
-      <h4 class="signature"><a href="Variate.html">
-      <span class="kind">class</span>
-      <span class="symbol">
-        <span class="name">Variate</span>
-        
-        
-        <span class="result"> extends Error with Combinatorics</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">This abstract class serves as a base class for all the random variate (RV)
-generators.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.Weibull">
-      <a id="Weibull:Weibull"></a>
-      <h4 class="signature"><a href="Weibull.html">
-      <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">Weibull</span>
-        
-        <span class="params">(<span name="alpha">alpha: Double</span>, <span name="beta">beta: Double</span>, <span name="stream">stream: Int</span>)</span>
-        <span class="result"> extends Variate with Product</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">This class generates Weibull random variates.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat._HyperExponential">
-      <a id="_HyperExponential:_HyperExponential"></a>
-      <h4 class="signature"><a href="_HyperExponential.html">
-      <span class="kind">case class</span>
-      <span class="symbol">
-        <span class="name">_HyperExponential</span>
-        
-        <span class="params">(<span name="mu">mu: Double</span>, <span name="sigma">sigma: Double</span>, <span name="stream">stream: Int</span>)</span>
-        <span class="result"> extends Variate with Product</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">This class generates HyperExponential random variates.</p>
-    </li></ol>
-            </div>
-
-        <div class="values members" id="values">
-              <h3>Value Members</h3>
-              <ol><li visbl="pub" data-isabs="false" name="scalation.stat.HistogramTest">
-      <a id="HistogramTest:HistogramTest"></a>
-      <h4 class="signature"><a href="HistogramTest$.html">
-      <span class="kind">object</span>
-      <span class="symbol">
-        <span class="name">HistogramTest</span>
-        
-        
-        <span class="result"> extends Application</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">This object is used to test the Histogram class.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.PlotTest">
-      <a id="PlotTest:PlotTest"></a>
-      <h4 class="signature"><a href="PlotTest$.html">
-      <span class="kind">object</span>
-      <span class="symbol">
-        <span class="name">PlotTest</span>
-        
-        
-        <span class="result"> extends Application</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">This object is used to test the Plot class.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.Quantile">
-      <a id="Quantile:Quantile"></a>
-      <h4 class="signature"><a href="Quantile$.html">
-      <span class="kind">object</span>
-      <span class="symbol">
-        <span class="name">Quantile</span>
-        
-        
-        <span class="result"> extends Combinatorics with Error</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">This object contains methods to compute inverse Cumulative Distribution
-Functions (iCDF's) for the popular sampling distributions:
-StandardNormal, StudentT, ChiSquare and Fisher.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.QuantileTest">
-      <a id="QuantileTest:QuantileTest"></a>
-      <h4 class="signature"><a href="QuantileTest$.html">
-      <span class="kind">object</span>
-      <span class="symbol">
-        <span class="name">QuantileTest</span>
-        
-        
-        <span class="result"> extends Application</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">This object test the the Quantile object.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.Regression">
-      <a id="Regression:Regression"></a>
-      <h4 class="signature"><a href="Regression$.html">
-      <span class="kind">object</span>
-      <span class="symbol">
-        <span class="name">Regression</span>
-        
+      <span class="symbol"> 
+        <a href="Anova.html"><span class="name">Anova</span></a>
         
         <span class="result"> extends AnyRef</span>
       </span>
-      </a></h4>
-      <p class="comment cmt">The Regression object supports multiple linear regression.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.RegressionTest">
+      </h4>
+      <p class="comment cmt">The Anova class provides the functions necessary for performing a one-way
+ ANalysis Of VAriance (ANOVA) on the input data matrix x.</p>
+    </li><li visbl="pub" name="scalation.stat.BatchVec" data-isabs="false">
+      <a id="BatchVec:BatchVec"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="BatchVec.html"><span class="name">BatchVec</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      <p class="comment cmt">This class contains a Random Vector (RVec) for maintaining experimental
+ data in multiple batches and methods for computing statistics on these data.</p>
+    </li><li visbl="pub" name="scalation.stat.StatVector" data-isabs="false">
+      <a id="StatVector:StatVector"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="StatVector.html"><span class="name">StatVector</span></a>
+        
+        <span class="result"> extends VectorN[Double]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+The StatVector class provides methods for computing common statistics on
+a data vector.</p>
+    </li><li visbl="pub" name="scalation.stat.Statistic" data-isabs="false">
+      <a id="Statistic:Statistic"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="Statistic.html"><span class="name">Statistic</span></a>
+        
+        <span class="result"> extends Error</span>
+      </span>
+      </h4>
+      <p class="comment cmt">This class is used to collect values and compute sample statistics on them
+ (e.</p>
+    </li><li visbl="pub" name="scalation.stat.TimeStatistic" data-isabs="false">
+      <a id="TimeStatistic:TimeStatistic"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="TimeStatistic.html"><span class="name">TimeStatistic</span></a>
+        
+        <span class="result"> extends Statistic</span>
+      </span>
+      </h4>
+      <p class="comment cmt">::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+This class is used to collect values and compute time-persistent statistics
+on them (e.</p>
+    </li></ol>
+            </div>
+        
+        
+
+        <div class="values members" id="values">
+              <h3>Value Members</h3>
+              <ol><li visbl="pub" name="scalation.stat.AnovaTest" data-isabs="false">
+      <a id="AnovaTest:AnovaTest"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="AnovaTest$.html"><span class="name">AnovaTest</span></a>
+        
+        <span class="result"> extends App</span>
+      </span>
+      </h4>
+      <p class="comment cmt">This object is used to test the Anova class.</p>
+    </li><li visbl="pub" name="scalation.stat.BatchVecTest" data-isabs="false">
+      <a id="BatchVecTest:BatchVecTest"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="BatchVecTest$.html"><span class="name">BatchVecTest</span></a>
+        
+        <span class="result"> extends App</span>
+      </span>
+      </h4>
+      <p class="comment cmt">This object tests the BatchVec class.</p>
+    </li><li visbl="pub" name="scalation.stat.Regression" data-isabs="false">
+      <a id="Regression:Regression"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="Regression$.html"><span class="name">Regression</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      <p class="comment cmt">::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+The Regression object supports multiple linear regression.</p>
+    </li><li visbl="pub" name="scalation.stat.RegressionTest" data-isabs="false">
       <a id="RegressionTest:RegressionTest"></a>
-      <h4 class="signature"><a href="RegressionTest$.html">
+      <h4 class="signature">
       <span class="kind">object</span>
-      <span class="symbol">
-        <span class="name">RegressionTest</span>
+      <span class="symbol"> 
+        <a href="RegressionTest$.html"><span class="name">RegressionTest</span></a>
         
-        
-        <span class="result"> extends Application</span>
+        <span class="result"> extends App</span>
       </span>
-      </a></h4>
-      <p class="comment cmt">Object to test Regression object (y = x * b = b0 + b1*x1 + b2*x2).</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.RegressionTest2">
+      </h4>
+      <p class="comment cmt">::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Object to test Regression object (y = x * b = b0 + b1*x1 + b2*x2).</p>
+    </li><li visbl="pub" name="scalation.stat.RegressionTest2" data-isabs="false">
       <a id="RegressionTest2:RegressionTest2"></a>
-      <h4 class="signature"><a href="RegressionTest2$.html">
+      <h4 class="signature">
       <span class="kind">object</span>
-      <span class="symbol">
-        <span class="name">RegressionTest2</span>
+      <span class="symbol"> 
+        <a href="RegressionTest2$.html"><span class="name">RegressionTest2</span></a>
         
-        
-        <span class="result"> extends Application</span>
+        <span class="result"> extends App</span>
       </span>
-      </a></h4>
-      <p class="comment cmt">Object to test Regression object (y = x * b = b0 + b1*x1 + b2*x2).</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.StatVectorTest">
+      </h4>
+      <p class="comment cmt">::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Object to test Regression object (y = x * b = b0 + b1*x1 + b2*x2).</p>
+    </li><li visbl="pub" name="scalation.stat.StatVectorTest" data-isabs="false">
       <a id="StatVectorTest:StatVectorTest"></a>
-      <h4 class="signature"><a href="StatVectorTest$.html">
+      <h4 class="signature">
       <span class="kind">object</span>
-      <span class="symbol">
-        <span class="name">StatVectorTest</span>
+      <span class="symbol"> 
+        <a href="StatVectorTest$.html"><span class="name">StatVectorTest</span></a>
         
-        
-        <span class="result"> extends Application</span>
+        <span class="result"> extends App</span>
       </span>
-      </a></h4>
-      <p class="comment cmt">Object to test the StatVector class.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.StatisticTest">
+      </h4>
+      <p class="comment cmt">::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Object to test the StatVector class.</p>
+    </li><li visbl="pub" name="scalation.stat.StatisticTest" data-isabs="false">
       <a id="StatisticTest:StatisticTest"></a>
-      <h4 class="signature"><a href="StatisticTest$.html">
+      <h4 class="signature">
       <span class="kind">object</span>
-      <span class="symbol">
-        <span class="name">StatisticTest</span>
+      <span class="symbol"> 
+        <a href="StatisticTest$.html"><span class="name">StatisticTest</span></a>
         
-        
-        <span class="result"> extends Application</span>
+        <span class="result"> extends App</span>
       </span>
-      </a></h4>
-      <p class="comment cmt">This object is used to test the Statistic and TimeStatistic classes.</p>
-    </li><li visbl="pub" data-isabs="false" name="scalation.stat.VariateTest">
-      <a id="VariateTest:VariateTest"></a>
-      <h4 class="signature"><a href="VariateTest$.html">
-      <span class="kind">object</span>
-      <span class="symbol">
-        <span class="name">VariateTest</span>
-        
-        
-        <span class="result"> extends Application</span>
-      </span>
-      </a></h4>
-      <p class="comment cmt">Conduct two simple tests of the Random Variate Generators: (1) Means Test
-(2) Goodness of Fit Test.</p>
+      </h4>
+      <p class="comment cmt">::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+This object is used to test the Statistic and TimeStatistic classes.</p>
     </li></ol>
             </div>
 
