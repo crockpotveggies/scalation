@@ -4,14 +4,16 @@
  * @version 1.0
  * @date    Sun Nov  1 15:05:06 EDT 2009
  * @see     LICENSE (MIT style license file).
+ * @compile scalac -cp ../../classes -d classes Reaction.scala
+ * @run     scala -cp ../../classes:classes activity.Reaction
  */
-package activity 
+
+package activity
 
 import scalation.activity._
-import scalation.dynamics.RungeKutta._
-import scalation.advmath._
-import scalation.stat._
-import scalation.advmath.Vectors._
+import scalation.dynamics.Calculus.Derivative
+import scalation.math.Vectors.VectorD
+import scalation.random.Deterministic
 import scalation.scala2d.Colors._
 
 /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -21,7 +23,7 @@ import scalation.scala2d.Colors._
  * @see scalation.activity.PetriNetTest, scalation.activity.PetriNetRulesTest
  * for more examples of test code.
  */
-object Reaction extends Application
+object Reaction extends App
 {
     //:: Set up the colors for fluids (green for glycans, blue for enzymes)
 
@@ -58,5 +60,5 @@ object Reaction extends Application
     println (pnet)
     pnet.simulate (2, 20)
 
-} // PetriNetTest object
+} // Reaction object
 

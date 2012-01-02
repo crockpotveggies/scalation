@@ -4,11 +4,14 @@
  * @version 1.0
  * @date    Wed Dec 30 15:13:32 EST 2009
  * @see     LICENSE (MIT style license file).
+ * @compile scalac -cp ../../classes -d classes MarkovQueue.scala
+ * @run     scala -cp ../../classes:classes state.MarkovQueue
  */
+
 package state
 
-import scalation.state._
-import scalation.advmath.Matrices._
+import scalation.state.MarkovC
+import scalation.math.Matrices.MatrixD
 
 /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * This object finds the steady-state solution and simulates a simple Markovian
@@ -17,13 +20,13 @@ import scalation.advmath.Matrices._
  * @see scalation.state.MarkovTest, scalation.state.MarkovCTest for example
  * test code for discrete-time and continuous-time Markov chains, respectively.
  */
-object MarkovQueue extends Application
+object MarkovQueue extends App
 {
     /** The transition rate matrix
      */
-    private val trMatrix = new MatrixD (Array (Array (-4.,  4., 0.),
-                                               Array ( 5., -9., 4.),
-                                               Array ( 0.,  5., -5.)))
+    private val trMatrix = new MatrixD ((3, 3), -4.,  4.,  0.,
+                                                 5., -9.,  4.,
+                                                 0.,  5., -5.)
 
     println ("\nTransition Rate Matrix trMatrix = " + trMatrix + "\n")
 

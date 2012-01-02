@@ -1,20 +1,23 @@
+
 /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * @author  John Miller
  * @version 1.0
  * @date    Wed Dec 30 14:48:41 EST 2009
  * @see     LICENSE (MIT style license file).
+ * @compile scalac -cp ../../classes -d classes Bank.scala
+ * @run     scala -cp ../../classes:classes event.Bank
  */
 
 package event
-import scalation.event._
-import scalation.stat._
-import scalation.advmath._
+
+import scalation.event.{CausalLink, Entity, Event, Model}
+import scalation.random.{Uniform, Variate}
 
 /**:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  * This object defines a particular scenario under which to execute the bank model.
  * @see scalation.event.ModelTest for another example of test code.
  */
-object Bank extends Application
+object Bank extends App
 {
     new BankModel ("bank", 100, Uniform (4000, 6000), Uniform (3000, 5000))
 } // Bank
@@ -85,9 +88,9 @@ class BankModel (name: String, nArrivals: Int, arrivalRV: Variate, serviceRV: Va
 
     } // Departure class
 
-    //:: start the simulation, passing the start time and the first priming event
+    //:: start the simulation, passing the the first priming event and start time
 
-    simulate (0., Arrival (null))
+    simulate (Arrival (null), 0.)
     Thread.sleep (2000)
     report (Array (("nArr", nArr), ("nIn", nIn), ("nOut", nOut)))
     report ("Arrival", aLinks)

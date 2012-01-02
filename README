@@ -1,132 +1,39 @@
-$Id$
+ScalaTion
 
-README -- ScalaTion
-http://www.cs.uga.edu/~jam/scalation/README.html
-http://code.google.com/p/scalation/
+Welcome to ScalaTion, the Scala-based Simulation System. 
 
-ScalaTion is a system coded in Scala that supports multi-paradigm simulation 
-modeling including dynamics, activity, event, process and state oriented models.
-Scala is a modern object-oriented, functional programming language that is 
-well-suited for developing simulation engines.
+This system, coded in Scala, supports multi-paradigm simulation modeling 
+including 'dynamics', 'activity', 'event', 'process' and 'state' oriented 
+models. Scala is a modern object-oriented, functional programming language
+that is well-suited for developing simulation engines.
 
-In addition, there are support packages for scala2D, advmath, stat and animation
-as well as a small util package.
+In addition to the packages focused on simulation, there are several support
+packages: 'util', 'math', 'random', 'stat', 'scala2d', 'plot', 'animation' 
+and 'optimization'.
+
+Future directions include adding 'scala3d' and 'physics' packages.
 
 Requires: Scala 2.8 and Java 1.6
 
-Contents:
-0. License
-1. Packages
-1.0. Core Packages
-1.1. Examples
-2. Compatibility and Features
-3. Using ScalaTion
-4. Building and Installing
-5. Mailing Lists / Contact
-6. Source Code
+Installation Instructions
 
+  1. Download one of the following two file:
+      scalation.tar.gz
+      scalation.zip
+	  
+  2. Unzip or untar the file:
+      > tar xvfz scalation.tar.gz
+      > unzip scalation.zip
+	  
+  3. If necessary re-build the scalation system (it's pre-built):
+      > cd scalation
+      > scalac Build.scala
+      > scala Build
 
-0. License
+  4. Run examples (e.g., for process oriented):
+      > cd examples/process
+      > scalac -cp ../../classes -d classes Bank.scala
+      > scala -cp ../../classes:classes Bank
 
-Copyright (c) 2009, John A. Miller and the University of Georgia
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of 
-this software and associated documentation files (the "Software"), to deal in 
-the Software without restriction, including without limitation the rights to 
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
-the Software, and to permit persons to whom the Software is furnished to do so, 
-subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all 
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR 
-COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER 
-IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
-CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-1. Packages
-
-
-1.0. Core Packages
-
-scalation.util          A small package of utilities.
-
-scalation.advmath       A package of advanced mathematical operations. including
-                        generic implementations for vectors and matrices.
-
-scalation.stat          A package of statistical operations needed for 
-                        simulation.
-
-scalation.scala2d       A scala version of Java 2D.
-
-scalation.animation     A general purpose 2D animation engine.
-
-scalation.optimization  A package supporting simulation optimization.
-
-scalation.dynamics      A simulation engine for systems dynamics (continuous 
-                        simulation).
-
-scalation.activity      A simulation engine for activity oriented models such as
-                        Petri Nets.
-
-scalation.event         A simulation engine for event oriented models such as 
-                        Event Graphs.
-
-scalation.process       A simulation engine for process oriented models such as 
-                        Process-Interaction Models.
-
-scalation.state         A simulation engine for state oriented models such as 
-                        Markov Chains.
-
-
-1.1. Examples
-
-scalation.dynamics      Example models for systems dynamics (continuous 
-                        simulation).
-                        
-scalation.activity      Example models for activity oriented models such as 
-                        Petri Nets.
-                        
-scalation.event         Example models for event oriented models such as Event 
-                        Graphs.
-                        
-scalation.process       Example models for process oriented models such as 
-                        Process-Interaction Models.
-                        
-scalation.state         Example models for state oriented models such as Markov 
-                        Chains.
-
-
-2. Compatibility and Features
-
-
-
-3. Using ScalaTion
-
-
-
-4. Building and Installing
-
-To build the ScalaTion system, simply compile and run the included Build.scala
-script.
-
-> cd scalation 
-> scalac Build.scala 
-> scala Build
-
-
-5. Mailing Lists / Contact
-
-
-
-6. Source Code
-
-The latest version of the source code is available in the subversion repository.
-Use this command to anonymously check out the latest project source code:
-
-> svn checkout http://scalation.googlecode.com/svn/trunk/ scalation
+Please read the LICENSE file (an MIT style license).
 
