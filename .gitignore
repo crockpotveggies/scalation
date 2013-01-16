@@ -1,3 +1,5 @@
 .cache
 .classpath
 .project
+/target
+/bin
