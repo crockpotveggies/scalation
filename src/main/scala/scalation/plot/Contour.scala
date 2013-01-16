@@ -10,13 +10,13 @@ package scalation.plot
 
 import collection.mutable.ArrayBuffer
 import math.{ceil, floor, min, pow, round}
-import swing.{MainFrame, Panel, SimpleGUIApplication}
-
+import scala.swing.{MainFrame, Panel}
 import scalation.math.Matrices.MatrixD
 import scalation.math.Vectors.{FunctionV2S, VectorD}
 import scalation.scala2d.{Ellipse, Line, Rectangle}
 import scalation.scala2d.Colors._
 import scalation.scala2d.Shapes.{BasicStroke, Dimension, Graphics2D}
+import scalation.scala2d.Line
 
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 /** The Contour class takes a function f and diplays color-coded values for f(x, y)

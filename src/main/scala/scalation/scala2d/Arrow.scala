@@ -8,8 +8,8 @@
 
 package scalation.scala2d
 
-import math.{atan, cos, Pi, sin}
-import swing.{MainFrame, Panel}
+import scala.math.{atan, cos, Pi, sin}
+import scala.swing.{MainFrame, Panel}
 
 import scalation.scala2d.Colors._
 import scalation.scala2d.Shapes.{Dimension, Graphics2D}

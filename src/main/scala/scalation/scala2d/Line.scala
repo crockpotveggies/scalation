@@ -8,7 +8,7 @@
 
 package scalation.scala2d
 
-import swing.{MainFrame, Panel}
+import scala.swing.{MainFrame, Panel}
 
 import scalation.scala2d.Colors._
 import scalation.scala2d.Shapes.{Dimension, Graphics2D}

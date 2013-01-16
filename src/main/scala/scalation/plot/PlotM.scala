@@ -9,7 +9,7 @@
 package scalation.plot
 
 import math.{ceil, floor, min, pow, round}
-import swing.{MainFrame, Panel, SimpleGUIApplication}
+import scala.swing.{MainFrame, Panel}
 
 import scalation.math.Matrices.MatrixD
 import scalation.math.Vectors.VectorD
@@ -18,22 +18,21 @@ import scalation.scala2d.Colors._
 import scalation.scala2d.Shapes.{BasicStroke, Dimension, Graphics2D}
 
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-/** The Plot class takes x and y vectors of data values and plots the (x, y)
- *  data points.  Optionally, a z vector may be plotted with y.  Note, axes are
- *  determined by the x and y vectors only.  For more verticle vectors us PlotM.
+/** The PlotM class takes an x vector and a y matrix of data values and plots the
+ *  (x, y_i) data points for each row y_i of the matrix.
  *  @param x       the x vector of data values (horizontal)
- *  @param y       the y vector of data values (primary vertical)
- *  @param z       the z vector of data values (secondary vertical) to compare with y
+ *  @param y       the y matrix of data values where y(i) is the ith vector (vertical)
  *  @param _title  the title of the plot
  */
-class Plot (x: VectorD, y: VectorD, z: VectorD = null, _title: String = "Plot y vs. x")
+class PlotM (x: VectorD, y: MatrixD, var label: Array [String] = null,
+            _title: String = "PlotM y_i vs. x for each i")
       extends MainFrame
 {
     private val EPSILON   = 1E-9
-    private val frameSize = new Dimension (600, 600)
+    private val frameSize = new Dimension (700, 700)
     private val frameW    = (round (frameSize.getWidth ())).asInstanceOf [Int]
     private val frameH    = (round (frameSize.getHeight ())).asInstanceOf [Int]
-    private val offset    = 50
+    private val offset    = 70
     private val baseX     = offset
     private val baseY     = frameH - offset
     private val stepsX    = 10
@@ -48,6 +47,33 @@ class Plot (x: VectorD, y: VectorD, z: VectorD = null, _title: String = "Plot y 
     private val dot       = Ellipse ()
     private val axis      = Line ()
 
+    if (label == null) label = defaultLabels
+
+    println ("x-axis: minX = " + minX + " maxX = " + maxX)
+    println ("y-axis: minY = " + minY + " maxY = " + maxY)
+
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** The PlotM class takes an x vector and a y array of vectors of data values
+     *  and plots the (x, y_i) data points for each row y_i of the matrix.
+     *  @param x       the x vector of data values (horizontal)
+     *  @param y-i     the y array of vectors of data values (vertical)
+     *  @param _title  the title of the plot
+     */
+    def this (x: VectorD, y: Array [VectorD])
+    {
+        this (x, new MatrixD (y))
+    } // constructor
+
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** Return default labels for y-vector.
+     */
+    def defaultLabels: Array [String] =
+    {
+        val l = new Array [String] (y.dim1)
+        for (i <- 0 until y.dim1) l(i) = "Vector" + i
+        l
+    } // defaultLabels
+
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     /** Create a canvas on which to draw the plot.
      */
@@ -58,7 +84,7 @@ class Plot (x: VectorD, y: VectorD, z: VectorD = null, _title: String = "Plot y 
 
         //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
         /** Paint the canvas by plotting the data points.
-         * @param g2d  the high resolution 2D Graphics context 
+         *  @param g2d  the high resolution 2D Graphics context 
          */
         override def paintComponent (g2d: Graphics2D)
         {
@@ -94,29 +120,27 @@ class Plot (x: VectorD, y: VectorD, z: VectorD = null, _title: String = "Plot y 
                 g2d.drawString (y_val, x_pos, y_pos)
             } // for
 
+            //:: Draw the color keys below the x-axis
+
+            g2d.drawString ("Key:", offset, frameH - 20)
+
             //:: Draw the dots for the data points being plotted
 
-            for (i <- 0 until x.dim) {
-                val xx = round ((x(i) - minX) * (frameW - 2 * offset).asInstanceOf [Double])
-                x_pos = (xx / deltaX).asInstanceOf [Int] + offset
-                val yy = round ((maxY - y(i)) * (frameH - 2 * offset).asInstanceOf [Double])
-                y_pos = (yy / deltaY).asInstanceOf [Int] + offset
-                dot.setFrame (x_pos, y_pos, diameter, diameter)         // x, y, w, h
-                g2d.setPaint (black)
-                g2d.fill (dot)
-            } // for
+            for (i <- 0 until y.dim1) {
+                val y_i = y(i)
+                val color = randomColor (i)
+                g2d.setPaint (color)
+                g2d.drawString (label(i), offset * (i + 2), frameH - 20)
 
-            if (z != null) {
-                for (i <- 0 until x.dim) {
-                    val xx = round (x(i) * (frameW - 2 * offset).asInstanceOf [Double])
+                for (j <- 0 until x.dim) {
+                    val xx = round ((x(j) - minX) * (frameW - 2 * offset).asInstanceOf [Double])
                     x_pos = (xx / deltaX).asInstanceOf [Int] + offset
-                    val yy = round ((maxY - z(i)) * (frameH - 2 * offset).asInstanceOf [Double])
+                    val yy = round ((maxY - y_i(j)) * (frameH - 2 * offset).asInstanceOf [Double])
                     y_pos = (yy / deltaY).asInstanceOf [Int] + offset
-                    dot.setFrame (x_pos, y_pos, diameter, diameter)         // x, z, w, h
-                    g2d.setPaint (red)
+                    dot.setFrame (x_pos, y_pos, diameter, diameter)         // x, y, w, h
                     g2d.fill (dot)
                 } // for
-            } // if
+            } // for
         } // paintComponent
 
     } // canvas Panel
@@ -142,23 +166,26 @@ class Plot (x: VectorD, y: VectorD, z: VectorD = null, _title: String = "Plot y 
      */
     override def toString = "Plot (y = " + y + " vs. x = " + x + ")"
 
-} // Plot class
+} // PlotM class
 
 
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-/** This object is used to test the Plot class.
+/** This object is used to test the PlotM class.
  */
-object PlotTest extends App
+object PlotMTest extends App
 {
-/*
-    val x = new VectorD (0., 1., 2., 3.,  4.,  5.,  6., 7., 8., 9., 10.)
-    val y = new VectorD (0., 1., 4., 9., 16., 25., 16., 9., 4., 1.,  0.)
-*/
-    val x = new VectorD (100)
-    val y = new VectorD (100)
-    for (i <- 0 until 100) { x(i) = i / 10.; y(i) = pow (x(i) - 5, 2) }
-    val plot = new Plot (x, y)
+    val x = new VectorD (200)
+    val y = new MatrixD (5, 200)
+    for (i <- 0 until 200) {
+        x(i)    = (i - 100) / 10.
+        y(0, i) = 10. * x(i)
+        y(1, i) = pow (x(i), 2)
+        y(2, i) = .1 * pow (x(i), 3)
+        y(3, i) = .01 * pow (x(i), 4)
+        y(4, i) = .001 * pow (x(i), 5)
+    } // for
+    val plot = new PlotM (x, y, Array ("Linear", "Quadratic", "Cubic", "Quartic", "Quintic"))
     println ("plot = " + plot)
 
-} // PlotTest object
+} // PlotMTest object
 

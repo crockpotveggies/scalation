@@ -1,5 +1,5 @@
 
-import scalation.mathstat._
+import scalation.random._
 
 object BinomialTest extends Application
 {

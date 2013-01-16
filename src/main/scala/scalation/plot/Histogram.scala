@@ -9,7 +9,7 @@
 package scalation.plot
 
 import math.{ceil, floor, min, round}
-import swing.{MainFrame, Panel, SimpleGUIApplication}
+import scala.swing.{MainFrame, Panel}
 
 import scalation.math.Matrices.MatrixD
 import scalation.math.Vectors.VectorD
